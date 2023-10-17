@@ -57,7 +57,7 @@
 		5FF58F422ADE521700AD2941 /* UkatonKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = UkatonKit; path = ../../UkatonKit; sourceTree = "<group>"; };
 		5FF58F432ADEFD2900AD2941 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		5FF58F452ADF04C900AD2941 /* BluetoothTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothTestView.swift; sourceTree = "<group>"; };
-		5FF58F4B2ADF13E700AD2941 /* MacUkatonSwiftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacUkatonSwiftDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FF58F4B2ADF13E700AD2941 /* Ukaton Swift Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ukaton Swift Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FF58F4D2ADF13E700AD2941 /* MacUkatonSwiftDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacUkatonSwiftDemoApp.swift; sourceTree = "<group>"; };
 		5FF58F4F2ADF13E700AD2941 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5FF58F542ADF13E800AD2941 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -109,7 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				5FF58F302ADE51D900AD2941 /* UkatonSwiftDemo.app */,
-				5FF58F4B2ADF13E700AD2941 /* MacUkatonSwiftDemo.app */,
+				5FF58F4B2ADF13E700AD2941 /* Ukaton Swift Demo.app */,
 				5FF58F612ADF182F00AD2941 /* WatchUkatonSwiftDemo Watch App.app */,
 			);
 			name = Products;
@@ -207,9 +207,9 @@
 			productReference = 5FF58F302ADE51D900AD2941 /* UkatonSwiftDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		5FF58F4A2ADF13E700AD2941 /* MacUkatonSwiftDemo */ = {
+		5FF58F4A2ADF13E700AD2941 /* Ukaton Swift Demo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5FF58F572ADF13E800AD2941 /* Build configuration list for PBXNativeTarget "MacUkatonSwiftDemo" */;
+			buildConfigurationList = 5FF58F572ADF13E800AD2941 /* Build configuration list for PBXNativeTarget "Ukaton Swift Demo" */;
 			buildPhases = (
 				5FF58F472ADF13E700AD2941 /* Sources */,
 				5FF58F482ADF13E700AD2941 /* Frameworks */,
@@ -219,9 +219,9 @@
 			);
 			dependencies = (
 			);
-			name = MacUkatonSwiftDemo;
+			name = "Ukaton Swift Demo";
 			productName = MacUkatonSwiftDemo;
-			productReference = 5FF58F4B2ADF13E700AD2941 /* MacUkatonSwiftDemo.app */;
+			productReference = 5FF58F4B2ADF13E700AD2941 /* Ukaton Swift Demo.app */;
 			productType = "com.apple.product-type.application";
 		};
 		5FF58F602ADF182F00AD2941 /* WatchUkatonSwiftDemo Watch App */ = {
@@ -276,7 +276,7 @@
 			projectRoot = "";
 			targets = (
 				5FF58F2F2ADE51D900AD2941 /* UkatonSwiftDemo */,
-				5FF58F4A2ADF13E700AD2941 /* MacUkatonSwiftDemo */,
+				5FF58F4A2ADF13E700AD2941 /* Ukaton Swift Demo */,
 				5FF58F602ADF182F00AD2941 /* WatchUkatonSwiftDemo Watch App */,
 			);
 		};
@@ -571,6 +571,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MacUkatonSwiftDemo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Ukaton Swift Demo";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use bluetooth to detect Ukaton Mission devices";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use bluetooth to detect Ukaton Mission devices";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -605,6 +606,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MacUkatonSwiftDemo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Ukaton Swift Demo";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use bluetooth to detect Ukaton Mission devices";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use bluetooth to detect Ukaton Mission devices";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -712,7 +714,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5FF58F572ADF13E800AD2941 /* Build configuration list for PBXNativeTarget "MacUkatonSwiftDemo" */ = {
+		5FF58F572ADF13E800AD2941 /* Build configuration list for PBXNativeTarget "Ukaton Swift Demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5FF58F582ADF13E800AD2941 /* Debug */,
