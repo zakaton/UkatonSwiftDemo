@@ -9,20 +9,38 @@ import CoreBluetooth
 import SwiftUI
 
 class BluetoothViewModel: NSObject, ObservableObject {
+    static func generateUUID(value: String) -> CBUUID {
+        .init(string: "5691eddf-\(value)-4420-b7a5-bb8751ab5181")
+    }
+
+    enum ServiceUUID: String {
+        case main = "0000"
+        var uuid: CBUUID {
+            generateUUID(value: rawValue)
+        }
+    }
+
+    enum CharacteristicUUID: String {
+        case sensorData = "0000"
+        var uuid: CBUUID {
+            generateUUID(value: rawValue)
+        }
+    }
+
     private var centralManager: CBCentralManager!
     private var peripherals: [CBPeripheral] = []
     @Published var peripheralNames: [String] = []
 
     override init() {
         super.init()
-        self.centralManager = .init(delegate: self, queue: .main)
+        // self.centralManager = .init(delegate: self, queue: .main)
     }
 }
 
 extension BluetoothViewModel: CBCentralManagerDelegate {
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
         if central.state == .poweredOn {
-            centralManager.scanForPeripherals(withServices: nil)
+            centralManager.scanForPeripherals(withServices: [ServiceUUID.main.uuid])
         }
     }
 
@@ -49,4 +67,5 @@ struct BluetoothTestView: View {
 
 #Preview {
     BluetoothTestView()
+        .frame(maxWidth: 300)
 }
