@@ -634,7 +634,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "WatchUkatonSwiftDemo-Watch-App-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = WatchUkatonSwiftDemo;
+				INFOPLIST_KEY_CFBundleDisplayName = "Ukaton Swift Demo";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use Bluetooth to detect Ukaton Mission devices";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use Bluetooth to detect Ukaton Mission devices";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -668,7 +668,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "WatchUkatonSwiftDemo-Watch-App-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = WatchUkatonSwiftDemo;
+				INFOPLIST_KEY_CFBundleDisplayName = "Ukaton Swift Demo";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use Bluetooth to detect Ukaton Mission devices";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use Bluetooth to detect Ukaton Mission devices";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
