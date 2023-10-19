@@ -6,14 +6,17 @@
 //
 
 import SwiftUI
+import UkatonKit
 
 struct ContentView: View {
+    let ukatonMission = BLEUkatonMission()
     var body: some View {
         VStack {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
             Text("Hello, world!")
+            Text(ukatonMission.deviceName)
         }
         .padding()
     }

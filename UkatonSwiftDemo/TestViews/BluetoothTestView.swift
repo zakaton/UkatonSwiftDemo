@@ -24,6 +24,8 @@ class BluetoothViewModel: NSObject, ObservableObject {
 
     @Published var connectionState: ConnectionState = .notConnected
 
+    @Published var lastTimeReceivedData: Int64 = 0
+
     static let shared: BluetoothViewModel = .init()
 
     static func generateUUID(_ value: String) -> CBUUID {
@@ -51,7 +53,7 @@ class BluetoothViewModel: NSObject, ObservableObject {
 
     override init() {
         super.init()
-        //self.centralManager = .init(delegate: self, queue: .main)
+        // self.centralManager = .init(delegate: self, queue: .main)
     }
 }
 
@@ -102,7 +104,6 @@ extension BluetoothViewModel: CBPeripheralDelegate {
         }
 
         if let sensorDataConfigurationCharacteristic = characteristics[CharacteristicUUID.sensorDataConfiguration] {
-            print("yay")
             let sensorDataConfiguration: [UInt8] = [0, 3, 5, 20, 0]
             peripheral.writeValue(Data(sensorDataConfiguration), for: sensorDataConfigurationCharacteristic, type: .withResponse)
         }
@@ -113,7 +114,7 @@ extension BluetoothViewModel: CBPeripheralDelegate {
     }
 
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
-        print(characteristic.value?.count ?? "0", Date().currentTimeMillis())
+        lastTimeReceivedData = Date().currentTimeMillis()
     }
 }
 
@@ -124,6 +125,7 @@ struct BluetoothTestView: View {
         NavigationStack {
             List {
                 Text(bluetoothViewModel.connectionState.name)
+                Text(String(bluetoothViewModel.lastTimeReceivedData))
             }
             .navigationTitle("Ukaton Mission")
         }
