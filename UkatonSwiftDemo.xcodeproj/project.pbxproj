@@ -56,7 +56,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5F8A2CF42ADF436700D49399 /* TODO */ = {isa = PBXFileReference; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
 		5F8A2CF52AE03A4C00D49399 /* UDPTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDPTestView.swift; sourceTree = "<group>"; };
 		5FF58F302ADE51D900AD2941 /* UkatonSwiftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UkatonSwiftDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FF58F332ADE51D900AD2941 /* UkatonSwiftDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UkatonSwiftDemoApp.swift; sourceTree = "<group>"; };
@@ -117,7 +116,6 @@
 		5FF58F272ADE51D900AD2941 = {
 			isa = PBXGroup;
 			children = (
-				5F8A2CF42ADF436700D49399 /* TODO */,
 				5FF58F322ADE51D900AD2941 /* UkatonSwiftDemo */,
 				5FF58F4C2ADF13E700AD2941 /* MacUkatonSwiftDemo */,
 				5FF58F622ADF182F00AD2941 /* WatchUkatonSwiftDemo Watch App */,
