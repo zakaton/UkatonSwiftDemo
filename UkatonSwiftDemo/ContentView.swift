@@ -9,7 +9,6 @@ import SwiftUI
 import UkatonKit
 
 struct ContentView: View {
-    let ukatonMission = BLEUkatonMission()
     var body: some View {
         VStack {
             Image(systemName: "globe")
