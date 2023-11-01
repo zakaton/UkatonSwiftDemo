@@ -4,12 +4,13 @@ import UkatonKit
 import UkatonMacros
 
 @StaticLogger
-struct DiscoveredBluetoothDeviceRowView: View {
+struct BluetoothDeviceDetail: View {
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
 }
 
 #Preview {
-    DiscoveredBluetoothDeviceRowView()
+    BluetoothDeviceDetail()
+        .frame(minWidth: 300, minHeight: 300)
 }
