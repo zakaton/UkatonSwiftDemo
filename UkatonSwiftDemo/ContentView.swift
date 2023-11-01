@@ -1,12 +1,4 @@
-//
-//  ContentView.swift
-//  UkatonSwiftDemo
-//
-//  Created by Zack Qattan on 10/16/23.
-//
-
 import SwiftUI
-import UkatonKit
 
 struct ContentView: View {
     var body: some View {

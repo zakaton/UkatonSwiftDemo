@@ -1,10 +1,3 @@
-//
-//  BluetoothTestView.swift
-//  UkatonSwiftDemo
-//
-//  Created by Zack Qattan on 10/17/23.
-//
-
 import CoreBluetooth
 import SwiftUI
 
@@ -53,7 +46,7 @@ class BluetoothViewModel: NSObject, ObservableObject {
 
     override init() {
         super.init()
-        // self.centralManager = .init(delegate: self, queue: .main)
+        self.centralManager = .init(delegate: self, queue: .main)
     }
 }
 

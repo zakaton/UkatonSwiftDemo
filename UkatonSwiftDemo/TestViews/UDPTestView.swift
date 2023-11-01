@@ -1,14 +1,10 @@
-//
-//  UDPTestView.swift
-//  UkatonSwiftDemo
-//
-//  Created by Zack Qattan on 10/18/23.
-//
-
 import Foundation
 import Network
+import OSLog
 import SwiftUI
+import UkatonMacros
 
+@StaticLogger
 class UDPListener: ObservableObject {
     var listener: NWListener!
     var connection: NWConnection!
