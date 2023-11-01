@@ -5,7 +5,7 @@ import UkatonMacros
 
 @StaticLogger
 struct DiscoveredBluetoothDeviceRow: View {
-    @State var device: UKDiscoveredBluetoothDevice
+    var device: UKDiscoveredBluetoothDevice
     var body: some View {
         VStack {
             HStack {
@@ -14,8 +14,10 @@ struct DiscoveredBluetoothDeviceRow: View {
                         Text(device.name)
                             .font(.title2)
                             .bold()
-                        Text(device.type.name)
-                            .foregroundColor(.secondary)
+                        if let type = device.type {
+                            Text(type.name)
+                                .foregroundColor(.secondary)
+                        }
                     }
                 }
                 Spacer()
@@ -37,14 +39,16 @@ struct DiscoveredBluetoothDeviceRow: View {
                 })
             }
             HStack {
-                Label(device.rssi.stringValue, systemImage: "cellularbars")
-                Label("30ms", systemImage: "stopwatch")
+                Label(String(format: "%3d", device.rssi.intValue), systemImage: "cellularbars")
+                Label(String(format: "%6.2fms", device.timestampDifference_ms), systemImage: "stopwatch")
                 if device.isConnectedToWifi, let ipAddress = device.ipAddress, !ipAddress.isEmpty {
                     Label(ipAddress, systemImage: "wifi")
                 }
                 Spacer()
             }
-            .font(.caption)
+            // .font(.caption)
+            // .font(Font.monospacedDigit(.caption)())
+            .font(Font.system(.caption, design: .monospaced))
         }
         .padding()
     }
