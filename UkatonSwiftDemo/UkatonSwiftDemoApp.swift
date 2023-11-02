@@ -4,7 +4,7 @@ import SwiftUI
 struct UkatonSwiftDemoApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            BluetoothDiscovery()
         }
     }
 }

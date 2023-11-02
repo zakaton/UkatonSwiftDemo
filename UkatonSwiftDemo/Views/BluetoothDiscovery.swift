@@ -5,9 +5,11 @@ import UkatonMacros
 
 @StaticLogger
 struct BluetoothDiscovery: View {
+    @State private var path = NavigationPath()
+
     @ObservedObject private var bluetoothManager: UKBluetoothManager = .shared
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $path) {
             List {
                 if bluetoothManager.discoveredDevices.isEmpty {
                     HStack {
@@ -22,16 +24,17 @@ struct BluetoothDiscovery: View {
                     }
                 }
                 else {
-                    ForEach(bluetoothManager.discoveredDevices) { device in
-                        NavigationLink {
-                            BluetoothDeviceDetail()
-                        } label: {
-                            DiscoveredBluetoothDeviceRow(device: device)
+                    ForEach($bluetoothManager.discoveredDevices) { $device in
+                        DiscoveredBluetoothDeviceRow(device: $device) {
+                            path.append(device)
                         }
                     }
                 }
             }
-            .navigationTitle("Ukaton Bluetooth Devices")
+            .navigationDestination(for: UKDiscoveredBluetoothDevice.self) { _ in
+                BluetoothDeviceDetail()
+            }
+            .navigationTitle("Ukaton Devices")
             .toolbar {
                 Button {
                     bluetoothManager.toggleDeviceScan()
@@ -50,5 +53,5 @@ struct BluetoothDiscovery: View {
 
 #Preview {
     BluetoothDiscovery()
-        .frame(maxWidth: 300, minHeight: 300)
+        .frame(maxWidth: 350, minHeight: 300)
 }

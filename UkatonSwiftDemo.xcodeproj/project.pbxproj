@@ -21,6 +21,9 @@
 		5F8A2CF62AE03A4C00D49399 /* UDPTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8A2CF52AE03A4C00D49399 /* UDPTestView.swift */; };
 		5F8A2CF72AE03A4C00D49399 /* UDPTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8A2CF52AE03A4C00D49399 /* UDPTestView.swift */; };
 		5F8A2CF82AE03A4C00D49399 /* UDPTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8A2CF52AE03A4C00D49399 /* UDPTestView.swift */; };
+		5FF24DE62AF41127009FAA0E /* LabelSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF24DE52AF41127009FAA0E /* LabelSpacing.swift */; };
+		5FF24DE72AF41127009FAA0E /* LabelSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF24DE52AF41127009FAA0E /* LabelSpacing.swift */; };
+		5FF24DE82AF41127009FAA0E /* LabelSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF24DE52AF41127009FAA0E /* LabelSpacing.swift */; };
 		5FF58F342ADE51D900AD2941 /* UkatonSwiftDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF58F332ADE51D900AD2941 /* UkatonSwiftDemoApp.swift */; };
 		5FF58F362ADE51D900AD2941 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF58F352ADE51D900AD2941 /* ContentView.swift */; };
 		5FF58F382ADE51DA00AD2941 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FF58F372ADE51DA00AD2941 /* Assets.xcassets */; };
@@ -68,6 +71,7 @@
 		5F426ECE2AF17CEA00E58F15 /* DiscoveredBluetoothDeviceRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveredBluetoothDeviceRow.swift; sourceTree = "<group>"; };
 		5F426ED22AF1F51D00E58F15 /* BluetoothDeviceDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothDeviceDetail.swift; sourceTree = "<group>"; };
 		5F8A2CF52AE03A4C00D49399 /* UDPTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDPTestView.swift; sourceTree = "<group>"; };
+		5FF24DE52AF41127009FAA0E /* LabelSpacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelSpacing.swift; sourceTree = "<group>"; };
 		5FF58F302ADE51D900AD2941 /* UkatonSwiftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UkatonSwiftDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FF58F332ADE51D900AD2941 /* UkatonSwiftDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UkatonSwiftDemoApp.swift; sourceTree = "<group>"; };
 		5FF58F352ADE51D900AD2941 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -125,6 +129,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5FF24DE42AF4110D009FAA0E /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				5FF24DE52AF41127009FAA0E /* LabelSpacing.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		5FF58F272ADE51D900AD2941 = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +183,7 @@
 		5FF58F442ADF04B900AD2941 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5FF24DE42AF4110D009FAA0E /* Utils */,
 				5FF58F452ADF04C900AD2941 /* BluetoothTestView.swift */,
 				5FFBE8102AF160CF00F8CBD7 /* BluetoothDiscovery.swift */,
 				5F8A2CF52AE03A4C00D49399 /* UDPTestView.swift */,
@@ -365,6 +378,7 @@
 			files = (
 				5FFBE8112AF160CF00F8CBD7 /* BluetoothDiscovery.swift in Sources */,
 				5F426ED42AF1F53300E58F15 /* BluetoothDeviceDetail.swift in Sources */,
+				5FF24DE62AF41127009FAA0E /* LabelSpacing.swift in Sources */,
 				5F8A2CF62AE03A4C00D49399 /* UDPTestView.swift in Sources */,
 				5FF58F362ADE51D900AD2941 /* ContentView.swift in Sources */,
 				5F426ECF2AF17CEA00E58F15 /* DiscoveredBluetoothDeviceRow.swift in Sources */,
@@ -379,6 +393,7 @@
 			files = (
 				5FFBE8122AF160CF00F8CBD7 /* BluetoothDiscovery.swift in Sources */,
 				5F426ED32AF1F51D00E58F15 /* BluetoothDeviceDetail.swift in Sources */,
+				5FF24DE72AF41127009FAA0E /* LabelSpacing.swift in Sources */,
 				5FF58F5B2ADF140C00AD2941 /* UkatonSwiftDemoApp.swift in Sources */,
 				5F2B87182AE18C7000BF304B /* ContentView.swift in Sources */,
 				5F8A2CF72AE03A4C00D49399 /* UDPTestView.swift in Sources */,
@@ -393,6 +408,7 @@
 			files = (
 				5FFBE8132AF160CF00F8CBD7 /* BluetoothDiscovery.swift in Sources */,
 				5F426ED52AF1F53800E58F15 /* BluetoothDeviceDetail.swift in Sources */,
+				5FF24DE82AF41127009FAA0E /* LabelSpacing.swift in Sources */,
 				5FF58F752ADF18A000AD2941 /* UkatonSwiftDemoApp.swift in Sources */,
 				5F8A2CF82AE03A4C00D49399 /* UDPTestView.swift in Sources */,
 				5F2B87192AE18C7100BF304B /* ContentView.swift in Sources */,
