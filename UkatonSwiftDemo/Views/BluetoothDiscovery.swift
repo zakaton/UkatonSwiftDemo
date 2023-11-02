@@ -28,6 +28,7 @@ struct BluetoothDiscovery: View {
                         DiscoveredBluetoothDeviceRow(device: $device) {
                             path.append(device)
                         }
+                        .buttonStyle(.plain)
                     }
                 }
             }

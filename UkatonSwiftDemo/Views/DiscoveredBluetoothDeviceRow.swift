@@ -23,47 +23,52 @@ struct DiscoveredBluetoothDeviceRow: View {
                 }
                 Spacer()
 
-                Button(action: {
-                    onSelectDevice()
-                }, label: {
-                    Text("Select")
-                })
-
                 if device.isConnected {
+                    Button(action: {
+                        onSelectDevice()
+                    }, label: {
+                        Label("select", systemImage: "chevron.right.circle")
+                            .labelStyle(.iconOnly)
+                            .imageScale(.large)
+                    })
+                    .buttonStyle(.borderedProminent)
+                }
+            }
+            HStack {
+                if !device.isConnected {
+                    Text("connect via:")
+                    Button(action: {
+                        print("connect via ble")
+                    }, label: {
+                        Text("bluetooth")
+                            .accessibilityLabel("connect via bluetooth")
+                    })
+                    .buttonStyle(.borderedProminent)
+                    if device.isConnectedToWifi {
+                        Button(action: {
+                            print("connect via wifi")
+                        }, label: {
+                            Text("wifi")
+                                .accessibilityLabel("connect via wifi")
+                        })
+                        .buttonStyle(.borderedProminent)
+                    }
+                    Spacer()
+                }
+                else {
                     Button(action: {
                         print("disconnect")
                     }, label: {
                         Text("disconnect")
                     })
-                }
-                else {
-                    VStack {
-                        Text("connect via:")
-                        VStack {
-                            Button(action: {
-                                print("connect via ble")
-                            }, label: {
-                                Text("bluetooth")
-                                    .accessibilityLabel("connect via bluetooth")
-                            })
-                            if device.isConnectedToWifi {
-                                Button(action: {
-                                    print("connect via wifi")
-                                }, label: {
-                                    Text("wifi")
-                                        .accessibilityLabel("connect via wifi")
-                                })
-                            }
-                        }
-                    }
+                    .buttonStyle(.borderedProminent)
                 }
             }
-            HStack {
+            HStack(spacing: 20) {
                 Label(String(format: "%3d", device.rssi.intValue), systemImage: "cellularbars")
                 if !device.timestampDifference_ms.isNaN {
-                    Label(String(format: "%5.2fms", device.timestampDifference_ms), systemImage: "stopwatch")
+                    Label(String(format: "%6.2fms", device.timestampDifference_ms), systemImage: "stopwatch")
                 }
-                Spacer()
                 if device.isConnectedToWifi, let ipAddress = device.ipAddress, !ipAddress.isEmpty {
                     Label(ipAddress, systemImage: "wifi")
                 }
