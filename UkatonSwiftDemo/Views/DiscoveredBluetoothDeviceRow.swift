@@ -49,6 +49,7 @@ struct DiscoveredBluetoothDeviceRow: View {
             }
             HStack {
                 if connectionStatus == .connected || connectionStatus == .disconnecting {
+                    Text("connected via \(connectionType!.name)")
                     Button(role: .destructive, action: {
                         print("disconnect")
                         discoveredDevice.disconnect()
@@ -56,6 +57,7 @@ struct DiscoveredBluetoothDeviceRow: View {
                         Text("disconnect")
                     })
                     .buttonStyle(.borderedProminent)
+                    Spacer()
                 }
                 else {
                     if connectionStatus == .notConnected {
@@ -80,7 +82,7 @@ struct DiscoveredBluetoothDeviceRow: View {
                         }
                     }
                     else {
-                        Text("connecting...")
+                        Text("connecting via \(connectionType!.name)...")
                         Button(role: .cancel, action: {
                             discoveredDevice.disconnect()
                         }, label: {
