@@ -4,7 +4,7 @@ import UkatonKit
 import UkatonMacros
 
 @StaticLogger
-struct BluetoothDiscovery: View {
+struct DeviceDiscovery: View {
     @State private var path = NavigationPath()
 
     @ObservedObject private var bluetoothManager: UKBluetoothManager = .shared
@@ -53,6 +53,6 @@ struct BluetoothDiscovery: View {
 }
 
 #Preview {
-    BluetoothDiscovery()
+    DeviceDiscovery()
         .frame(maxWidth: 320, minHeight: 300)
 }

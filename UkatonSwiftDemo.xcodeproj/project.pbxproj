@@ -32,9 +32,9 @@
 		5FF58F752ADF18A000AD2941 /* UkatonSwiftDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF58F332ADE51D900AD2941 /* UkatonSwiftDemoApp.swift */; };
 		5FF58F772ADF1BF300AD2941 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FF58F372ADE51DA00AD2941 /* Assets.xcassets */; };
 		5FF58F782ADF1F1800AD2941 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FF58F372ADE51DA00AD2941 /* Assets.xcassets */; };
-		5FFBE8112AF160CF00F8CBD7 /* BluetoothDiscovery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFBE8102AF160CF00F8CBD7 /* BluetoothDiscovery.swift */; };
-		5FFBE8122AF160CF00F8CBD7 /* BluetoothDiscovery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFBE8102AF160CF00F8CBD7 /* BluetoothDiscovery.swift */; };
-		5FFBE8132AF160CF00F8CBD7 /* BluetoothDiscovery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFBE8102AF160CF00F8CBD7 /* BluetoothDiscovery.swift */; };
+		5FFBE8112AF160CF00F8CBD7 /* DeviceDiscovery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFBE8102AF160CF00F8CBD7 /* DeviceDiscovery.swift */; };
+		5FFBE8122AF160CF00F8CBD7 /* DeviceDiscovery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFBE8102AF160CF00F8CBD7 /* DeviceDiscovery.swift */; };
+		5FFBE8132AF160CF00F8CBD7 /* DeviceDiscovery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFBE8102AF160CF00F8CBD7 /* DeviceDiscovery.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,7 +83,7 @@
 		5FF58F652ADF182F00AD2941 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5FF58F6A2ADF183000AD2941 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5FF58F732ADF185600AD2941 /* WatchUkatonSwiftDemo-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "WatchUkatonSwiftDemo-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
-		5FFBE8102AF160CF00F8CBD7 /* BluetoothDiscovery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothDiscovery.swift; sourceTree = "<group>"; };
+		5FFBE8102AF160CF00F8CBD7 /* DeviceDiscovery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDiscovery.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,7 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				5FF24DE42AF4110D009FAA0E /* Utils */,
-				5FFBE8102AF160CF00F8CBD7 /* BluetoothDiscovery.swift */,
+				5FFBE8102AF160CF00F8CBD7 /* DeviceDiscovery.swift */,
 				5F426ECE2AF17CEA00E58F15 /* DiscoveredBluetoothDeviceRow.swift */,
 				5F426ED22AF1F51D00E58F15 /* BluetoothDeviceDetail.swift */,
 			);
@@ -366,7 +366,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5FFBE8112AF160CF00F8CBD7 /* BluetoothDiscovery.swift in Sources */,
+				5FFBE8112AF160CF00F8CBD7 /* DeviceDiscovery.swift in Sources */,
 				5F426ED42AF1F53300E58F15 /* BluetoothDeviceDetail.swift in Sources */,
 				5FF24DE62AF41127009FAA0E /* LabelSpacing.swift in Sources */,
 				5FF58F362ADE51D900AD2941 /* ContentView.swift in Sources */,
@@ -379,7 +379,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5FFBE8122AF160CF00F8CBD7 /* BluetoothDiscovery.swift in Sources */,
+				5FFBE8122AF160CF00F8CBD7 /* DeviceDiscovery.swift in Sources */,
 				5F426ED32AF1F51D00E58F15 /* BluetoothDeviceDetail.swift in Sources */,
 				5FF24DE72AF41127009FAA0E /* LabelSpacing.swift in Sources */,
 				5FF58F5B2ADF140C00AD2941 /* UkatonSwiftDemoApp.swift in Sources */,
@@ -392,7 +392,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5FFBE8132AF160CF00F8CBD7 /* BluetoothDiscovery.swift in Sources */,
+				5FFBE8132AF160CF00F8CBD7 /* DeviceDiscovery.swift in Sources */,
 				5F426ED52AF1F53800E58F15 /* BluetoothDeviceDetail.swift in Sources */,
 				5FF24DE82AF41127009FAA0E /* LabelSpacing.swift in Sources */,
 				5FF58F752ADF18A000AD2941 /* UkatonSwiftDemoApp.swift in Sources */,

@@ -19,6 +19,35 @@ struct DiscoveredBluetoothDeviceRow: View {
         mission.connectionType
     }
 
+    var deviceTypeSystemImage: String {
+        switch discoveredDevice.type {
+        case .motionModule:
+            "rotate.3d"
+        case .leftInsole, .rightInsole:
+            "shoe"
+        default:
+            "questionmark"
+        }
+    }
+
+    var batteryLevelSystemImage: String {
+        if let batteryLevel = mission.batteryLevel {
+            return switch batteryLevel {
+            case 75 ..< 100:
+                "battery.100"
+            case 50 ..< 75:
+                "battery.75"
+            case 25 ..< 50:
+                "battery.25"
+            default:
+                "battery.0"
+            }
+        }
+        else {
+            return "battery.0"
+        }
+    }
+
     var onSelectDevice: () -> Void
     var body: some View {
         VStack {
@@ -29,8 +58,9 @@ struct DiscoveredBluetoothDeviceRow: View {
                             .font(.title2)
                             .bold()
                         if let type = discoveredDevice.type {
-                            Text(type.name)
+                            Label(type.name, systemImage: deviceTypeSystemImage)
                                 .foregroundColor(.secondary)
+                                .labelStyle(LabelSpacing(spacing: 4))
                         }
                     }
                 }
@@ -101,6 +131,9 @@ struct DiscoveredBluetoothDeviceRow: View {
                 }
                 if discoveredDevice.isConnectedToWifi, let ipAddress = discoveredDevice.ipAddress, !ipAddress.isEmpty {
                     Label(ipAddress, systemImage: "wifi")
+                }
+                if isConnected, let batteryLevel = mission.batteryLevel {
+                    Label("\(batteryLevel)%", systemImage: batteryLevelSystemImage)
                 }
             }
             .labelStyle(LabelSpacing(spacing: 4))
