@@ -11,7 +11,7 @@ struct BluetoothDiscovery: View {
     var body: some View {
         NavigationStack(path: $path) {
             List {
-                if  bluetoothManager.discoveredDevices.isEmpty {
+                if bluetoothManager.discoveredDevices.isEmpty {
                     HStack {
                         Spacer()
                         if bluetoothManager.isScanning {

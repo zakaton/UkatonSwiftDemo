@@ -96,7 +96,7 @@ struct DiscoveredBluetoothDeviceRow: View {
                 if !isConnected {
                     Label(String(format: "%3d", discoveredDevice.rssi.intValue), systemImage: "cellularbars")
                     if !discoveredDevice.timestampDifference_ms.isNaN {
-                        Label(String(format: "%6.2fms", discoveredDevice.timestampDifference_ms), systemImage: "stopwatch")
+                        Label(String(format: discoveredDevice.timestampDifference_ms > 99 ? "%3.0f.ms" : "%4.2fms", discoveredDevice.timestampDifference_ms), systemImage: "stopwatch")
                     }
                 }
                 if discoveredDevice.isConnectedToWifi, let ipAddress = discoveredDevice.ipAddress, !ipAddress.isEmpty {
