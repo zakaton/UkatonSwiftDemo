@@ -6,6 +6,8 @@ import UkatonMacros
 @StaticLogger
 struct DiscoveredBluetoothDeviceRow: View {
     @Binding var device: UKDiscoveredBluetoothDevice
+    @ObservedObject var mission: UKMission
+
     var onSelectDevice: () -> Void
     var body: some View {
         VStack {
@@ -23,7 +25,7 @@ struct DiscoveredBluetoothDeviceRow: View {
                 }
                 Spacer()
 
-                if device.isConnected {
+                if device.mission?.connectionStatus == .connected {
                     Button(action: {
                         onSelectDevice()
                     }, label: {
@@ -35,10 +37,19 @@ struct DiscoveredBluetoothDeviceRow: View {
                 }
             }
             HStack {
-                if !device.isConnected {
+                if device.mission?.connectionStatus == .connected {
+                    Button(action: {
+                        print("disconnect")
+                    }, label: {
+                        Text("disconnect")
+                    })
+                    .buttonStyle(.borderedProminent)
+                }
+                else {
                     Text("connect via:")
                     Button(action: {
                         print("connect via ble")
+                        device.connect(type: .bluetooth)
                     }, label: {
                         Text("bluetooth")
                             .accessibilityLabel("connect via bluetooth")
@@ -47,6 +58,7 @@ struct DiscoveredBluetoothDeviceRow: View {
                     if device.isConnectedToWifi {
                         Button(action: {
                             print("connect via wifi")
+                            device.connect(type: .udp)
                         }, label: {
                             Text("wifi")
                                 .accessibilityLabel("connect via wifi")
@@ -55,16 +67,8 @@ struct DiscoveredBluetoothDeviceRow: View {
                     }
                     Spacer()
                 }
-                else {
-                    Button(action: {
-                        print("disconnect")
-                    }, label: {
-                        Text("disconnect")
-                    })
-                    .buttonStyle(.borderedProminent)
-                }
             }
-            HStack(spacing: 20) {
+            HStack(spacing: 15) {
                 Label(String(format: "%3d", device.rssi.intValue), systemImage: "cellularbars")
                 if !device.timestampDifference_ms.isNaN {
                     Label(String(format: "%6.2fms", device.timestampDifference_ms), systemImage: "stopwatch")
@@ -72,6 +76,7 @@ struct DiscoveredBluetoothDeviceRow: View {
                 if device.isConnectedToWifi, let ipAddress = device.ipAddress, !ipAddress.isEmpty {
                     Label(ipAddress, systemImage: "wifi")
                 }
+                Spacer()
             }
             .labelStyle(LabelSpacing(spacing: 4))
             .font(Font.system(.caption, design: .monospaced))

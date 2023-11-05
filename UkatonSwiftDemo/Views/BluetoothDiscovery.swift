@@ -25,7 +25,7 @@ struct BluetoothDiscovery: View {
                 }
                 else {
                     ForEach($bluetoothManager.discoveredDevices) { $device in
-                        DiscoveredBluetoothDeviceRow(device: $device) {
+                        DiscoveredBluetoothDeviceRow(device: $device, mission: device.mission ?? .None) {
                             path.append(device)
                         }
                         .buttonStyle(.plain)
@@ -54,5 +54,5 @@ struct BluetoothDiscovery: View {
 
 #Preview {
     BluetoothDiscovery()
-        .frame(maxWidth: 350, minHeight: 300)
+        .frame(maxWidth: 320, minHeight: 300)
 }
