@@ -51,7 +51,6 @@ struct DiscoveredBluetoothDeviceRow: View {
                 if connectionStatus == .connected || connectionStatus == .disconnecting {
                     Text("connected via \(connectionType!.name)")
                     Button(role: .destructive, action: {
-                        print("disconnect")
                         discoveredDevice.disconnect()
                     }, label: {
                         Text("disconnect")
@@ -63,7 +62,6 @@ struct DiscoveredBluetoothDeviceRow: View {
                     if connectionStatus == .notConnected {
                         Text("connect via:")
                         Button(action: {
-                            print("connect via ble")
                             discoveredDevice.connect(type: .bluetooth)
                         }, label: {
                             Text("bluetooth")
@@ -72,7 +70,6 @@ struct DiscoveredBluetoothDeviceRow: View {
                         .buttonStyle(.borderedProminent)
                         if discoveredDevice.isConnectedToWifi {
                             Button(action: {
-                                print("connect via udp")
                                 discoveredDevice.connect(type: .udp)
                             }, label: {
                                 Text("udp")
