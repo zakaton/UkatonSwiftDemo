@@ -3,8 +3,10 @@ import SwiftUI
 import UkatonKit
 import UkatonMacros
 
+// TODO: - use getters for name/wifi/etc when updating mission
+
 @StaticLogger
-struct DiscoveredBluetoothDeviceRow: View {
+struct DiscoveredDeviceRow: View {
     @Binding var discoveredDevice: UKDiscoveredBluetoothDevice
     @ObservedObject var mission: UKMission
     var connectionStatus: UKConnectionStatus {
@@ -19,8 +21,32 @@ struct DiscoveredBluetoothDeviceRow: View {
         mission.connectionType
     }
 
+    var name: String {
+        if mission.name != nil {
+            return mission.name!
+        }
+        else if discoveredDevice.name != nil {
+            return discoveredDevice.name!
+        }
+        else {
+            return "undefined name"
+        }
+    }
+
+    var type: UKDeviceType? {
+        if mission.deviceType != nil {
+            return mission.deviceType!
+        }
+        else if discoveredDevice.type != nil {
+            return discoveredDevice.type!
+        }
+        else {
+            return nil
+        }
+    }
+
     var deviceTypeSystemImage: String {
-        switch discoveredDevice.type {
+        switch type {
         case .motionModule:
             "rotate.3d"
         case .leftInsole, .rightInsole:
@@ -48,16 +74,16 @@ struct DiscoveredBluetoothDeviceRow: View {
         }
     }
 
-    var onSelectDevice: () -> Void
+    var onSelectDevice: (() -> Void)?
     var body: some View {
         VStack {
             HStack {
                 VStack {
                     VStack(alignment: .leading) {
-                        Text(discoveredDevice.name)
+                        Text(name)
                             .font(.title2)
                             .bold()
-                        if let type = discoveredDevice.type {
+                        if let type {
                             Label(type.name, systemImage: deviceTypeSystemImage)
                                 .foregroundColor(.secondary)
                                 .labelStyle(LabelSpacing(spacing: 4))
@@ -68,7 +94,7 @@ struct DiscoveredBluetoothDeviceRow: View {
 
                 if isConnected {
                     Button(action: {
-                        onSelectDevice()
+                        onSelectDevice?()
                     }, label: {
                         Label("select", systemImage: "chevron.right.circle")
                             .labelStyle(.iconOnly)
@@ -124,7 +150,9 @@ struct DiscoveredBluetoothDeviceRow: View {
             }
             HStack(spacing: 15) {
                 if !isConnected {
-                    Label(String(format: "%3d", discoveredDevice.rssi.intValue), systemImage: "cellularbars")
+                    if let rssi = discoveredDevice.rssi {
+                        Label(String(format: "%3d", rssi.intValue), systemImage: "cellularbars")
+                    }
                     if !discoveredDevice.timestampDifference_ms.isNaN {
                         Label(String(format: discoveredDevice.timestampDifference_ms > 99 ? "%3.0f.ms" : "%4.2fms", discoveredDevice.timestampDifference_ms), systemImage: "stopwatch")
                     }
@@ -142,4 +170,9 @@ struct DiscoveredBluetoothDeviceRow: View {
         }
         .padding()
     }
+}
+
+#Preview {
+    DiscoveredDeviceRow(discoveredDevice: .constant(.none), mission: .none)
+        .frame(maxWidth: 300)
 }

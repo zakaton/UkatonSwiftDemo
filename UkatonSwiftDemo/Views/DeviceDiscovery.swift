@@ -24,18 +24,18 @@ struct DeviceDiscovery: View {
                     }
                 }
                 else {
-                    ForEach($bluetoothManager.discoveredDevices) { $device in
-                        DiscoveredBluetoothDeviceRow(discoveredDevice: $device, mission: device.mission ?? .none) {
-                            path.append(device)
+                    ForEach($bluetoothManager.discoveredDevices) { $discoveredDevice in
+                        DiscoveredDeviceRow(discoveredDevice: $discoveredDevice, mission: discoveredDevice.mission ?? .none) {
+                            path.append(discoveredDevice)
                         }
                         .buttonStyle(.plain)
                     }
                 }
             }
-            .navigationDestination(for: UKDiscoveredBluetoothDevice.self) { _ in
-                BluetoothDeviceDetail()
+            .navigationDestination(for: UKDiscoveredBluetoothDevice.self) { discoveredDevice in
+                DeviceDetail(mission: discoveredDevice.mission!)
             }
-            .navigationTitle("Ukaton Devices")
+            .navigationTitle("My devices")
             .toolbar {
                 Button {
                     bluetoothManager.toggleDeviceScan()
