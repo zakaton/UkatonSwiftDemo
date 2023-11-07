@@ -3,8 +3,6 @@ import SwiftUI
 import UkatonKit
 import UkatonMacros
 
-// TODO: - use getters for name/wifi/etc when updating mission
-
 @StaticLogger
 struct DiscoveredDeviceRow: View {
     @Binding var discoveredDevice: UKDiscoveredBluetoothDevice
@@ -13,35 +11,21 @@ struct DiscoveredDeviceRow: View {
         mission.connectionStatus
     }
 
-    var isConnected: Bool {
-        mission.connectionStatus == .connected
-    }
-
-    var connectionType: UKConnectionType? {
-        mission.connectionType
-    }
-
     var name: String {
-        if mission.name != nil {
-            return mission.name!
-        }
-        else if discoveredDevice.name != nil {
-            return discoveredDevice.name!
+        if mission != .none {
+            return mission.name
         }
         else {
-            return "undefined name"
+            return discoveredDevice.name
         }
     }
 
     var type: UKDeviceType? {
-        if mission.deviceType != nil {
-            return mission.deviceType!
-        }
-        else if discoveredDevice.type != nil {
-            return discoveredDevice.type!
+        if mission != .none {
+            return mission.deviceType
         }
         else {
-            return nil
+            return discoveredDevice.type
         }
     }
 
@@ -57,20 +41,15 @@ struct DiscoveredDeviceRow: View {
     }
 
     var batteryLevelSystemImage: String {
-        if let batteryLevel = mission.batteryLevel {
-            return switch batteryLevel {
-            case 75 ..< 100:
-                "battery.100"
-            case 50 ..< 75:
-                "battery.75"
-            case 25 ..< 50:
-                "battery.25"
-            default:
-                "battery.0"
-            }
-        }
-        else {
-            return "battery.0"
+        switch mission.batteryLevel {
+        case 75 ..< 100:
+            "battery.100"
+        case 50 ..< 75:
+            "battery.75"
+        case 25 ..< 50:
+            "battery.25"
+        default:
+            "battery.0"
         }
     }
 
@@ -92,7 +71,7 @@ struct DiscoveredDeviceRow: View {
                 }
                 Spacer()
 
-                if isConnected {
+                if mission.isConnected {
                     Button(action: {
                         onSelectDevice?()
                     }, label: {
@@ -105,7 +84,7 @@ struct DiscoveredDeviceRow: View {
             }
             HStack {
                 if connectionStatus == .connected || connectionStatus == .disconnecting {
-                    Text("connected via \(connectionType!.name)")
+                    Text("connected via \(mission.connectionType!.name)")
                     Button(role: .destructive, action: {
                         discoveredDevice.disconnect()
                     }, label: {
@@ -135,7 +114,7 @@ struct DiscoveredDeviceRow: View {
                         }
                     }
                     else {
-                        Text("connecting via \(connectionType!.name)...")
+                        Text("connecting via \(mission.connectionType!.name)...")
                         Button(role: .cancel, action: {
                             discoveredDevice.disconnect()
                         }, label: {
@@ -149,7 +128,7 @@ struct DiscoveredDeviceRow: View {
                 }
             }
             HStack(spacing: 15) {
-                if !isConnected {
+                if !mission.isConnected {
                     if let rssi = discoveredDevice.rssi {
                         Label(String(format: "%3d", rssi.intValue), systemImage: "cellularbars")
                     }
@@ -160,8 +139,8 @@ struct DiscoveredDeviceRow: View {
                 if discoveredDevice.isConnectedToWifi, let ipAddress = discoveredDevice.ipAddress, !ipAddress.isEmpty {
                     Label(ipAddress, systemImage: "wifi")
                 }
-                if isConnected, let batteryLevel = mission.batteryLevel {
-                    Label("\(batteryLevel)%", systemImage: batteryLevelSystemImage)
+                if mission.isConnected {
+                    Label("\(mission.batteryLevel)%", systemImage: batteryLevelSystemImage)
                 }
             }
             .labelStyle(LabelSpacing(spacing: 4))

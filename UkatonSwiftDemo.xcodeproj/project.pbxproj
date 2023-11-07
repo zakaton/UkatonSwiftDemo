@@ -121,6 +121,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5FA3AFF62AF9937B00F5295C /* Demos */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Demos;
+			sourceTree = "<group>";
+		};
 		5FF24DE42AF4110D009FAA0E /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -175,6 +182,7 @@
 		5FF58F442ADF04B900AD2941 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5FA3AFF62AF9937B00F5295C /* Demos */,
 				5FF24DE42AF4110D009FAA0E /* Utils */,
 				5FFBE8102AF160CF00F8CBD7 /* DeviceDiscovery.swift */,
 				5F426ECE2AF17CEA00E58F15 /* DiscoveredDeviceRow.swift */,

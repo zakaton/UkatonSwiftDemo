@@ -7,41 +7,35 @@ import UkatonMacros
 struct DeviceDetail: View {
     @ObservedObject var mission: UKMission
 
-    var name: String {
-        mission.name ?? "undefined device"
-    }
-
     @State private var newName: String = ""
-
-    var type: String {
-        mission.deviceType?.name ?? "unknown type"
-    }
 
     @State private var newDeviceType: UKDeviceType
 
+    var canEditWifi: Bool {
+        mission.connectionType?.requiresWifi ?? false
+    }
+
     init(mission: UKMission) {
         self.mission = mission
-        self.newDeviceType = mission.deviceType ?? .motionModule
+        self.newDeviceType = mission.deviceType
     }
 
     var body: some View {
         List {
             Section {
-                Text("__name:__ \(name)")
+                Text("__name:__ \(mission.name)")
                 HStack {
                     TextField("new name", text: $newName)
                     Button(action: {
                         try? mission.setName(newName: newName)
                         newName = ""
                     }) {
-                        Image(systemName: "arrow.up.circle")
-                            .accessibilityLabel("Update name")
+                        Text("update")
                     }
                     .disabled(newName.isEmpty)
                 }
 
-                Text("__type:__ \(type)")
-                Picker("type", selection: $newDeviceType) {
+                Picker("__type__", selection: $newDeviceType) {
                     ForEach(UKDeviceType.allCases) { deviceType in
                         Text(deviceType.name)
                     }
@@ -49,11 +43,33 @@ struct DeviceDetail: View {
                 .onChange(of: newDeviceType) {
                     try? mission.setDeviceType(newDeviceType: newDeviceType)
                 }
+
+                Text("__battery level:__ \(String(mission.batteryLevel))%")
             } header: {
                 Text("Device Information")
             }
+
+            Section {
+                Text("__connected?__ \(String(mission.isConnectedToWifi == true))")
+                Text("__ssid__: \(mission.wifiSsid)")
+                if canEditWifi {
+                    
+                }
+                Text("__password__: \(mission.wifiSsid)")
+                if canEditWifi {}
+                if mission.isConnectedToWifi {
+                    // FILL
+                }
+
+                if let ipAddress = mission.ipAddress {
+                    Text("__ip address__: \(ipAddress)")
+                }
+
+            } header: {
+                Text("Wifi")
+            }
         }
-        .navigationTitle(name)
+        .navigationTitle(mission.name)
     }
 }
 
