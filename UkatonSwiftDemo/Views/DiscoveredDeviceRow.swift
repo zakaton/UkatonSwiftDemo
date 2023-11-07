@@ -12,7 +12,7 @@ struct DiscoveredDeviceRow: View {
     }
 
     var name: String {
-        if mission != .none {
+        if !mission.isNone {
             return mission.name
         }
         else {
@@ -21,7 +21,7 @@ struct DiscoveredDeviceRow: View {
     }
 
     var type: UKDeviceType? {
-        if mission != .none {
+        if !mission.isNone {
             return mission.deviceType
         }
         else {
