@@ -18,12 +18,18 @@
 		5F426ED32AF1F51D00E58F15 /* DeviceDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F426ED22AF1F51D00E58F15 /* DeviceDetail.swift */; };
 		5F426ED42AF1F53300E58F15 /* DeviceDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F426ED22AF1F51D00E58F15 /* DeviceDetail.swift */; };
 		5F426ED52AF1F53800E58F15 /* DeviceDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F426ED22AF1F51D00E58F15 /* DeviceDetail.swift */; };
+		5F7616402AFAB083000E1A80 /* SensorDataDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F76163F2AFAB083000E1A80 /* SensorDataDemo.swift */; };
+		5F7616412AFAB083000E1A80 /* SensorDataDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F76163F2AFAB083000E1A80 /* SensorDataDemo.swift */; };
+		5F7616422AFAB083000E1A80 /* SensorDataDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F76163F2AFAB083000E1A80 /* SensorDataDemo.swift */; };
 		5FA3AFF92AFAA97800F5295C /* DeviceInformationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3AFF82AFAA97800F5295C /* DeviceInformationSection.swift */; };
 		5FA3AFFA2AFAA97800F5295C /* DeviceInformationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3AFF82AFAA97800F5295C /* DeviceInformationSection.swift */; };
 		5FA3AFFB2AFAA97800F5295C /* DeviceInformationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3AFF82AFAA97800F5295C /* DeviceInformationSection.swift */; };
 		5FA3AFFD2AFAAA2800F5295C /* DeviceWifiInformationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3AFFC2AFAAA2800F5295C /* DeviceWifiInformationSection.swift */; };
 		5FA3AFFE2AFAAA2800F5295C /* DeviceWifiInformationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3AFFC2AFAAA2800F5295C /* DeviceWifiInformationSection.swift */; };
 		5FA3AFFF2AFAAA2800F5295C /* DeviceWifiInformationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3AFFC2AFAAA2800F5295C /* DeviceWifiInformationSection.swift */; };
+		5FA3B0032AFAAB6E00F5295C /* DeviceDemosSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3B0022AFAAB6E00F5295C /* DeviceDemosSection.swift */; };
+		5FA3B0042AFAAB6E00F5295C /* DeviceDemosSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3B0022AFAAB6E00F5295C /* DeviceDemosSection.swift */; };
+		5FA3B0052AFAAB6E00F5295C /* DeviceDemosSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3B0022AFAAB6E00F5295C /* DeviceDemosSection.swift */; };
 		5FF24DE62AF41127009FAA0E /* LabelSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF24DE52AF41127009FAA0E /* LabelSpacing.swift */; };
 		5FF24DE72AF41127009FAA0E /* LabelSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF24DE52AF41127009FAA0E /* LabelSpacing.swift */; };
 		5FF24DE82AF41127009FAA0E /* LabelSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF24DE52AF41127009FAA0E /* LabelSpacing.swift */; };
@@ -70,8 +76,10 @@
 /* Begin PBXFileReference section */
 		5F426ECE2AF17CEA00E58F15 /* DiscoveredDeviceRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveredDeviceRow.swift; sourceTree = "<group>"; };
 		5F426ED22AF1F51D00E58F15 /* DeviceDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDetail.swift; sourceTree = "<group>"; };
+		5F76163F2AFAB083000E1A80 /* SensorDataDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorDataDemo.swift; sourceTree = "<group>"; };
 		5FA3AFF82AFAA97800F5295C /* DeviceInformationSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInformationSection.swift; sourceTree = "<group>"; };
 		5FA3AFFC2AFAAA2800F5295C /* DeviceWifiInformationSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceWifiInformationSection.swift; sourceTree = "<group>"; };
+		5FA3B0022AFAAB6E00F5295C /* DeviceDemosSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDemosSection.swift; sourceTree = "<group>"; };
 		5FF24DE52AF41127009FAA0E /* LabelSpacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelSpacing.swift; sourceTree = "<group>"; };
 		5FF58F302ADE51D900AD2941 /* UkatonSwiftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UkatonSwiftDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FF58F332ADE51D900AD2941 /* UkatonSwiftDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UkatonSwiftDemoApp.swift; sourceTree = "<group>"; };
@@ -132,6 +140,7 @@
 		5FA3AFF62AF9937B00F5295C /* Demos */ = {
 			isa = PBXGroup;
 			children = (
+				5F76163F2AFAB083000E1A80 /* SensorDataDemo.swift */,
 			);
 			path = Demos;
 			sourceTree = "<group>";
@@ -142,6 +151,7 @@
 				5F426ED22AF1F51D00E58F15 /* DeviceDetail.swift */,
 				5FA3AFFC2AFAAA2800F5295C /* DeviceWifiInformationSection.swift */,
 				5FA3AFF82AFAA97800F5295C /* DeviceInformationSection.swift */,
+				5FA3B0022AFAAB6E00F5295C /* DeviceDemosSection.swift */,
 			);
 			path = DeviceDetail;
 			sourceTree = "<group>";
@@ -403,6 +413,8 @@
 				5FFBE8112AF160CF00F8CBD7 /* DeviceDiscovery.swift in Sources */,
 				5F426ED42AF1F53300E58F15 /* DeviceDetail.swift in Sources */,
 				5FF24DE62AF41127009FAA0E /* LabelSpacing.swift in Sources */,
+				5FA3B0032AFAAB6E00F5295C /* DeviceDemosSection.swift in Sources */,
+				5F7616402AFAB083000E1A80 /* SensorDataDemo.swift in Sources */,
 				5FA3AFFD2AFAAA2800F5295C /* DeviceWifiInformationSection.swift in Sources */,
 				5FF58F362ADE51D900AD2941 /* ContentView.swift in Sources */,
 				5F426ECF2AF17CEA00E58F15 /* DiscoveredDeviceRow.swift in Sources */,
@@ -418,6 +430,8 @@
 				5FFBE8122AF160CF00F8CBD7 /* DeviceDiscovery.swift in Sources */,
 				5F426ED32AF1F51D00E58F15 /* DeviceDetail.swift in Sources */,
 				5FF24DE72AF41127009FAA0E /* LabelSpacing.swift in Sources */,
+				5FA3B0042AFAAB6E00F5295C /* DeviceDemosSection.swift in Sources */,
+				5F7616412AFAB083000E1A80 /* SensorDataDemo.swift in Sources */,
 				5FA3AFFE2AFAAA2800F5295C /* DeviceWifiInformationSection.swift in Sources */,
 				5FF58F5B2ADF140C00AD2941 /* UkatonSwiftDemoApp.swift in Sources */,
 				5F2B87182AE18C7000BF304B /* ContentView.swift in Sources */,
@@ -433,6 +447,8 @@
 				5FFBE8132AF160CF00F8CBD7 /* DeviceDiscovery.swift in Sources */,
 				5F426ED52AF1F53800E58F15 /* DeviceDetail.swift in Sources */,
 				5FF24DE82AF41127009FAA0E /* LabelSpacing.swift in Sources */,
+				5FA3B0052AFAAB6E00F5295C /* DeviceDemosSection.swift in Sources */,
+				5F7616422AFAB083000E1A80 /* SensorDataDemo.swift in Sources */,
 				5FA3AFFF2AFAAA2800F5295C /* DeviceWifiInformationSection.swift in Sources */,
 				5FF58F752ADF18A000AD2941 /* UkatonSwiftDemoApp.swift in Sources */,
 				5F2B87192AE18C7100BF304B /* ContentView.swift in Sources */,

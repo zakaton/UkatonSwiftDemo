@@ -39,6 +39,7 @@ struct DeviceInformationSection: View {
             Text("__battery level:__ \(String(mission.batteryLevel))%")
         } header: {
             Text("Device Information")
+                .font(.headline)
         }
     }
 }

@@ -1,9 +1,6 @@
-import OSLog
 import SwiftUI
 import UkatonKit
-import UkatonMacros
 
-@StaticLogger
 struct DeviceDiscovery: View {
     @State private var path = NavigationPath()
 

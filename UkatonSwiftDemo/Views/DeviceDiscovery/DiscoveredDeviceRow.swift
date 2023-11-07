@@ -139,7 +139,7 @@ struct DiscoveredDeviceRow: View {
                 if discoveredDevice.isConnectedToWifi, let ipAddress = discoveredDevice.ipAddress, !ipAddress.isEmpty {
                     Label(ipAddress, systemImage: "wifi")
                 }
-                if mission.isConnected {
+                if mission.isConnected, mission.batteryLevel != .zero {
                     Label("\(mission.batteryLevel)%", systemImage: batteryLevelSystemImage)
                 }
             }

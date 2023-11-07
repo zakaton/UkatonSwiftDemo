@@ -98,6 +98,7 @@ struct DeviceWifiInformationSection: View {
 
         } header: {
             Text("Wifi")
+                .font(.headline)
         }
     }
 }

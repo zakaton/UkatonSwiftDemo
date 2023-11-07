@@ -1,9 +1,6 @@
-import OSLog
 import SwiftUI
 import UkatonKit
-import UkatonMacros
 
-@StaticLogger
 struct DeviceDetail: View {
     @ObservedObject var mission: UKMission
 
@@ -11,8 +8,12 @@ struct DeviceDetail: View {
         List {
             DeviceInformationSection(mission: mission)
             DeviceWifiInformationSection(mission: mission)
+            DeviceDemosSection(mission: mission)
         }
         .navigationTitle(mission.name)
+        .navigationDestination(for: DeviceDemo.self) { deviceDemo in
+            deviceDemo.view(mission: mission)
+        }
     }
 }
 
