@@ -50,15 +50,18 @@ struct DeviceDetail: View {
             }
 
             Section {
-                Text("__connected?__ \(String(mission.isConnectedToWifi == true))")
+                Text("__connected?__ \(String(mission.isConnectedToWifi))")
                 Text("__ssid__: \(mission.wifiSsid)")
                 if canEditWifi {
-                    
+                    // TODO: - update ssid
                 }
                 Text("__password__: \(mission.wifiSsid)")
-                if canEditWifi {}
-                if mission.isConnectedToWifi {
-                    // FILL
+                if canEditWifi {
+                    // TODO: - update password
+                }
+
+                if canEditWifi {
+                    // TODO: - toggle connection
                 }
 
                 if let ipAddress = mission.ipAddress {
