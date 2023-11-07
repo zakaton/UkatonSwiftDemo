@@ -136,6 +136,25 @@
 			path = Demos;
 			sourceTree = "<group>";
 		};
+		5FA3B0002AFAAAD500F5295C /* DeviceDetail */ = {
+			isa = PBXGroup;
+			children = (
+				5F426ED22AF1F51D00E58F15 /* DeviceDetail.swift */,
+				5FA3AFFC2AFAAA2800F5295C /* DeviceWifiInformationSection.swift */,
+				5FA3AFF82AFAA97800F5295C /* DeviceInformationSection.swift */,
+			);
+			path = DeviceDetail;
+			sourceTree = "<group>";
+		};
+		5FA3B0012AFAAAF000F5295C /* DeviceDiscovery */ = {
+			isa = PBXGroup;
+			children = (
+				5FFBE8102AF160CF00F8CBD7 /* DeviceDiscovery.swift */,
+				5F426ECE2AF17CEA00E58F15 /* DiscoveredDeviceRow.swift */,
+			);
+			path = DeviceDiscovery;
+			sourceTree = "<group>";
+		};
 		5FF24DE42AF4110D009FAA0E /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -190,13 +209,10 @@
 		5FF58F442ADF04B900AD2941 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5FA3B0012AFAAAF000F5295C /* DeviceDiscovery */,
+				5FA3B0002AFAAAD500F5295C /* DeviceDetail */,
 				5FA3AFF62AF9937B00F5295C /* Demos */,
 				5FF24DE42AF4110D009FAA0E /* Utils */,
-				5FFBE8102AF160CF00F8CBD7 /* DeviceDiscovery.swift */,
-				5F426ECE2AF17CEA00E58F15 /* DiscoveredDeviceRow.swift */,
-				5F426ED22AF1F51D00E58F15 /* DeviceDetail.swift */,
-				5FA3AFF82AFAA97800F5295C /* DeviceInformationSection.swift */,
-				5FA3AFFC2AFAAA2800F5295C /* DeviceWifiInformationSection.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
