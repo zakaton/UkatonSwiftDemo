@@ -13,19 +13,6 @@ struct MotionDataSection: View {
 
     var sensorDataRates: [UKSensorDataRate]
 
-    func vectorToString(_ vector: Vector3D) -> String {
-        .init(format: "x: %5.3f, y: %5.3f, z: %5.3f", vector.x, vector.y, vector.z)
-    }
-
-    func rotationToString(_ rotation: Rotation3D) -> String {
-        let euler = rotation.eulerAngles(order: .zxy)
-        return .init(format: "p: %5.2f, y: %5.2f, r: %5.2f", euler.angles.x, euler.angles.y, euler.angles.z)
-    }
-
-    func quaternionToString(_ quaternion: Quaternion) -> String {
-        return .init(format: "w: %5.3f, x: %5.3f, y: %5.3f, z: %5.3f", quaternion.vector.w, quaternion.vector.x, quaternion.vector.y, quaternion.vector.z)
-    }
-
     var body: some View {
         Section {
             ForEach(UKMotionDataType.allCases) { motionDataType in
@@ -46,17 +33,17 @@ struct MotionDataSection: View {
 
                     switch motionDataType {
                     case .acceleration:
-                        Text(self.vectorToString(mission.sensorData.motion.acceleration))
+                        Text(mission.sensorData.motion.acceleration.string)
                     case .gravity:
-                        Text(self.vectorToString(mission.sensorData.motion.gravity))
+                        Text(mission.sensorData.motion.gravity.string)
                     case .linearAcceleration:
-                        Text(self.vectorToString(mission.sensorData.motion.linearAcceleration))
+                        Text(mission.sensorData.motion.linearAcceleration.string)
                     case .magnetometer:
-                        Text(self.vectorToString(mission.sensorData.motion.magnetometer))
+                        Text(mission.sensorData.motion.magnetometer.string)
                     case .rotationRate:
-                        Text(self.rotationToString(mission.sensorData.motion.rotationRate))
+                        Text(mission.sensorData.motion.rotationRate.string)
                     case .quaternion:
-                        Text(self.rotationToString(mission.sensorData.motion.rotation))
+                        Text(mission.sensorData.motion.rotation.string)
                     }
                 }
                 .font(Font.system(.caption, design: .monospaced))
