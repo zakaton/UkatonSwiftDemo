@@ -2,7 +2,7 @@ import SwiftUI
 import UkatonKit
 import UkatonMacros
 
-// TODO: - FILL
+// TODO: - display raw sensor data + timestamp
 
 struct SensorDataDemo: View {
     @ObservedObject private var mission: UKMission
