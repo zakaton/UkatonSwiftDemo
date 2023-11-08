@@ -2,9 +2,9 @@ import SwiftUI
 import UkatonKit
 
 struct DeviceDiscovery: View {
+    @ObservedObject private var bluetoothManager: UKBluetoothManager = .shared
     @State private var path = NavigationPath()
 
-    @ObservedObject private var bluetoothManager: UKBluetoothManager = .shared
     var body: some View {
         NavigationStack(path: $path) {
             List {
