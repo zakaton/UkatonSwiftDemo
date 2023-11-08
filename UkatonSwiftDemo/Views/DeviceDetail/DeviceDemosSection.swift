@@ -10,12 +10,11 @@ enum DeviceDemo: CaseIterable, Identifiable {
     case orientation
     case graph
     case pressure
-    case balanceGame
     case haptics
 
     var requiresPressure: Bool {
         switch self {
-        case .pressure, .balanceGame:
+        case .pressure:
             true
         default:
             false
