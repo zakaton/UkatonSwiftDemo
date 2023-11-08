@@ -30,6 +30,15 @@
 		5FA3B0032AFAAB6E00F5295C /* DeviceDemosSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3B0022AFAAB6E00F5295C /* DeviceDemosSection.swift */; };
 		5FA3B0042AFAAB6E00F5295C /* DeviceDemosSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3B0022AFAAB6E00F5295C /* DeviceDemosSection.swift */; };
 		5FA3B0052AFAAB6E00F5295C /* DeviceDemosSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3B0022AFAAB6E00F5295C /* DeviceDemosSection.swift */; };
+		5FCC84A42AFC414100B755FA /* MotionCalibrationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCC84A32AFC414100B755FA /* MotionCalibrationSection.swift */; };
+		5FCC84A52AFC414100B755FA /* MotionCalibrationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCC84A32AFC414100B755FA /* MotionCalibrationSection.swift */; };
+		5FCC84A62AFC414100B755FA /* MotionCalibrationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCC84A32AFC414100B755FA /* MotionCalibrationSection.swift */; };
+		5FCC84A82AFC426000B755FA /* MotionDataSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCC84A72AFC426000B755FA /* MotionDataSection.swift */; };
+		5FCC84A92AFC426000B755FA /* MotionDataSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCC84A72AFC426000B755FA /* MotionDataSection.swift */; };
+		5FCC84AA2AFC426000B755FA /* MotionDataSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCC84A72AFC426000B755FA /* MotionDataSection.swift */; };
+		5FCC84B02AFC445C00B755FA /* PressureDataSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCC84AF2AFC445C00B755FA /* PressureDataSection.swift */; };
+		5FCC84B12AFC445C00B755FA /* PressureDataSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCC84AF2AFC445C00B755FA /* PressureDataSection.swift */; };
+		5FCC84B22AFC445C00B755FA /* PressureDataSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCC84AF2AFC445C00B755FA /* PressureDataSection.swift */; };
 		5FF24DE62AF41127009FAA0E /* LabelSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF24DE52AF41127009FAA0E /* LabelSpacing.swift */; };
 		5FF24DE72AF41127009FAA0E /* LabelSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF24DE52AF41127009FAA0E /* LabelSpacing.swift */; };
 		5FF24DE82AF41127009FAA0E /* LabelSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF24DE52AF41127009FAA0E /* LabelSpacing.swift */; };
@@ -80,6 +89,9 @@
 		5FA3AFF82AFAA97800F5295C /* DeviceInformationSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInformationSection.swift; sourceTree = "<group>"; };
 		5FA3AFFC2AFAAA2800F5295C /* DeviceWifiInformationSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceWifiInformationSection.swift; sourceTree = "<group>"; };
 		5FA3B0022AFAAB6E00F5295C /* DeviceDemosSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDemosSection.swift; sourceTree = "<group>"; };
+		5FCC84A32AFC414100B755FA /* MotionCalibrationSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionCalibrationSection.swift; sourceTree = "<group>"; };
+		5FCC84A72AFC426000B755FA /* MotionDataSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionDataSection.swift; sourceTree = "<group>"; };
+		5FCC84AF2AFC445C00B755FA /* PressureDataSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressureDataSection.swift; sourceTree = "<group>"; };
 		5FF24DE52AF41127009FAA0E /* LabelSpacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelSpacing.swift; sourceTree = "<group>"; };
 		5FF58F302ADE51D900AD2941 /* UkatonSwiftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UkatonSwiftDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FF58F332ADE51D900AD2941 /* UkatonSwiftDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UkatonSwiftDemoApp.swift; sourceTree = "<group>"; };
@@ -140,7 +152,7 @@
 		5FA3AFF62AF9937B00F5295C /* Demos */ = {
 			isa = PBXGroup;
 			children = (
-				5F76163F2AFAB083000E1A80 /* SensorDataDemo.swift */,
+				5FCC84A22AFC412600B755FA /* SensorDataDemo */,
 			);
 			path = Demos;
 			sourceTree = "<group>";
@@ -163,6 +175,17 @@
 				5F426ECE2AF17CEA00E58F15 /* DiscoveredDeviceRow.swift */,
 			);
 			path = DeviceDiscovery;
+			sourceTree = "<group>";
+		};
+		5FCC84A22AFC412600B755FA /* SensorDataDemo */ = {
+			isa = PBXGroup;
+			children = (
+				5F76163F2AFAB083000E1A80 /* SensorDataDemo.swift */,
+				5FCC84A72AFC426000B755FA /* MotionDataSection.swift */,
+				5FCC84AF2AFC445C00B755FA /* PressureDataSection.swift */,
+				5FCC84A32AFC414100B755FA /* MotionCalibrationSection.swift */,
+			);
+			path = SensorDataDemo;
 			sourceTree = "<group>";
 		};
 		5FF24DE42AF4110D009FAA0E /* Utils */ = {
@@ -414,12 +437,15 @@
 				5F426ED42AF1F53300E58F15 /* DeviceDetail.swift in Sources */,
 				5FF24DE62AF41127009FAA0E /* LabelSpacing.swift in Sources */,
 				5FA3B0032AFAAB6E00F5295C /* DeviceDemosSection.swift in Sources */,
+				5FCC84A42AFC414100B755FA /* MotionCalibrationSection.swift in Sources */,
 				5F7616402AFAB083000E1A80 /* SensorDataDemo.swift in Sources */,
 				5FA3AFFD2AFAAA2800F5295C /* DeviceWifiInformationSection.swift in Sources */,
 				5FF58F362ADE51D900AD2941 /* ContentView.swift in Sources */,
+				5FCC84A82AFC426000B755FA /* MotionDataSection.swift in Sources */,
 				5F426ECF2AF17CEA00E58F15 /* DiscoveredDeviceRow.swift in Sources */,
 				5FF58F342ADE51D900AD2941 /* UkatonSwiftDemoApp.swift in Sources */,
 				5FA3AFF92AFAA97800F5295C /* DeviceInformationSection.swift in Sources */,
+				5FCC84B02AFC445C00B755FA /* PressureDataSection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,12 +457,15 @@
 				5F426ED32AF1F51D00E58F15 /* DeviceDetail.swift in Sources */,
 				5FF24DE72AF41127009FAA0E /* LabelSpacing.swift in Sources */,
 				5FA3B0042AFAAB6E00F5295C /* DeviceDemosSection.swift in Sources */,
+				5FCC84A52AFC414100B755FA /* MotionCalibrationSection.swift in Sources */,
 				5F7616412AFAB083000E1A80 /* SensorDataDemo.swift in Sources */,
 				5FA3AFFE2AFAAA2800F5295C /* DeviceWifiInformationSection.swift in Sources */,
 				5FF58F5B2ADF140C00AD2941 /* UkatonSwiftDemoApp.swift in Sources */,
+				5FCC84A92AFC426000B755FA /* MotionDataSection.swift in Sources */,
 				5F2B87182AE18C7000BF304B /* ContentView.swift in Sources */,
 				5F426ED02AF17D4E00E58F15 /* DiscoveredDeviceRow.swift in Sources */,
 				5FA3AFFA2AFAA97800F5295C /* DeviceInformationSection.swift in Sources */,
+				5FCC84B12AFC445C00B755FA /* PressureDataSection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,12 +477,15 @@
 				5F426ED52AF1F53800E58F15 /* DeviceDetail.swift in Sources */,
 				5FF24DE82AF41127009FAA0E /* LabelSpacing.swift in Sources */,
 				5FA3B0052AFAAB6E00F5295C /* DeviceDemosSection.swift in Sources */,
+				5FCC84A62AFC414100B755FA /* MotionCalibrationSection.swift in Sources */,
 				5F7616422AFAB083000E1A80 /* SensorDataDemo.swift in Sources */,
 				5FA3AFFF2AFAAA2800F5295C /* DeviceWifiInformationSection.swift in Sources */,
 				5FF58F752ADF18A000AD2941 /* UkatonSwiftDemoApp.swift in Sources */,
+				5FCC84AA2AFC426000B755FA /* MotionDataSection.swift in Sources */,
 				5F2B87192AE18C7100BF304B /* ContentView.swift in Sources */,
 				5F426ED12AF17D4F00E58F15 /* DiscoveredDeviceRow.swift in Sources */,
 				5FA3AFFB2AFAA97800F5295C /* DeviceInformationSection.swift in Sources */,
+				5FCC84B22AFC445C00B755FA /* PressureDataSection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
