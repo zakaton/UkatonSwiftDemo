@@ -1,6 +1,8 @@
 import SwiftUI
 import UkatonKit
 
+// TODO: - FILL
+
 struct PressureDataSection: View {
     @ObservedObject var mission: UKMission
     @Binding var newSensorDataConfigurations: UKSensorDataConfigurations {
@@ -26,15 +28,23 @@ struct PressureDataSection: View {
                     }
                 }
 
-                HStack {
-                    Text("[\(mission.sensorData.pressure.timestamps[pressureDataType]!.string)]")
+                if true {
+                    HStack {
+                        Text("[\(mission.sensorData.pressure.timestamps[pressureDataType]!.string)]")
 
-                    switch pressureDataType {
-                    default:
-                        Text("lol")
+                        switch pressureDataType {
+                        case .pressureSingleByte, .pressureDoubleByte:
+                            Text(mission.sensorData.pressure.pressureValues.string)
+                        case .centerOfMass:
+                            Text(mission.sensorData.pressure.centerOfMass.string)
+                        case .mass:
+                            Text(String(format: "%6.3f", mission.sensorData.pressure.mass))
+                        case .heelToToe:
+                            Text(String(format: "%6.3f", mission.sensorData.pressure.heelToToe))
+                        }
                     }
+                    .font(Font.system(.caption, design: .monospaced))
                 }
-                .font(Font.system(.caption, design: .monospaced))
             }
         } header: {
             Text("Pressure Data")

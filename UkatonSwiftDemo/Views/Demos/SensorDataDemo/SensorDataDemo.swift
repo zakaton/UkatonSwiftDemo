@@ -2,8 +2,6 @@ import SwiftUI
 import UkatonKit
 import UkatonMacros
 
-// TODO: - Pressure Data
-
 struct SensorDataDemo: View {
     @ObservedObject var mission: UKMission
 
@@ -15,7 +13,7 @@ struct SensorDataDemo: View {
             MotionDataSection(mission: mission, newSensorDataConfigurations: $newSensorDataConfigurations, sensorDataRates: sensorDataRates)
             MotionCalibrationSection(mission: mission)
 
-            if true || mission.deviceType.isInsole {
+            if mission.deviceType.isInsole {
                 PressureDataSection(mission: mission, newSensorDataConfigurations: $newSensorDataConfigurations, sensorDataRates: sensorDataRates)
             }
         }
