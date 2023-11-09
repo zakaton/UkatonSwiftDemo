@@ -28,7 +28,7 @@ struct PressureDataSection: View {
                     }
                 }
 
-                if true {
+                if !pressureDataType.isPressure || mission.sensorData.pressure.pressureValues.latestPressureDataType == pressureDataType {
                     HStack {
                         Text("[\(mission.sensorData.pressure.timestamps[pressureDataType]!.string)]")
 
