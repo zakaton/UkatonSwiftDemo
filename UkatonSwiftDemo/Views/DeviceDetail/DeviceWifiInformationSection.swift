@@ -35,6 +35,7 @@ struct DeviceWifiInformationSection: View {
                     newWifiPassword = ""
                     try? mission.setWifiShouldConnect(newShouldConnectToWifi)
                 }
+                .toggleStyle(.switch)
             }
             Text("__connected?__ \(String(mission.isConnectedToWifi))")
 

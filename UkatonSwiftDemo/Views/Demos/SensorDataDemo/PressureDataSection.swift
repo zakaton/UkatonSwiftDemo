@@ -1,8 +1,6 @@
 import SwiftUI
 import UkatonKit
 
-// TODO: - FILL
-
 struct PressureDataSection: View {
     @ObservedObject var mission: UKMission
     @Binding var newSensorDataConfigurations: UKSensorDataConfigurations {

@@ -1,6 +1,5 @@
 import SwiftUI
 import UkatonKit
-import UkatonMacros
 
 struct SensorDataDemo: View {
     @ObservedObject var mission: UKMission
