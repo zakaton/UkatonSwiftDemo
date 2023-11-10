@@ -12,90 +12,48 @@ import UkatonMacros
 // TODO: - acceleration
 // TODO: - refactor
 
-struct OrientationDemo: View {
+struct OrientationDemo: View, Equatable {
+    static func == (lhs: OrientationDemo, rhs: OrientationDemo) -> Bool {
+        lhs.mission == rhs.mission && lhs.mission.deviceType == rhs.mission.deviceType
+    }
+
     @ObservedObject var mission: UKMission
+    @State private var newSensorDataConfigurations: UKSensorDataConfigurations = .init()
 
     // MARK: - SceneKit
 
     private var scene: SCNScene = .init()
-    private var model: SCNScene
+    @State private var model: SCNScene!
     private var lightNode: SCNNode = .init()
     private var cameraNode: SCNNode = .init()
-
-    // MARK: - SensorDataConfig
-
-    @State private var newSensorDataConfigurations: UKSensorDataConfigurations = .init()
-
-    var isQuaternionEnabled: Bool {
-        mission.sensorDataConfigurations.motion[.quaternion]! > 0
-    }
-
-    var isRotationRateEnabled: Bool {
-        mission.sensorDataConfigurations.motion[.rotationRate]! > 0
-    }
-
-    var isLinearAccelerationEnabled: Bool {
-        mission.sensorDataConfigurations.motion[.linearAcceleration]! > 0
-    }
-
-    var isAccelerationEnabled: Bool {
-        mission.sensorDataConfigurations.motion[.acceleration]! > 0
-    }
-
-    // MARK: - controls
-
-    @EnumName
-    enum RotationMode: CaseIterable, Identifiable {
-        var id: String { name }
-
-        case none
-        case quaternion
-        case rotationRate
-    }
-
-    @State private var selectedRotationMode: RotationMode = .none
-
-    @EnumName
-    enum TranslationMode: CaseIterable, Identifiable {
-        var id: String { name }
-
-        case none
-        case linearAcceleration
-        case acceleration
-    }
-
-    @State private var selectedTranslationMode: TranslationMode = .none
 
     // MARK: Listeners
 
     private var cancellables = Set<AnyCancellable>()
 
     func onQuaternion(_ quaternion: Quaternion) {
-        print(quaternion)
+        print(quaternion.string)
         model.rootNode.orientation = .init(quaternion.vector)
     }
 
     func onRotationRate(_ rotationRate: Rotation3D) {
         // TODO: - FILL
+        print(rotationRate.string)
     }
 
     func onLinearAcceleration(_ linearAcceleration: Vector3D) {
         // TODO: - FILL
+        print(linearAcceleration.string)
     }
 
     func onAcceleration(_ acceleration: Vector3D) {
         // TODO: - FILL
-    }
-
-    func onSensorDataConfigurationsUpdate(_ sensorDataConfigurations: UKSensorDataConfigurations) {
-        // TODO: - FILL
+        print(acceleration.string)
     }
 
     // MARK: - Setup
 
-    init(mission: UKMission) {
-        self.mission = mission
-
+    func setupScene() {
         // MARK: - Model
 
         let modelName = mission.deviceType.isInsole ? "leftShoe" : "monkey"
@@ -103,6 +61,7 @@ struct OrientationDemo: View {
         if mission.deviceType == .rightInsole {
             model.rootNode.scale.x = -0.5
         }
+        onQuaternion(mission.sensorData.motion.quaternion)
         scene.rootNode.addChildNode(model.rootNode)
 
         // MARK: - Lights,
@@ -116,111 +75,33 @@ struct OrientationDemo: View {
         cameraNode.camera = SCNCamera()
         cameraNode.position = .init(x: 0, y: 0, z: 2)
         cameraNode.eulerAngles = .init(x: 0, y: 0, z: 0)
+    }
 
-        // MARK: - Action!
-
-        mission.sensorData.motion.quaternionSubject.sink {
-            [self] in onQuaternion($0.quaternion)
-        }.store(in: &cancellables)
-
-        mission.sensorData.motion.rotationRateSubject.sink {
-            [self] in onRotationRate($0.rotationRate)
-        }.store(in: &cancellables)
-
-        mission.sensorData.motion.accelerationSubject.sink {
-            [self] in onAcceleration($0.acceleration)
-        }.store(in: &cancellables)
-
-        mission.sensorData.motion.linearAccelerationSubject.sink {
-            [self] in onLinearAcceleration($0.linearAcceleration)
-        }.store(in: &cancellables)
-
-        mission.$sensorDataConfigurations.sink { [self] sensorDataConfigurations in
-            self.onSensorDataConfigurationsUpdate(sensorDataConfigurations)
-        }.store(in: &cancellables)
+    init(mission: UKMission) {
+        print("init")
+        self.mission = mission
     }
 
     var body: some View {
         ZStack {
             SceneView(scene: scene, pointOfView: cameraNode)
+                .onReceive(mission.sensorData.motion.quaternionSubject, perform: { onQuaternion($0.quaternion) })
+                .onReceive(mission.sensorData.motion.rotationRateSubject, perform: { onRotationRate($0.rotationRate) })
+                .onReceive(mission.sensorData.motion.accelerationSubject, perform: { onAcceleration($0.acceleration) })
+                .onReceive(mission.sensorData.motion.linearAccelerationSubject, perform: { onLinearAcceleration($0.linearAcceleration) })
             HStack {
                 Spacer()
                 VStack {
-                    let rotationBinding = Binding<RotationMode>(
-                        get: {
-                            if isQuaternionEnabled {
-                                return .quaternion
-                            }
-                            else if isRotationRateEnabled {
-                                return .rotationRate
-                            }
-                            else {
-                                return .none
-                            }
-                        },
-                        set: {
-                            newSensorDataConfigurations.motion[.quaternion] = 0
-                            newSensorDataConfigurations.motion[.rotationRate] = 0
-
-                            switch $0 {
-                            case .none:
-                                break
-                            case .quaternion:
-                                newSensorDataConfigurations.motion[.quaternion] = 20
-                            case .rotationRate:
-                                newSensorDataConfigurations.motion[.rotationRate] = 20
-                            }
-
-                            try? mission.setSensorDataConfigurations(newSensorDataConfigurations)
-                        })
-
-                    Picker(selection: rotationBinding, label: EmptyView()) {
-                        ForEach(RotationMode.allCases) { rotationMode in
-                            Text(rotationMode.name)
-                                .tag(rotationMode)
-                        }
-                    }
-                    .pickerStyle(.segmented)
+                    RotationModePicker(mission: mission, newSensorDataConfigurations: $newSensorDataConfigurations)
 
                     Spacer()
 
-                    let translationBinding = Binding<TranslationMode>(
-                        get: {
-                            if isAccelerationEnabled {
-                                return .acceleration
-                            }
-                            else if isLinearAccelerationEnabled {
-                                return .linearAcceleration
-                            }
-                            else {
-                                return .none
-                            }
-                        },
-                        set: {
-                            newSensorDataConfigurations.motion[.acceleration] = 0
-                            newSensorDataConfigurations.motion[.linearAcceleration] = 0
-
-                            switch $0 {
-                            case .none:
-                                break
-                            case .acceleration:
-                                newSensorDataConfigurations.motion[.acceleration] = 20
-                            case .linearAcceleration:
-                                newSensorDataConfigurations.motion[.linearAcceleration] = 20
-                            }
-
-                            try? mission.setSensorDataConfigurations(newSensorDataConfigurations)
-                        })
-
-                    Picker(selection: translationBinding, label: EmptyView()) {
-                        ForEach(TranslationMode.allCases) { translationMode in
-                            Text(translationMode.name)
-                                .tag(translationMode)
-                        }
-                    }
-                    .pickerStyle(.segmented)
+                    TranslationModePicker(mission: mission, newSensorDataConfigurations: $newSensorDataConfigurations)
                 }
             }
+        }
+        .onAppear {
+            setupScene()
         }
         .onDisappear {
             try? mission.clearSensorDataConfigurations()
