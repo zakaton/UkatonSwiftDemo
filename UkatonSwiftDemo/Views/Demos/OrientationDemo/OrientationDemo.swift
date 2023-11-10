@@ -1,5 +1,4 @@
 import Combine
-import ModelIO
 import SceneKit
 import Spatial
 import SwiftUI
@@ -78,27 +77,19 @@ struct OrientationDemo: View, Equatable {
     }
 
     init(mission: UKMission) {
-        print("init")
         self.mission = mission
     }
 
     var body: some View {
-        ZStack {
-            SceneView(scene: scene, pointOfView: cameraNode)
+        VStack {
+            SceneView(scene: scene, pointOfView: cameraNode, options: [.allowsCameraControl])
+                .clipShape(RoundedRectangle(cornerRadius: 16))
                 .onReceive(mission.sensorData.motion.quaternionSubject, perform: { onQuaternion($0.quaternion) })
                 .onReceive(mission.sensorData.motion.rotationRateSubject, perform: { onRotationRate($0.rotationRate) })
                 .onReceive(mission.sensorData.motion.accelerationSubject, perform: { onAcceleration($0.acceleration) })
                 .onReceive(mission.sensorData.motion.linearAccelerationSubject, perform: { onLinearAcceleration($0.linearAcceleration) })
-            HStack {
-                Spacer()
-                VStack {
-                    RotationModePicker(mission: mission, newSensorDataConfigurations: $newSensorDataConfigurations)
-
-                    Spacer()
-
-                    TranslationModePicker(mission: mission, newSensorDataConfigurations: $newSensorDataConfigurations)
-                }
-            }
+            RotationModePicker(mission: mission, newSensorDataConfigurations: $newSensorDataConfigurations)
+            TranslationModePicker(mission: mission, newSensorDataConfigurations: $newSensorDataConfigurations)
         }
         .onAppear {
             setupScene()
@@ -106,6 +97,7 @@ struct OrientationDemo: View, Equatable {
         .onDisappear {
             try? mission.clearSensorDataConfigurations()
         }
+        .navigationTitle("Orientation")
     }
 }
 

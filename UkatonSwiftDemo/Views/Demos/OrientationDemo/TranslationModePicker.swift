@@ -64,7 +64,11 @@ struct TranslationModePicker: View {
                     .tag(translationMode)
             }
         }
-        .pickerStyle(.segmented)
+        .modify {
+            #if !os(watchOS)
+            $0.pickerStyle(.segmented)
+            #endif
+        }
     }
 }
 

@@ -64,7 +64,11 @@ struct RotationModePicker: View {
                     .tag(rotationMode)
             }
         }
-        .pickerStyle(.segmented)
+        .modify {
+            #if !os(watchOS)
+            $0.pickerStyle(.segmented)
+            #endif
+        }
     }
 }
 

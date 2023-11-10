@@ -19,6 +19,9 @@
 		5F0F6F572AFEA87F007D0D03 /* TranslationModePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0F6F562AFEA87F007D0D03 /* TranslationModePicker.swift */; };
 		5F0F6F582AFEA87F007D0D03 /* TranslationModePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0F6F562AFEA87F007D0D03 /* TranslationModePicker.swift */; };
 		5F0F6F592AFEA87F007D0D03 /* TranslationModePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0F6F562AFEA87F007D0D03 /* TranslationModePicker.swift */; };
+		5F0F6F5B2AFEC9E8007D0D03 /* ViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0F6F5A2AFEC9E8007D0D03 /* ViewModifier.swift */; };
+		5F0F6F5C2AFEC9E8007D0D03 /* ViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0F6F5A2AFEC9E8007D0D03 /* ViewModifier.swift */; };
+		5F0F6F5D2AFEC9E8007D0D03 /* ViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0F6F5A2AFEC9E8007D0D03 /* ViewModifier.swift */; };
 		5F2B87182AE18C7000BF304B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF58F352ADE51D900AD2941 /* ContentView.swift */; };
 		5F2B87192AE18C7100BF304B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF58F352ADE51D900AD2941 /* ContentView.swift */; };
 		5F2B871C2AE18DFA00BF304B /* UkatonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5F2B871B2AE18DFA00BF304B /* UkatonKit */; };
@@ -108,6 +111,7 @@
 		5F0F6F4E2AFE9CCB007D0D03 /* monkey.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = monkey.usdz; sourceTree = "<group>"; };
 		5F0F6F522AFEA877007D0D03 /* RotationModePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationModePicker.swift; sourceTree = "<group>"; };
 		5F0F6F562AFEA87F007D0D03 /* TranslationModePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationModePicker.swift; sourceTree = "<group>"; };
+		5F0F6F5A2AFEC9E8007D0D03 /* ViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifier.swift; sourceTree = "<group>"; };
 		5F426ECE2AF17CEA00E58F15 /* DiscoveredDeviceRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveredDeviceRow.swift; sourceTree = "<group>"; };
 		5F426ED22AF1F51D00E58F15 /* DeviceDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDetail.swift; sourceTree = "<group>"; };
 		5F76163F2AFAB083000E1A80 /* SensorDataDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorDataDemo.swift; sourceTree = "<group>"; };
@@ -258,6 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				5FF24DE52AF41127009FAA0E /* LabelSpacing.swift */,
+				5F0F6F5A2AFEC9E8007D0D03 /* ViewModifier.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -513,6 +518,7 @@
 				5FCC84A42AFC414100B755FA /* MotionCalibrationSection.swift in Sources */,
 				5F7616402AFAB083000E1A80 /* SensorDataDemo.swift in Sources */,
 				5F0F6F532AFEA877007D0D03 /* RotationModePicker.swift in Sources */,
+				5F0F6F5B2AFEC9E8007D0D03 /* ViewModifier.swift in Sources */,
 				5FA3AFFD2AFAAA2800F5295C /* DeviceWifiInformationSection.swift in Sources */,
 				5F0F6F572AFEA87F007D0D03 /* TranslationModePicker.swift in Sources */,
 				5FCC84BB2AFCA33800B755FA /* PressureDemo.swift in Sources */,
@@ -538,6 +544,7 @@
 				5FCC84A52AFC414100B755FA /* MotionCalibrationSection.swift in Sources */,
 				5F7616412AFAB083000E1A80 /* SensorDataDemo.swift in Sources */,
 				5F0F6F542AFEA877007D0D03 /* RotationModePicker.swift in Sources */,
+				5F0F6F5C2AFEC9E8007D0D03 /* ViewModifier.swift in Sources */,
 				5FA3AFFE2AFAAA2800F5295C /* DeviceWifiInformationSection.swift in Sources */,
 				5F0F6F582AFEA87F007D0D03 /* TranslationModePicker.swift in Sources */,
 				5FCC84BC2AFCA33800B755FA /* PressureDemo.swift in Sources */,
@@ -563,6 +570,7 @@
 				5FCC84A62AFC414100B755FA /* MotionCalibrationSection.swift in Sources */,
 				5F7616422AFAB083000E1A80 /* SensorDataDemo.swift in Sources */,
 				5F0F6F552AFEA877007D0D03 /* RotationModePicker.swift in Sources */,
+				5F0F6F5D2AFEC9E8007D0D03 /* ViewModifier.swift in Sources */,
 				5FA3AFFF2AFAAA2800F5295C /* DeviceWifiInformationSection.swift in Sources */,
 				5F0F6F592AFEA87F007D0D03 /* TranslationModePicker.swift in Sources */,
 				5FCC84BD2AFCA33800B755FA /* PressureDemo.swift in Sources */,
