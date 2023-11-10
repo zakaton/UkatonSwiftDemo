@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F0F6F4B2AFDF3C5007D0D03 /* leftShoe.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 5F0F6F4A2AFDF3C5007D0D03 /* leftShoe.usdz */; };
+		5F0F6F4C2AFDF3C5007D0D03 /* leftShoe.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 5F0F6F4A2AFDF3C5007D0D03 /* leftShoe.usdz */; };
+		5F0F6F4D2AFDF3C5007D0D03 /* leftShoe.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 5F0F6F4A2AFDF3C5007D0D03 /* leftShoe.usdz */; };
+		5F0F6F4F2AFE9CCB007D0D03 /* monkey.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 5F0F6F4E2AFE9CCB007D0D03 /* monkey.usdz */; };
+		5F0F6F502AFE9CCB007D0D03 /* monkey.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 5F0F6F4E2AFE9CCB007D0D03 /* monkey.usdz */; };
+		5F0F6F512AFE9CCB007D0D03 /* monkey.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 5F0F6F4E2AFE9CCB007D0D03 /* monkey.usdz */; };
+		5F0F6F532AFEA877007D0D03 /* RotationModePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0F6F522AFEA877007D0D03 /* RotationModePicker.swift */; };
+		5F0F6F542AFEA877007D0D03 /* RotationModePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0F6F522AFEA877007D0D03 /* RotationModePicker.swift */; };
+		5F0F6F552AFEA877007D0D03 /* RotationModePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0F6F522AFEA877007D0D03 /* RotationModePicker.swift */; };
+		5F0F6F572AFEA87F007D0D03 /* TranslationModePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0F6F562AFEA87F007D0D03 /* TranslationModePicker.swift */; };
+		5F0F6F582AFEA87F007D0D03 /* TranslationModePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0F6F562AFEA87F007D0D03 /* TranslationModePicker.swift */; };
+		5F0F6F592AFEA87F007D0D03 /* TranslationModePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0F6F562AFEA87F007D0D03 /* TranslationModePicker.swift */; };
 		5F2B87182AE18C7000BF304B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF58F352ADE51D900AD2941 /* ContentView.swift */; };
 		5F2B87192AE18C7100BF304B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF58F352ADE51D900AD2941 /* ContentView.swift */; };
 		5F2B871C2AE18DFA00BF304B /* UkatonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5F2B871B2AE18DFA00BF304B /* UkatonKit */; };
@@ -48,9 +60,6 @@
 		5FCC84BF2AFCA34100B755FA /* HapticsDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCC84BE2AFCA34100B755FA /* HapticsDemo.swift */; };
 		5FCC84C02AFCA34100B755FA /* HapticsDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCC84BE2AFCA34100B755FA /* HapticsDemo.swift */; };
 		5FCC84C12AFCA34100B755FA /* HapticsDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCC84BE2AFCA34100B755FA /* HapticsDemo.swift */; };
-		5FCC84C82AFD54D400B755FA /* leftShoe.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 5FCC84C72AFD54D400B755FA /* leftShoe.usdz */; };
-		5FCC84C92AFD54D400B755FA /* leftShoe.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 5FCC84C72AFD54D400B755FA /* leftShoe.usdz */; };
-		5FCC84CA2AFD54D400B755FA /* leftShoe.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 5FCC84C72AFD54D400B755FA /* leftShoe.usdz */; };
 		5FF24DE62AF41127009FAA0E /* LabelSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF24DE52AF41127009FAA0E /* LabelSpacing.swift */; };
 		5FF24DE72AF41127009FAA0E /* LabelSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF24DE52AF41127009FAA0E /* LabelSpacing.swift */; };
 		5FF24DE82AF41127009FAA0E /* LabelSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF24DE52AF41127009FAA0E /* LabelSpacing.swift */; };
@@ -95,6 +104,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5F0F6F4A2AFDF3C5007D0D03 /* leftShoe.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = leftShoe.usdz; sourceTree = "<group>"; };
+		5F0F6F4E2AFE9CCB007D0D03 /* monkey.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = monkey.usdz; sourceTree = "<group>"; };
+		5F0F6F522AFEA877007D0D03 /* RotationModePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationModePicker.swift; sourceTree = "<group>"; };
+		5F0F6F562AFEA87F007D0D03 /* TranslationModePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationModePicker.swift; sourceTree = "<group>"; };
 		5F426ECE2AF17CEA00E58F15 /* DiscoveredDeviceRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveredDeviceRow.swift; sourceTree = "<group>"; };
 		5F426ED22AF1F51D00E58F15 /* DeviceDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDetail.swift; sourceTree = "<group>"; };
 		5F76163F2AFAB083000E1A80 /* SensorDataDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorDataDemo.swift; sourceTree = "<group>"; };
@@ -107,7 +120,6 @@
 		5FCC84B42AFC9B6700B755FA /* OrientationDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrientationDemo.swift; sourceTree = "<group>"; };
 		5FCC84BA2AFCA33800B755FA /* PressureDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressureDemo.swift; sourceTree = "<group>"; };
 		5FCC84BE2AFCA34100B755FA /* HapticsDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsDemo.swift; sourceTree = "<group>"; };
-		5FCC84C72AFD54D400B755FA /* leftShoe.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = leftShoe.usdz; sourceTree = "<group>"; };
 		5FF24DE52AF41127009FAA0E /* LabelSpacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelSpacing.swift; sourceTree = "<group>"; };
 		5FF58F302ADE51D900AD2941 /* UkatonSwiftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UkatonSwiftDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FF58F332ADE51D900AD2941 /* UkatonSwiftDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UkatonSwiftDemoApp.swift; sourceTree = "<group>"; };
@@ -211,6 +223,8 @@
 			isa = PBXGroup;
 			children = (
 				5FCC84B42AFC9B6700B755FA /* OrientationDemo.swift */,
+				5F0F6F522AFEA877007D0D03 /* RotationModePicker.swift */,
+				5F0F6F562AFEA87F007D0D03 /* TranslationModePicker.swift */,
 			);
 			path = OrientationDemo;
 			sourceTree = "<group>";
@@ -234,7 +248,8 @@
 		5FCC84C22AFD525300B755FA /* 3DModels */ = {
 			isa = PBXGroup;
 			children = (
-				5FCC84C72AFD54D400B755FA /* leftShoe.usdz */,
+				5F0F6F4E2AFE9CCB007D0D03 /* monkey.usdz */,
+				5F0F6F4A2AFDF3C5007D0D03 /* leftShoe.usdz */,
 			);
 			path = 3DModels;
 			sourceTree = "<group>";
@@ -457,7 +472,8 @@
 			files = (
 				5FF58F3C2ADE51DA00AD2941 /* Preview Assets.xcassets in Resources */,
 				5FF58F382ADE51DA00AD2941 /* Assets.xcassets in Resources */,
-				5FCC84C82AFD54D400B755FA /* leftShoe.usdz in Resources */,
+				5F0F6F4F2AFE9CCB007D0D03 /* monkey.usdz in Resources */,
+				5F0F6F4B2AFDF3C5007D0D03 /* leftShoe.usdz in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,7 +483,8 @@
 			files = (
 				5FF58F782ADF1F1800AD2941 /* Assets.xcassets in Resources */,
 				5FF58F552ADF13E800AD2941 /* Preview Assets.xcassets in Resources */,
-				5FCC84C92AFD54D400B755FA /* leftShoe.usdz in Resources */,
+				5F0F6F502AFE9CCB007D0D03 /* monkey.usdz in Resources */,
+				5F0F6F4C2AFDF3C5007D0D03 /* leftShoe.usdz in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,7 +494,8 @@
 			files = (
 				5FF58F772ADF1BF300AD2941 /* Assets.xcassets in Resources */,
 				5FF58F6B2ADF183000AD2941 /* Preview Assets.xcassets in Resources */,
-				5FCC84CA2AFD54D400B755FA /* leftShoe.usdz in Resources */,
+				5F0F6F512AFE9CCB007D0D03 /* monkey.usdz in Resources */,
+				5F0F6F4D2AFDF3C5007D0D03 /* leftShoe.usdz in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,7 +512,9 @@
 				5FA3B0032AFAAB6E00F5295C /* DeviceDemosSection.swift in Sources */,
 				5FCC84A42AFC414100B755FA /* MotionCalibrationSection.swift in Sources */,
 				5F7616402AFAB083000E1A80 /* SensorDataDemo.swift in Sources */,
+				5F0F6F532AFEA877007D0D03 /* RotationModePicker.swift in Sources */,
 				5FA3AFFD2AFAAA2800F5295C /* DeviceWifiInformationSection.swift in Sources */,
+				5F0F6F572AFEA87F007D0D03 /* TranslationModePicker.swift in Sources */,
 				5FCC84BB2AFCA33800B755FA /* PressureDemo.swift in Sources */,
 				5FCC84B52AFC9B6700B755FA /* OrientationDemo.swift in Sources */,
 				5FF58F362ADE51D900AD2941 /* ContentView.swift in Sources */,
@@ -517,7 +537,9 @@
 				5FA3B0042AFAAB6E00F5295C /* DeviceDemosSection.swift in Sources */,
 				5FCC84A52AFC414100B755FA /* MotionCalibrationSection.swift in Sources */,
 				5F7616412AFAB083000E1A80 /* SensorDataDemo.swift in Sources */,
+				5F0F6F542AFEA877007D0D03 /* RotationModePicker.swift in Sources */,
 				5FA3AFFE2AFAAA2800F5295C /* DeviceWifiInformationSection.swift in Sources */,
+				5F0F6F582AFEA87F007D0D03 /* TranslationModePicker.swift in Sources */,
 				5FCC84BC2AFCA33800B755FA /* PressureDemo.swift in Sources */,
 				5FCC84B62AFC9B6700B755FA /* OrientationDemo.swift in Sources */,
 				5FF58F5B2ADF140C00AD2941 /* UkatonSwiftDemoApp.swift in Sources */,
@@ -540,7 +562,9 @@
 				5FA3B0052AFAAB6E00F5295C /* DeviceDemosSection.swift in Sources */,
 				5FCC84A62AFC414100B755FA /* MotionCalibrationSection.swift in Sources */,
 				5F7616422AFAB083000E1A80 /* SensorDataDemo.swift in Sources */,
+				5F0F6F552AFEA877007D0D03 /* RotationModePicker.swift in Sources */,
 				5FA3AFFF2AFAAA2800F5295C /* DeviceWifiInformationSection.swift in Sources */,
+				5F0F6F592AFEA87F007D0D03 /* TranslationModePicker.swift in Sources */,
 				5FCC84BD2AFCA33800B755FA /* PressureDemo.swift in Sources */,
 				5FCC84B72AFC9B6700B755FA /* OrientationDemo.swift in Sources */,
 				5FF58F752ADF18A000AD2941 /* UkatonSwiftDemoApp.swift in Sources */,
