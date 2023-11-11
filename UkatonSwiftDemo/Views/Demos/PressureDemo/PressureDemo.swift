@@ -3,6 +3,7 @@ import UkatonKit
 
 struct PressureDemo: View {
     @ObservedObject var mission: UKMission
+    @State private var newSensorDataConfigurations: UKSensorDataConfigurations = .init()
 
     var body: some View {
         VStack {
@@ -22,7 +23,7 @@ struct PressureDemo: View {
                         }
                     }
                 }
-            PressureModePicker(mission: mission)
+            PressureModePicker(mission: mission, newSensorDataConfigurations: $newSensorDataConfigurations)
         }
     }
 }

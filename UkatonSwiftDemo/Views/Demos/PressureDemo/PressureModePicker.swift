@@ -4,7 +4,7 @@ import UkatonMacros
 
 struct PressureModePicker: View {
     @ObservedObject var mission: UKMission
-    @State private var newSensorDataConfigurations: UKSensorDataConfigurations = .init()
+    @Binding var newSensorDataConfigurations: UKSensorDataConfigurations
 
     // MARK: - isEnabled
 
@@ -73,6 +73,6 @@ struct PressureModePicker: View {
 }
 
 #Preview {
-    PressureModePicker(mission: .none)
+    PressureModePicker(mission: .none, newSensorDataConfigurations: .constant(.init()))
         .frame(maxWidth: 300)
 }
