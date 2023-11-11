@@ -5,14 +5,22 @@ import SwiftUI
 import UkatonKit
 import UkatonMacros
 
-// TODO: - quaternion
 // TODO: - rotationRate
 // TODO: - linearAcceleration
 // TODO: - acceleration
-// TODO: - refactor
 
-struct OrientationDemo: View, Equatable {
-    static func == (lhs: OrientationDemo, rhs: OrientationDemo) -> Bool {
+func interpolate(start: simd_float3, end: simd_float3, factor: Float) -> simd_float3 {
+    // Ensure that the factor is within the [0, 1] range
+    let clampedFactor = max(0.0, min(1.0, factor))
+
+    // Perform linear interpolation
+    let interpolatedVector = (1.0 - clampedFactor) * start + clampedFactor * end
+
+    return interpolatedVector
+}
+
+struct MotionDemo: View, Equatable {
+    static func == (lhs: Self, rhs: Self) -> Bool {
         lhs.mission == rhs.mission && lhs.mission.deviceType == rhs.mission.deviceType
     }
 
@@ -28,26 +36,22 @@ struct OrientationDemo: View, Equatable {
 
     // MARK: Listeners
 
-    private var cancellables = Set<AnyCancellable>()
-
-    func onQuaternion(_ quaternion: Quaternion) {
-        print(quaternion.string)
-        model.rootNode.orientation = .init(quaternion.vector)
+    func onRotation(_ rotation: Rotation3D) {
+        model.rootNode.simdOrientation = .init(rotation)
     }
 
     func onRotationRate(_ rotationRate: Rotation3D) {
-        // TODO: - FILL
-        print(rotationRate.string)
+        var eulerAngles = rotationRate.eulerAngles(order: .xyz)
+        eulerAngles.angles *= 2.0
+        model.rootNode.eulerAngles = .init(eulerAngles.angles)
     }
 
     func onLinearAcceleration(_ linearAcceleration: Vector3D) {
-        // TODO: - FILL
-        print(linearAcceleration.string)
+        model.rootNode.simdPosition = interpolate(start: model.rootNode.simdPosition, end: .init(linearAcceleration * 0.05), factor: 0.4)
     }
 
     func onAcceleration(_ acceleration: Vector3D) {
-        // TODO: - FILL
-        print(acceleration.string)
+        model.rootNode.simdPosition = interpolate(start: model.rootNode.simdPosition, end: .init(acceleration * 0.05), factor: 0.4)
     }
 
     // MARK: - Setup
@@ -58,9 +62,8 @@ struct OrientationDemo: View, Equatable {
         let modelName = mission.deviceType.isInsole ? "leftShoe" : "monkey"
         model = .init(named: "\(modelName).usdz")!
         if mission.deviceType == .rightInsole {
-            model.rootNode.scale.x = -0.5
+            model.rootNode.scale.x = -1
         }
-        onQuaternion(mission.sensorData.motion.quaternion)
         scene.rootNode.addChildNode(model.rootNode)
 
         // MARK: - Lights,
@@ -84,10 +87,11 @@ struct OrientationDemo: View, Equatable {
         VStack {
             SceneView(scene: scene, pointOfView: cameraNode, options: [.allowsCameraControl])
                 .clipShape(RoundedRectangle(cornerRadius: 16))
-                .onReceive(mission.sensorData.motion.quaternionSubject, perform: { onQuaternion($0.quaternion) })
+                .onReceive(mission.sensorData.motion.rotationSubject, perform: { onRotation($0.rotation) })
                 .onReceive(mission.sensorData.motion.rotationRateSubject, perform: { onRotationRate($0.rotationRate) })
                 .onReceive(mission.sensorData.motion.accelerationSubject, perform: { onAcceleration($0.acceleration) })
                 .onReceive(mission.sensorData.motion.linearAccelerationSubject, perform: { onLinearAcceleration($0.linearAcceleration) })
+
             RotationModePicker(mission: mission, newSensorDataConfigurations: $newSensorDataConfigurations)
             TranslationModePicker(mission: mission, newSensorDataConfigurations: $newSensorDataConfigurations)
         }
@@ -97,11 +101,18 @@ struct OrientationDemo: View, Equatable {
         .onDisappear {
             try? mission.clearSensorDataConfigurations()
         }
-        .navigationTitle("Orientation")
+        .toolbar {
+            Button {
+                print("reset")
+            } label: {
+                Text("reset")
+            }
+        }
+        .navigationTitle("Motion")
     }
 }
 
 #Preview {
-    OrientationDemo(mission: .none)
+    MotionDemo(mission: .none)
         .frame(maxWidth: 360, maxHeight: 300)
 }

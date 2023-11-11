@@ -7,7 +7,7 @@ enum DeviceDemo: CaseIterable, Identifiable {
     public var id: Self { self }
 
     case sensorData
-    case orientation
+    case motion
     case pressure
     case haptics
 
@@ -23,7 +23,7 @@ enum DeviceDemo: CaseIterable, Identifiable {
     @ViewBuilder func view(mission: UKMission) -> some View {
         switch self {
         case .sensorData: SensorDataDemo(mission: mission)
-        case .orientation: OrientationDemo(mission: mission)
+        case .motion: MotionDemo(mission: mission)
         case .pressure: PressureDemo(mission: mission)
         case .haptics: HapticsDemo(mission: mission)
         }
