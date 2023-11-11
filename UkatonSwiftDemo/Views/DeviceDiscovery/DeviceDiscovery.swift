@@ -51,5 +51,5 @@ struct DeviceDiscovery: View {
 
 #Preview {
     DeviceDiscovery()
-        .frame(maxWidth: 320, minHeight: 300)
+        .frame(maxWidth: 350, minHeight: 300)
 }

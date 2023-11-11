@@ -5,17 +5,11 @@ import SwiftUI
 import UkatonKit
 import UkatonMacros
 
-// TODO: - rotationRate
-// TODO: - linearAcceleration
-// TODO: - acceleration
+// TODO: - reset quaternion
 
 func interpolate(start: simd_float3, end: simd_float3, factor: Float) -> simd_float3 {
-    // Ensure that the factor is within the [0, 1] range
     let clampedFactor = max(0.0, min(1.0, factor))
-
-    // Perform linear interpolation
     let interpolatedVector = (1.0 - clampedFactor) * start + clampedFactor * end
-
     return interpolatedVector
 }
 
@@ -36,8 +30,11 @@ struct MotionDemo: View, Equatable {
 
     // MARK: Listeners
 
+    @State var offsetYaw: Double = 0
     func onRotation(_ rotation: Rotation3D) {
-        model.rootNode.simdOrientation = .init(rotation)
+        var eulerAngles = rotation.eulerAngles(order: .zxy)
+        eulerAngles.angles.y -= offsetYaw
+        model.rootNode.eulerAngles = .init(eulerAngles.angles)
     }
 
     func onRotationRate(_ rotationRate: Rotation3D) {
@@ -104,8 +101,10 @@ struct MotionDemo: View, Equatable {
         .toolbar {
             Button {
                 print("reset")
+                let eulerAngles = mission.sensorData.motion.rotation.eulerAngles(order: .zxy)
+                offsetYaw = eulerAngles.angles.y
             } label: {
-                Text("reset")
+                Label("reset orientation", systemImage: "arrow.counterclockwise")
             }
         }
         .navigationTitle("Motion")
@@ -113,6 +112,6 @@ struct MotionDemo: View, Equatable {
 }
 
 #Preview {
-    MotionDemo(mission: .none)
+    NavigationStack { MotionDemo(mission: .none) }
         .frame(maxWidth: 360, maxHeight: 300)
 }
