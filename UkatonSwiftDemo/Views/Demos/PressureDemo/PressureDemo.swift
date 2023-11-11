@@ -5,7 +5,9 @@ struct PressureDemo: View {
     @ObservedObject var mission: UKMission
 
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Image("leftInsole")
+            .resizable()
+            .aspectRatio(contentMode: .fit)
     }
 }
 

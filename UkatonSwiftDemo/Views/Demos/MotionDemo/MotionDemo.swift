@@ -100,7 +100,6 @@ struct MotionDemo: View, Equatable {
         }
         .toolbar {
             Button {
-                print("reset")
                 let eulerAngles = mission.sensorData.motion.rotation.eulerAngles(order: .zxy)
                 offsetYaw = eulerAngles.angles.y
             } label: {
