@@ -18,7 +18,7 @@ struct PressureDemo: View {
                                 .fill(.red)
                                 .clipShape(RoundedRectangle(cornerRadius: 3))
                                 .opacity(pressureValue.normalizedValue)
-                                .frame(width: 20, height: 20)
+                                .frame(width: geometry.size.width * 0.18, height: geometry.size.height * 0.06)
                                 .position(x: geometry.size.width * pressureValue.position.x, y: geometry.size.height * pressureValue.position.y)
                         }
                     }
