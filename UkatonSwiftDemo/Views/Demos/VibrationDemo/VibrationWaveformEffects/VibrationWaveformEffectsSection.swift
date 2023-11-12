@@ -20,6 +20,7 @@ struct VibrationWaveformEffectsSection: View {
             ForEach(0 ..< waveformEffectsArray.count, id: \.self) { waveformEffectsIndex in
                 HStack {
                     Text("Sequence \(waveformEffectsIndex + 1)")
+                        .bold()
                     Spacer()
                     Button(role: .destructive, action: {
                         waveformEffectsArray.remove(at: waveformEffectsIndex)
@@ -29,9 +30,6 @@ struct VibrationWaveformEffectsSection: View {
                 }
                 VibrationWaveformEffectsView(mission: mission, waveformEffects: $waveformEffectsArray[waveformEffectsIndex])
             }
-            .onDelete(perform: { indexSet in
-                waveformEffectsArray.remove(atOffsets: indexSet)
-            })
 
         } header: {
             Text("Waveform Effects")

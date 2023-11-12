@@ -16,6 +16,7 @@ struct VibrationWaveformsView: View {
         ForEach(waveforms.indices, id: \.self) { index in
             HStack {
                 Text("waveform \(index + 1)")
+                    .bold()
                 Spacer()
                 Button(role: .destructive, action: {
                     waveforms.remove(at: index)
