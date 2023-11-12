@@ -29,7 +29,7 @@ struct MotionDemo: View, Equatable {
     // MARK: Listeners
 
     @State var offsetYaw: Double = 0
-    @State var offsetQuaternion: Quaternion = .init(ix: 0, iy: 0, iz: 0, r: 1)
+    @State var offsetQuaternion: Quaternion = .init(angle: 0, axis: .init(0, 1, 0))
     func onQuaternion(_ quaternion: Quaternion) {
         model.rootNode.orientation = .init((offsetQuaternion * quaternion).vector)
     }

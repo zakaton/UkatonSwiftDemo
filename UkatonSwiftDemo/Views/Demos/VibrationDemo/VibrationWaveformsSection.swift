@@ -15,15 +15,29 @@ struct VibrationWaveformsSection: View {
 
     var body: some View {
         Section {
+            NavigationLink("Explore Waveforms") {
+                AllVibrationWaveformsView(mission: mission)
+            }
+
+            ForEach(waveforms) { waveform in
+                Text(waveform.name)
+            }
+            .onDelete(perform: { indexSet in
+                waveforms.remove(atOffsets: indexSet)
+            })
+
+            Button(action: {
+                waveforms.append((waveforms.isEmpty ? .buzz100 : waveforms.last)!)
+            }) {
+                Label("add waveform", systemImage: "plus")
+            }
+
             Button(action: {
                 vibrate(waveforms: waveforms)
             }) {
                 Text("trigger waveforms")
             }
             .disabled(waveforms.isEmpty)
-            NavigationLink("All Waveforms") {
-                AllVibrationWaveformsView(mission: mission)
-            }
         } header: {
             Text("Waveforms")
                 .font(.headline)

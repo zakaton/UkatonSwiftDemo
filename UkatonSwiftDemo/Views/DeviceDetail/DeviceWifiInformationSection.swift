@@ -1,3 +1,4 @@
+import Foundation
 import SwiftUI
 import UkatonKit
 
@@ -17,6 +18,8 @@ struct DeviceWifiInformationSection: View {
     @State private var showWifiPassword: Bool = false
     @State private var showNewWifiPassword: Bool = false
     @State private var newShouldConnectToWifi: Bool
+
+    @State private var didCopyToClipboard: Bool = false
 
     init(mission: UKMission) {
         self.mission = mission
@@ -40,7 +43,29 @@ struct DeviceWifiInformationSection: View {
             Text("__connected?__ \(String(mission.isConnectedToWifi))")
 
             if mission.isConnectedToWifi, let ipAddress = mission.ipAddress {
-                Text("__ip address__: \(ipAddress)")
+                HStack {
+                    Text("__ip address__: \(ipAddress)")
+                    #if os(iOS)
+                    Button(action: {
+                        let pasteboard = UIPasteboard.general
+                        pasteboard.string = ipAddress
+                        print("copied!")
+                        didCopyToClipboard = true
+                    }) {
+                        if didCopyToClipboard {
+                            Label("copied!", systemImage: "list.clipboard")
+                                .labelStyle(LabelSpacing(spacing: 4))
+                        }
+                        else {
+                            Label("", systemImage: "clipboard")
+                                .labelStyle(LabelSpacing(spacing: 4))
+                        }
+                    }
+                    .onReceive(mission.ipAddressSubject, perform: { _ in
+                        didCopyToClipboard = false
+                    })
+                    #endif
+                }
             }
 
             if !requiresWifi {
