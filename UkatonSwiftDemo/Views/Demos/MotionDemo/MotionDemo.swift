@@ -29,10 +29,9 @@ struct MotionDemo: View, Equatable {
     // MARK: Listeners
 
     @State var offsetYaw: Double = 0
-    func onRotation(_ rotation: Rotation3D) {
-        var eulerAngles = rotation.eulerAngles(order: .zxy)
-        eulerAngles.angles.y -= offsetYaw
-        model.rootNode.eulerAngles = .init(eulerAngles.angles)
+    @State var offsetQuaternion: Quaternion = .init(ix: 0, iy: 0, iz: 0, r: 1)
+    func onQuaternion(_ quaternion: Quaternion) {
+        model.rootNode.orientation = .init((offsetQuaternion * quaternion).vector)
     }
 
     func onRotationRate(_ rotationRate: Rotation3D) {
@@ -82,7 +81,7 @@ struct MotionDemo: View, Equatable {
         VStack {
             SceneView(scene: scene, pointOfView: cameraNode, options: [.allowsCameraControl])
                 .clipShape(RoundedRectangle(cornerRadius: 16))
-                .onReceive(mission.sensorData.motion.rotationSubject, perform: { onRotation($0.rotation) })
+                .onReceive(mission.sensorData.motion.quaternionSubject, perform: { onQuaternion($0.quaternion) })
                 .onReceive(mission.sensorData.motion.rotationRateSubject, perform: { onRotationRate($0.rotationRate) })
                 .onReceive(mission.sensorData.motion.accelerationSubject, perform: { onAcceleration($0.acceleration) })
                 .onReceive(mission.sensorData.motion.linearAccelerationSubject, perform: { onLinearAcceleration($0.linearAcceleration) })
@@ -102,7 +101,7 @@ struct MotionDemo: View, Equatable {
         .toolbar {
             Button {
                 let eulerAngles = mission.sensorData.motion.rotation.eulerAngles(order: .zxy)
-                offsetYaw = eulerAngles.angles.y
+                offsetQuaternion = Quaternion(angle: -eulerAngles.angles.y, axis: .init(0, 1, 0))
             } label: {
                 Label("reset orientation", systemImage: "arrow.counterclockwise")
             }
