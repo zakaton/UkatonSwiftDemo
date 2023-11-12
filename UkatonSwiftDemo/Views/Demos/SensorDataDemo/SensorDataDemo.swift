@@ -5,17 +5,20 @@ struct SensorDataDemo: View {
     @ObservedObject var mission: UKMission
 
     let sensorDataRates: [UKSensorDataRate] = [0, 20, 40, 80, 100]
-    @State private var newSensorDataConfigurations: UKSensorDataConfigurations = .init()
+    @State private var sensorDataConfigurations: UKSensorDataConfigurations = .init()
 
     var body: some View {
         List {
-            MotionDataSection(mission: mission, newSensorDataConfigurations: $newSensorDataConfigurations, sensorDataRates: sensorDataRates)
+            MotionDataSection(mission: mission, sensorDataConfigurations: $sensorDataConfigurations, sensorDataRates: sensorDataRates)
             MotionCalibrationSection(mission: mission)
 
             if mission.deviceType.isInsole {
-                PressureDataSection(mission: mission, newSensorDataConfigurations: $newSensorDataConfigurations, sensorDataRates: sensorDataRates)
+                PressureDataSection(mission: mission, sensorDataConfigurations: $sensorDataConfigurations, sensorDataRates: sensorDataRates)
             }
         }
+        .onReceive(mission.sensorDataConfigurationsSubject, perform: {
+            sensorDataConfigurations = $0
+        })
         .navigationTitle("Sensor Data")
     }
 }

@@ -7,15 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5F0DB93D2B00005F00FB413E /* VibrationWaveformsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0DB93C2B00005F00FB413E /* VibrationWaveformsSection.swift */; };
-		5F0DB93E2B00005F00FB413E /* VibrationWaveformsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0DB93C2B00005F00FB413E /* VibrationWaveformsSection.swift */; };
-		5F0DB93F2B00005F00FB413E /* VibrationWaveformsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0DB93C2B00005F00FB413E /* VibrationWaveformsSection.swift */; };
-		5F0DB9412B00053D00FB413E /* VibrationSequenceSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0DB9402B00053D00FB413E /* VibrationSequenceSection.swift */; };
-		5F0DB9422B00053D00FB413E /* VibrationSequenceSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0DB9402B00053D00FB413E /* VibrationSequenceSection.swift */; };
-		5F0DB9432B00053D00FB413E /* VibrationSequenceSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0DB9402B00053D00FB413E /* VibrationSequenceSection.swift */; };
-		5F0DB9452B000C8800FB413E /* AllVibrationWaveformsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0DB9442B000C8800FB413E /* AllVibrationWaveformsView.swift */; };
-		5F0DB9462B000C8800FB413E /* AllVibrationWaveformsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0DB9442B000C8800FB413E /* AllVibrationWaveformsView.swift */; };
-		5F0DB9472B000C8800FB413E /* AllVibrationWaveformsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0DB9442B000C8800FB413E /* AllVibrationWaveformsView.swift */; };
+		5F0DB93D2B00005F00FB413E /* VibrationWaveformEffectsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0DB93C2B00005F00FB413E /* VibrationWaveformEffectsSection.swift */; };
+		5F0DB93E2B00005F00FB413E /* VibrationWaveformEffectsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0DB93C2B00005F00FB413E /* VibrationWaveformEffectsSection.swift */; };
+		5F0DB93F2B00005F00FB413E /* VibrationWaveformEffectsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0DB93C2B00005F00FB413E /* VibrationWaveformEffectsSection.swift */; };
+		5F0DB9412B00053D00FB413E /* VibrationWaveformsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0DB9402B00053D00FB413E /* VibrationWaveformsSection.swift */; };
+		5F0DB9422B00053D00FB413E /* VibrationWaveformsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0DB9402B00053D00FB413E /* VibrationWaveformsSection.swift */; };
+		5F0DB9432B00053D00FB413E /* VibrationWaveformsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0DB9402B00053D00FB413E /* VibrationWaveformsSection.swift */; };
+		5F0DB9452B000C8800FB413E /* AllVibrationWaveformEffectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0DB9442B000C8800FB413E /* AllVibrationWaveformEffectsView.swift */; };
+		5F0DB9462B000C8800FB413E /* AllVibrationWaveformEffectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0DB9442B000C8800FB413E /* AllVibrationWaveformEffectsView.swift */; };
+		5F0DB9472B000C8800FB413E /* AllVibrationWaveformEffectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0DB9442B000C8800FB413E /* AllVibrationWaveformEffectsView.swift */; };
 		5F0F6F4B2AFDF3C5007D0D03 /* leftShoe.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 5F0F6F4A2AFDF3C5007D0D03 /* leftShoe.usdz */; };
 		5F0F6F4C2AFDF3C5007D0D03 /* leftShoe.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 5F0F6F4A2AFDF3C5007D0D03 /* leftShoe.usdz */; };
 		5F0F6F4D2AFDF3C5007D0D03 /* leftShoe.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 5F0F6F4A2AFDF3C5007D0D03 /* leftShoe.usdz */; };
@@ -45,6 +45,12 @@
 		5F7616402AFAB083000E1A80 /* SensorDataDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F76163F2AFAB083000E1A80 /* SensorDataDemo.swift */; };
 		5F7616412AFAB083000E1A80 /* SensorDataDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F76163F2AFAB083000E1A80 /* SensorDataDemo.swift */; };
 		5F7616422AFAB083000E1A80 /* SensorDataDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F76163F2AFAB083000E1A80 /* SensorDataDemo.swift */; };
+		5F777D462B0143780001509A /* VibrationWaveformEffectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F777D452B0143780001509A /* VibrationWaveformEffectsView.swift */; };
+		5F777D472B0143780001509A /* VibrationWaveformEffectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F777D452B0143780001509A /* VibrationWaveformEffectsView.swift */; };
+		5F777D482B0143780001509A /* VibrationWaveformEffectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F777D452B0143780001509A /* VibrationWaveformEffectsView.swift */; };
+		5F777D4A2B01481A0001509A /* VibrationWaveformsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F777D492B01481A0001509A /* VibrationWaveformsView.swift */; };
+		5F777D4B2B01481A0001509A /* VibrationWaveformsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F777D492B01481A0001509A /* VibrationWaveformsView.swift */; };
+		5F777D4C2B01481A0001509A /* VibrationWaveformsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F777D492B01481A0001509A /* VibrationWaveformsView.swift */; };
 		5FA3AFF92AFAA97800F5295C /* DeviceInformationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3AFF82AFAA97800F5295C /* DeviceInformationSection.swift */; };
 		5FA3AFFA2AFAA97800F5295C /* DeviceInformationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3AFF82AFAA97800F5295C /* DeviceInformationSection.swift */; };
 		5FA3AFFB2AFAA97800F5295C /* DeviceInformationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3AFF82AFAA97800F5295C /* DeviceInformationSection.swift */; };
@@ -119,9 +125,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5F0DB93C2B00005F00FB413E /* VibrationWaveformsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibrationWaveformsSection.swift; sourceTree = "<group>"; };
-		5F0DB9402B00053D00FB413E /* VibrationSequenceSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibrationSequenceSection.swift; sourceTree = "<group>"; };
-		5F0DB9442B000C8800FB413E /* AllVibrationWaveformsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllVibrationWaveformsView.swift; sourceTree = "<group>"; };
+		5F0DB93C2B00005F00FB413E /* VibrationWaveformEffectsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibrationWaveformEffectsSection.swift; sourceTree = "<group>"; };
+		5F0DB9402B00053D00FB413E /* VibrationWaveformsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibrationWaveformsSection.swift; sourceTree = "<group>"; };
+		5F0DB9442B000C8800FB413E /* AllVibrationWaveformEffectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllVibrationWaveformEffectsView.swift; sourceTree = "<group>"; };
 		5F0F6F4A2AFDF3C5007D0D03 /* leftShoe.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = leftShoe.usdz; sourceTree = "<group>"; };
 		5F0F6F4E2AFE9CCB007D0D03 /* monkey.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = monkey.usdz; sourceTree = "<group>"; };
 		5F0F6F522AFEA877007D0D03 /* RotationModePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationModePicker.swift; sourceTree = "<group>"; };
@@ -130,6 +136,8 @@
 		5F426ECE2AF17CEA00E58F15 /* DiscoveredDeviceRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveredDeviceRow.swift; sourceTree = "<group>"; };
 		5F426ED22AF1F51D00E58F15 /* DeviceDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDetail.swift; sourceTree = "<group>"; };
 		5F76163F2AFAB083000E1A80 /* SensorDataDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorDataDemo.swift; sourceTree = "<group>"; };
+		5F777D452B0143780001509A /* VibrationWaveformEffectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibrationWaveformEffectsView.swift; sourceTree = "<group>"; };
+		5F777D492B01481A0001509A /* VibrationWaveformsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibrationWaveformsView.swift; sourceTree = "<group>"; };
 		5FA3AFF82AFAA97800F5295C /* DeviceInformationSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInformationSection.swift; sourceTree = "<group>"; };
 		5FA3AFFC2AFAAA2800F5295C /* DeviceWifiInformationSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceWifiInformationSection.swift; sourceTree = "<group>"; };
 		5FA3B0022AFAAB6E00F5295C /* DeviceDemosSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDemosSection.swift; sourceTree = "<group>"; };
@@ -197,6 +205,25 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5F777D4D2B016A140001509A /* VibrationWaveformEffects */ = {
+			isa = PBXGroup;
+			children = (
+				5F777D452B0143780001509A /* VibrationWaveformEffectsView.swift */,
+				5F0DB9442B000C8800FB413E /* AllVibrationWaveformEffectsView.swift */,
+				5F0DB93C2B00005F00FB413E /* VibrationWaveformEffectsSection.swift */,
+			);
+			path = VibrationWaveformEffects;
+			sourceTree = "<group>";
+		};
+		5F777D4E2B016A3A0001509A /* VibrationWaveforms */ = {
+			isa = PBXGroup;
+			children = (
+				5F777D492B01481A0001509A /* VibrationWaveformsView.swift */,
+				5F0DB9402B00053D00FB413E /* VibrationWaveformsSection.swift */,
+			);
+			path = VibrationWaveforms;
+			sourceTree = "<group>";
+		};
 		5FA3AFF62AF9937B00F5295C /* Demos */ = {
 			isa = PBXGroup;
 			children = (
@@ -252,10 +279,9 @@
 		5FCC84B82AFCA30900B755FA /* VibrationDemo */ = {
 			isa = PBXGroup;
 			children = (
+				5F777D4E2B016A3A0001509A /* VibrationWaveforms */,
+				5F777D4D2B016A140001509A /* VibrationWaveformEffects */,
 				5FCC84BE2AFCA34100B755FA /* VibrationDemo.swift */,
-				5F0DB93C2B00005F00FB413E /* VibrationWaveformsSection.swift */,
-				5F0DB9402B00053D00FB413E /* VibrationSequenceSection.swift */,
-				5F0DB9442B000C8800FB413E /* AllVibrationWaveformsView.swift */,
 			);
 			path = VibrationDemo;
 			sourceTree = "<group>";
@@ -532,15 +558,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				5FFBE8112AF160CF00F8CBD7 /* DeviceDiscovery.swift in Sources */,
-				5F0DB9412B00053D00FB413E /* VibrationSequenceSection.swift in Sources */,
-				5F0DB9452B000C8800FB413E /* AllVibrationWaveformsView.swift in Sources */,
+				5F0DB9412B00053D00FB413E /* VibrationWaveformsSection.swift in Sources */,
+				5F0DB9452B000C8800FB413E /* AllVibrationWaveformEffectsView.swift in Sources */,
 				5F426ED42AF1F53300E58F15 /* DeviceDetail.swift in Sources */,
 				5FF24DE62AF41127009FAA0E /* LabelSpacing.swift in Sources */,
 				5FA3B0032AFAAB6E00F5295C /* DeviceDemosSection.swift in Sources */,
-				5F0DB93D2B00005F00FB413E /* VibrationWaveformsSection.swift in Sources */,
+				5F0DB93D2B00005F00FB413E /* VibrationWaveformEffectsSection.swift in Sources */,
 				5FCC84A42AFC414100B755FA /* MotionCalibrationSection.swift in Sources */,
 				5F7616402AFAB083000E1A80 /* SensorDataDemo.swift in Sources */,
 				5F0F6F532AFEA877007D0D03 /* RotationModePicker.swift in Sources */,
+				5F777D4A2B01481A0001509A /* VibrationWaveformsView.swift in Sources */,
 				5F0F6F5B2AFEC9E8007D0D03 /* ViewModifier.swift in Sources */,
 				5FA3AFFD2AFAAA2800F5295C /* DeviceWifiInformationSection.swift in Sources */,
 				5F0F6F572AFEA87F007D0D03 /* TranslationModePicker.swift in Sources */,
@@ -548,6 +575,7 @@
 				5FACE8C72AFFEFE400F1AFFD /* PressureModePicker.swift in Sources */,
 				5FCC84B52AFC9B6700B755FA /* MotionDemo.swift in Sources */,
 				5FF58F362ADE51D900AD2941 /* ContentView.swift in Sources */,
+				5F777D462B0143780001509A /* VibrationWaveformEffectsView.swift in Sources */,
 				5FCC84A82AFC426000B755FA /* MotionDataSection.swift in Sources */,
 				5F426ECF2AF17CEA00E58F15 /* DiscoveredDeviceRow.swift in Sources */,
 				5FF58F342ADE51D900AD2941 /* UkatonSwiftDemoApp.swift in Sources */,
@@ -562,15 +590,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				5FFBE8122AF160CF00F8CBD7 /* DeviceDiscovery.swift in Sources */,
-				5F0DB9422B00053D00FB413E /* VibrationSequenceSection.swift in Sources */,
-				5F0DB9462B000C8800FB413E /* AllVibrationWaveformsView.swift in Sources */,
+				5F0DB9422B00053D00FB413E /* VibrationWaveformsSection.swift in Sources */,
+				5F0DB9462B000C8800FB413E /* AllVibrationWaveformEffectsView.swift in Sources */,
 				5F426ED32AF1F51D00E58F15 /* DeviceDetail.swift in Sources */,
 				5FF24DE72AF41127009FAA0E /* LabelSpacing.swift in Sources */,
 				5FA3B0042AFAAB6E00F5295C /* DeviceDemosSection.swift in Sources */,
-				5F0DB93E2B00005F00FB413E /* VibrationWaveformsSection.swift in Sources */,
+				5F0DB93E2B00005F00FB413E /* VibrationWaveformEffectsSection.swift in Sources */,
 				5FCC84A52AFC414100B755FA /* MotionCalibrationSection.swift in Sources */,
 				5F7616412AFAB083000E1A80 /* SensorDataDemo.swift in Sources */,
 				5F0F6F542AFEA877007D0D03 /* RotationModePicker.swift in Sources */,
+				5F777D4B2B01481A0001509A /* VibrationWaveformsView.swift in Sources */,
 				5F0F6F5C2AFEC9E8007D0D03 /* ViewModifier.swift in Sources */,
 				5FA3AFFE2AFAAA2800F5295C /* DeviceWifiInformationSection.swift in Sources */,
 				5F0F6F582AFEA87F007D0D03 /* TranslationModePicker.swift in Sources */,
@@ -578,6 +607,7 @@
 				5FACE8C82AFFEFE400F1AFFD /* PressureModePicker.swift in Sources */,
 				5FCC84B62AFC9B6700B755FA /* MotionDemo.swift in Sources */,
 				5FF58F5B2ADF140C00AD2941 /* UkatonSwiftDemoApp.swift in Sources */,
+				5F777D472B0143780001509A /* VibrationWaveformEffectsView.swift in Sources */,
 				5FCC84A92AFC426000B755FA /* MotionDataSection.swift in Sources */,
 				5F2B87182AE18C7000BF304B /* ContentView.swift in Sources */,
 				5F426ED02AF17D4E00E58F15 /* DiscoveredDeviceRow.swift in Sources */,
@@ -592,15 +622,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				5FFBE8132AF160CF00F8CBD7 /* DeviceDiscovery.swift in Sources */,
-				5F0DB9432B00053D00FB413E /* VibrationSequenceSection.swift in Sources */,
-				5F0DB9472B000C8800FB413E /* AllVibrationWaveformsView.swift in Sources */,
+				5F0DB9432B00053D00FB413E /* VibrationWaveformsSection.swift in Sources */,
+				5F0DB9472B000C8800FB413E /* AllVibrationWaveformEffectsView.swift in Sources */,
 				5F426ED52AF1F53800E58F15 /* DeviceDetail.swift in Sources */,
 				5FF24DE82AF41127009FAA0E /* LabelSpacing.swift in Sources */,
 				5FA3B0052AFAAB6E00F5295C /* DeviceDemosSection.swift in Sources */,
-				5F0DB93F2B00005F00FB413E /* VibrationWaveformsSection.swift in Sources */,
+				5F0DB93F2B00005F00FB413E /* VibrationWaveformEffectsSection.swift in Sources */,
 				5FCC84A62AFC414100B755FA /* MotionCalibrationSection.swift in Sources */,
 				5F7616422AFAB083000E1A80 /* SensorDataDemo.swift in Sources */,
 				5F0F6F552AFEA877007D0D03 /* RotationModePicker.swift in Sources */,
+				5F777D4C2B01481A0001509A /* VibrationWaveformsView.swift in Sources */,
 				5F0F6F5D2AFEC9E8007D0D03 /* ViewModifier.swift in Sources */,
 				5FA3AFFF2AFAAA2800F5295C /* DeviceWifiInformationSection.swift in Sources */,
 				5F0F6F592AFEA87F007D0D03 /* TranslationModePicker.swift in Sources */,
@@ -608,6 +639,7 @@
 				5FACE8C92AFFEFE400F1AFFD /* PressureModePicker.swift in Sources */,
 				5FCC84B72AFC9B6700B755FA /* MotionDemo.swift in Sources */,
 				5FF58F752ADF18A000AD2941 /* UkatonSwiftDemoApp.swift in Sources */,
+				5F777D482B0143780001509A /* VibrationWaveformEffectsView.swift in Sources */,
 				5FCC84AA2AFC426000B755FA /* MotionDataSection.swift in Sources */,
 				5F2B87192AE18C7100BF304B /* ContentView.swift in Sources */,
 				5F426ED12AF17D4F00E58F15 /* DiscoveredDeviceRow.swift in Sources */,

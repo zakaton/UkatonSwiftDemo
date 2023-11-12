@@ -3,11 +3,7 @@ import UkatonKit
 
 struct PressureDataSection: View {
     @ObservedObject var mission: UKMission
-    @Binding var newSensorDataConfigurations: UKSensorDataConfigurations {
-        didSet {
-            try? mission.setSensorDataConfigurations(newSensorDataConfigurations)
-        }
-    }
+    @Binding var sensorDataConfigurations: UKSensorDataConfigurations
 
     var sensorDataRates: [UKSensorDataRate]
 
@@ -15,9 +11,10 @@ struct PressureDataSection: View {
         Section {
             ForEach(UKPressureDataType.allCases) { pressureDataType in
                 let binding = Binding<UKSensorDataRate>(
-                    get: { mission.sensorDataConfigurations.pressure[pressureDataType] ?? 0 },
+                    get: { sensorDataConfigurations.pressure[pressureDataType] ?? 0 },
                     set: {
-                        self.newSensorDataConfigurations.pressure[pressureDataType] = $0
+                        sensorDataConfigurations.pressure[pressureDataType] = $0
+                        try? mission.setSensorDataConfigurations(sensorDataConfigurations)
                     })
 
                 Picker("__\(pressureDataType.name.capitalized)__", selection: binding) {
@@ -53,7 +50,7 @@ struct PressureDataSection: View {
 
 #Preview {
     List {
-        PressureDataSection(mission: .none, newSensorDataConfigurations: .constant(.init()), sensorDataRates: [0, 20, 40])
+        PressureDataSection(mission: .none, sensorDataConfigurations: .constant(.init()), sensorDataRates: [0, 20, 40])
     }
     .frame(maxWidth: 300)
 }

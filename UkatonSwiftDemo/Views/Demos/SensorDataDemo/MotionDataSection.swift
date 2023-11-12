@@ -5,11 +5,7 @@ import UkatonKit
 
 struct MotionDataSection: View {
     @ObservedObject var mission: UKMission
-    @Binding var newSensorDataConfigurations: UKSensorDataConfigurations {
-        didSet {
-            try? mission.setSensorDataConfigurations(newSensorDataConfigurations)
-        }
-    }
+    @Binding var sensorDataConfigurations: UKSensorDataConfigurations
 
     var sensorDataRates: [UKSensorDataRate]
 
@@ -17,9 +13,10 @@ struct MotionDataSection: View {
         Section {
             ForEach(UKMotionDataType.allCases) { motionDataType in
                 let binding = Binding<UKSensorDataRate>(
-                    get: { mission.sensorDataConfigurations.motion[motionDataType] ?? 0 },
+                    get: { sensorDataConfigurations.motion[motionDataType] ?? 0 },
                     set: {
-                        self.newSensorDataConfigurations.motion[motionDataType] = $0
+                        sensorDataConfigurations.motion[motionDataType] = $0
+                        try? mission.setSensorDataConfigurations(sensorDataConfigurations)
                     })
 
                 Picker("__\(motionDataType.name.capitalized)__", selection: binding) {
@@ -57,7 +54,7 @@ struct MotionDataSection: View {
 
 #Preview {
     List {
-        MotionDataSection(mission: .none, newSensorDataConfigurations: .constant(.init()), sensorDataRates: [0, 20, 40])
+        MotionDataSection(mission: .none, sensorDataConfigurations: .constant(.init()), sensorDataRates: [0, 20, 40])
     }
     .frame(maxWidth: 300)
 }

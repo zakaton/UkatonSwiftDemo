@@ -6,8 +6,8 @@ struct VibrationDemo: View {
 
     var body: some View {
         List {
+            VibrationWaveformEffectsSection(mission: mission)
             VibrationWaveformsSection(mission: mission)
-            VibrationSequenceSection(mission: mission)
         }
         .navigationTitle("Vibration")
     }
