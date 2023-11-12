@@ -5,8 +5,6 @@ import SwiftUI
 import UkatonKit
 import UkatonMacros
 
-// TODO: - reset quaternion
-
 func interpolate(start: simd_float3, end: simd_float3, factor: Float) -> simd_float3 {
     let clampedFactor = max(0.0, min(1.0, factor))
     let interpolatedVector = (1.0 - clampedFactor) * start + clampedFactor * end
@@ -19,7 +17,7 @@ struct MotionDemo: View, Equatable {
     }
 
     @ObservedObject var mission: UKMission
-    @State private var newSensorDataConfigurations: UKSensorDataConfigurations = .init()
+    @State private var sensorDataConfigurations: UKSensorDataConfigurations = .init()
 
     // MARK: - SceneKit
 
@@ -89,9 +87,12 @@ struct MotionDemo: View, Equatable {
                 .onReceive(mission.sensorData.motion.accelerationSubject, perform: { onAcceleration($0.acceleration) })
                 .onReceive(mission.sensorData.motion.linearAccelerationSubject, perform: { onLinearAcceleration($0.linearAcceleration) })
 
-            RotationModePicker(mission: mission, newSensorDataConfigurations: $newSensorDataConfigurations)
-            TranslationModePicker(mission: mission, newSensorDataConfigurations: $newSensorDataConfigurations)
+            RotationModePicker(mission: mission, sensorDataConfigurations: $sensorDataConfigurations)
+            TranslationModePicker(mission: mission, sensorDataConfigurations: $sensorDataConfigurations)
         }
+        .onReceive(mission.sensorDataConfigurationsSubject, perform: {
+            sensorDataConfigurations = $0
+        })
         .onAppear {
             setupScene()
         }
@@ -112,5 +113,5 @@ struct MotionDemo: View, Equatable {
 
 #Preview {
     NavigationStack { MotionDemo(mission: .none) }
-        .frame(maxWidth: 360, maxHeight: 300)
+        .frame(maxWidth: 360, maxHeight: 500)
 }

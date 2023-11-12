@@ -4,16 +4,16 @@ import UkatonMacros
 
 struct PressureModePicker: View {
     @ObservedObject var mission: UKMission
-    @Binding var newSensorDataConfigurations: UKSensorDataConfigurations
+    @Binding var sensorDataConfigurations: UKSensorDataConfigurations
 
     // MARK: - isEnabled
 
     var isPressureSingleByteEnabled: Bool {
-        mission.sensorDataConfigurations.pressure[.pressureSingleByte]! > 0
+        sensorDataConfigurations.pressure[.pressureSingleByte]! > 0
     }
 
     var isPressureDoubleByteEnabled: Bool {
-        mission.sensorDataConfigurations.pressure[.pressureDoubleByte]! > 0
+        sensorDataConfigurations.pressure[.pressureDoubleByte]! > 0
     }
 
     // MARK: - mode
@@ -43,19 +43,19 @@ struct PressureModePicker: View {
                 }
             },
             set: {
-                newSensorDataConfigurations.pressure[.pressureSingleByte] = 0
-                newSensorDataConfigurations.pressure[.pressureDoubleByte] = 0
+                sensorDataConfigurations.pressure[.pressureSingleByte] = 0
+                sensorDataConfigurations.pressure[.pressureDoubleByte] = 0
 
                 switch $0 {
                 case .none:
                     break
                 case .singleByte:
-                    newSensorDataConfigurations.pressure[.pressureSingleByte] = 20
+                    sensorDataConfigurations.pressure[.pressureSingleByte] = 20
                 case .doubleByte:
-                    newSensorDataConfigurations.pressure[.pressureDoubleByte] = 20
+                    sensorDataConfigurations.pressure[.pressureDoubleByte] = 20
                 }
 
-                try? mission.setSensorDataConfigurations(newSensorDataConfigurations)
+                try? mission.setSensorDataConfigurations(sensorDataConfigurations)
             })
 
         Picker(selection: pressureBinding, label: EmptyView()) {
@@ -73,6 +73,6 @@ struct PressureModePicker: View {
 }
 
 #Preview {
-    PressureModePicker(mission: .none, newSensorDataConfigurations: .constant(.init()))
+    PressureModePicker(mission: .none, sensorDataConfigurations: .constant(.init()))
         .frame(maxWidth: 300)
 }

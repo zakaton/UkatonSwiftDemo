@@ -4,16 +4,16 @@ import UkatonMacros
 
 struct TranslationModePicker: View {
     @ObservedObject var mission: UKMission
-    @Binding var newSensorDataConfigurations: UKSensorDataConfigurations
+    @Binding var sensorDataConfigurations: UKSensorDataConfigurations
 
     // MARK: isEnabled
 
     var isLinearAccelerationEnabled: Bool {
-        mission.sensorDataConfigurations.motion[.linearAcceleration]! > 0
+        sensorDataConfigurations.motion[.linearAcceleration]! > 0
     }
 
     var isAccelerationEnabled: Bool {
-        mission.sensorDataConfigurations.motion[.acceleration]! > 0
+        sensorDataConfigurations.motion[.acceleration]! > 0
     }
 
     // MARK: - enum
@@ -43,19 +43,19 @@ struct TranslationModePicker: View {
                 }
             },
             set: {
-                newSensorDataConfigurations.motion[.acceleration] = 0
-                newSensorDataConfigurations.motion[.linearAcceleration] = 0
+                sensorDataConfigurations.motion[.acceleration] = 0
+                sensorDataConfigurations.motion[.linearAcceleration] = 0
 
                 switch $0 {
                 case .none:
                     break
                 case .acceleration:
-                    newSensorDataConfigurations.motion[.acceleration] = 20
+                    sensorDataConfigurations.motion[.acceleration] = 20
                 case .linearAcceleration:
-                    newSensorDataConfigurations.motion[.linearAcceleration] = 20
+                    sensorDataConfigurations.motion[.linearAcceleration] = 20
                 }
 
-                try? mission.setSensorDataConfigurations(newSensorDataConfigurations)
+                try? mission.setSensorDataConfigurations(sensorDataConfigurations)
             })
 
         Picker(selection: translationBinding, label: EmptyView()) {
@@ -73,6 +73,6 @@ struct TranslationModePicker: View {
 }
 
 #Preview {
-    TranslationModePicker(mission: .none, newSensorDataConfigurations: .constant(.init()))
+    TranslationModePicker(mission: .none, sensorDataConfigurations: .constant(.init()))
         .frame(maxWidth: 300)
 }

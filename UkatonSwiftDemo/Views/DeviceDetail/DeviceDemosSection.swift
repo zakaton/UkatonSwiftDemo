@@ -9,7 +9,7 @@ enum DeviceDemo: CaseIterable, Identifiable {
     case sensorData
     case motion
     case pressure
-    case haptics
+    case vibration
 
     var requiresPressure: Bool {
         switch self {
@@ -25,7 +25,7 @@ enum DeviceDemo: CaseIterable, Identifiable {
         case .sensorData: SensorDataDemo(mission: mission)
         case .motion: MotionDemo(mission: mission)
         case .pressure: PressureDemo(mission: mission)
-        case .haptics: HapticsDemo(mission: mission)
+        case .vibration: VibrationDemo(mission: mission)
         }
     }
 }
