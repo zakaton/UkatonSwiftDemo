@@ -26,7 +26,7 @@ struct MotionDataSection: View {
                 }
 
                 HStack {
-                    Text("[\(mission.sensorData.motion.timestamps[motionDataType]!.string)]")
+                    Text("Timestamp")
 
                     switch motionDataType {
                     case .acceleration:
