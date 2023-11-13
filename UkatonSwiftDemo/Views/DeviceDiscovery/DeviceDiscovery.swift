@@ -22,7 +22,7 @@ struct DeviceDiscovery: View {
                 }
                 else {
                     ForEach($bluetoothManager.discoveredDevices) { $discoveredDevice in
-                        DiscoveredDeviceRow(discoveredDevice: $discoveredDevice, mission: discoveredDevice.mission ?? .none) {
+                        DiscoveredDeviceRow(discoveredDevice: $discoveredDevice) {
                             path.append(discoveredDevice)
                         }
                         .buttonStyle(.plain)
@@ -30,7 +30,7 @@ struct DeviceDiscovery: View {
                 }
             }
             .navigationDestination(for: UKDiscoveredBluetoothDevice.self) { discoveredDevice in
-                DeviceDetail(mission: discoveredDevice.mission!)
+                DeviceDetail(mission: discoveredDevice.mission)
             }
             .navigationTitle("My devices")
             .toolbar {

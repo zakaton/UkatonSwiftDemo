@@ -6,7 +6,14 @@ import UkatonMacros
 @StaticLogger
 struct DiscoveredDeviceRow: View {
     @Binding var discoveredDevice: UKDiscoveredBluetoothDevice
-    @ObservedObject var mission: UKMission
+    @ObservedObject var mission: UKMission = .none
+
+    init(discoveredDevice: Binding<UKDiscoveredBluetoothDevice>, onSelectDevice: (() -> Void)? = nil) {
+        self._discoveredDevice = discoveredDevice
+        self.mission = self.discoveredDevice.mission
+        self.onSelectDevice = onSelectDevice
+    }
+
     var connectionStatus: UKConnectionStatus {
         mission.connectionStatus
     }
@@ -155,6 +162,6 @@ struct DiscoveredDeviceRow: View {
 }
 
 #Preview {
-    DiscoveredDeviceRow(discoveredDevice: .constant(.none), mission: .none)
+    DiscoveredDeviceRow(discoveredDevice: .constant(.none))
         .frame(maxWidth: 300)
 }
