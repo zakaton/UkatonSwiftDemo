@@ -3,7 +3,7 @@ import SwiftUI
 import UkatonKit
 
 struct ContentView: View {
-    @ObservedObject private var missionPair: UKMissionPair = .shared
+    private var missionPair: UKMissionPair = .shared
 
     @State private var isConnectedToPair: Bool = false
     @State private var hasBothInsoles: Bool = false

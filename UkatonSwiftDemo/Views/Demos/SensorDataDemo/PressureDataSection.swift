@@ -7,10 +7,10 @@ struct PressureDataSection: View {
 
     var sensorDataRates: [UKSensorDataRate]
 
-    @State private var pressureValuesData: (value: UKPressureValues, timestamp: UKTimestamp) = (.init(), 0)
-    @State private var centerOfMassData: (value: UKPressureCenterOfMass, timestamp: UKTimestamp) = (.init(), 0)
-    @State private var massData: (value: UKPressureMass, timestamp: UKTimestamp) = (.zero, 0)
-    @State private var heelToToeData: (value: UKPressureHeelToToe, timestamp: UKTimestamp) = (.zero, 0)
+    @State private var pressureValuesData: UKPressureValuesData = (.init(), 0)
+    @State private var centerOfMassData: UKCenterOfMassData = (.init(), 0)
+    @State private var massData: UKMassData = (.zero, 0)
+    @State private var heelToToeData: UKHeelToToeData = (.zero, 0)
 
     var body: some View {
         Section {

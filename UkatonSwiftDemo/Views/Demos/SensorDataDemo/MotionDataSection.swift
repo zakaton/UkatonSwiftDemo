@@ -9,12 +9,12 @@ struct MotionDataSection: View {
 
     var sensorDataRates: [UKSensorDataRate]
 
-    @State private var accelerationData: (value: Vector3D, timestamp: UKTimestamp) = (.init(), 0)
-    @State private var gravityData: (value: Vector3D, timestamp: UKTimestamp) = (.init(), 0)
-    @State private var linearAccelerationData: (value: Vector3D, timestamp: UKTimestamp) = (.init(), 0)
-    @State private var magnetometerData: (value: Vector3D, timestamp: UKTimestamp) = (.init(), 0)
-    @State private var rotationRateData: (value: Rotation3D, timestamp: UKTimestamp) = (.init(), 0)
-    @State private var quaternionData: (value: Quaternion, timestamp: UKTimestamp) = (.init(), 0)
+    @State private var accelerationData: UKAccelerationData = (.init(), 0)
+    @State private var gravityData: UKGravityData = (.init(), 0)
+    @State private var linearAccelerationData: UKLinearAccelerationData = (.init(), 0)
+    @State private var magnetometerData: UKMagnetometerData = (.init(), 0)
+    @State private var rotationRateData: UKRotationRateData = (.init(), 0)
+    @State private var quaternionData: UKQuaternionData = (.init(), 0)
 
     var body: some View {
         Section {

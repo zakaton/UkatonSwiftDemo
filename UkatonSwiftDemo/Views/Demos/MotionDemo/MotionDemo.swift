@@ -25,8 +25,8 @@ struct MotionDemo: View {
     // MARK: Listeners
 
     @State var offsetYaw: Double = 0
-    @State var offsetQuaternion: Quaternion = .init(angle: 0, axis: .init(0, 1, 0))
-    func onQuaternion(_ quaternion: Quaternion) {
+    @State var offsetQuaternion: UKQuaternion = .init(angle: 0, axis: .init(0, 1, 0))
+    func onQuaternion(_ quaternion: UKQuaternion) {
         guard let model else { return }
         model.rootNode.orientation = .init((offsetQuaternion * quaternion).vector)
     }
@@ -101,7 +101,7 @@ struct MotionDemo: View {
         .toolbar {
             Button {
                 let eulerAngles = mission.sensorData.motion.rotation.eulerAngles(order: .zxy)
-                offsetQuaternion = Quaternion(angle: -eulerAngles.angles.y, axis: .init(0, 1, 0))
+                offsetQuaternion = UKQuaternion(angle: -eulerAngles.angles.y, axis: .init(0, 1, 0))
             } label: {
                 Label("reset orientation", systemImage: "arrow.counterclockwise")
             }
