@@ -1,17 +1,26 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var navigationCoordinator = NavigationCoordinator()
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack(path: $navigationCoordinator.path) {
+            TabView {
+                DeviceDiscovery()
+                    .tabItem {
+                        Label("Device Discovery", systemImage: "magnifyingglass")
+                    }
+                MissionsPair()
+                    .tabItem {
+                        Label("My Missions", systemImage: "shoe.2")
+                    }
+            }
         }
-        .padding()
+        .environmentObject(navigationCoordinator)
     }
 }
 
 #Preview {
     ContentView()
+        .frame(maxWidth: 350, minHeight: 300)
 }
