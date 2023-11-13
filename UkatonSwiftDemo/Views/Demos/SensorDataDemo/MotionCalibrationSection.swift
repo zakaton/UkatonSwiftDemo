@@ -2,18 +2,29 @@ import SwiftUI
 import UkatonKit
 
 struct MotionCalibrationSection: View {
-    @ObservedObject var mission: UKMission
+    var mission: UKMission
+
+    @State private var motionCalibration: UKMotionCalibration = .init()
+    @State private var isMotionFullyCalibrated: Bool = false
 
     var body: some View {
         Section {
-            ForEach(UKMotionCalibrationType.allCases) { calibrationType in
-                Text("__\(calibrationType.name.capitalized)__: \(mission.motionCalibration[calibrationType]!.name)")
+            ForEach(motionCalibration.keys.sorted(by: {
+                $0.rawValue < $1.rawValue
+            })) { calibrationType in
+                Text("__\(calibrationType.name.capitalized)__: \(motionCalibration[calibrationType]!.name)")
             }
-            Text("__Is fully calibrated?__ \(String(mission.isFullyCalibrated))")
+            Text("__Is fully calibrated?__ \(String(isMotionFullyCalibrated))")
         } header: {
             Text("Motion Calibration")
                 .font(.headline)
         }
+        .onReceive(mission.motionCalibrationSubject, perform: { newMotionCalibration in
+            motionCalibration = newMotionCalibration
+        })
+        .onReceive(mission.isMotionFullyCalibratedSubject, perform: { newIsMotionFullyCalibratedSubject in
+            isMotionFullyCalibrated = newIsMotionFullyCalibratedSubject
+        })
     }
 }
 

@@ -19,7 +19,8 @@ struct DeviceWifiInformationSection: View {
     @State private var showNewWifiPassword: Bool = false
     @State private var newShouldConnectToWifi: Bool
 
-    @State private var didCopyToClipboard: Bool = false
+    @State private var ipAddress: String? = nil
+    @State private var didCopyIpAddressToClipboard: Bool = false
 
     init(mission: UKMission) {
         self.mission = mission
@@ -42,17 +43,17 @@ struct DeviceWifiInformationSection: View {
             }
             Text("__connected?__ \(String(mission.isConnectedToWifi))")
 
-            if mission.isConnectedToWifi, let ipAddress = mission.ipAddress {
+            if mission.isConnectedToWifi, ipAddress != nil {
                 HStack {
-                    Text("__ip address__: \(ipAddress)")
+                    Text("__ip address__: \(ipAddress!)")
                     #if os(iOS)
                     Button(action: {
                         let pasteboard = UIPasteboard.general
                         pasteboard.string = ipAddress
                         print("copied!")
-                        didCopyToClipboard = true
+                        didCopyIpAddressToClipboard = true
                     }) {
-                        if didCopyToClipboard {
+                        if didCopyIpAddressToClipboard {
                             Label("copied!", systemImage: "list.clipboard")
                                 .labelStyle(LabelSpacing(spacing: 4))
                         }
@@ -62,10 +63,13 @@ struct DeviceWifiInformationSection: View {
                         }
                     }
                     .onReceive(mission.ipAddressSubject, perform: { _ in
-                        didCopyToClipboard = false
+                        didCopyIpAddressToClipboard = false
                     })
                     #endif
                 }
+                .onReceive(mission.ipAddressSubject, perform: { newIpAddress in
+                    ipAddress = newIpAddress
+                })
             }
 
             if !requiresWifi {

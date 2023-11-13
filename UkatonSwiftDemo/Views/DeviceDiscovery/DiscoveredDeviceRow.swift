@@ -40,8 +40,9 @@ struct DiscoveredDeviceRow: View {
         }
     }
 
+    @State private var batteryLevel: UKBatteryLevel = .zero
     var batteryLevelSystemImage: String {
-        switch mission.batteryLevel {
+        switch batteryLevel {
         case 75 ..< 100:
             "battery.100"
         case 50 ..< 75:
@@ -139,10 +140,12 @@ struct DiscoveredDeviceRow: View {
                 if discoveredDevice.isConnectedToWifi, let ipAddress = discoveredDevice.ipAddress, !ipAddress.isEmpty {
                     Label(ipAddress, systemImage: "wifi")
                 }
-                if mission.isConnected, mission.batteryLevel != .zero {
-                    Label("\(mission.batteryLevel)%", systemImage: batteryLevelSystemImage)
+                if mission.isConnected, batteryLevel != .zero {
+                    Label("\(batteryLevel)%", systemImage: batteryLevelSystemImage)
                 }
             }
+            .onReceive(mission.batteryLevelSubject, perform: { batteryLevel = $0
+            })
             .labelStyle(LabelSpacing(spacing: 4))
             .font(Font.system(.caption, design: .monospaced))
             .padding(.top, 2)
