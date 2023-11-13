@@ -2,7 +2,7 @@ import SwiftUI
 import UkatonKit
 
 struct SensorDataDemo: View {
-    @ObservedObject var mission: UKMission
+    var mission: UKMission
 
     let sensorDataRates: [UKSensorDataRate] = [0, 20, 40, 80, 100]
     @State private var sensorDataConfigurations: UKSensorDataConfigurations = .init()
@@ -19,6 +19,9 @@ struct SensorDataDemo: View {
         .onReceive(mission.sensorDataConfigurationsSubject, perform: {
             sensorDataConfigurations = $0
         })
+        .onDisappear {
+            try? mission.clearSensorDataConfigurations()
+        }
         .navigationTitle("Sensor Data")
     }
 }

@@ -7,7 +7,7 @@ struct VibrationWaveformsView: View {
 
     var body: some View {
         Button(action: {
-            waveforms.append((waveforms.isEmpty ? .init(intensity: 1, delay: 100) : waveforms.last)!)
+            waveforms.append((waveforms.isEmpty ? .init(intensity: 0.5, delay: 200) : waveforms.last)!)
         }) {
             Label("add waveform", systemImage: "plus")
         }

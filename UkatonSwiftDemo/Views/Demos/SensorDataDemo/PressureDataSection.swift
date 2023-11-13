@@ -2,10 +2,15 @@ import SwiftUI
 import UkatonKit
 
 struct PressureDataSection: View {
-    @ObservedObject var mission: UKMission
+    var mission: UKMission
     @Binding var sensorDataConfigurations: UKSensorDataConfigurations
 
     var sensorDataRates: [UKSensorDataRate]
+
+    @State private var pressureValuesData: (value: UKPressureValues, timestamp: UKTimestamp) = (.init(), 0)
+    @State private var centerOfMassData: (value: UKPressureCenterOfMass, timestamp: UKTimestamp) = (.init(), 0)
+    @State private var massData: (value: UKPressureMass, timestamp: UKTimestamp) = (.zero, 0)
+    @State private var heelToToeData: (value: UKPressureHeelToToe, timestamp: UKTimestamp) = (.zero, 0)
 
     var body: some View {
         Section {
@@ -24,27 +29,36 @@ struct PressureDataSection: View {
                 }
 
                 if !pressureDataType.isPressure || mission.sensorData.pressure.pressureValues.latestPressureDataType == pressureDataType {
-                    HStack {
-                        Text("[\(mission.sensorData.pressure.timestamps[pressureDataType]!.string)]")
-
-                        switch pressureDataType {
-                        case .pressureSingleByte, .pressureDoubleByte:
-                            Text(mission.sensorData.pressure.pressureValues.string)
-                        case .centerOfMass:
-                            Text(mission.sensorData.pressure.centerOfMass.string)
-                        case .mass:
-                            Text(String(format: "%6.3f", mission.sensorData.pressure.mass))
-                        case .heelToToe:
-                            Text(String(format: "%6.3f", mission.sensorData.pressure.heelToToe))
-                        }
+                    switch pressureDataType {
+                    case .pressureSingleByte, .pressureDoubleByte:
+                        Text("[\(pressureValuesData.timestamp)]ms")
+                        Text(pressureValuesData.value.string)
+                    case .centerOfMass:
+                        Text("[\(centerOfMassData.timestamp)]ms")
+                        Text(centerOfMassData.value.string)
+                    case .mass:
+                        Text("[\(massData.timestamp)]ms")
+                        Text(String(massData.value))
+                    case .heelToToe:
+                        Text("[\(heelToToeData.timestamp)]ms")
+                        Text(String(heelToToeData.value))
                     }
-                    .font(Font.system(.caption, design: .monospaced))
                 }
             }
+
         } header: {
             Text("Pressure Data")
                 .font(.headline)
         }
+        .font(Font.system(.caption, design: .monospaced))
+        .onReceive(mission.sensorData.pressure.pressureValuesSubject, perform: { pressureValuesData = $0
+        })
+        .onReceive(mission.sensorData.pressure.massSubject, perform: { massData = $0
+        })
+        .onReceive(mission.sensorData.pressure.centerOfMassSubject, perform: { centerOfMassData = $0
+        })
+        .onReceive(mission.sensorData.pressure.heelToToeSubject, perform: { heelToToeData = $0
+        })
     }
 }
 

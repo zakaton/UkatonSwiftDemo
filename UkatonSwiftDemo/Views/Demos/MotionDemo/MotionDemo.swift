@@ -16,13 +16,13 @@ struct MotionDemo: View, Equatable {
         lhs.mission == rhs.mission && lhs.mission.deviceType == rhs.mission.deviceType
     }
 
-    @ObservedObject var mission: UKMission
+    var mission: UKMission
     @State private var sensorDataConfigurations: UKSensorDataConfigurations = .init()
 
     // MARK: - SceneKit
 
     private var scene: SCNScene = .init()
-    @State private var model: SCNScene!
+    @State private var model: SCNScene?
     private var lightNode: SCNNode = .init()
     private var cameraNode: SCNNode = .init()
 
@@ -31,20 +31,24 @@ struct MotionDemo: View, Equatable {
     @State var offsetYaw: Double = 0
     @State var offsetQuaternion: Quaternion = .init(angle: 0, axis: .init(0, 1, 0))
     func onQuaternion(_ quaternion: Quaternion) {
+        guard let model else { return }
         model.rootNode.orientation = .init((offsetQuaternion * quaternion).vector)
     }
 
     func onRotationRate(_ rotationRate: Rotation3D) {
+        guard let model else { return }
         var eulerAngles = rotationRate.eulerAngles(order: .xyz)
         eulerAngles.angles *= 2.0
         model.rootNode.eulerAngles = .init(eulerAngles.angles)
     }
 
     func onLinearAcceleration(_ linearAcceleration: Vector3D) {
+        guard let model else { return }
         model.rootNode.simdPosition = interpolate(start: model.rootNode.simdPosition, end: .init(linearAcceleration * 0.05), factor: 0.4)
     }
 
     func onAcceleration(_ acceleration: Vector3D) {
+        guard let model else { return }
         model.rootNode.simdPosition = interpolate(start: model.rootNode.simdPosition, end: .init(acceleration * 0.05), factor: 0.4)
     }
 
@@ -56,9 +60,9 @@ struct MotionDemo: View, Equatable {
         let modelName = mission.deviceType.isInsole ? "leftShoe" : "monkey"
         model = .init(named: "\(modelName).usdz")!
         if mission.deviceType == .rightInsole {
-            model.rootNode.scale.x = -1
+            model!.rootNode.scale.x = -1
         }
-        scene.rootNode.addChildNode(model.rootNode)
+        scene.rootNode.addChildNode(model!.rootNode)
 
         // MARK: - Lights,
 
@@ -81,10 +85,10 @@ struct MotionDemo: View, Equatable {
         VStack {
             SceneView(scene: scene, pointOfView: cameraNode, options: [.allowsCameraControl])
                 .clipShape(RoundedRectangle(cornerRadius: 16))
-                .onReceive(mission.sensorData.motion.quaternionSubject, perform: { onQuaternion($0.quaternion) })
-                .onReceive(mission.sensorData.motion.rotationRateSubject, perform: { onRotationRate($0.rotationRate) })
-                .onReceive(mission.sensorData.motion.accelerationSubject, perform: { onAcceleration($0.acceleration) })
-                .onReceive(mission.sensorData.motion.linearAccelerationSubject, perform: { onLinearAcceleration($0.linearAcceleration) })
+                .onReceive(mission.sensorData.motion.quaternionSubject, perform: { onQuaternion($0.value) })
+                .onReceive(mission.sensorData.motion.rotationRateSubject, perform: { onRotationRate($0.value) })
+                .onReceive(mission.sensorData.motion.accelerationSubject, perform: { onAcceleration($0.value) })
+                .onReceive(mission.sensorData.motion.linearAccelerationSubject, perform: { onLinearAcceleration($0.value) })
 
             RotationModePicker(mission: mission, sensorDataConfigurations: $sensorDataConfigurations)
             TranslationModePicker(mission: mission, sensorDataConfigurations: $sensorDataConfigurations)

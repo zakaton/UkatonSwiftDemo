@@ -2,8 +2,9 @@ import SwiftUI
 import UkatonKit
 
 struct PressureDemo: View {
-    @ObservedObject var mission: UKMission
+    var mission: UKMission
     @State private var sensorDataConfigurations: UKSensorDataConfigurations = .init()
+    @State private var pressureValues: UKPressureValues = .init()
 
     var body: some View {
         VStack {
@@ -13,7 +14,7 @@ struct PressureDemo: View {
                 .scaleEffect(x: mission.deviceType == .leftInsole ? 1.0 : -1.0)
                 .overlay {
                     GeometryReader { geometry in
-                        ForEach(mission.sensorData.pressure.pressureValues) { pressureValue in
+                        ForEach(pressureValues) { pressureValue in
                             Rectangle()
                                 .fill(.red)
                                 .clipShape(RoundedRectangle(cornerRadius: 3))
@@ -24,6 +25,13 @@ struct PressureDemo: View {
                     }
                 }
             PressureModePicker(mission: mission, sensorDataConfigurations: $sensorDataConfigurations)
+        }
+        .onReceive(mission.sensorDataConfigurationsSubject, perform: {
+            sensorDataConfigurations = $0
+        })
+        .onReceive(mission.sensorData.pressure.pressureValuesSubject, perform: { pressureValues = $0.value })
+        .onDisappear {
+            try? mission.clearSensorDataConfigurations()
         }
     }
 }

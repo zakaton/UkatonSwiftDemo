@@ -4,10 +4,17 @@ import SwiftUI
 import UkatonKit
 
 struct MotionDataSection: View {
-    @ObservedObject var mission: UKMission
+    var mission: UKMission
     @Binding var sensorDataConfigurations: UKSensorDataConfigurations
 
     var sensorDataRates: [UKSensorDataRate]
+
+    @State private var accelerationData: (value: Vector3D, timestamp: UKTimestamp) = (.init(), 0)
+    @State private var gravityData: (value: Vector3D, timestamp: UKTimestamp) = (.init(), 0)
+    @State private var linearAccelerationData: (value: Vector3D, timestamp: UKTimestamp) = (.init(), 0)
+    @State private var magnetometerData: (value: Vector3D, timestamp: UKTimestamp) = (.init(), 0)
+    @State private var rotationRateData: (value: Rotation3D, timestamp: UKTimestamp) = (.init(), 0)
+    @State private var quaternionData: (value: Quaternion, timestamp: UKTimestamp) = (.init(), 0)
 
     var body: some View {
         Section {
@@ -26,29 +33,39 @@ struct MotionDataSection: View {
                 }
 
                 HStack {
-                    Text("Timestamp")
-
                     switch motionDataType {
                     case .acceleration:
-                        Text(mission.sensorData.motion.acceleration.string)
+                        Text("[\(accelerationData.timestamp)]ms")
+                        Text(accelerationData.value.string)
                     case .gravity:
-                        Text(mission.sensorData.motion.gravity.string)
+                        Text("[\(gravityData.timestamp)]ms")
+                        Text(gravityData.value.string)
                     case .linearAcceleration:
-                        Text(mission.sensorData.motion.linearAcceleration.string)
+                        Text("[\(linearAccelerationData.timestamp)]ms")
+                        Text(linearAccelerationData.value.string)
                     case .magnetometer:
-                        Text(mission.sensorData.motion.magnetometer.string)
+                        Text("[\(magnetometerData.timestamp)]ms")
+                        Text(magnetometerData.value.string)
                     case .rotationRate:
-                        Text(mission.sensorData.motion.rotationRate.string)
+                        Text("[\(rotationRateData.timestamp)]ms")
+                        Text(rotationRateData.value.string)
                     case .quaternion:
-                        Text(mission.sensorData.motion.rotation.string)
+                        Text("[\(quaternionData.timestamp)]ms")
+                        Text(quaternionData.value.string)
                     }
                 }
-                .font(Font.system(.caption, design: .monospaced))
             }
         } header: {
             Text("Motion Data")
                 .font(.headline)
         }
+        .font(Font.system(.caption, design: .monospaced))
+        .onReceive(mission.sensorData.motion.accelerationSubject, perform: { accelerationData = $0 })
+        .onReceive(mission.sensorData.motion.gravitySubject, perform: { gravityData = $0 })
+        .onReceive(mission.sensorData.motion.linearAccelerationSubject, perform: { linearAccelerationData = $0 })
+        .onReceive(mission.sensorData.motion.magnetometerSubject, perform: { magnetometerData = $0 })
+        .onReceive(mission.sensorData.motion.rotationRateSubject, perform: { rotationRateData = $0 })
+        .onReceive(mission.sensorData.motion.quaternionSubject, perform: { quaternionData = $0 })
     }
 }
 
