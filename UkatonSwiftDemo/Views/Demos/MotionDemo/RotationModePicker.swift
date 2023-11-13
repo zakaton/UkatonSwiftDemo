@@ -3,7 +3,7 @@ import UkatonKit
 import UkatonMacros
 
 struct RotationModePicker: View {
-    @ObservedObject var mission: UKMission
+    var mission: UKMission
     @Binding var sensorDataConfigurations: UKSensorDataConfigurations
 
     // MARK: - isEnabled

@@ -2,7 +2,7 @@ import SwiftUI
 import UkatonKit
 
 struct AllVibrationWaveformEffectsView: View {
-    @ObservedObject var mission: UKMission
+    var mission: UKMission
 
     var body: some View {
         List {

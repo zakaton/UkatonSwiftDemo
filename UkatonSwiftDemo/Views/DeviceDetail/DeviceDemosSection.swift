@@ -31,11 +31,7 @@ enum DeviceDemo: CaseIterable, Identifiable {
 }
 
 struct DeviceDemosSection: View {
-    @ObservedObject private var mission: UKMission
-
-    init(mission: UKMission) {
-        self.mission = mission
-    }
+    @ObservedObject var mission: UKMission
 
     var body: some View {
         Section {

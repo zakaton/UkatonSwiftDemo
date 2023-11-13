@@ -11,11 +11,7 @@ func interpolate(start: simd_float3, end: simd_float3, factor: Float) -> simd_fl
     return interpolatedVector
 }
 
-struct MotionDemo: View, Equatable {
-    static func == (lhs: Self, rhs: Self) -> Bool {
-        lhs.mission == rhs.mission && lhs.mission.deviceType == rhs.mission.deviceType
-    }
-
+struct MotionDemo: View {
     var mission: UKMission
     @State private var sensorDataConfigurations: UKSensorDataConfigurations = .init()
 

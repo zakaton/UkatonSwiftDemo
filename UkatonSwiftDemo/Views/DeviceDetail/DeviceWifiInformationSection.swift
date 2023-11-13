@@ -17,27 +17,27 @@ struct DeviceWifiInformationSection: View {
     @State private var newWifiPassword: String = ""
     @State private var showWifiPassword: Bool = false
     @State private var showNewWifiPassword: Bool = false
-    @State private var newShouldConnectToWifi: Bool
+    @State private var shouldConnectToWifi: Bool
 
     @State private var ipAddress: String? = nil
     @State private var didCopyIpAddressToClipboard: Bool = false
 
     init(mission: UKMission) {
         self.mission = mission
-        self.newShouldConnectToWifi = mission.shouldConnectToWifi
+        self.shouldConnectToWifi = mission.shouldConnectToWifi
     }
 
     var body: some View {
         Section {
             if canEditWifi {
-                Toggle(isOn: $newShouldConnectToWifi) {
+                Toggle(isOn: $shouldConnectToWifi) {
                     Text("Connect to wifi?")
                         .bold()
                 }
-                .onChange(of: newShouldConnectToWifi) {
+                .onChange(of: shouldConnectToWifi) {
                     newWifiSsid = ""
                     newWifiPassword = ""
-                    try? mission.setWifiShouldConnect(newShouldConnectToWifi)
+                    try? mission.setWifiShouldConnect(shouldConnectToWifi)
                 }
                 .toggleStyle(.switch)
             }
