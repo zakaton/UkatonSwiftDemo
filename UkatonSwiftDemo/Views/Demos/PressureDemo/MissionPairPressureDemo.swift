@@ -5,16 +5,13 @@ struct MissionPairPressureDemo: View {
     let missionPair: UKMissionPair
     var body: some View {
         HStack {
-            ForEach(UKInsoleSide.allCases) { side in
-                if let mission = missionPair[side] {
-                    PressureDemo(mission: mission)
-                }
-            }
+            PressureDemo(mission: missionPair[.left] ?? .none)
+            PressureDemo(mission: missionPair[.right] ?? .none)
         }
     }
 }
 
 #Preview {
     MissionPairPressureDemo(missionPair: .shared)
-        .frame(maxWidth: 360, maxHeight: 300)
+        .frame(maxWidth: 400, maxHeight: 300)
 }

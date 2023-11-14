@@ -9,6 +9,10 @@ struct MotionDemo: View {
     var mission: UKMission
     @State private var sensorDataConfigurations: UKSensorDataConfigurations = .init()
 
+    @State private var showToolbar: Bool
+
+    private var recalibrateSubject: PassthroughSubject<Void, Never>?
+
     // MARK: - SceneKit
 
     private var scene: SCNScene = .init()
@@ -18,8 +22,12 @@ struct MotionDemo: View {
 
     // MARK: Listeners
 
-    @State var offsetYaw: Double = 0
     @State var offsetQuaternion: UKQuaternion = .init(angle: 0, axis: .init(0, 1, 0))
+    func updateOffsetQuaternion() {
+        let eulerAngles = mission.sensorData.motion.rotation.eulerAngles(order: .zxy)
+        offsetQuaternion = UKQuaternion(angle: -eulerAngles.angles.y, axis: .init(0, 1, 0))
+    }
+
     func onQuaternion(_ quaternion: UKQuaternion) {
         guard let model else { return }
         model.rootNode.orientation = .init((offsetQuaternion * quaternion).vector)
@@ -67,8 +75,14 @@ struct MotionDemo: View {
         cameraNode.eulerAngles = .init(x: 0, y: 0, z: 0)
     }
 
-    init(mission: UKMission) {
+    init(mission: UKMission, showToolbar: Bool = true) {
         self.mission = mission
+        self.showToolbar = showToolbar
+    }
+
+    init(mission: UKMission, showToolbar: Bool, recalibrateSubject: PassthroughSubject<Void, Never>) {
+        self.init(mission: mission, showToolbar: showToolbar)
+        self.recalibrateSubject = recalibrateSubject
     }
 
     var body: some View {
@@ -92,15 +106,25 @@ struct MotionDemo: View {
         .onDisappear {
             try? mission.clearSensorDataConfigurations()
         }
-        .toolbar {
-            Button {
-                let eulerAngles = mission.sensorData.motion.rotation.eulerAngles(order: .zxy)
-                offsetQuaternion = UKQuaternion(angle: -eulerAngles.angles.y, axis: .init(0, 1, 0))
-            } label: {
-                Label("reset orientation", systemImage: "arrow.counterclockwise")
+        .modify {
+            if showToolbar {
+                $0.toolbar {
+                    Button {
+                        updateOffsetQuaternion()
+                    } label: {
+                        Label("reset orientation", systemImage: "arrow.counterclockwise")
+                    }
+                }
             }
         }
         .navigationTitle("Motion")
+        .modify {
+            if let recalibrateSubject {
+                $0.onReceive(recalibrateSubject, perform: { _ in
+                    updateOffsetQuaternion()
+                })
+            }
+        }
     }
 }
 
