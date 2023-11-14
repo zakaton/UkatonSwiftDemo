@@ -5,12 +5,6 @@ import SwiftUI
 import UkatonKit
 import UkatonMacros
 
-func interpolate(start: simd_float3, end: simd_float3, factor: Float) -> simd_float3 {
-    let clampedFactor = max(0.0, min(1.0, factor))
-    let interpolatedVector = (1.0 - clampedFactor) * start + clampedFactor * end
-    return interpolatedVector
-}
-
 struct MotionDemo: View {
     var mission: UKMission
     @State private var sensorDataConfigurations: UKSensorDataConfigurations = .init()
@@ -40,12 +34,12 @@ struct MotionDemo: View {
 
     func onLinearAcceleration(_ linearAcceleration: Vector3D) {
         guard let model else { return }
-        model.rootNode.simdPosition = interpolate(start: model.rootNode.simdPosition, end: .init(linearAcceleration * 0.05), factor: 0.4)
+        model.rootNode.simdPosition.interpolate(to: .init(linearAcceleration * 0.05), with: 0.4)
     }
 
     func onAcceleration(_ acceleration: Vector3D) {
         guard let model else { return }
-        model.rootNode.simdPosition = interpolate(start: model.rootNode.simdPosition, end: .init(acceleration * 0.05), factor: 0.4)
+        model.rootNode.simdPosition.interpolate(to: .init(acceleration * 0.05), with: 0.4)
     }
 
     // MARK: - Setup

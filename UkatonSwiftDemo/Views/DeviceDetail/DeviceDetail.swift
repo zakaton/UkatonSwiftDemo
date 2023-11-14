@@ -11,13 +11,15 @@ struct DeviceDetail: View {
             DeviceDemosSection(mission: mission)
         }
         .navigationTitle(mission.name)
-        .navigationDestination(for: DeviceDemo.self) { deviceDemo in
-            deviceDemo.view(mission: mission)
+        .navigationDestination(for: DeviceDemo.self) { demo in
+            demo.view(mission: mission)
         }
     }
 }
 
 #Preview {
-    DeviceDetail(mission: .none)
-        .frame(maxWidth: 300, maxHeight: 300)
+    NavigationStack {
+        DeviceDetail(mission: .none)
+    }
+    .frame(maxWidth: 300, maxHeight: 300)
 }

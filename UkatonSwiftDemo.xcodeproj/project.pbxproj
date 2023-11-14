@@ -57,6 +57,15 @@
 		5F9F82BB2B029AC500DDD9AB /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F82BA2B029AC500DDD9AB /* NavigationCoordinator.swift */; };
 		5F9F82BC2B029AC500DDD9AB /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F82BA2B029AC500DDD9AB /* NavigationCoordinator.swift */; };
 		5F9F82BD2B029AC500DDD9AB /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F82BA2B029AC500DDD9AB /* NavigationCoordinator.swift */; };
+		5F9F82BF2B03E2D900DDD9AB /* MissionPairDemosSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F82BE2B03E2D900DDD9AB /* MissionPairDemosSection.swift */; };
+		5F9F82C02B03E2D900DDD9AB /* MissionPairDemosSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F82BE2B03E2D900DDD9AB /* MissionPairDemosSection.swift */; };
+		5F9F82C12B03E2D900DDD9AB /* MissionPairDemosSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F82BE2B03E2D900DDD9AB /* MissionPairDemosSection.swift */; };
+		5F9F82C32B03E5DB00DDD9AB /* MissionPairPressureDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F82C22B03E5DB00DDD9AB /* MissionPairPressureDemo.swift */; };
+		5F9F82C42B03E5DB00DDD9AB /* MissionPairPressureDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F82C22B03E5DB00DDD9AB /* MissionPairPressureDemo.swift */; };
+		5F9F82C52B03E5DB00DDD9AB /* MissionPairPressureDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F82C22B03E5DB00DDD9AB /* MissionPairPressureDemo.swift */; };
+		5F9F82C72B03EC0200DDD9AB /* MissionPairMotionDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F82C62B03EC0200DDD9AB /* MissionPairMotionDemo.swift */; };
+		5F9F82C82B03EC0200DDD9AB /* MissionPairMotionDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F82C62B03EC0200DDD9AB /* MissionPairMotionDemo.swift */; };
+		5F9F82C92B03EC0200DDD9AB /* MissionPairMotionDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F82C62B03EC0200DDD9AB /* MissionPairMotionDemo.swift */; };
 		5FA3AFF92AFAA97800F5295C /* DeviceInformationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3AFF82AFAA97800F5295C /* DeviceInformationSection.swift */; };
 		5FA3AFFA2AFAA97800F5295C /* DeviceInformationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3AFF82AFAA97800F5295C /* DeviceInformationSection.swift */; };
 		5FA3AFFB2AFAA97800F5295C /* DeviceInformationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3AFF82AFAA97800F5295C /* DeviceInformationSection.swift */; };
@@ -146,6 +155,9 @@
 		5F777D492B01481A0001509A /* VibrationWaveformsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibrationWaveformsView.swift; sourceTree = "<group>"; };
 		5F9F82B62B02970300DDD9AB /* MissionPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionPair.swift; sourceTree = "<group>"; };
 		5F9F82BA2B029AC500DDD9AB /* NavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCoordinator.swift; sourceTree = "<group>"; };
+		5F9F82BE2B03E2D900DDD9AB /* MissionPairDemosSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionPairDemosSection.swift; sourceTree = "<group>"; };
+		5F9F82C22B03E5DB00DDD9AB /* MissionPairPressureDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionPairPressureDemo.swift; sourceTree = "<group>"; };
+		5F9F82C62B03EC0200DDD9AB /* MissionPairMotionDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionPairMotionDemo.swift; sourceTree = "<group>"; };
 		5FA3AFF82AFAA97800F5295C /* DeviceInformationSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInformationSection.swift; sourceTree = "<group>"; };
 		5FA3AFFC2AFAAA2800F5295C /* DeviceWifiInformationSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceWifiInformationSection.swift; sourceTree = "<group>"; };
 		5FA3B0022AFAAB6E00F5295C /* DeviceDemosSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDemosSection.swift; sourceTree = "<group>"; };
@@ -236,6 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				5F9F82B62B02970300DDD9AB /* MissionPair.swift */,
+				5F9F82BE2B03E2D900DDD9AB /* MissionPairDemosSection.swift */,
 			);
 			path = Pair;
 			sourceTree = "<group>";
@@ -286,6 +299,7 @@
 			isa = PBXGroup;
 			children = (
 				5FCC84B42AFC9B6700B755FA /* MotionDemo.swift */,
+				5F9F82C62B03EC0200DDD9AB /* MissionPairMotionDemo.swift */,
 				5F0F6F522AFEA877007D0D03 /* RotationModePicker.swift */,
 				5F0F6F562AFEA87F007D0D03 /* TranslationModePicker.swift */,
 			);
@@ -307,6 +321,7 @@
 			children = (
 				5FCC84BA2AFCA33800B755FA /* PressureDemo.swift */,
 				5FACE8C62AFFEFE400F1AFFD /* PressureModePicker.swift */,
+				5F9F82C22B03E5DB00DDD9AB /* MissionPairPressureDemo.swift */,
 			);
 			path = PressureDemo;
 			sourceTree = "<group>";
@@ -578,6 +593,7 @@
 				5FFBE8112AF160CF00F8CBD7 /* DeviceDiscovery.swift in Sources */,
 				5F0DB9412B00053D00FB413E /* VibrationWaveformsSection.swift in Sources */,
 				5F0DB9452B000C8800FB413E /* AllVibrationWaveformEffectsView.swift in Sources */,
+				5F9F82C32B03E5DB00DDD9AB /* MissionPairPressureDemo.swift in Sources */,
 				5F426ED42AF1F53300E58F15 /* DeviceDetail.swift in Sources */,
 				5FF24DE62AF41127009FAA0E /* LabelSpacing.swift in Sources */,
 				5FA3B0032AFAAB6E00F5295C /* DeviceDemosSection.swift in Sources */,
@@ -589,6 +605,7 @@
 				5F0F6F5B2AFEC9E8007D0D03 /* ViewModifier.swift in Sources */,
 				5FA3AFFD2AFAAA2800F5295C /* DeviceWifiInformationSection.swift in Sources */,
 				5F0F6F572AFEA87F007D0D03 /* TranslationModePicker.swift in Sources */,
+				5F9F82C72B03EC0200DDD9AB /* MissionPairMotionDemo.swift in Sources */,
 				5FCC84BB2AFCA33800B755FA /* PressureDemo.swift in Sources */,
 				5FACE8C72AFFEFE400F1AFFD /* PressureModePicker.swift in Sources */,
 				5FCC84B52AFC9B6700B755FA /* MotionDemo.swift in Sources */,
@@ -602,6 +619,7 @@
 				5FCC84BF2AFCA34100B755FA /* VibrationDemo.swift in Sources */,
 				5FA3AFF92AFAA97800F5295C /* DeviceInformationSection.swift in Sources */,
 				5FCC84B02AFC445C00B755FA /* PressureDataSection.swift in Sources */,
+				5F9F82BF2B03E2D900DDD9AB /* MissionPairDemosSection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -612,6 +630,7 @@
 				5FFBE8122AF160CF00F8CBD7 /* DeviceDiscovery.swift in Sources */,
 				5F0DB9422B00053D00FB413E /* VibrationWaveformsSection.swift in Sources */,
 				5F0DB9462B000C8800FB413E /* AllVibrationWaveformEffectsView.swift in Sources */,
+				5F9F82C42B03E5DB00DDD9AB /* MissionPairPressureDemo.swift in Sources */,
 				5F426ED32AF1F51D00E58F15 /* DeviceDetail.swift in Sources */,
 				5FF24DE72AF41127009FAA0E /* LabelSpacing.swift in Sources */,
 				5FA3B0042AFAAB6E00F5295C /* DeviceDemosSection.swift in Sources */,
@@ -623,6 +642,7 @@
 				5F0F6F5C2AFEC9E8007D0D03 /* ViewModifier.swift in Sources */,
 				5FA3AFFE2AFAAA2800F5295C /* DeviceWifiInformationSection.swift in Sources */,
 				5F0F6F582AFEA87F007D0D03 /* TranslationModePicker.swift in Sources */,
+				5F9F82C82B03EC0200DDD9AB /* MissionPairMotionDemo.swift in Sources */,
 				5FCC84BC2AFCA33800B755FA /* PressureDemo.swift in Sources */,
 				5FACE8C82AFFEFE400F1AFFD /* PressureModePicker.swift in Sources */,
 				5FCC84B62AFC9B6700B755FA /* MotionDemo.swift in Sources */,
@@ -636,6 +656,7 @@
 				5FCC84C02AFCA34100B755FA /* VibrationDemo.swift in Sources */,
 				5FA3AFFA2AFAA97800F5295C /* DeviceInformationSection.swift in Sources */,
 				5FCC84B12AFC445C00B755FA /* PressureDataSection.swift in Sources */,
+				5F9F82C02B03E2D900DDD9AB /* MissionPairDemosSection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -646,6 +667,7 @@
 				5FFBE8132AF160CF00F8CBD7 /* DeviceDiscovery.swift in Sources */,
 				5F0DB9432B00053D00FB413E /* VibrationWaveformsSection.swift in Sources */,
 				5F0DB9472B000C8800FB413E /* AllVibrationWaveformEffectsView.swift in Sources */,
+				5F9F82C52B03E5DB00DDD9AB /* MissionPairPressureDemo.swift in Sources */,
 				5F426ED52AF1F53800E58F15 /* DeviceDetail.swift in Sources */,
 				5FF24DE82AF41127009FAA0E /* LabelSpacing.swift in Sources */,
 				5FA3B0052AFAAB6E00F5295C /* DeviceDemosSection.swift in Sources */,
@@ -657,6 +679,7 @@
 				5F0F6F5D2AFEC9E8007D0D03 /* ViewModifier.swift in Sources */,
 				5FA3AFFF2AFAAA2800F5295C /* DeviceWifiInformationSection.swift in Sources */,
 				5F0F6F592AFEA87F007D0D03 /* TranslationModePicker.swift in Sources */,
+				5F9F82C92B03EC0200DDD9AB /* MissionPairMotionDemo.swift in Sources */,
 				5FCC84BD2AFCA33800B755FA /* PressureDemo.swift in Sources */,
 				5FACE8C92AFFEFE400F1AFFD /* PressureModePicker.swift in Sources */,
 				5FCC84B72AFC9B6700B755FA /* MotionDemo.swift in Sources */,
@@ -670,6 +693,7 @@
 				5FCC84C12AFCA34100B755FA /* VibrationDemo.swift in Sources */,
 				5FA3AFFB2AFAA97800F5295C /* DeviceInformationSection.swift in Sources */,
 				5FCC84B22AFC445C00B755FA /* PressureDataSection.swift in Sources */,
+				5F9F82C12B03E2D900DDD9AB /* MissionPairDemosSection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

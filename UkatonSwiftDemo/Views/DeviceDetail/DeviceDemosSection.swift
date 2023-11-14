@@ -35,11 +35,10 @@ struct DeviceDemosSection: View {
 
     var body: some View {
         Section {
-            ForEach(DeviceDemo.allCases) { deviceDemo in
-                if !deviceDemo.requiresPressure || mission.deviceType.isInsole {
+            ForEach(DeviceDemo.allCases) { demo in
+                if !demo.requiresPressure || mission.deviceType.isInsole {
                     HStack {
-                        NavigationLink(deviceDemo.name, value: deviceDemo)
-                        Spacer()
+                        NavigationLink(demo.name, value: demo)
                     }
                 }
             }
@@ -51,17 +50,14 @@ struct DeviceDemosSection: View {
     }
 }
 
-struct DeviceDemosSection_Preview: PreviewProvider {
-    private static var mission: UKMission = .none
-    static var previews: some View {
-        NavigationStack {
-            List {
-                DeviceDemosSection(mission: mission)
-            }
-            .navigationDestination(for: DeviceDemo.self) { deviceDemo in
-                deviceDemo.view(mission: mission)
-            }
+#Preview {
+    NavigationStack {
+        List {
+            DeviceDemosSection(mission: .none)
         }
-        .frame(maxWidth: 300, maxHeight: 300)
+        .navigationDestination(for: DeviceDemo.self) { deviceDemo in
+            deviceDemo.view(mission: .none)
+        }
     }
+    .frame(maxWidth: 320, maxHeight: 300)
 }

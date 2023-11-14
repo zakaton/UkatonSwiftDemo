@@ -1,11 +1,23 @@
 import SwiftUI
+import UkatonKit
 
 struct MissionPair: View {
+    let missionPair: UKMissionPair
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            List {
+                MissionPairDemosSection(missionPair: missionPair)
+            }
+            .navigationTitle("Mission Pair")
+            .navigationDestination(for: MissionPairDemo.self) { demo in
+                demo.view(missionPair: missionPair)
+            }
+        }
     }
 }
 
 #Preview {
-    MissionPair()
+    MissionPair(missionPair: .shared)
+        .frame(maxWidth: 300, maxHeight: 300)
 }
