@@ -78,6 +78,12 @@
 		5FACE8C72AFFEFE400F1AFFD /* PressureModePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FACE8C62AFFEFE400F1AFFD /* PressureModePicker.swift */; };
 		5FACE8C82AFFEFE400F1AFFD /* PressureModePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FACE8C62AFFEFE400F1AFFD /* PressureModePicker.swift */; };
 		5FACE8C92AFFEFE400F1AFFD /* PressureModePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FACE8C62AFFEFE400F1AFFD /* PressureModePicker.swift */; };
+		5FB11E652B04228F00784EDD /* MissionPairCenterOfMassDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB11E642B04228F00784EDD /* MissionPairCenterOfMassDemo.swift */; };
+		5FB11E662B04228F00784EDD /* MissionPairCenterOfMassDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB11E642B04228F00784EDD /* MissionPairCenterOfMassDemo.swift */; };
+		5FB11E672B04228F00784EDD /* MissionPairCenterOfMassDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB11E642B04228F00784EDD /* MissionPairCenterOfMassDemo.swift */; };
+		5FB11E692B04254F00784EDD /* RSSIDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB11E682B04254F00784EDD /* RSSIDemo.swift */; };
+		5FB11E6A2B04254F00784EDD /* RSSIDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB11E682B04254F00784EDD /* RSSIDemo.swift */; };
+		5FB11E6B2B04254F00784EDD /* RSSIDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB11E682B04254F00784EDD /* RSSIDemo.swift */; };
 		5FCC84A42AFC414100B755FA /* MotionCalibrationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCC84A32AFC414100B755FA /* MotionCalibrationSection.swift */; };
 		5FCC84A52AFC414100B755FA /* MotionCalibrationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCC84A32AFC414100B755FA /* MotionCalibrationSection.swift */; };
 		5FCC84A62AFC414100B755FA /* MotionCalibrationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCC84A32AFC414100B755FA /* MotionCalibrationSection.swift */; };
@@ -162,6 +168,8 @@
 		5FA3AFFC2AFAAA2800F5295C /* DeviceWifiInformationSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceWifiInformationSection.swift; sourceTree = "<group>"; };
 		5FA3B0022AFAAB6E00F5295C /* DeviceDemosSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDemosSection.swift; sourceTree = "<group>"; };
 		5FACE8C62AFFEFE400F1AFFD /* PressureModePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressureModePicker.swift; sourceTree = "<group>"; };
+		5FB11E642B04228F00784EDD /* MissionPairCenterOfMassDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionPairCenterOfMassDemo.swift; sourceTree = "<group>"; };
+		5FB11E682B04254F00784EDD /* RSSIDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSIDemo.swift; sourceTree = "<group>"; };
 		5FCC84A32AFC414100B755FA /* MotionCalibrationSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionCalibrationSection.swift; sourceTree = "<group>"; };
 		5FCC84A72AFC426000B755FA /* MotionDataSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionDataSection.swift; sourceTree = "<group>"; };
 		5FCC84AF2AFC445C00B755FA /* PressureDataSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressureDataSection.swift; sourceTree = "<group>"; };
@@ -244,13 +252,22 @@
 			path = VibrationWaveforms;
 			sourceTree = "<group>";
 		};
-		5F9F82B52B0296EF00DDD9AB /* Pair */ = {
+		5F9F82B52B0296EF00DDD9AB /* MissionPair */ = {
 			isa = PBXGroup;
 			children = (
+				5F9F82CA2B0421A300DDD9AB /* MissionPairDemos */,
 				5F9F82B62B02970300DDD9AB /* MissionPair.swift */,
 				5F9F82BE2B03E2D900DDD9AB /* MissionPairDemosSection.swift */,
 			);
-			path = Pair;
+			path = MissionPair;
+			sourceTree = "<group>";
+		};
+		5F9F82CA2B0421A300DDD9AB /* MissionPairDemos */ = {
+			isa = PBXGroup;
+			children = (
+				5FB11E642B04228F00784EDD /* MissionPairCenterOfMassDemo.swift */,
+			);
+			path = MissionPairDemos;
 			sourceTree = "<group>";
 		};
 		5FA3AFF62AF9937B00F5295C /* Demos */ = {
@@ -260,6 +277,7 @@
 				5FCC84B82AFCA30900B755FA /* VibrationDemo */,
 				5FCC84B32AFC9B5400B755FA /* MotionDemo */,
 				5FCC84A22AFC412600B755FA /* SensorDataDemo */,
+				5FB11E682B04254F00784EDD /* RSSIDemo.swift */,
 			);
 			path = Demos;
 			sourceTree = "<group>";
@@ -392,7 +410,7 @@
 		5FF58F442ADF04B900AD2941 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5F9F82B52B0296EF00DDD9AB /* Pair */,
+				5F9F82B52B0296EF00DDD9AB /* MissionPair */,
 				5FA3B0012AFAAAF000F5295C /* DeviceDiscovery */,
 				5FA3B0002AFAAAD500F5295C /* DeviceDetail */,
 				5FA3AFF62AF9937B00F5295C /* Demos */,
@@ -605,9 +623,11 @@
 				5F0F6F5B2AFEC9E8007D0D03 /* ViewModifier.swift in Sources */,
 				5FA3AFFD2AFAAA2800F5295C /* DeviceWifiInformationSection.swift in Sources */,
 				5F0F6F572AFEA87F007D0D03 /* TranslationModePicker.swift in Sources */,
+				5FB11E692B04254F00784EDD /* RSSIDemo.swift in Sources */,
 				5F9F82C72B03EC0200DDD9AB /* MissionPairMotionDemo.swift in Sources */,
 				5FCC84BB2AFCA33800B755FA /* PressureDemo.swift in Sources */,
 				5FACE8C72AFFEFE400F1AFFD /* PressureModePicker.swift in Sources */,
+				5FB11E652B04228F00784EDD /* MissionPairCenterOfMassDemo.swift in Sources */,
 				5FCC84B52AFC9B6700B755FA /* MotionDemo.swift in Sources */,
 				5FF58F362ADE51D900AD2941 /* ContentView.swift in Sources */,
 				5F777D462B0143780001509A /* VibrationWaveformEffectsView.swift in Sources */,
@@ -642,9 +662,11 @@
 				5F0F6F5C2AFEC9E8007D0D03 /* ViewModifier.swift in Sources */,
 				5FA3AFFE2AFAAA2800F5295C /* DeviceWifiInformationSection.swift in Sources */,
 				5F0F6F582AFEA87F007D0D03 /* TranslationModePicker.swift in Sources */,
+				5FB11E6A2B04254F00784EDD /* RSSIDemo.swift in Sources */,
 				5F9F82C82B03EC0200DDD9AB /* MissionPairMotionDemo.swift in Sources */,
 				5FCC84BC2AFCA33800B755FA /* PressureDemo.swift in Sources */,
 				5FACE8C82AFFEFE400F1AFFD /* PressureModePicker.swift in Sources */,
+				5FB11E662B04228F00784EDD /* MissionPairCenterOfMassDemo.swift in Sources */,
 				5FCC84B62AFC9B6700B755FA /* MotionDemo.swift in Sources */,
 				5FF58F5B2ADF140C00AD2941 /* UkatonSwiftDemoApp.swift in Sources */,
 				5F777D472B0143780001509A /* VibrationWaveformEffectsView.swift in Sources */,
@@ -679,9 +701,11 @@
 				5F0F6F5D2AFEC9E8007D0D03 /* ViewModifier.swift in Sources */,
 				5FA3AFFF2AFAAA2800F5295C /* DeviceWifiInformationSection.swift in Sources */,
 				5F0F6F592AFEA87F007D0D03 /* TranslationModePicker.swift in Sources */,
+				5FB11E6B2B04254F00784EDD /* RSSIDemo.swift in Sources */,
 				5F9F82C92B03EC0200DDD9AB /* MissionPairMotionDemo.swift in Sources */,
 				5FCC84BD2AFCA33800B755FA /* PressureDemo.swift in Sources */,
 				5FACE8C92AFFEFE400F1AFFD /* PressureModePicker.swift in Sources */,
+				5FB11E672B04228F00784EDD /* MissionPairCenterOfMassDemo.swift in Sources */,
 				5FCC84B72AFC9B6700B755FA /* MotionDemo.swift in Sources */,
 				5FF58F752ADF18A000AD2941 /* UkatonSwiftDemoApp.swift in Sources */,
 				5F777D482B0143780001509A /* VibrationWaveformEffectsView.swift in Sources */,

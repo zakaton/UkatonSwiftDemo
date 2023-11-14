@@ -4,6 +4,7 @@ import UkatonKit
 
 struct MissionPairMotionDemo: View {
     let missionPair: UKMissionPair
+    
     private let recalibrateSubject: PassthroughSubject<Void, Never> = .init()
 
     var body: some View {
