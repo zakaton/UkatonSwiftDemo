@@ -26,6 +26,7 @@ struct PressureDemo: View {
                 }
             PressureModePicker(mission: mission, sensorDataConfigurations: $sensorDataConfigurations)
         }
+        .navigationTitle("Pressure")
         .onReceive(mission.sensorDataConfigurationsSubject, perform: {
             sensorDataConfigurations = $0
         })

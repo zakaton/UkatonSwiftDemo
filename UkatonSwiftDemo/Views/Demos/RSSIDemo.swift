@@ -22,6 +22,7 @@ struct RSSIDemo: View {
             Text("rssi: \(rssi)")
                 .onReceive(mission.rssiSubject, perform: { rssi = $0 })
         }
+        .navigationTitle("RSSI")
     }
 }
 
