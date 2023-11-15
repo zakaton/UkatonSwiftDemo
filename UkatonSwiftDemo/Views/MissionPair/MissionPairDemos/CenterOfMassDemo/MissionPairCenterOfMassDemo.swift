@@ -8,25 +8,35 @@ struct MissionPairCenterOfMassDemo: View {
     @State var centerOfMass: UKCenterOfMass = .init()
 
     var body: some View {
-        VStack {
-            Spacer()
+        VStack(spacing: 0) {
             GeometryReader { geometry in
                 ZStack {
                     RoundedRectangle(cornerRadius: 15.0)
                         .fill(.blue)
-                    Circle()
-                        .fill(.red)
-                        .frame(width: min(geometry.size.width, geometry.size.height) * 0.1)
-                        .position(
-                            x: geometry.size.width * centerOfMass.x,
-                            y: geometry.size.height * (1 - centerOfMass.y)
-                        )
+                    VStack {
+                        Spacer()
+                        HStack {
+                            Spacer()
+                            GeometryReader { geometry in
+                                Circle()
+                                    .fill(.red)
+                                    .frame(width: min(geometry.size.width, geometry.size.height) * 0.1)
+                                    .position(
+                                        x: geometry.size.width * centerOfMass.x,
+                                        y: geometry.size.height * (1 - centerOfMass.y)
+                                    )
+                            }
+                            Spacer()
+                        }
+                        Spacer()
+                    }
+                    .frame(width: geometry.size.width - 10, height: geometry.size.height - 10)
                 }
             }
             .onReceive(missionPair.centerOfMassSubject, perform: {
                 centerOfMass = $0.value
             })
-            .padding()
+            .padding(10)
 
             PressureModePicker(sensorDataConfigurable: missionPair, sensorDataConfigurations: $sensorDataConfigurations)
         }
@@ -48,6 +58,6 @@ struct MissionPairCenterOfMassDemo: View {
 }
 
 #Preview {
-    MissionPairCenterOfMassDemo(missionPair: .shared)
+    NavigationStack { MissionPairCenterOfMassDemo(missionPair: .shared) }
         .frame(maxWidth: 300, maxHeight: 300)
 }

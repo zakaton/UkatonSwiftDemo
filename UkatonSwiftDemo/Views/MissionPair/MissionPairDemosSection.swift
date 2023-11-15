@@ -9,12 +9,15 @@ enum MissionPairDemo: CaseIterable, Identifiable {
     case motion
     case pressure
     case centerOfMass
+    case vibration
 
     @ViewBuilder func view(missionPair: UKMissionPair) -> some View {
         switch self {
         case .motion: MissionPairMotionDemo(missionPair: missionPair)
         case .pressure: MissionPairPressureDemo(missionPair: missionPair)
         case .centerOfMass: MissionPairCenterOfMassDemo(missionPair: missionPair)
+        case .vibration:
+            VibrationDemo(vibratable: missionPair)
         }
     }
 }

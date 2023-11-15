@@ -2,13 +2,13 @@ import SwiftUI
 import UkatonKit
 
 struct AllVibrationWaveformEffectsView: View {
-    var mission: UKMission
+    var vibratable: UKVibratable
 
     var body: some View {
         List {
             ForEach(UKVibrationWaveformEffect.allCases.filter { $0 != .none }) { waveformEffect in
                 Button(action: {
-                    try? mission.vibrate(waveformEffect: waveformEffect)
+                    try? vibratable.vibrate(waveformEffect: waveformEffect)
                 }, label: {
                     Text(waveformEffect.name)
                 })
@@ -19,6 +19,6 @@ struct AllVibrationWaveformEffectsView: View {
 }
 
 #Preview {
-    AllVibrationWaveformEffectsView(mission: .none)
+    AllVibrationWaveformEffectsView(vibratable: UKMission.none)
         .frame(maxWidth: 400)
 }

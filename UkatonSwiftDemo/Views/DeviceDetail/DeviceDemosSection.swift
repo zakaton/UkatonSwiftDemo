@@ -41,7 +41,7 @@ enum DeviceDemo: CaseIterable, Identifiable {
         case .sensorData: SensorDataDemo(mission: mission)
         case .motion: MotionDemo(mission: mission)
         case .pressure: PressureDemo(mission: mission)
-        case .vibration: VibrationDemo(mission: mission)
+        case .vibration: VibrationDemo(vibratable: mission)
         case .rssi: RSSIDemo(mission: mission)
         }
     }

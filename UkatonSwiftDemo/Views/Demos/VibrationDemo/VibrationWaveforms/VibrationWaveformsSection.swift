@@ -2,7 +2,7 @@ import SwiftUI
 import UkatonKit
 
 struct VibrationWaveformsSection: View {
-    var mission: UKMission
+    var vibratable: UKVibratable
     @State private var waveformsArray: [[UKVibrationWaveform]] = []
 
     var body: some View {
@@ -23,7 +23,7 @@ struct VibrationWaveformsSection: View {
                         Text("remove")
                     }
                 }
-                VibrationWaveformsView(mission: mission, waveforms: $waveformsArray[waveformsIndex])
+                VibrationWaveformsView(vibratable: vibratable, waveforms: $waveformsArray[waveformsIndex])
             }
         } header: {
             Text("Waveforms")
@@ -34,7 +34,7 @@ struct VibrationWaveformsSection: View {
 
 #Preview {
     List {
-        VibrationWaveformsSection(mission: .none)
+        VibrationWaveformsSection(vibratable: UKMission.none)
     }
     .frame(maxWidth: 300)
 }

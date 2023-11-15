@@ -2,7 +2,7 @@ import SwiftUI
 import UkatonKit
 
 struct VibrationWaveformEffectsView: View {
-    var mission: UKMission
+    var vibratable: UKVibratable
     @Binding var waveformEffects: [UKVibrationWaveformEffect]
 
     var body: some View {
@@ -26,7 +26,7 @@ struct VibrationWaveformEffectsView: View {
         })
 
         Button(action: {
-            try? mission.vibrate(waveformEffects: waveformEffects)
+            try? vibratable.vibrate(waveformEffects: waveformEffects)
         }) {
             HStack {
                 Label("trigger sequence", systemImage: "waveform.path")
@@ -37,5 +37,5 @@ struct VibrationWaveformEffectsView: View {
 }
 
 #Preview {
-    VibrationWaveformEffectsView(mission: .none, waveformEffects: .constant(.init()))
+    VibrationWaveformEffectsView(vibratable: UKMission.none, waveformEffects: .constant(.init()))
 }

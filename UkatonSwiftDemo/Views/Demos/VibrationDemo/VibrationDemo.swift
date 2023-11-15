@@ -2,12 +2,12 @@ import SwiftUI
 import UkatonKit
 
 struct VibrationDemo: View {
-    var mission: UKMission
+    var vibratable: UKVibratable
 
     var body: some View {
         List {
-            VibrationWaveformEffectsSection(mission: mission)
-            VibrationWaveformsSection(mission: mission)
+            VibrationWaveformEffectsSection(vibratable: vibratable)
+            VibrationWaveformsSection(vibratable: vibratable)
         }
         .navigationTitle("Vibration")
     }
@@ -15,7 +15,7 @@ struct VibrationDemo: View {
 
 #Preview {
     NavigationStack {
-        VibrationDemo(mission: .none)
+        VibrationDemo(vibratable: UKMission.none)
     }
     .frame(maxWidth: 360, maxHeight: 500)
 }

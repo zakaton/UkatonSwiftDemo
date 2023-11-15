@@ -3,7 +3,7 @@ import UkatonKit
 import UkatonMacros
 
 struct RotationModePicker: View {
-    var mission: UKMission
+    var sensorDataConfigurable: UKSensorDataConfigurable
     @Binding var sensorDataConfigurations: UKSensorDataConfigurations
 
     // MARK: - isEnabled
@@ -55,7 +55,7 @@ struct RotationModePicker: View {
                     sensorDataConfigurations.motion[.rotationRate] = 20
                 }
 
-                try? mission.setSensorDataConfigurations(sensorDataConfigurations)
+                try? sensorDataConfigurable.setSensorDataConfigurations(sensorDataConfigurations)
             })
 
         Picker(selection: rotationBinding, label: EmptyView()) {
@@ -73,6 +73,6 @@ struct RotationModePicker: View {
 }
 
 #Preview {
-    RotationModePicker(mission: .none, sensorDataConfigurations: .constant(.init()))
+    RotationModePicker(sensorDataConfigurable: UKMission.none, sensorDataConfigurations: .constant(.init()))
         .frame(maxWidth: 300)
 }

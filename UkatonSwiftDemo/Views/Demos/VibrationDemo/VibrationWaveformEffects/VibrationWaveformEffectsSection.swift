@@ -2,13 +2,13 @@ import SwiftUI
 import UkatonKit
 
 struct VibrationWaveformEffectsSection: View {
-    var mission: UKMission
+    var vibratable: UKVibratable
     @State private var waveformEffectsArray: [[UKVibrationWaveformEffect]] = []
 
     var body: some View {
         Section {
             NavigationLink("Explore Effects...") {
-                AllVibrationWaveformEffectsView(mission: mission)
+                AllVibrationWaveformEffectsView(vibratable: vibratable)
             }
 
             Button(action: {
@@ -28,7 +28,7 @@ struct VibrationWaveformEffectsSection: View {
                         Text("remove")
                     }
                 }
-                VibrationWaveformEffectsView(mission: mission, waveformEffects: $waveformEffectsArray[waveformEffectsIndex])
+                VibrationWaveformEffectsView(vibratable: vibratable, waveformEffects: $waveformEffectsArray[waveformEffectsIndex])
             }
 
         } header: {
@@ -41,7 +41,7 @@ struct VibrationWaveformEffectsSection: View {
 #Preview {
     NavigationStack {
         List {
-            VibrationWaveformEffectsSection(mission: .none)
+            VibrationWaveformEffectsSection(vibratable: UKMission.none)
         }
     }
     .frame(maxWidth: 300, maxHeight: 300)

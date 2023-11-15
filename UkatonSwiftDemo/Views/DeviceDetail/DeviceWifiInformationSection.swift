@@ -62,7 +62,7 @@ struct DeviceWifiInformationSection: View {
                                 .labelStyle(LabelSpacing(spacing: 4))
                         }
                     }
-                    .onReceive(mission.ipAddressSubject, perform: { _ in
+                    .onReceive(sensorDataConfigurable.ipAddressSubject, perform: { _ in
                         didCopyIpAddressToClipboard = false
                     })
                     #endif

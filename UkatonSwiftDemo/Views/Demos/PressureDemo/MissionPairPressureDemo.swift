@@ -3,10 +3,23 @@ import UkatonKit
 
 struct MissionPairPressureDemo: View {
     let missionPair: UKMissionPair
+
+    @State private var sensorDataConfigurations: UKSensorDataConfigurations = .init()
+
     var body: some View {
-        HStack {
-            PressureDemo(mission: missionPair[.left] ?? .none)
-            PressureDemo(mission: missionPair[.right] ?? .none)
+        VStack {
+            HStack {
+                PressureView(mission: missionPair[.left] ?? .none)
+                PressureView(mission: missionPair[.right] ?? .none)
+            }
+            PressureModePicker(sensorDataConfigurable: missionPair, sensorDataConfigurations: $sensorDataConfigurations)
+        }
+        .navigationTitle("Pressure")
+        .onReceive(missionPair.sensorDataConfigurationsSubject, perform: {
+            sensorDataConfigurations = $0
+        })
+        .onDisappear {
+            try? missionPair.clearSensorDataConfigurations()
         }
     }
 }

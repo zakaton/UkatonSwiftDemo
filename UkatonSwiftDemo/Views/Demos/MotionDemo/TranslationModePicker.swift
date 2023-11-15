@@ -3,7 +3,7 @@ import UkatonKit
 import UkatonMacros
 
 struct TranslationModePicker: View {
-    var mission: UKMission
+    var sensorDataConfigurable: UKSensorDataConfigurable
     @Binding var sensorDataConfigurations: UKSensorDataConfigurations
 
     // MARK: isEnabled
@@ -55,7 +55,7 @@ struct TranslationModePicker: View {
                     sensorDataConfigurations.motion[.linearAcceleration] = 20
                 }
 
-                try? mission.setSensorDataConfigurations(sensorDataConfigurations)
+                try? sensorDataConfigurable.setSensorDataConfigurations(sensorDataConfigurations)
             })
 
         Picker(selection: translationBinding, label: EmptyView()) {
@@ -73,6 +73,6 @@ struct TranslationModePicker: View {
 }
 
 #Preview {
-    TranslationModePicker(mission: .none, sensorDataConfigurations: .constant(.init()))
+    TranslationModePicker(sensorDataConfigurable: UKMission.none, sensorDataConfigurations: .constant(.init()))
         .frame(maxWidth: 300)
 }
