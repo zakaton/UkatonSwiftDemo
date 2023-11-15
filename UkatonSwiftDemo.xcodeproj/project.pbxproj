@@ -198,7 +198,6 @@
 		5FF58F432ADEFD2900AD2941 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		5FF58F4B2ADF13E700AD2941 /* MacUkatonSwiftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacUkatonSwiftDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FF58F4D2ADF13E700AD2941 /* MacUkatonSwiftDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacUkatonSwiftDemoApp.swift; sourceTree = "<group>"; };
-		5FF58F4F2ADF13E700AD2941 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5FF58F542ADF13E800AD2941 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5FF58F562ADF13E800AD2941 /* MacUkatonSwiftDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MacUkatonSwiftDemo.entitlements; sourceTree = "<group>"; };
 		5FF58F5C2ADF164900AD2941 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -455,7 +454,6 @@
 			children = (
 				5FF58F5C2ADF164900AD2941 /* Info.plist */,
 				5FF58F4D2ADF13E700AD2941 /* MacUkatonSwiftDemoApp.swift */,
-				5FF58F4F2ADF13E700AD2941 /* ContentView.swift */,
 				5FF58F562ADF13E800AD2941 /* MacUkatonSwiftDemo.entitlements */,
 				5FF58F532ADF13E800AD2941 /* Preview Content */,
 			);
