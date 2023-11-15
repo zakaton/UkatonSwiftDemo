@@ -3,6 +3,7 @@ import UkatonKit
 
 struct PressureDemo: View {
     var mission: UKMission
+    
     @State private var sensorDataConfigurations: UKSensorDataConfigurations = .init()
     @State private var pressureValues: UKPressureValues = .init()
 
@@ -24,7 +25,7 @@ struct PressureDemo: View {
                         }
                     }
                 }
-            PressureModePicker(mission: mission, sensorDataConfigurations: $sensorDataConfigurations)
+            PressureModePicker(sensorDataConfigurable: mission, sensorDataConfigurations: $sensorDataConfigurations)
         }
         .navigationTitle("Pressure")
         .onReceive(mission.sensorDataConfigurationsSubject, perform: {

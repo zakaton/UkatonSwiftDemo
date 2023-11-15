@@ -245,6 +245,14 @@
 			path = RSSIDemo;
 			sourceTree = "<group>";
 		};
+		5F446F782B0537DC00797659 /* CenterOfMassDemo */ = {
+			isa = PBXGroup;
+			children = (
+				5FB11E642B04228F00784EDD /* MissionPairCenterOfMassDemo.swift */,
+			);
+			path = CenterOfMassDemo;
+			sourceTree = "<group>";
+		};
 		5F777D4D2B016A140001509A /* VibrationWaveformEffects */ = {
 			isa = PBXGroup;
 			children = (
@@ -277,7 +285,7 @@
 		5F9F82CA2B0421A300DDD9AB /* MissionPairDemos */ = {
 			isa = PBXGroup;
 			children = (
-				5FB11E642B04228F00784EDD /* MissionPairCenterOfMassDemo.swift */,
+				5F446F782B0537DC00797659 /* CenterOfMassDemo */,
 			);
 			path = MissionPairDemos;
 			sourceTree = "<group>";
