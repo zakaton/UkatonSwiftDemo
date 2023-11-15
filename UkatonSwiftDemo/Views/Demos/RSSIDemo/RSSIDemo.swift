@@ -3,6 +3,7 @@ import UkatonKit
 
 struct RSSIDemo: View {
     var mission: UKMission
+
     @State private var rssi: Int = 0
     @State private var isReadingRSSI: Bool = false
 
