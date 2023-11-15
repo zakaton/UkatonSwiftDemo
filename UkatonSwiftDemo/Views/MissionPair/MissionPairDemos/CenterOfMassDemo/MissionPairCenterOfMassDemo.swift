@@ -9,6 +9,7 @@ struct MissionPairCenterOfMassDemo: View {
 
     var body: some View {
         VStack {
+            Spacer()
             GeometryReader { geometry in
                 ZStack {
                     RoundedRectangle(cornerRadius: 15.0)
@@ -18,9 +19,8 @@ struct MissionPairCenterOfMassDemo: View {
                         .frame(width: min(geometry.size.width, geometry.size.height) * 0.1)
                         .position(
                             x: geometry.size.width * centerOfMass.x,
-                            y: geometry.size.height * centerOfMass.y
+                            y: geometry.size.height * (1 - centerOfMass.y)
                         )
-                        .padding()
                 }
             }
             .onReceive(missionPair.centerOfMassSubject, perform: {
@@ -34,6 +34,13 @@ struct MissionPairCenterOfMassDemo: View {
         .onReceive(missionPair.sensorDataConfigurationsSubject, perform: {
             sensorDataConfigurations = $0
         })
+        .toolbar {
+            Button {
+                missionPair.recalibratePressure()
+            } label: {
+                Label("recalibrate pressure", systemImage: "arrow.counterclockwise")
+            }
+        }
         .onDisappear {
             try? missionPair.clearSensorDataConfigurations()
         }
