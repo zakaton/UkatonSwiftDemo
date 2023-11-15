@@ -26,7 +26,7 @@ struct MissionPairCenterOfMassDemo: View {
             .onReceive(missionPair.centerOfMassSubject, perform: {
                 centerOfMass = $0.value
             })
-            .padding(.horizontal)
+            .padding()
 
             PressureModePicker(sensorDataConfigurable: missionPair, sensorDataConfigurations: $sensorDataConfigurations)
         }
