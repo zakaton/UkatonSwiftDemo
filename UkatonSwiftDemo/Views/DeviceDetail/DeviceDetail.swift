@@ -7,6 +7,9 @@ struct DeviceDetail: View {
     var body: some View {
         List {
             DeviceInformationSection(mission: mission)
+            if mission.connectionType == .bluetooth {
+                DeviceBluetoothInformationSection(mission: mission)
+            }
             DeviceWifiInformationSection(mission: mission)
             DeviceDemosSection(mission: mission)
         }

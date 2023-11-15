@@ -29,13 +29,17 @@ struct DeviceInformationSection: View {
                 .disabled(newName.isEmpty)
             }
 
-            Picker("__type__", selection: $newDeviceType) {
+            Picker("__device type__", selection: $newDeviceType) {
                 ForEach(UKDeviceType.allCases) { deviceType in
                     Text(deviceType.name)
                 }
             }
             .onChange(of: newDeviceType) {
                 try? mission.setDeviceType(newDeviceType)
+            }
+
+            if let connectionType = mission.connectionType {
+                Text("__connection type:__ \(connectionType.name)")
             }
 
             Text("__battery level:__ \(String(batteryLevel))%")

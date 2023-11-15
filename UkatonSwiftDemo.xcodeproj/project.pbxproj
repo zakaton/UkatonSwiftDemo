@@ -42,6 +42,9 @@
 		5F426ED32AF1F51D00E58F15 /* DeviceDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F426ED22AF1F51D00E58F15 /* DeviceDetail.swift */; };
 		5F426ED42AF1F53300E58F15 /* DeviceDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F426ED22AF1F51D00E58F15 /* DeviceDetail.swift */; };
 		5F426ED52AF1F53800E58F15 /* DeviceDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F426ED22AF1F51D00E58F15 /* DeviceDetail.swift */; };
+		5F446F752B0468C900797659 /* RSSIDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F446F742B0468C900797659 /* RSSIDemo.swift */; };
+		5F446F762B0468C900797659 /* RSSIDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F446F742B0468C900797659 /* RSSIDemo.swift */; };
+		5F446F772B0468C900797659 /* RSSIDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F446F742B0468C900797659 /* RSSIDemo.swift */; };
 		5F7616402AFAB083000E1A80 /* SensorDataDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F76163F2AFAB083000E1A80 /* SensorDataDemo.swift */; };
 		5F7616412AFAB083000E1A80 /* SensorDataDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F76163F2AFAB083000E1A80 /* SensorDataDemo.swift */; };
 		5F7616422AFAB083000E1A80 /* SensorDataDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F76163F2AFAB083000E1A80 /* SensorDataDemo.swift */; };
@@ -81,9 +84,9 @@
 		5FB11E652B04228F00784EDD /* MissionPairCenterOfMassDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB11E642B04228F00784EDD /* MissionPairCenterOfMassDemo.swift */; };
 		5FB11E662B04228F00784EDD /* MissionPairCenterOfMassDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB11E642B04228F00784EDD /* MissionPairCenterOfMassDemo.swift */; };
 		5FB11E672B04228F00784EDD /* MissionPairCenterOfMassDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB11E642B04228F00784EDD /* MissionPairCenterOfMassDemo.swift */; };
-		5FB11E692B04254F00784EDD /* RSSIDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB11E682B04254F00784EDD /* RSSIDemo.swift */; };
-		5FB11E6A2B04254F00784EDD /* RSSIDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB11E682B04254F00784EDD /* RSSIDemo.swift */; };
-		5FB11E6B2B04254F00784EDD /* RSSIDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB11E682B04254F00784EDD /* RSSIDemo.swift */; };
+		5FB11E6D2B04673800784EDD /* DeviceBluetoothInformationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB11E6C2B04673800784EDD /* DeviceBluetoothInformationSection.swift */; };
+		5FB11E6E2B04673800784EDD /* DeviceBluetoothInformationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB11E6C2B04673800784EDD /* DeviceBluetoothInformationSection.swift */; };
+		5FB11E6F2B04673800784EDD /* DeviceBluetoothInformationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB11E6C2B04673800784EDD /* DeviceBluetoothInformationSection.swift */; };
 		5FCC84A42AFC414100B755FA /* MotionCalibrationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCC84A32AFC414100B755FA /* MotionCalibrationSection.swift */; };
 		5FCC84A52AFC414100B755FA /* MotionCalibrationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCC84A32AFC414100B755FA /* MotionCalibrationSection.swift */; };
 		5FCC84A62AFC414100B755FA /* MotionCalibrationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCC84A32AFC414100B755FA /* MotionCalibrationSection.swift */; };
@@ -156,6 +159,7 @@
 		5F0F6F5A2AFEC9E8007D0D03 /* ViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifier.swift; sourceTree = "<group>"; };
 		5F426ECE2AF17CEA00E58F15 /* DiscoveredDeviceRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveredDeviceRow.swift; sourceTree = "<group>"; };
 		5F426ED22AF1F51D00E58F15 /* DeviceDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDetail.swift; sourceTree = "<group>"; };
+		5F446F742B0468C900797659 /* RSSIDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSIDemo.swift; sourceTree = "<group>"; };
 		5F76163F2AFAB083000E1A80 /* SensorDataDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorDataDemo.swift; sourceTree = "<group>"; };
 		5F777D452B0143780001509A /* VibrationWaveformEffectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibrationWaveformEffectsView.swift; sourceTree = "<group>"; };
 		5F777D492B01481A0001509A /* VibrationWaveformsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibrationWaveformsView.swift; sourceTree = "<group>"; };
@@ -169,7 +173,7 @@
 		5FA3B0022AFAAB6E00F5295C /* DeviceDemosSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDemosSection.swift; sourceTree = "<group>"; };
 		5FACE8C62AFFEFE400F1AFFD /* PressureModePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressureModePicker.swift; sourceTree = "<group>"; };
 		5FB11E642B04228F00784EDD /* MissionPairCenterOfMassDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionPairCenterOfMassDemo.swift; sourceTree = "<group>"; };
-		5FB11E682B04254F00784EDD /* RSSIDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSIDemo.swift; sourceTree = "<group>"; };
+		5FB11E6C2B04673800784EDD /* DeviceBluetoothInformationSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceBluetoothInformationSection.swift; sourceTree = "<group>"; };
 		5FCC84A32AFC414100B755FA /* MotionCalibrationSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionCalibrationSection.swift; sourceTree = "<group>"; };
 		5FCC84A72AFC426000B755FA /* MotionDataSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionDataSection.swift; sourceTree = "<group>"; };
 		5FCC84AF2AFC445C00B755FA /* PressureDataSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressureDataSection.swift; sourceTree = "<group>"; };
@@ -233,6 +237,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5F446F732B0468BC00797659 /* RSSIDemo */ = {
+			isa = PBXGroup;
+			children = (
+				5F446F742B0468C900797659 /* RSSIDemo.swift */,
+			);
+			path = RSSIDemo;
+			sourceTree = "<group>";
+		};
 		5F777D4D2B016A140001509A /* VibrationWaveformEffects */ = {
 			isa = PBXGroup;
 			children = (
@@ -273,11 +285,11 @@
 		5FA3AFF62AF9937B00F5295C /* Demos */ = {
 			isa = PBXGroup;
 			children = (
+				5F446F732B0468BC00797659 /* RSSIDemo */,
 				5FCC84B92AFCA31300B755FA /* PressureDemo */,
 				5FCC84B82AFCA30900B755FA /* VibrationDemo */,
 				5FCC84B32AFC9B5400B755FA /* MotionDemo */,
 				5FCC84A22AFC412600B755FA /* SensorDataDemo */,
-				5FB11E682B04254F00784EDD /* RSSIDemo.swift */,
 			);
 			path = Demos;
 			sourceTree = "<group>";
@@ -286,6 +298,7 @@
 			isa = PBXGroup;
 			children = (
 				5F426ED22AF1F51D00E58F15 /* DeviceDetail.swift */,
+				5FB11E6C2B04673800784EDD /* DeviceBluetoothInformationSection.swift */,
 				5FA3AFFC2AFAAA2800F5295C /* DeviceWifiInformationSection.swift */,
 				5FA3AFF82AFAA97800F5295C /* DeviceInformationSection.swift */,
 				5FA3B0022AFAAB6E00F5295C /* DeviceDemosSection.swift */,
@@ -623,7 +636,7 @@
 				5F0F6F5B2AFEC9E8007D0D03 /* ViewModifier.swift in Sources */,
 				5FA3AFFD2AFAAA2800F5295C /* DeviceWifiInformationSection.swift in Sources */,
 				5F0F6F572AFEA87F007D0D03 /* TranslationModePicker.swift in Sources */,
-				5FB11E692B04254F00784EDD /* RSSIDemo.swift in Sources */,
+				5F446F752B0468C900797659 /* RSSIDemo.swift in Sources */,
 				5F9F82C72B03EC0200DDD9AB /* MissionPairMotionDemo.swift in Sources */,
 				5FCC84BB2AFCA33800B755FA /* PressureDemo.swift in Sources */,
 				5FACE8C72AFFEFE400F1AFFD /* PressureModePicker.swift in Sources */,
@@ -638,6 +651,7 @@
 				5F9F82B72B02970300DDD9AB /* MissionPair.swift in Sources */,
 				5FCC84BF2AFCA34100B755FA /* VibrationDemo.swift in Sources */,
 				5FA3AFF92AFAA97800F5295C /* DeviceInformationSection.swift in Sources */,
+				5FB11E6D2B04673800784EDD /* DeviceBluetoothInformationSection.swift in Sources */,
 				5FCC84B02AFC445C00B755FA /* PressureDataSection.swift in Sources */,
 				5F9F82BF2B03E2D900DDD9AB /* MissionPairDemosSection.swift in Sources */,
 			);
@@ -662,7 +676,7 @@
 				5F0F6F5C2AFEC9E8007D0D03 /* ViewModifier.swift in Sources */,
 				5FA3AFFE2AFAAA2800F5295C /* DeviceWifiInformationSection.swift in Sources */,
 				5F0F6F582AFEA87F007D0D03 /* TranslationModePicker.swift in Sources */,
-				5FB11E6A2B04254F00784EDD /* RSSIDemo.swift in Sources */,
+				5F446F762B0468C900797659 /* RSSIDemo.swift in Sources */,
 				5F9F82C82B03EC0200DDD9AB /* MissionPairMotionDemo.swift in Sources */,
 				5FCC84BC2AFCA33800B755FA /* PressureDemo.swift in Sources */,
 				5FACE8C82AFFEFE400F1AFFD /* PressureModePicker.swift in Sources */,
@@ -677,6 +691,7 @@
 				5F9F82B82B02970300DDD9AB /* MissionPair.swift in Sources */,
 				5FCC84C02AFCA34100B755FA /* VibrationDemo.swift in Sources */,
 				5FA3AFFA2AFAA97800F5295C /* DeviceInformationSection.swift in Sources */,
+				5FB11E6E2B04673800784EDD /* DeviceBluetoothInformationSection.swift in Sources */,
 				5FCC84B12AFC445C00B755FA /* PressureDataSection.swift in Sources */,
 				5F9F82C02B03E2D900DDD9AB /* MissionPairDemosSection.swift in Sources */,
 			);
@@ -701,7 +716,7 @@
 				5F0F6F5D2AFEC9E8007D0D03 /* ViewModifier.swift in Sources */,
 				5FA3AFFF2AFAAA2800F5295C /* DeviceWifiInformationSection.swift in Sources */,
 				5F0F6F592AFEA87F007D0D03 /* TranslationModePicker.swift in Sources */,
-				5FB11E6B2B04254F00784EDD /* RSSIDemo.swift in Sources */,
+				5F446F772B0468C900797659 /* RSSIDemo.swift in Sources */,
 				5F9F82C92B03EC0200DDD9AB /* MissionPairMotionDemo.swift in Sources */,
 				5FCC84BD2AFCA33800B755FA /* PressureDemo.swift in Sources */,
 				5FACE8C92AFFEFE400F1AFFD /* PressureModePicker.swift in Sources */,
@@ -716,6 +731,7 @@
 				5F9F82B92B02970300DDD9AB /* MissionPair.swift in Sources */,
 				5FCC84C12AFCA34100B755FA /* VibrationDemo.swift in Sources */,
 				5FA3AFFB2AFAA97800F5295C /* DeviceInformationSection.swift in Sources */,
+				5FB11E6F2B04673800784EDD /* DeviceBluetoothInformationSection.swift in Sources */,
 				5FCC84B22AFC445C00B755FA /* PressureDataSection.swift in Sources */,
 				5F9F82C12B03E2D900DDD9AB /* MissionPairDemosSection.swift in Sources */,
 			);
