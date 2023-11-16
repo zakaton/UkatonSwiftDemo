@@ -35,14 +35,16 @@ struct DeviceDiscovery: View {
             }
             .navigationTitle("My devices")
             .toolbar {
-                Button {
-                    bluetoothManager.toggleDeviceScan()
-                } label: {
-                    if bluetoothManager.isScanning {
-                        Label("stop scan", systemImage: "antenna.radiowaves.left.and.right")
-                    }
-                    else {
-                        Label("start scan", systemImage: "antenna.radiowaves.left.and.right.slash")
+                ToolbarItem(placement: .automatic) {
+                    Button {
+                        bluetoothManager.toggleDeviceScan()
+                    } label: {
+                        if bluetoothManager.isScanning {
+                            Label("stop scan", systemImage: "antenna.radiowaves.left.and.right")
+                        }
+                        else {
+                            Label("start scan", systemImage: "antenna.radiowaves.left.and.right.slash")
+                        }
                     }
                 }
             }

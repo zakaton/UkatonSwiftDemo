@@ -6,11 +6,11 @@ import UkatonMacros
 @StaticLogger
 struct DiscoveredDeviceRow: View {
     @Binding var discoveredDevice: UKDiscoveredBluetoothDevice
-    @ObservedObject var mission: UKMission = .none
+    @ObservedObject var mission: UKMission
 
     init(discoveredDevice: Binding<UKDiscoveredBluetoothDevice>, onSelectDevice: (() -> Void)? = nil) {
         self._discoveredDevice = discoveredDevice
-        self.mission = self.discoveredDevice.mission
+        self.mission = discoveredDevice.wrappedValue.mission
         self.onSelectDevice = onSelectDevice
     }
 
@@ -18,65 +18,11 @@ struct DiscoveredDeviceRow: View {
         mission.connectionStatus
     }
 
-    var name: String {
-        if !mission.isNone {
-            return mission.name
-        }
-        else {
-            return discoveredDevice.name
-        }
-    }
-
-    var type: UKDeviceType? {
-        if !mission.isNone {
-            return mission.deviceType
-        }
-        else {
-            return discoveredDevice.type
-        }
-    }
-
-    var deviceTypeSystemImage: String {
-        switch type {
-        case .motionModule:
-            "rotate.3d"
-        case .leftInsole, .rightInsole:
-            "shoe"
-        default:
-            "questionmark"
-        }
-    }
-
-    @State private var batteryLevel: UKBatteryLevel = .zero
-    var batteryLevelSystemImage: String {
-        switch batteryLevel {
-        case 75 ..< 100:
-            "battery.100"
-        case 50 ..< 75:
-            "battery.75"
-        case 25 ..< 50:
-            "battery.25"
-        default:
-            "battery.0"
-        }
-    }
-
     var onSelectDevice: (() -> Void)?
     var body: some View {
         VStack {
             HStack {
-                VStack {
-                    VStack(alignment: .leading) {
-                        Text(name)
-                            .font(.title2)
-                            .bold()
-                        if let type {
-                            Label(type.name, systemImage: deviceTypeSystemImage)
-                                .foregroundColor(.secondary)
-                                .labelStyle(LabelSpacing(spacing: 4))
-                        }
-                    }
-                }
+                DiscoveredDeviceRowHeader(discoveredDevice: $discoveredDevice)
                 Spacer()
 
                 if mission.isConnected {
@@ -87,7 +33,7 @@ struct DiscoveredDeviceRow: View {
                             .labelStyle(.iconOnly)
                             .imageScale(.large)
                     })
-                    .buttonStyle(.borderedProminent)
+                    .buttonStyle(.accessoryBar)
                 }
             }
             HStack {
@@ -111,6 +57,7 @@ struct DiscoveredDeviceRow: View {
                                 .accessibilityLabel("connect via bluetooth")
                         })
                         .buttonStyle(.borderedProminent)
+                        #if !os(watchOS)
                         if discoveredDevice.isConnectedToWifi {
                             Button(action: {
                                 discoveredDevice.connect(type: .udp)
@@ -120,6 +67,7 @@ struct DiscoveredDeviceRow: View {
                             })
                             .buttonStyle(.borderedProminent)
                         }
+                        #endif
                     }
                     else {
                         Text("connecting via \(mission.connectionType!.name)...")
@@ -135,27 +83,7 @@ struct DiscoveredDeviceRow: View {
                     Spacer()
                 }
             }
-            HStack(spacing: 15) {
-                if !mission.isConnected {
-                    if let rssi = discoveredDevice.rssi {
-                        Label(String(format: "%3d", rssi.intValue), systemImage: "cellularbars")
-                    }
-                    if !discoveredDevice.timestampDifference_ms.isNaN {
-                        Label(String(format: discoveredDevice.timestampDifference_ms > 99 ? "%3.0f.ms" : "%4.2fms", discoveredDevice.timestampDifference_ms), systemImage: "stopwatch")
-                    }
-                }
-                if discoveredDevice.isConnectedToWifi, let ipAddress = discoveredDevice.ipAddress, !ipAddress.isEmpty {
-                    Label(ipAddress, systemImage: "wifi")
-                }
-                if mission.isConnected, batteryLevel != .zero {
-                    Label("\(batteryLevel)%", systemImage: batteryLevelSystemImage)
-                }
-            }
-            .onReceive(mission.batteryLevelSubject, perform: { batteryLevel = $0
-            })
-            .labelStyle(LabelSpacing(spacing: 4))
-            .font(Font.system(.caption, design: .monospaced))
-            .padding(.top, 2)
+            DiscoveredDeviceRowStatus(discoveredDevice: $discoveredDevice)
         }
         .padding()
     }
