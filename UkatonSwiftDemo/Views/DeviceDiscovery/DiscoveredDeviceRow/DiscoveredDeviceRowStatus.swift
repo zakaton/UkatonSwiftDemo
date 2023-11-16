@@ -32,16 +32,43 @@ struct DiscoveredDeviceRowStatus: View {
         }
     }
 
+    let numberFormatter: NumberFormatter = {
+        let nf = NumberFormatter()
+        nf.numberStyle = .decimal
+        nf.usesSignificantDigits = true
+        nf.alwaysShowsDecimalSeparator = true
+        nf.minimumFractionDigits = 2
+        nf.maximumFractionDigits = 3
+        nf.minimumIntegerDigits = 1
+        nf.minimumSignificantDigits = 2
+        nf.maximumSignificantDigits = 3
+        return nf
+    }()
+
+    func formatTimestampDifference(_ timestampDifference: Double) -> String? {
+        guard var string = numberFormatter.string(for: timestampDifference) else {
+            return nil
+        }
+
+        while string.count < 5 {
+            string += "0"
+        }
+
+        return string
+    }
+
     var body: some View {
         let layout = isWatch ? AnyLayout(VStackLayout()) : AnyLayout(HStackLayout(spacing: 15))
 
         layout {
             if !mission.isConnected {
-                if let rssi = discoveredDevice.rssi {
-                    Label(String(format: "%3d", rssi.intValue), systemImage: "cellularbars")
-                }
-                if !discoveredDevice.timestampDifference_ms.isNaN {
-                    Label(String(format: discoveredDevice.timestampDifference_ms > 99 ? "%3.0f.ms" : "%4.2fms", discoveredDevice.timestampDifference_ms), systemImage: "stopwatch")
+                HStack(spacing: 15) {
+                    if let rssi = discoveredDevice.rssi {
+                        Label(String(format: "%3d", rssi.intValue), systemImage: "cellularbars")
+                    }
+                    if !discoveredDevice.timestampDifference_ms.isNaN, let string = formatTimestampDifference(discoveredDevice.timestampDifference_ms) {
+                        Label(string, systemImage: "stopwatch")
+                    }
                 }
             }
             if discoveredDevice.isConnectedToWifi, let ipAddress = discoveredDevice.ipAddress, !ipAddress.isEmpty {
@@ -54,7 +81,7 @@ struct DiscoveredDeviceRowStatus: View {
         .onReceive(mission.batteryLevelSubject, perform: { batteryLevel = $0
         })
         .labelStyle(LabelSpacing(spacing: 4))
-        .font(Font.system(.caption, design: .monospaced))
+        .font(Font.system(isWatch ? .caption2 : .caption, design: .monospaced))
         .padding(.top, 2)
     }
 }

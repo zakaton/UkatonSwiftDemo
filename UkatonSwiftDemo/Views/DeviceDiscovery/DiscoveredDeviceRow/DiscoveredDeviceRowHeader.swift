@@ -31,10 +31,18 @@ struct DiscoveredDeviceRowHeader: View {
         }
     }
 
+    var isWatch: Bool {
+        #if os(watchOS)
+        true
+        #else
+        false
+        #endif
+    }
+
     var body: some View {
         VStack(alignment: .leading) {
             Text(name)
-                .font(.title2)
+                .font(isWatch && mission.isConnected ? .body : .title2)
                 .bold()
             Label(deviceType.name, systemImage: deviceTypeSystemImage)
                 .foregroundColor(.secondary)

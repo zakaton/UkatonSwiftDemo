@@ -14,33 +14,35 @@ struct DiscoveredDeviceRow: View {
         self.onSelectDevice = onSelectDevice
     }
 
-    var isWatch: Bool {
-        #if os(watchOS)
-        true
-        #else
-        false
-        #endif
-    }
-
     var onSelectDevice: (() -> Void)?
     var body: some View {
-        let layout = isWatch ? AnyLayout(VStackLayout()) : AnyLayout(HStackLayout())
-
         VStack {
-            layout {
+            #if os(watchOS)
+            if mission.isConnected {
+                Button(action: {
+                    onSelectDevice?()
+                }) {
+                    DiscoveredDeviceRowHeader(discoveredDevice: $discoveredDevice)
+                }.buttonStyle(.bordered)
+            }
+            else {
                 DiscoveredDeviceRowHeader(discoveredDevice: $discoveredDevice)
-
+            }
+            #else
+            HStack {
+                DiscoveredDeviceRowHeader(discoveredDevice: $discoveredDevice)
                 Spacer()
-
                 if mission.isConnected {
                     Button(action: {
                         onSelectDevice?()
-                    }, label: {
+                    }) {
                         Label("select", systemImage: "chevron.right.circle")
-                    })
+                            .labelStyle(LabelSpacing(spacing: 4))
+                    }
                     .buttonStyle(.bordered)
                 }
             }
+            #endif
             DiscoveredDeviceRowConnection(discoveredDevice: $discoveredDevice)
         }
         .padding()
