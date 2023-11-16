@@ -6,6 +6,14 @@ struct DeviceDiscovery: View {
 
     @StateObject private var navigationCoordinator: NavigationCoordinator = .init()
 
+    var isWatch: Bool {
+        #if os(watchOS)
+        true
+        #else
+        false
+        #endif
+    }
+
     var body: some View {
         NavigationStack(path: $navigationCoordinator.path) {
             List {
@@ -35,18 +43,25 @@ struct DeviceDiscovery: View {
             }
             .navigationTitle("My devices")
             .toolbar {
-                ToolbarItem(placement: .automatic) {
-                    Button {
-                        bluetoothManager.toggleDeviceScan()
-                    } label: {
-                        if bluetoothManager.isScanning {
-                            Label("stop scan", systemImage: "antenna.radiowaves.left.and.right")
-                        }
-                        else {
-                            Label("start scan", systemImage: "antenna.radiowaves.left.and.right.slash")
-                        }
+                let button = Button {
+                    bluetoothManager.toggleDeviceScan()
+                } label: {
+                    if bluetoothManager.isScanning {
+                        Label("stop scan", systemImage: "antenna.radiowaves.left.and.right")
+                    }
+                    else {
+                        Label("start scan", systemImage: "antenna.radiowaves.left.and.right.slash")
                     }
                 }
+                #if os(watchOS)
+                ToolbarItem(placement: .topBarTrailing) {
+                    button
+                }
+                #else
+                ToolbarItem(placement: .primaryAction) {
+                    button
+                }
+                #endif
             }
         }
         .environmentObject(navigationCoordinator)

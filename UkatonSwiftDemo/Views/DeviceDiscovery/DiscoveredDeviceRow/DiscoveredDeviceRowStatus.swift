@@ -10,6 +10,14 @@ struct DiscoveredDeviceRowStatus: View {
         self.mission = discoveredDevice.wrappedValue.mission
     }
 
+    var isWatch: Bool {
+        #if os(watchOS)
+        true
+        #else
+        false
+        #endif
+    }
+
     @State private var batteryLevel: UKBatteryLevel = .zero
     var batteryLevelSystemImage: String {
         switch batteryLevel {
@@ -25,7 +33,9 @@ struct DiscoveredDeviceRowStatus: View {
     }
 
     var body: some View {
-        HStack(spacing: 15) {
+        let layout = isWatch ? AnyLayout(VStackLayout()) : AnyLayout(HStackLayout(spacing: 15))
+
+        layout {
             if !mission.isConnected {
                 if let rssi = discoveredDevice.rssi {
                     Label(String(format: "%3d", rssi.intValue), systemImage: "cellularbars")

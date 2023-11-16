@@ -66,6 +66,9 @@
 		5F83E5DD2B06943800056593 /* DiscoveredDeviceRowStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F83E5DC2B06943800056593 /* DiscoveredDeviceRowStatus.swift */; };
 		5F83E5DE2B06943800056593 /* DiscoveredDeviceRowStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F83E5DC2B06943800056593 /* DiscoveredDeviceRowStatus.swift */; };
 		5F83E5DF2B06943800056593 /* DiscoveredDeviceRowStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F83E5DC2B06943800056593 /* DiscoveredDeviceRowStatus.swift */; };
+		5F83E5E12B069E1800056593 /* DiscoveredDeviceRowConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F83E5E02B069E1800056593 /* DiscoveredDeviceRowConnection.swift */; };
+		5F83E5E22B069E1800056593 /* DiscoveredDeviceRowConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F83E5E02B069E1800056593 /* DiscoveredDeviceRowConnection.swift */; };
+		5F83E5E32B069E1800056593 /* DiscoveredDeviceRowConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F83E5E02B069E1800056593 /* DiscoveredDeviceRowConnection.swift */; };
 		5F9F82B72B02970300DDD9AB /* MissionPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F82B62B02970300DDD9AB /* MissionPair.swift */; };
 		5F9F82B82B02970300DDD9AB /* MissionPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F82B62B02970300DDD9AB /* MissionPair.swift */; };
 		5F9F82B92B02970300DDD9AB /* MissionPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F82B62B02970300DDD9AB /* MissionPair.swift */; };
@@ -179,6 +182,7 @@
 		5F777D492B01481A0001509A /* VibrationWaveformsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibrationWaveformsView.swift; sourceTree = "<group>"; };
 		5F83E5D82B068FF900056593 /* DiscoveredDeviceRowHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveredDeviceRowHeader.swift; sourceTree = "<group>"; };
 		5F83E5DC2B06943800056593 /* DiscoveredDeviceRowStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveredDeviceRowStatus.swift; sourceTree = "<group>"; };
+		5F83E5E02B069E1800056593 /* DiscoveredDeviceRowConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveredDeviceRowConnection.swift; sourceTree = "<group>"; };
 		5F9F82B62B02970300DDD9AB /* MissionPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionPair.swift; sourceTree = "<group>"; };
 		5F9F82BA2B029AC500DDD9AB /* NavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCoordinator.swift; sourceTree = "<group>"; };
 		5F9F82BE2B03E2D900DDD9AB /* MissionPairDemosSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionPairDemosSection.swift; sourceTree = "<group>"; };
@@ -293,6 +297,7 @@
 				5F426ECE2AF17CEA00E58F15 /* DiscoveredDeviceRow.swift */,
 				5F83E5D82B068FF900056593 /* DiscoveredDeviceRowHeader.swift */,
 				5F83E5DC2B06943800056593 /* DiscoveredDeviceRowStatus.swift */,
+				5F83E5E02B069E1800056593 /* DiscoveredDeviceRowConnection.swift */,
 			);
 			path = DiscoveredDeviceRow;
 			sourceTree = "<group>";
@@ -667,6 +672,7 @@
 				5F446F7E2B05743C00797659 /* MotionView.swift in Sources */,
 				5FCC84A42AFC414100B755FA /* MotionCalibrationSection.swift in Sources */,
 				5F7616402AFAB083000E1A80 /* SensorDataDemo.swift in Sources */,
+				5F83E5E12B069E1800056593 /* DiscoveredDeviceRowConnection.swift in Sources */,
 				5F0F6F532AFEA877007D0D03 /* RotationModePicker.swift in Sources */,
 				5F83E5DD2B06943800056593 /* DiscoveredDeviceRowStatus.swift in Sources */,
 				5F777D4A2B01481A0001509A /* VibrationWaveformsView.swift in Sources */,
@@ -711,6 +717,7 @@
 				5F446F7F2B05743C00797659 /* MotionView.swift in Sources */,
 				5FCC84A52AFC414100B755FA /* MotionCalibrationSection.swift in Sources */,
 				5F7616412AFAB083000E1A80 /* SensorDataDemo.swift in Sources */,
+				5F83E5E22B069E1800056593 /* DiscoveredDeviceRowConnection.swift in Sources */,
 				5F0F6F542AFEA877007D0D03 /* RotationModePicker.swift in Sources */,
 				5F83E5DE2B06943800056593 /* DiscoveredDeviceRowStatus.swift in Sources */,
 				5F777D4B2B01481A0001509A /* VibrationWaveformsView.swift in Sources */,
@@ -755,6 +762,7 @@
 				5F446F802B05743C00797659 /* MotionView.swift in Sources */,
 				5FCC84A62AFC414100B755FA /* MotionCalibrationSection.swift in Sources */,
 				5F7616422AFAB083000E1A80 /* SensorDataDemo.swift in Sources */,
+				5F83E5E32B069E1800056593 /* DiscoveredDeviceRowConnection.swift in Sources */,
 				5F0F6F552AFEA877007D0D03 /* RotationModePicker.swift in Sources */,
 				5F83E5DF2B06943800056593 /* DiscoveredDeviceRowStatus.swift in Sources */,
 				5F777D4C2B01481A0001509A /* VibrationWaveformsView.swift in Sources */,

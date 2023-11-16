@@ -1,13 +1,15 @@
 import Combine
 import SwiftUI
 import UkatonKit
+import UkatonMacros
 
 struct ContentView: View {
-    private let missionPair: UKMissionPair = .shared
+    @ObservedObject private var missionPair: UKMissionPair = .shared
 
-    @State private var isConnectedToPair: Bool = false
+    @EnumName
+    enum TabEnum: Identifiable {
+        var id: String { name }
 
-    enum TabEnum {
         case deviceDiscovery
         case missionPair
 
@@ -31,21 +33,18 @@ struct ContentView: View {
                 }
                 .tag(TabEnum.deviceDiscovery)
 
-            if isConnectedToPair {
-                MissionPair(missionPair: missionPair)
-                    .tabItem {
-                        Label("Mission Pair", systemImage: isConnectedToPair ? "shoe.2" : "xmark")
-                    }
-                    .tag(TabEnum.missionPair)
-            }
+            MissionPair(missionPair: missionPair)
+                .tabItem {
+                    Label("Mission Pair", systemImage: missionPair.isConnected ? "shoe.2" : "xmark")
+                }
+                .tag(TabEnum.missionPair)
         }
-        .onChange(of: selectedTab) { oldValue, newValue in
-            if newValue.requiresMissionPair && !isConnectedToPair {
-                selectedTab = oldValue
-            }
-        }
-        .onReceive(missionPair.isConnectedSubject, perform: { isConnectedToPair = $0
-        })
+//        .tabViewStyle(.page)
+//        .onChange(of: selectedTab) { oldValue, newValue in
+//            if newValue.requiresMissionPair && !missionPair.isConnected {
+//                selectedTab = oldValue
+//            }
+//        }
     }
 }
 

@@ -2,12 +2,17 @@ import SwiftUI
 import UkatonKit
 
 struct MissionPair: View {
-    let missionPair: UKMissionPair
+    @ObservedObject var missionPair: UKMissionPair = .shared
 
     var body: some View {
         NavigationStack {
             List {
-                MissionPairDemosSection(missionPair: missionPair)
+                if missionPair.isConnected {
+                    MissionPairDemosSection(missionPair: missionPair)
+                }
+                else {
+                    Text("connect a left and right insole")
+                }
             }
             .navigationTitle("Mission Pair")
             .navigationDestination(for: MissionPairDemo.self) { demo in
@@ -18,6 +23,6 @@ struct MissionPair: View {
 }
 
 #Preview {
-    MissionPair(missionPair: .shared)
+    MissionPair()
         .frame(maxWidth: 300, maxHeight: 300)
 }
