@@ -46,7 +46,7 @@ struct DiscoveredDeviceRowStatus: View {
                     }
                 }
             }
-            if mission.isConnected, batteryLevel != .zero {
+            if mission.isConnected {
                 Label("\(batteryLevel)%", systemImage: batteryLevelSystemImage)
             }
             if discoveredDevice.isConnectedToWifi, let ipAddress = discoveredDevice.ipAddress, !ipAddress.isEmpty {

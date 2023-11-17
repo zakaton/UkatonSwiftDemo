@@ -12,7 +12,17 @@ struct PressureDataSection: View {
     @State private var massData: UKMassData = (.zero, 0)
     @State private var heelToToeData: UKHeelToToeData = (.zero, 0)
 
+    var isWatch: Bool {
+        #if os(watchOS)
+        true
+        #else
+        false
+        #endif
+    }
+
     var body: some View {
+        let layout = isWatch ? AnyLayout(VStackLayout(alignment: .leading)) : AnyLayout(HStackLayout())
+
         Section {
             ForEach(UKPressureDataType.allCases) { pressureDataType in
                 let binding = Binding<UKSensorDataRate>(
@@ -29,19 +39,21 @@ struct PressureDataSection: View {
                 }
 
                 if !pressureDataType.isPressure || mission.sensorData.pressure.pressureValues.latestPressureDataType == pressureDataType {
-                    switch pressureDataType {
-                    case .pressureSingleByte, .pressureDoubleByte:
-                        Text("[\(pressureValuesData.timestamp.string)]")
-                        Text(pressureValuesData.value.string)
-                    case .centerOfMass:
-                        Text("[\(centerOfMassData.timestamp.string)]")
-                        Text(centerOfMassData.value.string)
-                    case .mass:
-                        Text("[\(massData.timestamp.string)]")
-                        Text(String(massData.value))
-                    case .heelToToe:
-                        Text("[\(heelToToeData.timestamp.string)]")
-                        Text(String(heelToToeData.value))
+                    layout {
+                        switch pressureDataType {
+                        case .pressureSingleByte, .pressureDoubleByte:
+                            Text("[\(pressureValuesData.timestamp.string)]")
+                            Text(pressureValuesData.value.string)
+                        case .centerOfMass:
+                            Text("[\(centerOfMassData.timestamp.string)]")
+                            Text(centerOfMassData.value.string)
+                        case .mass:
+                            Text("[\(massData.timestamp.string)]")
+                            Text(String(massData.value))
+                        case .heelToToe:
+                            Text("[\(heelToToeData.timestamp.string)]")
+                            Text(String(heelToToeData.value))
+                        }
                     }
                 }
             }
