@@ -13,13 +13,20 @@ struct DeviceWifiInformationSection: View {
         requiresWifi == false
     }
 
+    var isWatch: Bool {
+        #if os(watchOS)
+        true
+        #else
+        false
+        #endif
+    }
+
     @State private var newWifiSsid: String = ""
     @State private var newWifiPassword: String = ""
     @State private var showWifiPassword: Bool = false
     @State private var showNewWifiPassword: Bool = false
     @State private var shouldConnectToWifi: Bool
 
-    @State private var ipAddress: String? = nil
     @State private var didCopyIpAddressToClipboard: Bool = false
 
     init(mission: UKMission) {
@@ -45,9 +52,9 @@ struct DeviceWifiInformationSection: View {
             }
             Text("__connected?__ \(String(mission.isConnectedToWifi))")
 
-            if mission.isConnectedToWifi, ipAddress != nil {
+            if mission.isConnectedToWifi, let ipAddress = mission.ipAddress {
                 HStack {
-                    Text("__ip address__: \(ipAddress!)")
+                    Text("__ip address__: \(ipAddress)")
                     #if os(iOS)
                     Button(action: {
                         let pasteboard = UIPasteboard.general
@@ -64,19 +71,19 @@ struct DeviceWifiInformationSection: View {
                                 .labelStyle(LabelSpacing(spacing: 4))
                         }
                     }
-                    .onReceive(mission.ipAddressSubject, perform: { _ in
+                    .onReceive(mission.$ipAddress.dropFirst(), perform: { _ in
+                        didCopyIpAddressToClipboard = false
+                    })
+                    .onReceive(mission.$isConnectedToWifi.dropFirst(), perform: { _ in
                         didCopyIpAddressToClipboard = false
                     })
                     #endif
                 }
-                .onReceive(mission.ipAddressSubject, perform: { newIpAddress in
-                    ipAddress = newIpAddress
-                })
             }
 
             if !requiresWifi {
                 Text("__ssid__: \(mission.wifiSsid)")
-                if canEditWifi {
+                if !isWatch, canEditWifi {
                     HStack {
                         TextField("new wifi ssid", text: $newWifiSsid)
                             .autocorrectionDisabled()
@@ -98,7 +105,7 @@ struct DeviceWifiInformationSection: View {
                     }
                     Text("__password__: \(showWifiPassword ? mission.wifiPassword : mission.wifiPassword.map { _ in "•" }.joined())")
                 }
-                if canEditWifi {
+                if !isWatch, canEditWifi {
                     HStack {
                         Button(action: {
                             showNewWifiPassword.toggle()

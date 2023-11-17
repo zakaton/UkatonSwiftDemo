@@ -14,19 +14,29 @@ struct DeviceInformationSection: View {
         self.newDeviceType = mission.deviceType
     }
 
+    var isWatch: Bool {
+        #if os(watchOS)
+        true
+        #else
+        false
+        #endif
+    }
+
     var body: some View {
         Section {
             Text("__name:__ \(mission.name)")
-            HStack {
-                TextField("new name", text: $newName)
-                    .autocorrectionDisabled()
-                Button(action: {
-                    try? mission.setName(newName)
-                    newName = ""
-                }) {
-                    Text("update")
+            if !isWatch {
+                HStack {
+                    TextField("new name", text: $newName)
+                        .autocorrectionDisabled()
+                    Button(action: {
+                        try? mission.setName(newName)
+                        newName = ""
+                    }) {
+                        Text("update")
+                    }
+                    .disabled(newName.isEmpty)
                 }
-                .disabled(newName.isEmpty)
             }
 
             Picker("__device type__", selection: $newDeviceType) {

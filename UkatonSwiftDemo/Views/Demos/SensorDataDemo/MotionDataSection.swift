@@ -16,7 +16,17 @@ struct MotionDataSection: View {
     @State private var rotationRateData: UKRotationRateData = (.init(), 0)
     @State private var quaternionData: UKQuaternionData = (.init(), 0)
 
+    var isWatch: Bool {
+        #if os(watchOS)
+        true
+        #else
+        false
+        #endif
+    }
+
     var body: some View {
+        let layout = isWatch ? AnyLayout(VStackLayout(alignment: .leading)) : AnyLayout(HStackLayout())
+
         Section {
             ForEach(UKMotionDataType.allCases) { motionDataType in
                 let binding = Binding<UKSensorDataRate>(
@@ -32,25 +42,26 @@ struct MotionDataSection: View {
                     }
                 }
 
-                HStack {
+                layout {
                     switch motionDataType {
                     case .acceleration:
-                        Text("[\(accelerationData.timestamp)]ms")
+                        Text("[\(accelerationData.timestamp.string)]")
                         Text(accelerationData.value.string)
+
                     case .gravity:
-                        Text("[\(gravityData.timestamp)]ms")
+                        Text("[\(gravityData.timestamp.string)]")
                         Text(gravityData.value.string)
                     case .linearAcceleration:
-                        Text("[\(linearAccelerationData.timestamp)]ms")
+                        Text("[\(linearAccelerationData.timestamp.string)]")
                         Text(linearAccelerationData.value.string)
                     case .magnetometer:
-                        Text("[\(magnetometerData.timestamp)]ms")
+                        Text("[\(magnetometerData.timestamp.string)]")
                         Text(magnetometerData.value.string)
                     case .rotationRate:
-                        Text("[\(rotationRateData.timestamp)]ms")
+                        Text("[\(rotationRateData.timestamp.string)]")
                         Text(rotationRateData.value.string)
                     case .quaternion:
-                        Text("[\(quaternionData.timestamp)]ms")
+                        Text("[\(quaternionData.timestamp.string)]")
                         Text(quaternionData.value.string)
                     }
                 }
@@ -73,5 +84,5 @@ struct MotionDataSection: View {
     List {
         MotionDataSection(mission: .none, sensorDataConfigurations: .constant(.init()), sensorDataRates: [0, 20, 40])
     }
-    .frame(maxWidth: 300)
+    .frame(maxWidth: 320)
 }

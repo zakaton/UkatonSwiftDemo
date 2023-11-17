@@ -32,31 +32,6 @@ struct DiscoveredDeviceRowStatus: View {
         }
     }
 
-    let numberFormatter: NumberFormatter = {
-        let nf = NumberFormatter()
-        nf.numberStyle = .decimal
-        nf.usesSignificantDigits = true
-        nf.alwaysShowsDecimalSeparator = true
-        nf.minimumFractionDigits = 2
-        nf.maximumFractionDigits = 3
-        nf.minimumIntegerDigits = 1
-        nf.minimumSignificantDigits = 2
-        nf.maximumSignificantDigits = 3
-        return nf
-    }()
-
-    func formatTimestampDifference(_ timestampDifference: Double) -> String? {
-        guard var string = numberFormatter.string(for: timestampDifference) else {
-            return nil
-        }
-
-        while string.count < 5 {
-            string += "0"
-        }
-
-        return string
-    }
-
     var body: some View {
         let layout = isWatch ? AnyLayout(VStackLayout()) : AnyLayout(HStackLayout(spacing: 15))
 
@@ -66,7 +41,7 @@ struct DiscoveredDeviceRowStatus: View {
                     if let rssi = discoveredDevice.rssi {
                         Label(String(format: "%3d", rssi.intValue), systemImage: "cellularbars")
                     }
-                    if !discoveredDevice.timestampDifference_ms.isNaN, let string = formatTimestampDifference(discoveredDevice.timestampDifference_ms) {
+                    if !discoveredDevice.timestampDifference_ms.isNaN, let string = discoveredDevice.timestampDifference_ms.string {
                         Label(string, systemImage: "stopwatch")
                     }
                 }

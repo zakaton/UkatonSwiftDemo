@@ -31,16 +31,16 @@ struct PressureDataSection: View {
                 if !pressureDataType.isPressure || mission.sensorData.pressure.pressureValues.latestPressureDataType == pressureDataType {
                     switch pressureDataType {
                     case .pressureSingleByte, .pressureDoubleByte:
-                        Text("[\(pressureValuesData.timestamp)]ms")
+                        Text("[\(pressureValuesData.timestamp.string)]")
                         Text(pressureValuesData.value.string)
                     case .centerOfMass:
-                        Text("[\(centerOfMassData.timestamp)]ms")
+                        Text("[\(centerOfMassData.timestamp.string)]")
                         Text(centerOfMassData.value.string)
                     case .mass:
-                        Text("[\(massData.timestamp)]ms")
+                        Text("[\(massData.timestamp.string)]")
                         Text(String(massData.value))
                     case .heelToToe:
-                        Text("[\(heelToToeData.timestamp)]ms")
+                        Text("[\(heelToToeData.timestamp.string)]")
                         Text(String(heelToToeData.value))
                     }
                 }
