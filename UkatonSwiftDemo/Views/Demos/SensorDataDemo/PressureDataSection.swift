@@ -56,8 +56,6 @@ struct PressureDataSection: View {
                         case .pressureSingleByte, .pressureDoubleByte:
                             Text("[\(pressureValuesData.timestamp.string)]")
                             Text(pressureValuesData.value.string)
-                                .fixedSize(horizontal: false, vertical: true) // Allow vertical expansion
-                                .lineLimit(nil) // Allow unlimited lines
                         case .centerOfMass:
                             Text("[\(centerOfMassData.timestamp.string)]")
                             Text(centerOfMassData.value.string)
