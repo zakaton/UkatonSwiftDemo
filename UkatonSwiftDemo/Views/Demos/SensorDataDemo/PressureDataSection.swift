@@ -20,6 +20,8 @@ struct PressureDataSection: View {
         #endif
     }
 
+    let font = Font.system(.caption, design: .monospaced)
+
     private let nf: NumberFormatter = {
         let nf = NumberFormatter()
         nf.numberStyle = .decimal
@@ -59,9 +61,6 @@ struct PressureDataSection: View {
                         case .centerOfMass:
                             Text("[\(centerOfMassData.timestamp.string)]")
                             Text(centerOfMassData.value.string)
-                                .background() {
-                                    
-                                }
                         case .mass:
                             Text("[\(massData.timestamp.string)]")
                             Text(nf.string(for: massData.value)!)
@@ -77,7 +76,7 @@ struct PressureDataSection: View {
             Text("Pressure Data")
                 .font(.headline)
         }
-        .font(Font.system(.caption, design: .monospaced))
+        .font(font)
         .onReceive(mission.sensorData.pressure.pressureValuesSubject, perform: { pressureValuesData = $0
         })
         .onReceive(mission.sensorData.pressure.massSubject, perform: { massData = $0
