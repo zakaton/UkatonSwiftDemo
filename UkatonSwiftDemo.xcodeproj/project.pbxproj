@@ -68,7 +68,7 @@
 		5F83E5DF2B06943800056593 /* DiscoveredDeviceRowStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F83E5DC2B06943800056593 /* DiscoveredDeviceRowStatus.swift */; };
 		5F83E5E12B069E1800056593 /* DiscoveredDeviceRowConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F83E5E02B069E1800056593 /* DiscoveredDeviceRowConnection.swift */; };
 		5F83E5E22B069E1800056593 /* DiscoveredDeviceRowConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F83E5E02B069E1800056593 /* DiscoveredDeviceRowConnection.swift */; };
-		5F83E5E32B069E1800056593 /* DiscoveredDeviceRowConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F83E5E02B069E1800056593 /* DiscoveredDeviceRowConnection.swift */; };
+		5F8656542B06EE43007F1D00 /* DiscoveredDeviceRowConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8656532B06EE43007F1D00 /* DiscoveredDeviceRowConnection.swift */; };
 		5F9F82B72B02970300DDD9AB /* MissionPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F82B62B02970300DDD9AB /* MissionPair.swift */; };
 		5F9F82B82B02970300DDD9AB /* MissionPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F82B62B02970300DDD9AB /* MissionPair.swift */; };
 		5F9F82B92B02970300DDD9AB /* MissionPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F82B62B02970300DDD9AB /* MissionPair.swift */; };
@@ -183,6 +183,7 @@
 		5F83E5D82B068FF900056593 /* DiscoveredDeviceRowHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveredDeviceRowHeader.swift; sourceTree = "<group>"; };
 		5F83E5DC2B06943800056593 /* DiscoveredDeviceRowStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveredDeviceRowStatus.swift; sourceTree = "<group>"; };
 		5F83E5E02B069E1800056593 /* DiscoveredDeviceRowConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveredDeviceRowConnection.swift; sourceTree = "<group>"; };
+		5F8656532B06EE43007F1D00 /* DiscoveredDeviceRowConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveredDeviceRowConnection.swift; sourceTree = "<group>"; };
 		5F9F82B62B02970300DDD9AB /* MissionPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionPair.swift; sourceTree = "<group>"; };
 		5F9F82BA2B029AC500DDD9AB /* NavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCoordinator.swift; sourceTree = "<group>"; };
 		5F9F82BE2B03E2D900DDD9AB /* MissionPairDemosSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionPairDemosSection.swift; sourceTree = "<group>"; };
@@ -298,6 +299,30 @@
 				5F83E5D82B068FF900056593 /* DiscoveredDeviceRowHeader.swift */,
 				5F83E5DC2B06943800056593 /* DiscoveredDeviceRowStatus.swift */,
 				5F83E5E02B069E1800056593 /* DiscoveredDeviceRowConnection.swift */,
+			);
+			path = DiscoveredDeviceRow;
+			sourceTree = "<group>";
+		};
+		5F8656502B06EE20007F1D00 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5F8656512B06EE28007F1D00 /* DeviceDiscovery */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5F8656512B06EE28007F1D00 /* DeviceDiscovery */ = {
+			isa = PBXGroup;
+			children = (
+				5F8656522B06EE31007F1D00 /* DiscoveredDeviceRow */,
+			);
+			path = DeviceDiscovery;
+			sourceTree = "<group>";
+		};
+		5F8656522B06EE31007F1D00 /* DiscoveredDeviceRow */ = {
+			isa = PBXGroup;
+			children = (
+				5F8656532B06EE43007F1D00 /* DiscoveredDeviceRowConnection.swift */,
 			);
 			path = DiscoveredDeviceRow;
 			sourceTree = "<group>";
@@ -494,6 +519,7 @@
 		5FF58F622ADF182F00AD2941 /* WatchUkatonSwiftDemo Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				5F8656502B06EE20007F1D00 /* Views */,
 				5FF58F732ADF185600AD2941 /* WatchUkatonSwiftDemo-Watch-App-Info.plist */,
 				5FF58F632ADF182F00AD2941 /* WatchUkatonSwiftDemoApp.swift */,
 				5FF58F652ADF182F00AD2941 /* ContentView.swift */,
@@ -762,7 +788,6 @@
 				5F446F802B05743C00797659 /* MotionView.swift in Sources */,
 				5FCC84A62AFC414100B755FA /* MotionCalibrationSection.swift in Sources */,
 				5F7616422AFAB083000E1A80 /* SensorDataDemo.swift in Sources */,
-				5F83E5E32B069E1800056593 /* DiscoveredDeviceRowConnection.swift in Sources */,
 				5F0F6F552AFEA877007D0D03 /* RotationModePicker.swift in Sources */,
 				5F83E5DF2B06943800056593 /* DiscoveredDeviceRowStatus.swift in Sources */,
 				5F777D4C2B01481A0001509A /* VibrationWaveformsView.swift in Sources */,
@@ -783,6 +808,7 @@
 				5F9F82BD2B029AC500DDD9AB /* NavigationCoordinator.swift in Sources */,
 				5F9F82B92B02970300DDD9AB /* MissionPair.swift in Sources */,
 				5FCC84C12AFCA34100B755FA /* VibrationDemo.swift in Sources */,
+				5F8656542B06EE43007F1D00 /* DiscoveredDeviceRowConnection.swift in Sources */,
 				5FA3AFFB2AFAA97800F5295C /* DeviceInformationSection.swift in Sources */,
 				5FB11E6F2B04673800784EDD /* DeviceBluetoothInformationSection.swift in Sources */,
 				5FCC84B22AFC445C00B755FA /* PressureDataSection.swift in Sources */,

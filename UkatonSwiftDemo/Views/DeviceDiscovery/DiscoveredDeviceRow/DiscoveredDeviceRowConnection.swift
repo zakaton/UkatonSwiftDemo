@@ -16,18 +16,8 @@ struct DiscoveredDeviceRowConnection: View {
         mission.connectionStatus
     }
 
-    var isWatch: Bool {
-        #if os(watchOS)
-        true
-        #else
-        false
-        #endif
-    }
-
     var body: some View {
-        let layout = isWatch ? AnyLayout(VStackLayout()) : AnyLayout(HStackLayout())
-
-        layout {
+        HStack {
             if connectionStatus == .connected || connectionStatus == .disconnecting {
                 Text("connected via \(mission.connectionType!.name)")
                 Button(role: .destructive, action: {
@@ -48,16 +38,14 @@ struct DiscoveredDeviceRowConnection: View {
                             .accessibilityLabel("connect via bluetooth")
                     })
                     .buttonStyle(.borderedProminent)
-                    if !isWatch {
-                        if discoveredDevice.isConnectedToWifi {
-                            Button(action: {
-                                discoveredDevice.connect(type: .udp)
-                            }, label: {
-                                Text("udp")
-                                    .accessibilityLabel("connect via udp")
-                            })
-                            .buttonStyle(.borderedProminent)
-                        }
+                    if discoveredDevice.isConnectedToWifi {
+                        Button(action: {
+                            discoveredDevice.connect(type: .udp)
+                        }, label: {
+                            Text("udp")
+                                .accessibilityLabel("connect via udp")
+                        })
+                        .buttonStyle(.borderedProminent)
                     }
                 }
                 else {
@@ -74,7 +62,6 @@ struct DiscoveredDeviceRowConnection: View {
                 Spacer()
             }
         }
-        DiscoveredDeviceRowStatus(discoveredDevice: $discoveredDevice)
     }
 }
 

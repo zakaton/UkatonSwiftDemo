@@ -23,28 +23,38 @@ struct ContentView: View {
         }
     }
 
+    var isWatch: Bool {
+        #if os(watchOS)
+            true
+        #else
+            false
+        #endif
+    }
+
     @State private var selectedTab: TabEnum = .deviceDiscovery
 
     var body: some View {
         TabView(selection: $selectedTab) {
             DeviceDiscovery()
-                .tabItem {
-                    Label("Device Discovery", systemImage: "magnifyingglass")
+                .modify {
+                    if !isWatch {
+                        $0.tabItem {
+                            Label("Device Discovery", systemImage: "magnifyingglass")
+                        }
+                    }
                 }
                 .tag(TabEnum.deviceDiscovery)
 
             MissionPair(missionPair: missionPair)
-                .tabItem {
-                    Label("Mission Pair", systemImage: missionPair.isConnected ? "shoe.2" : "xmark")
+                .modify {
+                    if !isWatch {
+                        $0.tabItem {
+                            Label("Mission Pair", systemImage: missionPair.isConnected ? "shoe.2" : "xmark")
+                        }
+                    }
                 }
                 .tag(TabEnum.missionPair)
         }
-//        .tabViewStyle(.page)
-//        .onChange(of: selectedTab) { oldValue, newValue in
-//            if newValue.requiresMissionPair && !missionPair.isConnected {
-//                selectedTab = oldValue
-//            }
-//        }
     }
 }
 
