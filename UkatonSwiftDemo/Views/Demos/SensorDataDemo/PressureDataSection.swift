@@ -20,8 +20,6 @@ struct PressureDataSection: View {
         #endif
     }
 
-    let font = Font.system(.caption, design: .monospaced)
-
     private let nf: NumberFormatter = {
         let nf = NumberFormatter()
         nf.numberStyle = .decimal
@@ -76,7 +74,7 @@ struct PressureDataSection: View {
             Text("Pressure Data")
                 .font(.headline)
         }
-        .font(font)
+        .font(Font.system(.caption, design: .monospaced))
         .onReceive(mission.sensorData.pressure.pressureValuesSubject, perform: { pressureValuesData = $0
         })
         .onReceive(mission.sensorData.pressure.massSubject, perform: { massData = $0

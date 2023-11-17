@@ -16,6 +16,8 @@ struct DiscoveredDeviceRowConnection: View {
         mission.connectionStatus
     }
 
+    @State private var connectingAnimationAmount: CGFloat = 1
+
     var body: some View {
         if connectionStatus == .connected || connectionStatus == .disconnecting {
             Button(role: .destructive, action: {
@@ -33,8 +35,8 @@ struct DiscoveredDeviceRowConnection: View {
                 }, label: {
                     Text("connect")
                 })
-                .tint(.blue)
                 .buttonStyle(.borderedProminent)
+                .tint(.blue)
             }
             else {
                 Button(role: .cancel, action: {
@@ -45,6 +47,17 @@ struct DiscoveredDeviceRowConnection: View {
                 })
                 .tint(.cyan)
                 .buttonStyle(.borderedProminent)
+                .scaleEffect(connectingAnimationAmount)
+                .animation(
+                    .easeInOut(duration: 0.5)
+                        .repeatForever(autoreverses: true),
+                    value: connectingAnimationAmount)
+                .onAppear {
+                    connectingAnimationAmount = 0.97
+                }
+                .onDisappear {
+                    connectingAnimationAmount = 1
+                }
             }
         }
     }
