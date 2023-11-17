@@ -19,7 +19,7 @@ struct DiscoveredDeviceRowHeader: View {
     }
 
     var deviceType: UKDeviceType {
-        metadata.deviceType
+        return metadata.deviceType
     }
 
     var deviceTypeSystemImage: String {
@@ -46,7 +46,7 @@ struct DiscoveredDeviceRowHeader: View {
                 .bold()
 
             Label(deviceType.name, systemImage: deviceTypeSystemImage)
-                //.foregroundColor(.secondary)
+                // .foregroundColor(.secondary)
                 .labelStyle(LabelSpacing(spacing: 4))
         }
     }
