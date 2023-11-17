@@ -59,6 +59,9 @@ struct PressureDataSection: View {
                         case .centerOfMass:
                             Text("[\(centerOfMassData.timestamp.string)]")
                             Text(centerOfMassData.value.string)
+                                .background() {
+                                    
+                                }
                         case .mass:
                             Text("[\(massData.timestamp.string)]")
                             Text(nf.string(for: massData.value)!)
