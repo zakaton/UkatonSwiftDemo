@@ -3,7 +3,7 @@ import UkatonKit
 
 struct DiscoveredDeviceRowStatus: View {
     @Binding var discoveredDevice: UKDiscoveredBluetoothDevice
-    let mission: UKMission
+    @ObservedObject var mission: UKMission
 
     init(discoveredDevice: Binding<UKDiscoveredBluetoothDevice>) {
         self._discoveredDevice = discoveredDevice

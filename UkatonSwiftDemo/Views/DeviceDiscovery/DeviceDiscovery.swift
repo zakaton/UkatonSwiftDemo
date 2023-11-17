@@ -2,6 +2,8 @@ import SwiftUI
 import UkatonKit
 
 struct DeviceDiscovery: View {
+    @Environment(\.scenePhase) var scenePhase
+
     @ObservedObject private var bluetoothManager: UKBluetoothManager = .shared
 
     @StateObject private var navigationCoordinator: NavigationCoordinator = .init()
@@ -13,6 +15,8 @@ struct DeviceDiscovery: View {
         false
         #endif
     }
+
+    @State private var wasScanning: Bool = false
 
     var body: some View {
         NavigationStack(path: $navigationCoordinator.path) {
@@ -33,6 +37,12 @@ struct DeviceDiscovery: View {
                     ForEach($bluetoothManager.discoveredDevices) { $discoveredDevice in
                         DiscoveredDeviceRow(discoveredDevice: $discoveredDevice) {
                             navigationCoordinator.path.append(discoveredDevice)
+
+                            #if os(watchOS) || os(iOS)
+                            if bluetoothManager.isScanning {
+                                bluetoothManager.stopScanningForDevices()
+                            }
+                            #endif
                         }
                         .buttonStyle(.plain)
                     }
@@ -65,6 +75,23 @@ struct DeviceDiscovery: View {
             }
         }
         .environmentObject(navigationCoordinator)
+        .onChange(of: scenePhase) { _, newPhase in
+            switch newPhase {
+            case .background:
+                if bluetoothManager.isScanning {
+                    wasScanning = true
+                    bluetoothManager.stopScanningForDevices()
+                }
+
+            case .active:
+                if wasScanning {
+                    wasScanning = false
+                    bluetoothManager.scanForDevices()
+                }
+            default:
+                break
+            }
+        }
     }
 }
 
