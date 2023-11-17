@@ -6,7 +6,6 @@ import UkatonKit
 
 struct MotionView: View {
     var mission: UKMission
-
     private var recalibrateSubject: PassthroughSubject<Void, Never>? = nil
 
     // MARK: - SceneKit

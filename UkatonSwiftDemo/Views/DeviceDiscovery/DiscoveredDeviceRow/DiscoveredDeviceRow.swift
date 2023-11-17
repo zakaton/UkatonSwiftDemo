@@ -31,7 +31,7 @@ struct DiscoveredDeviceRow: View {
                         onSelectDevice?()
                     }) {
                         DiscoveredDeviceRowHeader(discoveredDevice: $discoveredDevice)
-                    }.buttonStyle(.bordered)
+                    }.buttonStyle(.borderedProminent)
                 } else {
                     DiscoveredDeviceRowHeader(discoveredDevice: $discoveredDevice)
                 }
@@ -46,7 +46,7 @@ struct DiscoveredDeviceRow: View {
                             Label("select", systemImage: "chevron.right.circle")
                                 .labelStyle(LabelSpacing(spacing: 4))
                         }
-                        .buttonStyle(.bordered)
+                        .buttonStyle(.borderedProminent)
                     }
                 }
             }

@@ -40,13 +40,13 @@ struct DiscoveredDeviceRowHeader: View {
     }
 
     var body: some View {
-        VStack(alignment: .center) {
+        VStack(alignment: isWatch ? .center : .leading) {
             Text(name)
                 .font(isWatch && mission.isConnected ? .body : .title2)
                 .bold()
 
             Label(deviceType.name, systemImage: deviceTypeSystemImage)
-                .foregroundColor(.secondary)
+                //.foregroundColor(.secondary)
                 .labelStyle(LabelSpacing(spacing: 4))
         }
     }

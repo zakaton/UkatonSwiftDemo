@@ -23,6 +23,7 @@ struct DiscoveredDeviceRowConnection: View {
             }, label: {
                 Text("disconnect")
             })
+            .tint(.red)
             .buttonStyle(.borderedProminent)
         }
         else {
@@ -32,6 +33,7 @@ struct DiscoveredDeviceRowConnection: View {
                 }, label: {
                     Text("connect")
                 })
+                .tint(.blue)
                 .buttonStyle(.borderedProminent)
             }
             else {
@@ -41,6 +43,7 @@ struct DiscoveredDeviceRowConnection: View {
                     Text("connecting...")
                         .accessibilityLabel("cancel connection")
                 })
+                .tint(.cyan)
                 .buttonStyle(.borderedProminent)
             }
         }

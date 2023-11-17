@@ -26,6 +26,7 @@ struct DiscoveredDeviceRowConnection: View {
                     Text("disconnect")
                 })
                 .buttonStyle(.borderedProminent)
+                .tint(.red)
                 Spacer()
             }
             else {
