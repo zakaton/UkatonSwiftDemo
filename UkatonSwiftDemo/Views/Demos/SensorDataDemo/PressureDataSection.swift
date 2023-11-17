@@ -20,6 +20,18 @@ struct PressureDataSection: View {
         #endif
     }
 
+    private let nf: NumberFormatter = {
+        let nf = NumberFormatter()
+        nf.numberStyle = .decimal
+        nf.minimumIntegerDigits = 1
+        nf.minimumFractionDigits = 5
+        nf.maximumFractionDigits = 5
+        nf.positivePrefix = " "
+        nf.paddingCharacter = "0"
+        nf.paddingPosition = .afterSuffix
+        return nf
+    }()
+
     var body: some View {
         let layout = isWatch ? AnyLayout(VStackLayout(alignment: .leading)) : AnyLayout(HStackLayout())
 
@@ -49,10 +61,10 @@ struct PressureDataSection: View {
                             Text(centerOfMassData.value.string)
                         case .mass:
                             Text("[\(massData.timestamp.string)]")
-                            Text(String(massData.value))
+                            Text(nf.string(for: massData.value)!)
                         case .heelToToe:
                             Text("[\(heelToToeData.timestamp.string)]")
-                            Text(String(heelToToeData.value))
+                            Text(nf.string(for: heelToToeData.value)!)
                         }
                     }
                 }
