@@ -50,11 +50,17 @@ struct VibrationWaveformsView: View {
             }
             layout {
                 centerView(Text("intensity"))
+                #if os(tvOS)
+                #else
                 Slider(value: $waveforms[index].intensity)
+                #endif
             }
             layout {
                 centerView(Text(String(format: "delay %.1fs", waveforms[index].delay / 1000)))
+                #if os(tvOS)
+                #else
                 Slider(value: $waveforms[index].delay, in: 0 ... UKVibrationWaveformDelay.max, step: isWatch ? 200 : 100)
+                #endif
             }
         }
 

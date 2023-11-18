@@ -75,6 +75,50 @@
 		5F83E5E12B069E1800056593 /* DiscoveredDeviceRowConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F83E5E02B069E1800056593 /* DiscoveredDeviceRowConnection.swift */; };
 		5F83E5E22B069E1800056593 /* DiscoveredDeviceRowConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F83E5E02B069E1800056593 /* DiscoveredDeviceRowConnection.swift */; };
 		5F8656542B06EE43007F1D00 /* DiscoveredDeviceRowConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8656532B06EE43007F1D00 /* DiscoveredDeviceRowConnection.swift */; };
+		5F8B9DB22B096CDF00E53711 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F8B9DB12B096CDF00E53711 /* Preview Assets.xcassets */; };
+		5F8B9DB72B096CFD00E53711 /* UkatonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5F8B9DB62B096CFD00E53711 /* UkatonKit */; };
+		5F8B9DB82B096D1F00E53711 /* monkey.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 5F0F6F4E2AFE9CCB007D0D03 /* monkey.usdz */; };
+		5F8B9DB92B096D2200E53711 /* leftShoe.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 5F0F6F4A2AFDF3C5007D0D03 /* leftShoe.usdz */; };
+		5F8B9DBA2B096D2C00E53711 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FF58F372ADE51DA00AD2941 /* Assets.xcassets */; };
+		5F8B9DBB2B096DA900E53711 /* UkatonSwiftDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF58F332ADE51D900AD2941 /* UkatonSwiftDemoApp.swift */; };
+		5F8B9DBC2B096DBA00E53711 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF58F352ADE51D900AD2941 /* ContentView.swift */; };
+		5F8B9DBD2B096DC800E53711 /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F82BA2B029AC500DDD9AB /* NavigationCoordinator.swift */; };
+		5F8B9DBE2B096DC800E53711 /* ViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0F6F5A2AFEC9E8007D0D03 /* ViewModifier.swift */; };
+		5F8B9DBF2B096DC800E53711 /* DeviceRotationViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0FE43C2B0729D300953012 /* DeviceRotationViewModifier.swift */; };
+		5F8B9DC02B096DC800E53711 /* LabelSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF24DE52AF41127009FAA0E /* LabelSpacing.swift */; };
+		5F8B9DC12B096DCF00E53711 /* MotionDataSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCC84A72AFC426000B755FA /* MotionDataSection.swift */; };
+		5F8B9DC22B096DCF00E53711 /* SensorDataDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F76163F2AFAB083000E1A80 /* SensorDataDemo.swift */; };
+		5F8B9DC32B096DCF00E53711 /* MotionCalibrationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCC84A32AFC414100B755FA /* MotionCalibrationSection.swift */; };
+		5F8B9DC42B096DCF00E53711 /* PressureDataSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCC84AF2AFC445C00B755FA /* PressureDataSection.swift */; };
+		5F8B9DC52B096DD200E53711 /* MotionDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCC84B42AFC9B6700B755FA /* MotionDemo.swift */; };
+		5F8B9DC62B096DD200E53711 /* RotationModePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0F6F522AFEA877007D0D03 /* RotationModePicker.swift */; };
+		5F8B9DC72B096DD200E53711 /* MotionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F446F7D2B05743C00797659 /* MotionView.swift */; };
+		5F8B9DC82B096DD200E53711 /* TranslationModePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0F6F562AFEA87F007D0D03 /* TranslationModePicker.swift */; };
+		5F8B9DC92B096DD200E53711 /* MissionPairMotionDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F82C62B03EC0200DDD9AB /* MissionPairMotionDemo.swift */; };
+		5F8B9DCA2B096DD500E53711 /* VibrationDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCC84BE2AFCA34100B755FA /* VibrationDemo.swift */; };
+		5F8B9DCB2B096DD500E53711 /* VibrationWaveformEffectsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0DB93C2B00005F00FB413E /* VibrationWaveformEffectsSection.swift */; };
+		5F8B9DCC2B096DD500E53711 /* AllVibrationWaveformEffectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0DB9442B000C8800FB413E /* AllVibrationWaveformEffectsView.swift */; };
+		5F8B9DCD2B096DD500E53711 /* VibrationWaveformEffectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F777D452B0143780001509A /* VibrationWaveformEffectsView.swift */; };
+		5F8B9DCE2B096DD800E53711 /* VibrationWaveformsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F777D492B01481A0001509A /* VibrationWaveformsView.swift */; };
+		5F8B9DCF2B096DD800E53711 /* VibrationWaveformsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0DB9402B00053D00FB413E /* VibrationWaveformsSection.swift */; };
+		5F8B9DD02B096DDF00E53711 /* DeviceInformationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3AFF82AFAA97800F5295C /* DeviceInformationSection.swift */; };
+		5F8B9DD12B096DDF00E53711 /* PressureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F446F812B0577E500797659 /* PressureView.swift */; };
+		5F8B9DD22B096DE000E53711 /* MissionPairPressureDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F82C22B03E5DB00DDD9AB /* MissionPairPressureDemo.swift */; };
+		5F8B9DD32B096DE000E53711 /* DeviceWifiInformationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3AFFC2AFAAA2800F5295C /* DeviceWifiInformationSection.swift */; };
+		5F8B9DD42B096DE000E53711 /* DeviceDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F426ED22AF1F51D00E58F15 /* DeviceDetail.swift */; };
+		5F8B9DD52B096DE000E53711 /* RSSIDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F446F742B0468C900797659 /* RSSIDemo.swift */; };
+		5F8B9DD62B096DE000E53711 /* DeviceDemosSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3B0022AFAAB6E00F5295C /* DeviceDemosSection.swift */; };
+		5F8B9DD72B096DE000E53711 /* CenterOfMassDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3F4E292B091F0C00F81B6F /* CenterOfMassDemo.swift */; };
+		5F8B9DD82B096DE000E53711 /* DeviceBluetoothInformationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB11E6C2B04673800784EDD /* DeviceBluetoothInformationSection.swift */; };
+		5F8B9DD92B096DE000E53711 /* PressureDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCC84BA2AFCA33800B755FA /* PressureDemo.swift */; };
+		5F8B9DDA2B096DE000E53711 /* PressureModePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FACE8C62AFFEFE400F1AFFD /* PressureModePicker.swift */; };
+		5F8B9DDB2B096DE400E53711 /* DiscoveredDeviceRowStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F83E5DC2B06943800056593 /* DiscoveredDeviceRowStatus.swift */; };
+		5F8B9DDC2B096DE400E53711 /* DiscoveredDeviceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F426ECE2AF17CEA00E58F15 /* DiscoveredDeviceRow.swift */; };
+		5F8B9DDD2B096DE400E53711 /* DiscoveredDeviceRowConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F83E5E02B069E1800056593 /* DiscoveredDeviceRowConnection.swift */; };
+		5F8B9DDE2B096DE400E53711 /* DeviceDiscovery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFBE8102AF160CF00F8CBD7 /* DeviceDiscovery.swift */; };
+		5F8B9DDF2B096DE400E53711 /* DiscoveredDeviceRowHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F83E5D82B068FF900056593 /* DiscoveredDeviceRowHeader.swift */; };
+		5F8B9DE02B096DE800E53711 /* MissionPairDemosSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F82BE2B03E2D900DDD9AB /* MissionPairDemosSection.swift */; };
+		5F8B9DE12B096DE800E53711 /* MissionPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F82B62B02970300DDD9AB /* MissionPair.swift */; };
 		5F9F82B72B02970300DDD9AB /* MissionPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F82B62B02970300DDD9AB /* MissionPair.swift */; };
 		5F9F82B82B02970300DDD9AB /* MissionPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F82B62B02970300DDD9AB /* MissionPair.swift */; };
 		5F9F82B92B02970300DDD9AB /* MissionPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F82B62B02970300DDD9AB /* MissionPair.swift */; };
@@ -192,6 +236,10 @@
 		5F83E5DC2B06943800056593 /* DiscoveredDeviceRowStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveredDeviceRowStatus.swift; sourceTree = "<group>"; };
 		5F83E5E02B069E1800056593 /* DiscoveredDeviceRowConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveredDeviceRowConnection.swift; sourceTree = "<group>"; };
 		5F8656532B06EE43007F1D00 /* DiscoveredDeviceRowConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveredDeviceRowConnection.swift; sourceTree = "<group>"; };
+		5F8B9DA82B096CDE00E53711 /* TV Ukaton Swift Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TV Ukaton Swift Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F8B9DAA2B096CDE00E53711 /* TV_Ukaton_Swift_DemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TV_Ukaton_Swift_DemoApp.swift; sourceTree = "<group>"; };
+		5F8B9DAC2B096CDE00E53711 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		5F8B9DB12B096CDF00E53711 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5F9F82B62B02970300DDD9AB /* MissionPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionPair.swift; sourceTree = "<group>"; };
 		5F9F82BA2B029AC500DDD9AB /* NavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCoordinator.swift; sourceTree = "<group>"; };
 		5F9F82BE2B03E2D900DDD9AB /* MissionPairDemosSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionPairDemosSection.swift; sourceTree = "<group>"; };
@@ -231,6 +279,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5F8B9DA52B096CDE00E53711 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F8B9DB72B096CFD00E53711 /* UkatonKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5FF58F2D2ADE51D900AD2941 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -363,6 +419,24 @@
 			path = DiscoveredDeviceRow;
 			sourceTree = "<group>";
 		};
+		5F8B9DA92B096CDE00E53711 /* TV Ukaton Swift Demo */ = {
+			isa = PBXGroup;
+			children = (
+				5F8B9DAA2B096CDE00E53711 /* TV_Ukaton_Swift_DemoApp.swift */,
+				5F8B9DAC2B096CDE00E53711 /* ContentView.swift */,
+				5F8B9DB02B096CDF00E53711 /* Preview Content */,
+			);
+			path = "TV Ukaton Swift Demo";
+			sourceTree = "<group>";
+		};
+		5F8B9DB02B096CDF00E53711 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				5F8B9DB12B096CDF00E53711 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 		5F9F82B52B0296EF00DDD9AB /* MissionPair */ = {
 			isa = PBXGroup;
 			children = (
@@ -476,6 +550,7 @@
 				5FF58F322ADE51D900AD2941 /* UkatonSwiftDemo */,
 				5FF58F4C2ADF13E700AD2941 /* MacUkatonSwiftDemo */,
 				5FF58F622ADF182F00AD2941 /* WatchUkatonSwiftDemo Watch App */,
+				5F8B9DA92B096CDE00E53711 /* TV Ukaton Swift Demo */,
 				5FF58F312ADE51D900AD2941 /* Products */,
 				5F2B871D2AE18E2100BF304B /* Frameworks */,
 			);
@@ -487,6 +562,7 @@
 				5FF58F302ADE51D900AD2941 /* UkatonSwiftDemo.app */,
 				5FF58F4B2ADF13E700AD2941 /* MacUkatonSwiftDemo.app */,
 				5FF58F612ADF182F00AD2941 /* WatchUkatonSwiftDemo.app */,
+				5F8B9DA82B096CDE00E53711 /* TV Ukaton Swift Demo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -568,6 +644,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		5F8B9DA72B096CDE00E53711 /* TV Ukaton Swift Demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5F8B9DB52B096CDF00E53711 /* Build configuration list for PBXNativeTarget "TV Ukaton Swift Demo" */;
+			buildPhases = (
+				5F8B9DA42B096CDE00E53711 /* Sources */,
+				5F8B9DA52B096CDE00E53711 /* Frameworks */,
+				5F8B9DA62B096CDE00E53711 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "TV Ukaton Swift Demo";
+			packageProductDependencies = (
+				5F8B9DB62B096CFD00E53711 /* UkatonKit */,
+			);
+			productName = "TV Ukaton Swift Demo";
+			productReference = 5F8B9DA82B096CDE00E53711 /* TV Ukaton Swift Demo.app */;
+			productType = "com.apple.product-type.application";
+		};
 		5FF58F2F2ADE51D900AD2941 /* UkatonSwiftDemo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5FF58F3F2ADE51DA00AD2941 /* Build configuration list for PBXNativeTarget "UkatonSwiftDemo" */;
@@ -640,6 +736,9 @@
 				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
+					5F8B9DA72B096CDE00E53711 = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
 					5FF58F2F2ADE51D900AD2941 = {
 						CreatedOnToolsVersion = 15.0;
 					};
@@ -670,11 +769,23 @@
 				5FF58F2F2ADE51D900AD2941 /* UkatonSwiftDemo */,
 				5FF58F4A2ADF13E700AD2941 /* MacUkatonSwiftDemo */,
 				5FF58F602ADF182F00AD2941 /* WatchUkatonSwiftDemo */,
+				5F8B9DA72B096CDE00E53711 /* TV Ukaton Swift Demo */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5F8B9DA62B096CDE00E53711 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F8B9DB82B096D1F00E53711 /* monkey.usdz in Resources */,
+				5F8B9DB22B096CDF00E53711 /* Preview Assets.xcassets in Resources */,
+				5F8B9DBA2B096D2C00E53711 /* Assets.xcassets in Resources */,
+				5F8B9DB92B096D2200E53711 /* leftShoe.usdz in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5FF58F2E2ADE51D900AD2941 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -711,6 +822,52 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5F8B9DA42B096CDE00E53711 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F8B9DCD2B096DD500E53711 /* VibrationWaveformEffectsView.swift in Sources */,
+				5F8B9DC92B096DD200E53711 /* MissionPairMotionDemo.swift in Sources */,
+				5F8B9DE12B096DE800E53711 /* MissionPair.swift in Sources */,
+				5F8B9DCA2B096DD500E53711 /* VibrationDemo.swift in Sources */,
+				5F8B9DC22B096DCF00E53711 /* SensorDataDemo.swift in Sources */,
+				5F8B9DDE2B096DE400E53711 /* DeviceDiscovery.swift in Sources */,
+				5F8B9DE02B096DE800E53711 /* MissionPairDemosSection.swift in Sources */,
+				5F8B9DD12B096DDF00E53711 /* PressureView.swift in Sources */,
+				5F8B9DBC2B096DBA00E53711 /* ContentView.swift in Sources */,
+				5F8B9DBD2B096DC800E53711 /* NavigationCoordinator.swift in Sources */,
+				5F8B9DBB2B096DA900E53711 /* UkatonSwiftDemoApp.swift in Sources */,
+				5F8B9DD62B096DE000E53711 /* DeviceDemosSection.swift in Sources */,
+				5F8B9DDF2B096DE400E53711 /* DiscoveredDeviceRowHeader.swift in Sources */,
+				5F8B9DC82B096DD200E53711 /* TranslationModePicker.swift in Sources */,
+				5F8B9DCC2B096DD500E53711 /* AllVibrationWaveformEffectsView.swift in Sources */,
+				5F8B9DD42B096DE000E53711 /* DeviceDetail.swift in Sources */,
+				5F8B9DDC2B096DE400E53711 /* DiscoveredDeviceRow.swift in Sources */,
+				5F8B9DBF2B096DC800E53711 /* DeviceRotationViewModifier.swift in Sources */,
+				5F8B9DD02B096DDF00E53711 /* DeviceInformationSection.swift in Sources */,
+				5F8B9DD92B096DE000E53711 /* PressureDemo.swift in Sources */,
+				5F8B9DDA2B096DE000E53711 /* PressureModePicker.swift in Sources */,
+				5F8B9DCE2B096DD800E53711 /* VibrationWaveformsView.swift in Sources */,
+				5F8B9DC32B096DCF00E53711 /* MotionCalibrationSection.swift in Sources */,
+				5F8B9DC62B096DD200E53711 /* RotationModePicker.swift in Sources */,
+				5F8B9DD32B096DE000E53711 /* DeviceWifiInformationSection.swift in Sources */,
+				5F8B9DC12B096DCF00E53711 /* MotionDataSection.swift in Sources */,
+				5F8B9DCF2B096DD800E53711 /* VibrationWaveformsSection.swift in Sources */,
+				5F8B9DC02B096DC800E53711 /* LabelSpacing.swift in Sources */,
+				5F8B9DC72B096DD200E53711 /* MotionView.swift in Sources */,
+				5F8B9DCB2B096DD500E53711 /* VibrationWaveformEffectsSection.swift in Sources */,
+				5F8B9DD22B096DE000E53711 /* MissionPairPressureDemo.swift in Sources */,
+				5F8B9DDD2B096DE400E53711 /* DiscoveredDeviceRowConnection.swift in Sources */,
+				5F8B9DD52B096DE000E53711 /* RSSIDemo.swift in Sources */,
+				5F8B9DC42B096DCF00E53711 /* PressureDataSection.swift in Sources */,
+				5F8B9DDB2B096DE400E53711 /* DiscoveredDeviceRowStatus.swift in Sources */,
+				5F8B9DC52B096DD200E53711 /* MotionDemo.swift in Sources */,
+				5F8B9DD82B096DE000E53711 /* DeviceBluetoothInformationSection.swift in Sources */,
+				5F8B9DBE2B096DC800E53711 /* ViewModifier.swift in Sources */,
+				5F8B9DD72B096DE000E53711 /* CenterOfMassDemo.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5FF58F2C2ADE51D900AD2941 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -860,6 +1017,69 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		5F8B9DB32B096CDF00E53711 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"TV Ukaton Swift Demo/Preview Content\"";
+				DEVELOPMENT_TEAM = MG88YM735Y;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use Bluetooth to detect Ukaton Mission devices";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use Bluetooth to detect Ukaton Mission devices";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ukaton.demo.TV-Ukaton-Swift-Demo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 17.0;
+			};
+			name = Debug;
+		};
+		5F8B9DB42B096CDF00E53711 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"TV Ukaton Swift Demo/Preview Content\"";
+				DEVELOPMENT_TEAM = MG88YM735Y;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use Bluetooth to detect Ukaton Mission devices";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use Bluetooth to detect Ukaton Mission devices";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ukaton.demo.TV-Ukaton-Swift-Demo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 17.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		5FF58F3D2ADE51DA00AD2941 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1208,6 +1428,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5F8B9DB52B096CDF00E53711 /* Build configuration list for PBXNativeTarget "TV Ukaton Swift Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5F8B9DB32B096CDF00E53711 /* Debug */,
+				5F8B9DB42B096CDF00E53711 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		5FF58F2B2ADE51D900AD2941 /* Build configuration list for PBXProject "UkatonSwiftDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1264,6 +1493,11 @@
 			productName = UkatonKit;
 		};
 		5F2B87202AE18E2600BF304B /* UkatonKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5F2B871A2AE18DFA00BF304B /* XCLocalSwiftPackageReference "../UkatonKit" */;
+			productName = UkatonKit;
+		};
+		5F8B9DB62B096CFD00E53711 /* UkatonKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5F2B871A2AE18DFA00BF304B /* XCLocalSwiftPackageReference "../UkatonKit" */;
 			productName = UkatonKit;
