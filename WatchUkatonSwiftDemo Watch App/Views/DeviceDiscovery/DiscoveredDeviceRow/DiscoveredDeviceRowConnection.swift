@@ -3,7 +3,7 @@ import UkatonKit
 
 struct DiscoveredDeviceRowConnection: View {
     @Binding var discoveredDevice: UKDiscoveredBluetoothDevice
-    @ObservedObject var mission: UKMission
+    let mission: UKMission
     var onSelectDevice: (() -> Void)?
 
     init(discoveredDevice: Binding<UKDiscoveredBluetoothDevice>, onSelectDevice: (() -> Void)? = nil) {
@@ -12,54 +12,63 @@ struct DiscoveredDeviceRowConnection: View {
         self.onSelectDevice = onSelectDevice
     }
 
-    var connectionStatus: UKConnectionStatus {
-        mission.connectionStatus
-    }
+    @State var connectionStatus: UKConnectionStatus = .notConnected
 
     @State private var connectingAnimationAmount: CGFloat = 1
+    @Namespace private var animation
 
     var body: some View {
-        if connectionStatus == .connected || connectionStatus == .disconnecting {
-            Button(role: .destructive, action: {
-                discoveredDevice.disconnect()
-            }, label: {
-                Text("disconnect")
-            })
-            .tint(.red)
-            .buttonStyle(.borderedProminent)
-        }
-        else {
-            if connectionStatus == .notConnected {
-                Button(action: {
-                    discoveredDevice.connect(type: .bluetooth)
-                }, label: {
-                    Text("connect")
-                })
-                .buttonStyle(.borderedProminent)
-                .tint(.blue)
-            }
-            else {
-                Button(role: .cancel, action: {
+        VStack {
+            if connectionStatus == .connected || connectionStatus == .disconnecting {
+                Button(role: .destructive, action: {
                     discoveredDevice.disconnect()
                 }, label: {
-                    Text("connecting...")
-                        .accessibilityLabel("cancel connection")
+                    Text("disconnect")
                 })
-                .tint(.cyan)
+                .matchedGeometryEffect(id: "Button", in: animation)
+                .tint(.red)
                 .buttonStyle(.borderedProminent)
-                .scaleEffect(connectingAnimationAmount)
-                .animation(
-                    .easeInOut(duration: 0.5)
-                        .repeatForever(autoreverses: true),
-                    value: connectingAnimationAmount)
-                .onAppear {
-                    connectingAnimationAmount = 0.97
+            }
+            else {
+                if connectionStatus == .notConnected {
+                    Button(action: {
+                        discoveredDevice.connect(type: .bluetooth)
+                    }, label: {
+                        Text("connect")
+                    })
+                    .matchedGeometryEffect(id: "Button", in: animation)
+                    .buttonStyle(.borderedProminent)
+                    .tint(.blue)
                 }
-                .onDisappear {
-                    connectingAnimationAmount = 1
+                else {
+                    Button(role: .cancel, action: {
+                        discoveredDevice.disconnect()
+                    }, label: {
+                        Text("connecting...")
+                            .accessibilityLabel("cancel connection")
+                    })
+                    .matchedGeometryEffect(id: "Button", in: animation)
+                    .tint(.cyan)
+                    .buttonStyle(.borderedProminent)
+                    .scaleEffect(connectingAnimationAmount)
+                    .animation(
+                        .easeInOut(duration: 0.5)
+                            .repeatForever(autoreverses: true),
+                        value: connectingAnimationAmount)
+                    .onAppear {
+                        connectingAnimationAmount = 0.97
+                    }
+                    .onDisappear {
+                        connectingAnimationAmount = 1
+                    }
                 }
             }
         }
+        .onReceive(mission.$connectionStatus, perform: { newConnectionStatus in
+            withAnimation {
+                self.connectionStatus = newConnectionStatus
+            }
+        })
     }
 }
 

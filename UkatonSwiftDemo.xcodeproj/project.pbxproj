@@ -40,7 +40,6 @@
 		5F2B87212AE18E2600BF304B /* UkatonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5F2B87202AE18E2600BF304B /* UkatonKit */; };
 		5F426ECF2AF17CEA00E58F15 /* DiscoveredDeviceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F426ECE2AF17CEA00E58F15 /* DiscoveredDeviceRow.swift */; };
 		5F426ED02AF17D4E00E58F15 /* DiscoveredDeviceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F426ECE2AF17CEA00E58F15 /* DiscoveredDeviceRow.swift */; };
-		5F426ED12AF17D4F00E58F15 /* DiscoveredDeviceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F426ECE2AF17CEA00E58F15 /* DiscoveredDeviceRow.swift */; };
 		5F426ED32AF1F51D00E58F15 /* DeviceDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F426ED22AF1F51D00E58F15 /* DeviceDetail.swift */; };
 		5F426ED42AF1F53300E58F15 /* DeviceDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F426ED22AF1F51D00E58F15 /* DeviceDetail.swift */; };
 		5F426ED52AF1F53800E58F15 /* DeviceDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F426ED22AF1F51D00E58F15 /* DeviceDetail.swift */; };
@@ -137,6 +136,7 @@
 		5FF58F752ADF18A000AD2941 /* UkatonSwiftDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF58F332ADE51D900AD2941 /* UkatonSwiftDemoApp.swift */; };
 		5FF58F772ADF1BF300AD2941 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FF58F372ADE51DA00AD2941 /* Assets.xcassets */; };
 		5FF58F782ADF1F1800AD2941 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FF58F372ADE51DA00AD2941 /* Assets.xcassets */; };
+		5FFAFA562B083404002286C7 /* DiscoveredDeviceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFAFA552B083404002286C7 /* DiscoveredDeviceRow.swift */; };
 		5FFBE8112AF160CF00F8CBD7 /* DeviceDiscovery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFBE8102AF160CF00F8CBD7 /* DeviceDiscovery.swift */; };
 		5FFBE8122AF160CF00F8CBD7 /* DeviceDiscovery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFBE8102AF160CF00F8CBD7 /* DeviceDiscovery.swift */; };
 		5FFBE8132AF160CF00F8CBD7 /* DeviceDiscovery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFBE8102AF160CF00F8CBD7 /* DeviceDiscovery.swift */; };
@@ -223,6 +223,7 @@
 		5FF58F652ADF182F00AD2941 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5FF58F6A2ADF183000AD2941 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5FF58F732ADF185600AD2941 /* WatchUkatonSwiftDemo-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "WatchUkatonSwiftDemo-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
+		5FFAFA552B083404002286C7 /* DiscoveredDeviceRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveredDeviceRow.swift; sourceTree = "<group>"; };
 		5FFBE8102AF160CF00F8CBD7 /* DeviceDiscovery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDiscovery.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -327,6 +328,7 @@
 			isa = PBXGroup;
 			children = (
 				5F8656532B06EE43007F1D00 /* DiscoveredDeviceRowConnection.swift */,
+				5FFAFA552B083404002286C7 /* DiscoveredDeviceRow.swift */,
 			);
 			path = DiscoveredDeviceRow;
 			sourceTree = "<group>";
@@ -795,6 +797,7 @@
 				5F0DB93F2B00005F00FB413E /* VibrationWaveformEffectsSection.swift in Sources */,
 				5F446F802B05743C00797659 /* MotionView.swift in Sources */,
 				5FCC84A62AFC414100B755FA /* MotionCalibrationSection.swift in Sources */,
+				5FFAFA562B083404002286C7 /* DiscoveredDeviceRow.swift in Sources */,
 				5F7616422AFAB083000E1A80 /* SensorDataDemo.swift in Sources */,
 				5F0F6F552AFEA877007D0D03 /* RotationModePicker.swift in Sources */,
 				5F83E5DF2B06943800056593 /* DiscoveredDeviceRowStatus.swift in Sources */,
@@ -812,7 +815,6 @@
 				5FF58F752ADF18A000AD2941 /* UkatonSwiftDemoApp.swift in Sources */,
 				5F777D482B0143780001509A /* VibrationWaveformEffectsView.swift in Sources */,
 				5FCC84AA2AFC426000B755FA /* MotionDataSection.swift in Sources */,
-				5F426ED12AF17D4F00E58F15 /* DiscoveredDeviceRow.swift in Sources */,
 				5F9F82BD2B029AC500DDD9AB /* NavigationCoordinator.swift in Sources */,
 				5F9F82B92B02970300DDD9AB /* MissionPair.swift in Sources */,
 				5FCC84C12AFCA34100B755FA /* VibrationDemo.swift in Sources */,

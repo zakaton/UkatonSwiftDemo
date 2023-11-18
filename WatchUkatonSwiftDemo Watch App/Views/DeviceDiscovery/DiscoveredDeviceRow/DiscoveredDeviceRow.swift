@@ -17,18 +17,18 @@ struct DiscoveredDeviceRow: View {
     var onSelectDevice: (() -> Void)?
     var body: some View {
         VStack {
-            HStack {
-                DiscoveredDeviceRowHeader(discoveredDevice: $discoveredDevice)
-                Spacer()
-                if mission.isConnected {
-                    Button(action: {
-                        onSelectDevice?()
-                    }) {
-                        Label("select", systemImage: "chevron.right.circle")
-                            .labelStyle(LabelSpacing(spacing: 4))
-                    }
-                    .buttonStyle(.borderedProminent)
+            if mission.isConnected {
+                Button(action: {
+                    onSelectDevice?()
+                }) {
+                    DiscoveredDeviceRowHeader(discoveredDevice: $discoveredDevice)
                 }
+                .buttonStyle(.borderedProminent)
+                .transition(.opacity)
+
+            } else {
+                DiscoveredDeviceRowHeader(discoveredDevice: $discoveredDevice)
+                    .transition(.opacity)
             }
             DiscoveredDeviceRowConnection(discoveredDevice: $discoveredDevice)
             DiscoveredDeviceRowStatus(discoveredDevice: $discoveredDevice)
