@@ -38,10 +38,7 @@ struct TranslationModePicker: View {
                     Button {
                         var newTranslationMode: TranslationMode = .none
 
-                        if isAccelerationEnabled {
-                            // newTranslationMode = .linearAcceleration
-                        }
-                        else if isLinearAccelerationEnabled {
+                        if isEnabled {
                             newTranslationMode = .none
                         }
                         else {

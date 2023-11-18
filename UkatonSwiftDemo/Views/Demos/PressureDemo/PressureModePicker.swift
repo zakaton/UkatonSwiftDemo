@@ -64,11 +64,7 @@ struct PressureModePicker: View {
                     .tag(pressureMode)
             }
         }
-        .modify {
-            #if !os(watchOS)
-            $0.pickerStyle(.segmented)
-            #endif
-        }
+        .pickerStyle(.segmented)
     }
 }
 

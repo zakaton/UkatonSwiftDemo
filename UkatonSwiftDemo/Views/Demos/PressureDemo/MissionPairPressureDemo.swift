@@ -25,6 +25,8 @@ struct MissionPairPressureDemo: View {
 }
 
 #Preview {
-    MissionPairPressureDemo(missionPair: .shared)
-        .frame(maxWidth: 400, maxHeight: 300)
+    NavigationStack {
+        MissionPairPressureDemo(missionPair: .shared)
+    }
+    .frame(maxWidth: 400, maxHeight: 300)
 }

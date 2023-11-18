@@ -38,11 +38,8 @@ struct RotationModePicker: View {
                     Button {
                         var newRotationMode: RotationMode = .none
 
-                        if isQuaternionEnabled {
+                        if isEnabled {
                             newRotationMode = .none
-                        }
-                        else if isRotationRateEnabled {
-                            // newRotationMode = .none
                         }
                         else {
                             newRotationMode = .quaternion
