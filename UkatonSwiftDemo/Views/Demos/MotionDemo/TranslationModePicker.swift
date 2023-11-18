@@ -27,8 +27,6 @@ struct TranslationModePicker: View {
         case acceleration
     }
 
-    @State private var selectedTranslationMode: TranslationMode = .none
-
     var body: some View {
         let translationBinding = Binding<TranslationMode>(
             get: {
@@ -58,49 +56,13 @@ struct TranslationModePicker: View {
                 try? sensorDataConfigurable.setSensorDataConfigurations(sensorDataConfigurations)
             })
 
-        #if !os(watchOS)
         Picker(selection: translationBinding, label: EmptyView()) {
             ForEach(TranslationMode.allCases) { translationMode in
                 Text(translationMode.name)
                     .tag(translationMode)
             }
         }
-        #else
-        VStack {}
-            .toolbar {
-                ToolbarItem(placement: .bottomBar) {
-                    Button {
-                        var newTranslationMode: TranslationMode = .none
-
-                        if isAccelerationEnabled {
-                            // newTranslationMode = .linearAcceleration
-                        }
-                        else if isLinearAccelerationEnabled {
-                            newTranslationMode = .none
-                        }
-                        else {
-                            newTranslationMode = .linearAcceleration
-                        }
-
-                        sensorDataConfigurations.motion[.linearAcceleration] = 0
-                        sensorDataConfigurations.motion[.acceleration] = 0
-
-                        switch newTranslationMode {
-                        case .acceleration:
-                            sensorDataConfigurations.motion[.acceleration] = 20
-                        case .linearAcceleration:
-                            sensorDataConfigurations.motion[.linearAcceleration] = 20
-                        default:
-                            break
-                        }
-
-                        try? sensorDataConfigurable.setSensorDataConfigurations(sensorDataConfigurations)
-                    } label: {
-                        Image(systemName: isLinearAccelerationEnabled ? "move.3d" : "scale.3d")
-                    }
-                }
-            }
-        #endif
+        .pickerStyle(.segmented)
     }
 }
 

@@ -11,11 +11,20 @@ enum MissionPairDemo: CaseIterable, Identifiable {
     case centerOfMass
     case vibration
 
+    var worksWithWatch: Bool {
+        switch self {
+        case .motion:
+            false
+        default:
+            true
+        }
+    }
+
     @ViewBuilder func view(missionPair: UKMissionPair) -> some View {
         switch self {
         case .motion: MissionPairMotionDemo(missionPair: missionPair)
         case .pressure: MissionPairPressureDemo(missionPair: missionPair)
-        case .centerOfMass: MissionPairCenterOfMassDemo(missionPair: missionPair)
+        case .centerOfMass: CenterOfMassDemo(centerOfMassProvider: missionPair)
         case .vibration:
             VibrationDemo(vibratable: missionPair)
         }
@@ -25,9 +34,19 @@ enum MissionPairDemo: CaseIterable, Identifiable {
 struct MissionPairDemosSection: View {
     let missionPair: UKMissionPair
 
+    var isWatch: Bool {
+        #if os(watchOS)
+        true
+        #else
+        false
+        #endif
+    }
+
     var body: some View {
         Section {
-            ForEach(MissionPairDemo.allCases) { demo in
+            ForEach(MissionPairDemo.allCases.filter {
+                !isWatch || $0.worksWithWatch
+            }) { demo in
                 HStack {
                     NavigationLink(demo.name, value: demo)
                 }

@@ -9,12 +9,13 @@ enum DeviceDemo: CaseIterable, Identifiable {
     case sensorData
     case motion
     case pressure
+    case centerOfMass
     case vibration
     case rssi
 
     var requiresPressure: Bool {
         switch self {
-        case .pressure:
+        case .pressure, .centerOfMass:
             true
         default:
             false
@@ -38,11 +39,18 @@ enum DeviceDemo: CaseIterable, Identifiable {
 
     @ViewBuilder func view(mission: UKMission) -> some View {
         switch self {
-        case .sensorData: SensorDataDemo(mission: mission)
-        case .motion: MotionDemo(mission: mission)
-        case .pressure: PressureDemo(mission: mission)
-        case .vibration: VibrationDemo(vibratable: mission)
-        case .rssi: RSSIDemo(mission: mission)
+        case .sensorData:
+            SensorDataDemo(mission: mission)
+        case .motion:
+            MotionDemo(mission: mission)
+        case .pressure:
+            PressureDemo(mission: mission)
+        case .centerOfMass:
+            CenterOfMassDemo(centerOfMassProvider: mission)
+        case .vibration:
+            VibrationDemo(vibratable: mission)
+        case .rssi:
+            RSSIDemo(mission: mission)
         }
     }
 }

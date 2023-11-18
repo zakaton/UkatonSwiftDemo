@@ -32,6 +32,19 @@ struct DiscoveredDeviceRowStatus: View {
         }
     }
 
+    var batteryLevelColor: Color {
+        switch batteryLevel {
+        case 75 ..< 100:
+            .green
+        case 50 ..< 75:
+            .orange
+        case 25 ..< 50:
+            .red
+        default:
+            .red
+        }
+    }
+
     var body: some View {
         let layout = isWatch ? AnyLayout(VStackLayout()) : AnyLayout(HStackLayout(spacing: 15))
 
@@ -48,6 +61,7 @@ struct DiscoveredDeviceRowStatus: View {
             }
             if mission.isConnected {
                 Label("\(batteryLevel)%", systemImage: batteryLevelSystemImage)
+                    .foregroundColor(batteryLevelColor)
             }
             if discoveredDevice.isConnectedToWifi, let ipAddress = discoveredDevice.ipAddress, !ipAddress.isEmpty {
                 Label(ipAddress, systemImage: "wifi")

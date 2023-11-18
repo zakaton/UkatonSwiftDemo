@@ -58,6 +58,7 @@ struct DeviceDiscovery: View {
                 } label: {
                     if bluetoothManager.isScanning {
                         Label("stop scan", systemImage: "antenna.radiowaves.left.and.right")
+                            .foregroundColor(.blue)
                     }
                     else {
                         Label("start scan", systemImage: "antenna.radiowaves.left.and.right.slash")

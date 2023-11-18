@@ -1,10 +1,11 @@
 import SwiftUI
 import UkatonKit
 
-struct MissionPairCenterOfMassDemo: View {
-    let missionPair: UKMissionPair
+struct CenterOfMassDemo: View {
+    let centerOfMassProvider: UKCenterOfMassProvider
 
     @State private var sensorDataConfigurations: UKSensorDataConfigurations = .init()
+
     @State var centerOfMass: UKCenterOfMass = .init()
 
     var body: some View {
@@ -33,31 +34,42 @@ struct MissionPairCenterOfMassDemo: View {
                     .frame(width: geometry.size.width - 10, height: geometry.size.height - 10)
                 }
             }
-            .onReceive(missionPair.centerOfMassSubject, perform: {
+            .onReceive(centerOfMassProvider.centerOfMassSubject, perform: {
                 centerOfMass = $0.value
             })
             .padding(10)
 
-            PressureModePicker(sensorDataConfigurable: missionPair, sensorDataConfigurations: $sensorDataConfigurations)
+            PressureModePicker(sensorDataConfigurable: centerOfMassProvider, sensorDataConfigurations: $sensorDataConfigurations)
         }
         .navigationTitle("Center of Mass")
-        .onReceive(missionPair.sensorDataConfigurationsSubject, perform: {
+        .onReceive(centerOfMassProvider.sensorDataConfigurationsSubject, perform: {
             sensorDataConfigurations = $0
         })
         .toolbar {
-            Button {
-                missionPair.recalibratePressure()
+            let button = Button {
+                centerOfMassProvider.recalibrateCenterOfMass()
             } label: {
                 Label("recalibrate pressure", systemImage: "arrow.counterclockwise")
             }
+            #if os(watchOS)
+            ToolbarItem(placement: .topBarTrailing) {
+                button
+            }
+            #else
+            ToolbarItem {
+                button
+            }
+            #endif
         }
         .onDisappear {
-            try? missionPair.clearSensorDataConfigurations()
+            try? centerOfMassProvider.clearSensorDataConfigurations()
         }
     }
 }
 
 #Preview {
-    NavigationStack { MissionPairCenterOfMassDemo(missionPair: .shared) }
-        .frame(maxWidth: 300, maxHeight: 300)
+    NavigationStack {
+        CenterOfMassDemo(centerOfMassProvider: UKMissionPair.shared)
+    }
+    .frame(maxWidth: 300, maxHeight: 300)
 }

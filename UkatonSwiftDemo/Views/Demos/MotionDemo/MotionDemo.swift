@@ -28,18 +28,28 @@ struct MotionDemo: View {
             try? mission.clearSensorDataConfigurations()
         }
         .toolbar {
-            ToolbarItem(placement: .topBarTrailing) {
-                Button {
-                    recalibrateSubject.send(())
-                } label: {
-                    Label("reset orientation", systemImage: "arrow.counterclockwise")
-                }
+            let button = Button {
+                recalibrateSubject.send(())
+            } label: {
+                Label("reset orientation", systemImage: "arrow.counterclockwise")
             }
+            #if os(watchOS)
+            ToolbarItem(placement: .topBarTrailing) {
+                button
+                    .foregroundColor(.primary)
+            }
+            #else
+            ToolbarItem {
+                button
+            }
+            #endif
         }
     }
 }
 
 #Preview {
-    NavigationStack { MotionDemo(mission: .none) }
-        .frame(maxWidth: 360, maxHeight: 500)
+    NavigationStack {
+        MotionDemo(mission: .none)
+    }
+    .frame(maxWidth: 360, maxHeight: 500)
 }
