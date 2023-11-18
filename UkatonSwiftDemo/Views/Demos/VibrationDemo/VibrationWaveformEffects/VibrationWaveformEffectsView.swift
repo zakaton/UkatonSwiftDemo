@@ -31,11 +31,16 @@ struct VibrationWaveformEffectsView: View {
         .disabled(waveformEffects.count >= UKVibrationType.waveformEffect.maxSequenceLength)
 
         ForEach(waveformEffects.indices, id: \.self) { index in
-            Picker(selection: $waveformEffects[index], label: pickerLabel(index: index)) {
-                ForEach(UKVibrationWaveformEffect.allCases) { waveformEffect in
-                    Text(waveformEffect.name)
-                        .tag(waveformEffect)
-                        .foregroundColor(.primary)
+            HStack {
+                if isWatch {
+                    Text("\(index + 1)")
+                }
+                Picker(selection: $waveformEffects[index], label: pickerLabel(index: index)) {
+                    ForEach(UKVibrationWaveformEffect.allCases) { waveformEffect in
+                        Text(waveformEffect.name)
+                            .tag(waveformEffect)
+                            .foregroundColor(.primary)
+                    }
                 }
             }
         }
@@ -53,5 +58,6 @@ struct VibrationWaveformEffectsView: View {
 }
 
 #Preview {
-    VibrationWaveformEffectsView(vibratable: UKMission.none, waveformEffects: .constant(.init()))
+    @State var waveforms: [UKVibrationWaveformEffect] = [.alert750ms]
+    return VibrationWaveformEffectsView(vibratable: UKMission.none, waveformEffects: $waveforms)
 }

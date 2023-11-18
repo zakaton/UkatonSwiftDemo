@@ -13,6 +13,20 @@ struct VibrationWaveformsView: View {
         #endif
     }
 
+    @ViewBuilder
+    func centerView(_ view: some View) -> some View {
+        if isWatch {
+            HStack {
+                Spacer()
+                view
+                Spacer()
+            }
+        }
+        else {
+            view
+        }
+    }
+
     var body: some View {
         let layout = isWatch ? AnyLayout(VStackLayout(alignment: .leading)) : AnyLayout(HStackLayout())
 
@@ -35,11 +49,11 @@ struct VibrationWaveformsView: View {
                 }
             }
             layout {
-                Text("intensity")
+                centerView(Text("intensity"))
                 Slider(value: $waveforms[index].intensity)
             }
             layout {
-                Text(String(format: "delay %.1fs", waveforms[index].delay / 1000))
+                centerView(Text(String(format: "delay %.1fs", waveforms[index].delay / 1000)))
                 Slider(value: $waveforms[index].delay, in: 0 ... UKVibrationWaveformDelay.max, step: isWatch ? 200 : 100)
             }
         }
@@ -54,5 +68,6 @@ struct VibrationWaveformsView: View {
 }
 
 #Preview {
-    VibrationWaveformsView(vibratable: UKMission.none, waveforms: .constant(.init()))
+    @State var waveforms: [UKVibrationWaveform] = [.init(intensity: 0.5, delay: 1000)]
+    return VibrationWaveformsView(vibratable: UKMission.none, waveforms: $waveforms)
 }
