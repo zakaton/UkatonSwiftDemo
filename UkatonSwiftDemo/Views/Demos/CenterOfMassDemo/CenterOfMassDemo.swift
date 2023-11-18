@@ -21,7 +21,7 @@ struct CenterOfMassDemo: View {
                             GeometryReader { geometry in
                                 Circle()
                                     .fill(.red)
-                                    .frame(width: min(geometry.size.width, geometry.size.height) * 0.1)
+                                    .frame(width: min(geometry.size.width, geometry.size.height) * 0.15)
                                     .position(
                                         x: geometry.size.width * centerOfMass.x,
                                         y: geometry.size.height * (1 - centerOfMass.y)
@@ -34,7 +34,7 @@ struct CenterOfMassDemo: View {
                     .frame(width: geometry.size.width - 10, height: geometry.size.height - 10)
                 }
             }
-            .onReceive(centerOfMassProvider.centerOfMassSubject, perform: {
+            .onReceive(centerOfMassProvider.centerOfMassSubject.dropFirst(), perform: {
                 centerOfMass = $0.value
             })
             .padding(10)
@@ -54,6 +54,7 @@ struct CenterOfMassDemo: View {
             #if os(watchOS)
             ToolbarItem(placement: .topBarTrailing) {
                 button
+                    .foregroundColor(.primary)
             }
             #else
             ToolbarItem {

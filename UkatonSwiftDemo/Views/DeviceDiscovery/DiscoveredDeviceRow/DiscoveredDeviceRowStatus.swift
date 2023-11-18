@@ -60,8 +60,12 @@ struct DiscoveredDeviceRowStatus: View {
                 }
             }
             if mission.isConnected {
-                Label("\(batteryLevel)%", systemImage: batteryLevelSystemImage)
-                    .foregroundColor(batteryLevelColor)
+                Label {
+                    Text("\(batteryLevel)%")
+                } icon: {
+                    Image(systemName: batteryLevelSystemImage)
+                        .foregroundColor(batteryLevelColor)
+                }
             }
             if discoveredDevice.isConnectedToWifi, let ipAddress = discoveredDevice.ipAddress, !ipAddress.isEmpty {
                 Label(ipAddress, systemImage: "wifi")
