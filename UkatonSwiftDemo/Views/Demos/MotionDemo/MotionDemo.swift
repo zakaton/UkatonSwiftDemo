@@ -6,7 +6,7 @@ import UkatonMacros
 struct MotionDemo: View {
     var mission: UKMission
     @State private var sensorDataConfigurations: UKSensorDataConfigurations = .init()
-    
+
     private let recalibrateSubject: PassthroughSubject<Void, Never> = .init()
 
     init(mission: UKMission) {
@@ -28,10 +28,12 @@ struct MotionDemo: View {
             try? mission.clearSensorDataConfigurations()
         }
         .toolbar {
-            Button {
-                recalibrateSubject.send(())
-            } label: {
-                Label("reset orientation", systemImage: "arrow.counterclockwise")
+            ToolbarItem(placement: .topBarTrailing) {
+                Button {
+                    recalibrateSubject.send(())
+                } label: {
+                    Label("reset orientation", systemImage: "arrow.counterclockwise")
+                }
             }
         }
     }

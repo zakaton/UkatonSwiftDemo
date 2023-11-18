@@ -58,17 +58,50 @@ struct RotationModePicker: View {
                 try? sensorDataConfigurable.setSensorDataConfigurations(sensorDataConfigurations)
             })
 
+#if !os(watchOS)
         Picker(selection: rotationBinding, label: EmptyView()) {
             ForEach(RotationMode.allCases) { rotationMode in
                 Text(rotationMode.name)
                     .tag(rotationMode)
             }
         }
-        .modify {
-            #if !os(watchOS)
-            $0.pickerStyle(.segmented)
-            #endif
-        }
+        .pickerStyle(.segmented)
+#else
+        VStack {}
+            .toolbar {
+                ToolbarItem(placement: .bottomBar) {
+                    Button {
+                        var newRotationMode: RotationMode = .none
+
+                        if isQuaternionEnabled {
+                            newRotationMode = .none
+                        }
+                        else if isRotationRateEnabled {
+                            // newRotationMode = .none
+                        }
+                        else {
+                            newRotationMode = .quaternion
+                        }
+
+                        sensorDataConfigurations.motion[.quaternion] = 0
+                        sensorDataConfigurations.motion[.rotationRate] = 0
+
+                        switch newRotationMode {
+                        case .quaternion:
+                            sensorDataConfigurations.motion[.quaternion] = 20
+                        case .rotationRate:
+                            sensorDataConfigurations.motion[.rotationRate] = 20
+                        default:
+                            break
+                        }
+
+                        try? sensorDataConfigurable.setSensorDataConfigurations(sensorDataConfigurations)
+                    } label: {
+                        Image(systemName: isQuaternionEnabled ? "rotate.3d.fill" : "rotate.3d")
+                    }
+                }
+            }
+#endif
     }
 }
 

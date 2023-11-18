@@ -24,11 +24,9 @@ struct DiscoveredDeviceRow: View {
                     DiscoveredDeviceRowHeader(discoveredDevice: $discoveredDevice)
                 }
                 .buttonStyle(.borderedProminent)
-                .transition(.opacity)
 
             } else {
                 DiscoveredDeviceRowHeader(discoveredDevice: $discoveredDevice)
-                    .transition(.opacity)
             }
             DiscoveredDeviceRowConnection(discoveredDevice: $discoveredDevice)
             DiscoveredDeviceRowStatus(discoveredDevice: $discoveredDevice)
