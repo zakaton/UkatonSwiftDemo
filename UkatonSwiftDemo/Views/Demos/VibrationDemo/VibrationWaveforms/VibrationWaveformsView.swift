@@ -5,7 +5,17 @@ struct VibrationWaveformsView: View {
     var vibratable: UKVibratable
     @Binding var waveforms: [UKVibrationWaveform]
 
+    var isWatch: Bool {
+        #if os(watchOS)
+        true
+        #else
+        false
+        #endif
+    }
+
     var body: some View {
+        let layout = isWatch ? AnyLayout(VStackLayout(alignment: .leading)) : AnyLayout(HStackLayout())
+
         Button(action: {
             waveforms.append((waveforms.isEmpty ? .init(intensity: 0.5, delay: 200) : waveforms.last)!)
         }) {
@@ -24,20 +34,20 @@ struct VibrationWaveformsView: View {
                     Text("remove")
                 }
             }
-            HStack {
+            layout {
                 Text("intensity")
                 Slider(value: $waveforms[index].intensity)
             }
-            HStack {
+            layout {
                 Text(String(format: "delay %.1fs", waveforms[index].delay / 1000))
-                Slider(value: $waveforms[index].delay, in: 0 ... UKVibrationWaveformDelay.max, step: 100)
+                Slider(value: $waveforms[index].delay, in: 0 ... UKVibrationWaveformDelay.max, step: isWatch ? 200 : 100)
             }
         }
 
         Button(action: {
             try? vibratable.vibrate(waveforms: waveforms)
         }) {
-            Text("trigger waveforms")
+            Label("trigger sequence", systemImage: "waveform.path")
         }
         .disabled(waveforms.isEmpty)
     }
