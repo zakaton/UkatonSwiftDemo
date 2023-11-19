@@ -66,7 +66,7 @@ struct MotionView: View {
         // MARK: - Camera...
 
         cameraNode.camera = SCNCamera()
-        cameraNode.position = .init(x: 0, y: 0, z: 1.6)
+        cameraNode.position = .init(x: 0, y: 0, z: 2)
         cameraNode.eulerAngles = .init(x: 0, y: 0, z: 0)
     }
 

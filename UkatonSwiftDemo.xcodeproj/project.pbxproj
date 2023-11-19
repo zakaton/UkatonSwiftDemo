@@ -122,6 +122,17 @@
 		5F8B9DDF2B096DE400E53711 /* DiscoveredDeviceRowHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F83E5D82B068FF900056593 /* DiscoveredDeviceRowHeader.swift */; };
 		5F8B9DE02B096DE800E53711 /* MissionPairDemosSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F82BE2B03E2D900DDD9AB /* MissionPairDemosSection.swift */; };
 		5F8B9DE12B096DE800E53711 /* MissionPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F82B62B02970300DDD9AB /* MissionPair.swift */; };
+		5F9778F12B0AA1230057AA56 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9778F02B0AA1230057AA56 /* SafariWebExtensionHandler.swift */; };
+		5F9778F42B0AA1230057AA56 /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = 5F9778F32B0AA1230057AA56 /* _locales */; };
+		5F9778F62B0AA1230057AA56 /* images in Resources */ = {isa = PBXBuildFile; fileRef = 5F9778F52B0AA1230057AA56 /* images */; };
+		5F9778F82B0AA1230057AA56 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 5F9778F72B0AA1230057AA56 /* manifest.json */; };
+		5F9778FA2B0AA1230057AA56 /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = 5F9778F92B0AA1230057AA56 /* background.js */; };
+		5F9778FC2B0AA1230057AA56 /* content.js in Resources */ = {isa = PBXBuildFile; fileRef = 5F9778FB2B0AA1230057AA56 /* content.js */; };
+		5F9778FE2B0AA1230057AA56 /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = 5F9778FD2B0AA1230057AA56 /* popup.html */; };
+		5F9779002B0AA1230057AA56 /* popup.css in Resources */ = {isa = PBXBuildFile; fileRef = 5F9778FF2B0AA1230057AA56 /* popup.css */; };
+		5F9779022B0AA1230057AA56 /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = 5F9779012B0AA1230057AA56 /* popup.js */; };
+		5F9779062B0AA1230057AA56 /* Ukaton Swift Demo Safari Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5F9778EE2B0AA1230057AA56 /* Ukaton Swift Demo Safari Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5F97790C2B0AA28E0057AA56 /* UkatonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5F97790B2B0AA28E0057AA56 /* UkatonKit */; };
 		5F9F82B72B02970300DDD9AB /* MissionPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F82B62B02970300DDD9AB /* MissionPair.swift */; };
 		5F9F82B82B02970300DDD9AB /* MissionPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F82B62B02970300DDD9AB /* MissionPair.swift */; };
 		5F9F82B92B02970300DDD9AB /* MissionPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F82B62B02970300DDD9AB /* MissionPair.swift */; };
@@ -187,6 +198,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		5F9779042B0AA1230057AA56 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5FF58F282ADE51D900AD2941 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5F9778ED2B0AA1230057AA56;
+			remoteInfo = "Ukaton Swift Demo Safari Extension";
+		};
 		5FF58F6C2ADF183000AD2941 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5FF58F282ADE51D900AD2941 /* Project object */;
@@ -197,6 +215,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		5F9779072B0AA1230057AA56 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				5F9779062B0AA1230057AA56 /* Ukaton Swift Demo Safari Extension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5FF58F722ADF183000AD2941 /* Embed Watch Content */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -240,6 +269,17 @@
 		5F8B9DAA2B096CDE00E53711 /* TvUkatonSwiftDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvUkatonSwiftDemoApp.swift; sourceTree = "<group>"; };
 		5F8B9DAC2B096CDE00E53711 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5F8B9DB12B096CDF00E53711 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5F9778EE2B0AA1230057AA56 /* Ukaton Swift Demo Safari Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Ukaton Swift Demo Safari Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F9778F02B0AA1230057AA56 /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
+		5F9778F32B0AA1230057AA56 /* _locales */ = {isa = PBXFileReference; lastKnownFileType = folder; path = _locales; sourceTree = "<group>"; };
+		5F9778F52B0AA1230057AA56 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
+		5F9778F72B0AA1230057AA56 /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = manifest.json; sourceTree = "<group>"; };
+		5F9778F92B0AA1230057AA56 /* background.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = background.js; sourceTree = "<group>"; };
+		5F9778FB2B0AA1230057AA56 /* content.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = content.js; sourceTree = "<group>"; };
+		5F9778FD2B0AA1230057AA56 /* popup.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = popup.html; sourceTree = "<group>"; };
+		5F9778FF2B0AA1230057AA56 /* popup.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = popup.css; sourceTree = "<group>"; };
+		5F9779012B0AA1230057AA56 /* popup.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = popup.js; sourceTree = "<group>"; };
+		5F9779032B0AA1230057AA56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F9F82B62B02970300DDD9AB /* MissionPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionPair.swift; sourceTree = "<group>"; };
 		5F9F82BA2B029AC500DDD9AB /* NavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCoordinator.swift; sourceTree = "<group>"; };
 		5F9F82BE2B03E2D900DDD9AB /* MissionPairDemosSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionPairDemosSection.swift; sourceTree = "<group>"; };
@@ -284,6 +324,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F8B9DB72B096CFD00E53711 /* UkatonKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5F9778EB2B0AA1230057AA56 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F97790C2B0AA28E0057AA56 /* UkatonKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,6 +485,31 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		5F9778EF2B0AA1230057AA56 /* Ukaton Swift Demo Safari Extension */ = {
+			isa = PBXGroup;
+			children = (
+				5F9778F02B0AA1230057AA56 /* SafariWebExtensionHandler.swift */,
+				5F9779032B0AA1230057AA56 /* Info.plist */,
+				5F9778F22B0AA1230057AA56 /* Resources */,
+			);
+			path = "Ukaton Swift Demo Safari Extension";
+			sourceTree = "<group>";
+		};
+		5F9778F22B0AA1230057AA56 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5F9778F32B0AA1230057AA56 /* _locales */,
+				5F9778F52B0AA1230057AA56 /* images */,
+				5F9778F72B0AA1230057AA56 /* manifest.json */,
+				5F9778F92B0AA1230057AA56 /* background.js */,
+				5F9778FB2B0AA1230057AA56 /* content.js */,
+				5F9778FD2B0AA1230057AA56 /* popup.html */,
+				5F9778FF2B0AA1230057AA56 /* popup.css */,
+				5F9779012B0AA1230057AA56 /* popup.js */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		5F9F82B52B0296EF00DDD9AB /* MissionPair */ = {
 			isa = PBXGroup;
 			children = (
@@ -551,6 +624,7 @@
 				5FF58F4C2ADF13E700AD2941 /* MacUkatonSwiftDemo */,
 				5FF58F622ADF182F00AD2941 /* WatchUkatonSwiftDemo Watch App */,
 				5F8B9DA92B096CDE00E53711 /* TvUkatonSwiftDemo */,
+				5F9778EF2B0AA1230057AA56 /* Ukaton Swift Demo Safari Extension */,
 				5FF58F312ADE51D900AD2941 /* Products */,
 				5F2B871D2AE18E2100BF304B /* Frameworks */,
 			);
@@ -563,6 +637,7 @@
 				5FF58F4B2ADF13E700AD2941 /* MacUkatonSwiftDemo.app */,
 				5FF58F612ADF182F00AD2941 /* WatchUkatonSwiftDemo.app */,
 				5F8B9DA82B096CDE00E53711 /* TvUkatonSwiftDemo.app */,
+				5F9778EE2B0AA1230057AA56 /* Ukaton Swift Demo Safari Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -664,6 +739,26 @@
 			productReference = 5F8B9DA82B096CDE00E53711 /* TvUkatonSwiftDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
+		5F9778ED2B0AA1230057AA56 /* Ukaton Swift Demo Safari Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5F97790A2B0AA1230057AA56 /* Build configuration list for PBXNativeTarget "Ukaton Swift Demo Safari Extension" */;
+			buildPhases = (
+				5F9778EA2B0AA1230057AA56 /* Sources */,
+				5F9778EB2B0AA1230057AA56 /* Frameworks */,
+				5F9778EC2B0AA1230057AA56 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Ukaton Swift Demo Safari Extension";
+			packageProductDependencies = (
+				5F97790B2B0AA28E0057AA56 /* UkatonKit */,
+			);
+			productName = "Ukaton Swift Demo Safari Extension";
+			productReference = 5F9778EE2B0AA1230057AA56 /* Ukaton Swift Demo Safari Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		5FF58F2F2ADE51D900AD2941 /* UkatonSwiftDemo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5FF58F3F2ADE51DA00AD2941 /* Build configuration list for PBXNativeTarget "UkatonSwiftDemo" */;
@@ -672,11 +767,13 @@
 				5FF58F2D2ADE51D900AD2941 /* Frameworks */,
 				5FF58F2E2ADE51D900AD2941 /* Resources */,
 				5FF58F722ADF183000AD2941 /* Embed Watch Content */,
+				5F9779072B0AA1230057AA56 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				5FF58F6D2ADF183000AD2941 /* PBXTargetDependency */,
+				5F9779052B0AA1230057AA56 /* PBXTargetDependency */,
 			);
 			name = UkatonSwiftDemo;
 			packageProductDependencies = (
@@ -733,11 +830,14 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1500;
-				LastUpgradeCheck = 1500;
+				LastSwiftUpdateCheck = 1510;
+				LastUpgradeCheck = 1510;
 				TargetAttributes = {
 					5F8B9DA72B096CDE00E53711 = {
 						CreatedOnToolsVersion = 15.0.1;
+					};
+					5F9778ED2B0AA1230057AA56 = {
+						CreatedOnToolsVersion = 15.1;
 					};
 					5FF58F2F2ADE51D900AD2941 = {
 						CreatedOnToolsVersion = 15.0;
@@ -770,6 +870,7 @@
 				5FF58F4A2ADF13E700AD2941 /* MacUkatonSwiftDemo */,
 				5FF58F602ADF182F00AD2941 /* WatchUkatonSwiftDemo */,
 				5F8B9DA72B096CDE00E53711 /* TvUkatonSwiftDemo */,
+				5F9778ED2B0AA1230057AA56 /* Ukaton Swift Demo Safari Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -783,6 +884,21 @@
 				5F8B9DB22B096CDF00E53711 /* Preview Assets.xcassets in Resources */,
 				5F8B9DBA2B096D2C00E53711 /* Assets.xcassets in Resources */,
 				5F8B9DB92B096D2200E53711 /* leftShoe.usdz in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5F9778EC2B0AA1230057AA56 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F9778FA2B0AA1230057AA56 /* background.js in Resources */,
+				5F9779002B0AA1230057AA56 /* popup.css in Resources */,
+				5F9778FE2B0AA1230057AA56 /* popup.html in Resources */,
+				5F9778F62B0AA1230057AA56 /* images in Resources */,
+				5F9778F82B0AA1230057AA56 /* manifest.json in Resources */,
+				5F9778F42B0AA1230057AA56 /* _locales in Resources */,
+				5F9778FC2B0AA1230057AA56 /* content.js in Resources */,
+				5F9779022B0AA1230057AA56 /* popup.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -865,6 +981,14 @@
 				5F8B9DD82B096DE000E53711 /* DeviceBluetoothInformationSection.swift in Sources */,
 				5F8B9DBE2B096DC800E53711 /* ViewModifier.swift in Sources */,
 				5F8B9DD72B096DE000E53711 /* CenterOfMassDemo.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5F9778EA2B0AA1230057AA56 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F9778F12B0AA1230057AA56 /* SafariWebExtensionHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1009,6 +1133,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		5F9779052B0AA1230057AA56 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5F9778ED2B0AA1230057AA56 /* Ukaton Swift Demo Safari Extension */;
+			targetProxy = 5F9779042B0AA1230057AA56 /* PBXContainerItemProxy */;
+		};
 		5FF58F6D2ADF183000AD2941 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 5FF58F602ADF182F00AD2941 /* WatchUkatonSwiftDemo */;
@@ -1084,6 +1213,75 @@
 			};
 			name = Release;
 		};
+		5F9779082B0AA1230057AA56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MG88YM735Y;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Ukaton Swift Demo Safari Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Ukaton Swift Demo Safari Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ukaton.demo.UkatonSwiftDemo.Ukaton-Swift-Demo-Safari-Extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5F9779092B0AA1230057AA56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MG88YM735Y;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Ukaton Swift Demo Safari Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Ukaton Swift Demo Safari Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ukaton.demo.UkatonSwiftDemo.Ukaton-Swift-Demo-Safari-Extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		5FF58F3D2ADE51DA00AD2941 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1118,6 +1316,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -1179,6 +1378,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1207,6 +1407,7 @@
 				CODE_SIGN_ENTITLEMENTS = UkatonSwiftDemo/UkatonSwiftDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"UkatonSwiftDemo/Preview Content\"";
 				DEVELOPMENT_TEAM = MG88YM735Y;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1253,6 +1454,7 @@
 				CODE_SIGN_ENTITLEMENTS = UkatonSwiftDemo/UkatonSwiftDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"UkatonSwiftDemo/Preview Content\"";
 				DEVELOPMENT_TEAM = MG88YM735Y;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1300,6 +1502,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"MacUkatonSwiftDemo/Preview Content\"";
 				DEVELOPMENT_TEAM = MG88YM735Y;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1335,6 +1538,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"MacUkatonSwiftDemo/Preview Content\"";
 				DEVELOPMENT_TEAM = MG88YM735Y;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1441,6 +1645,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		5F97790A2B0AA1230057AA56 /* Build configuration list for PBXNativeTarget "Ukaton Swift Demo Safari Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5F9779082B0AA1230057AA56 /* Debug */,
+				5F9779092B0AA1230057AA56 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		5FF58F2B2ADE51D900AD2941 /* Build configuration list for PBXProject "UkatonSwiftDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1502,6 +1715,11 @@
 			productName = UkatonKit;
 		};
 		5F8B9DB62B096CFD00E53711 /* UkatonKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5F2B871A2AE18DFA00BF304B /* XCLocalSwiftPackageReference "../UkatonKit" */;
+			productName = UkatonKit;
+		};
+		5F97790B2B0AA28E0057AA56 /* UkatonKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5F2B871A2AE18DFA00BF304B /* XCLocalSwiftPackageReference "../UkatonKit" */;
 			productName = UkatonKit;
