@@ -21,6 +21,18 @@ struct DeviceWifiInformationSection: View {
         #endif
     }
 
+    var isTv: Bool {
+        #if os(tvOS)
+        true
+        #else
+        false
+        #endif
+    }
+
+    var shouldEditWifi: Bool {
+        !isWatch && !isTv
+    }
+
     @State private var newWifiSsid: String = ""
     @State private var newWifiPassword: String = ""
     @State private var showWifiPassword: Bool = false
@@ -83,7 +95,7 @@ struct DeviceWifiInformationSection: View {
 
             if !requiresWifi {
                 Text("__ssid__: \(mission.wifiSsid)")
-                if !isWatch, canEditWifi {
+                if canEditWifi, shouldEditWifi {
                     HStack {
                         TextField("new wifi ssid", text: $newWifiSsid)
                             .autocorrectionDisabled()
@@ -105,7 +117,7 @@ struct DeviceWifiInformationSection: View {
                     }
                     Text("__password__: \(showWifiPassword ? mission.wifiPassword : mission.wifiPassword.map { _ in "•" }.joined())")
                 }
-                if !isWatch, canEditWifi {
+                if canEditWifi, shouldEditWifi {
                     HStack {
                         Button(action: {
                             showNewWifiPassword.toggle()

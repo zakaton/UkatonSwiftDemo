@@ -30,10 +30,19 @@ struct DiscoveredDeviceRow: View {
                     .buttonStyle(.borderedProminent)
                 }
             }
+            #if os(tvOS)
+            .focusSection()
+            #endif
             DiscoveredDeviceRowConnection(discoveredDevice: $discoveredDevice)
+            #if os(tvOS)
+                .focusSection()
+            #endif
             DiscoveredDeviceRowStatus(discoveredDevice: $discoveredDevice)
         }
         .padding()
+        #if os(tvOS)
+            .focusSection()
+        #endif
     }
 }
 

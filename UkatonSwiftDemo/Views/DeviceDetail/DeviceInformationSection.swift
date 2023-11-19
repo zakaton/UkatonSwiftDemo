@@ -22,10 +22,22 @@ struct DeviceInformationSection: View {
         #endif
     }
 
+    var isTv: Bool {
+        #if os(tvOS)
+        true
+        #else
+        false
+        #endif
+    }
+
+    var shouldEdit: Bool {
+        !isWatch && !isTv
+    }
+
     var body: some View {
         Section {
             Text("__name:__ \(mission.name)")
-            if !isWatch {
+            if shouldEdit {
                 HStack {
                     TextField("new name", text: $newName)
                         .autocorrectionDisabled()

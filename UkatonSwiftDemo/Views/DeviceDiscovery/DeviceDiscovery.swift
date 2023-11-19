@@ -57,11 +57,13 @@ struct DeviceDiscovery: View {
                     bluetoothManager.toggleDeviceScan()
                 } label: {
                     if bluetoothManager.isScanning {
-                        Label("stop scan", systemImage: "antenna.radiowaves.left.and.right")
+                        Image(systemName: "antenna.radiowaves.left.and.right")
                             .foregroundColor(.blue)
+                            .accessibilityLabel("stop scan")
                     }
                     else {
-                        Label("start scan", systemImage: "antenna.radiowaves.left.and.right.slash")
+                        Image(systemName: "antenna.radiowaves.left.and.right.slash")
+                            .accessibilityLabel("start scan")
                     }
                 }
                 #if os(watchOS)
