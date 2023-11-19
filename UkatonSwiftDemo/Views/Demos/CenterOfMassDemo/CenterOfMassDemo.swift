@@ -21,7 +21,7 @@ struct CenterOfMassDemo: View {
                             GeometryReader { geometry in
                                 Circle()
                                     .fill(.red)
-                                    .frame(width: min(geometry.size.width, geometry.size.height) * 0.15)
+                                    .frame(width: min(geometry.size.width, geometry.size.height) * 0.1)
                                     .position(
                                         x: geometry.size.width * centerOfMass.x,
                                         y: geometry.size.height * (1 - centerOfMass.y)
