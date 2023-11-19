@@ -18,9 +18,9 @@ struct MotionDataSection: View {
 
     var isWatch: Bool {
         #if os(watchOS)
-        true
+            true
         #else
-        false
+            false
         #endif
     }
 
@@ -84,5 +84,7 @@ struct MotionDataSection: View {
     List {
         MotionDataSection(mission: .none, sensorDataConfigurations: .constant(.init()), sensorDataRates: [0, 20, 40])
     }
+    #if os(macOS)
     .frame(maxWidth: 320)
+    #endif
 }

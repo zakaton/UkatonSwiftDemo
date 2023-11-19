@@ -68,5 +68,7 @@ struct DiscoveredDeviceRowConnection: View {
 
 #Preview {
     DiscoveredDeviceRowConnection(discoveredDevice: .constant(.none))
+#if os(macOS)
         .frame(maxWidth: 300)
+#endif
 }

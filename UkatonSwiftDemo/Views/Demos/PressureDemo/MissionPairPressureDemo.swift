@@ -28,5 +28,7 @@ struct MissionPairPressureDemo: View {
     NavigationStack {
         MissionPairPressureDemo(missionPair: .shared)
     }
+    #if os(macOS)
     .frame(maxWidth: 400, maxHeight: 300)
+    #endif
 }

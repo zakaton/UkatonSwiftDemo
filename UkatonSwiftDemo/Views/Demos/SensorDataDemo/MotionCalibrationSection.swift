@@ -32,5 +32,7 @@ struct MotionCalibrationSection: View {
     List {
         MotionCalibrationSection(mission: .none)
     }
+    #if os(macOS)
     .frame(maxWidth: 300)
+    #endif
 }

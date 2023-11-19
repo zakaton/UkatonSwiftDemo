@@ -48,5 +48,7 @@ struct DiscoveredDeviceRow: View {
 
 #Preview {
     DiscoveredDeviceRow(discoveredDevice: .constant(.none))
+    #if os(macOS)
         .frame(maxWidth: 300)
+    #endif
 }

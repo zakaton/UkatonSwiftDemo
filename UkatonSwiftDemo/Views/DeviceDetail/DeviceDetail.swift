@@ -24,5 +24,7 @@ struct DeviceDetail: View {
     NavigationStack {
         DeviceDetail(mission: .none)
     }
+    #if os(macOS)
     .frame(maxWidth: 300, maxHeight: 300)
+    #endif
 }

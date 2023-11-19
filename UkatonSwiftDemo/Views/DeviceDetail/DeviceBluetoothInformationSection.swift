@@ -34,5 +34,7 @@ struct DeviceBluetoothInformationSection: View {
     List {
         DeviceBluetoothInformationSection(mission: .none)
     }
+    #if os(macOS)
     .frame(maxWidth: 300, maxHeight: 300)
+    #endif
 }

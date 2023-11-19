@@ -23,5 +23,7 @@ struct PressureDemo: View {
 
 #Preview {
     NavigationStack { PressureDemo(mission: .none) }
+#if os(macOS)
         .frame(maxWidth: 360, maxHeight: 300)
+#endif
 }

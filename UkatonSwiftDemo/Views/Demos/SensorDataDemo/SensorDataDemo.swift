@@ -27,6 +27,8 @@ struct SensorDataDemo: View {
 }
 
 #Preview {
-    SensorDataDemo(mission: .none)
+    NavigationStack { SensorDataDemo(mission: .none) }
+    #if os(macOS)
         .frame(maxWidth: 360, maxHeight: 300)
+    #endif
 }

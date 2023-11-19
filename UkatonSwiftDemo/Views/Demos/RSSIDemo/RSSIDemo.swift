@@ -31,5 +31,7 @@ struct RSSIDemo: View {
     NavigationStack {
         RSSIDemo(mission: .none)
     }
+    #if os(macOS)
     .frame(maxWidth: 300, maxHeight: 300)
+    #endif
 }

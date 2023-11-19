@@ -72,5 +72,7 @@ struct CenterOfMassDemo: View {
     NavigationStack {
         CenterOfMassDemo(centerOfMassProvider: UKMissionPair.shared)
     }
+    #if os(macOS)
     .frame(maxWidth: 300, maxHeight: 300)
+    #endif
 }

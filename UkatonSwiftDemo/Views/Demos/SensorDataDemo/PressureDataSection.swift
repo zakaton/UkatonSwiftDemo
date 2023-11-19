@@ -90,5 +90,7 @@ struct PressureDataSection: View {
     List {
         PressureDataSection(mission: .none, sensorDataConfigurations: .constant(.init()), sensorDataRates: [0, 20, 40])
     }
+    #if os(macOS)
     .frame(maxWidth: 300)
+    #endif
 }

@@ -19,6 +19,10 @@ struct AllVibrationWaveformEffectsView: View {
 }
 
 #Preview {
-    AllVibrationWaveformEffectsView(vibratable: UKMission.none)
-        .frame(maxWidth: 400)
+    NavigationStack {
+        AllVibrationWaveformEffectsView(vibratable: UKMission.none)
+    }
+#if os(macOS)
+    .frame(maxWidth: 400)
+#endif
 }

@@ -100,5 +100,7 @@ struct DeviceDiscovery: View {
 
 #Preview {
     DeviceDiscovery()
+    #if os(macOS)
         .frame(maxWidth: 350, minHeight: 300)
+    #endif
 }

@@ -84,5 +84,7 @@ struct DeviceDemosSection: View {
             deviceDemo.view(mission: .none)
         }
     }
+    #if os(macOS)
     .frame(maxWidth: 320, maxHeight: 300)
+    #endif
 }

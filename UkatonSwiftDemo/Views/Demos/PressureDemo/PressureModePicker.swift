@@ -70,5 +70,7 @@ struct PressureModePicker: View {
 
 #Preview {
     PressureModePicker(sensorDataConfigurable: UKMission.none, sensorDataConfigurations: .constant(.init()))
+#if os(macOS)
         .frame(maxWidth: 300)
+#endif
 }

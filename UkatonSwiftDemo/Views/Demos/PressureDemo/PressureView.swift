@@ -36,5 +36,7 @@ struct PressureView: View {
 
 #Preview {
     PressureView(mission: .none)
+#if os(macOS)
         .frame(maxWidth: 360, maxHeight: 300)
+#endif
 }

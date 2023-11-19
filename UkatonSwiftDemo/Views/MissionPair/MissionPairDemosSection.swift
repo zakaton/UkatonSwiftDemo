@@ -36,9 +36,9 @@ struct MissionPairDemosSection: View {
 
     var isWatch: Bool {
         #if os(watchOS)
-        true
+            true
         #else
-        false
+            false
         #endif
     }
 
@@ -68,5 +68,7 @@ struct MissionPairDemosSection: View {
             demo.view(missionPair: .shared)
         }
     }
+    #if os(macOS)
     .frame(maxWidth: 320, maxHeight: 300)
+    #endif
 }

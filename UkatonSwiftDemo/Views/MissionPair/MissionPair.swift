@@ -38,5 +38,7 @@ struct MissionPair: View {
 
 #Preview {
     MissionPair()
+#if os(macOS)
         .frame(maxWidth: 300, maxHeight: 300)
+#endif
 }
