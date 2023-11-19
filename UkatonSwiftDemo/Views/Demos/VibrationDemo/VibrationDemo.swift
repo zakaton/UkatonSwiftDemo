@@ -17,5 +17,7 @@ struct VibrationDemo: View {
     NavigationStack {
         VibrationDemo(vibratable: UKMission.none)
     }
+    #if os(macOS)
     .frame(maxWidth: 360, maxHeight: 500)
+    #endif
 }

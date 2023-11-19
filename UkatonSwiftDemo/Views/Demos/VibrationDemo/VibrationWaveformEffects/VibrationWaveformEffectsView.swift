@@ -7,9 +7,9 @@ struct VibrationWaveformEffectsView: View {
 
     var isWatch: Bool {
         #if os(watchOS)
-        true
+            true
         #else
-        false
+            false
         #endif
     }
 
@@ -42,6 +42,9 @@ struct VibrationWaveformEffectsView: View {
                             .foregroundColor(.primary)
                     }
                 }
+                #if os(tvOS)
+                .pickerStyle(.menu)
+                #endif
             }
         }
         .onDelete(perform: { indexSet in
@@ -60,4 +63,7 @@ struct VibrationWaveformEffectsView: View {
 #Preview {
     @State var waveforms: [UKVibrationWaveformEffect] = [.alert750ms]
     return VibrationWaveformEffectsView(vibratable: UKMission.none, waveformEffects: $waveforms)
+    #if os(macOS)
+        .frame(maxWidth: 300, maxHeight: 300)
+    #endif
 }

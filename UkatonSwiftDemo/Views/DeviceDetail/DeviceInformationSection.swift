@@ -78,5 +78,7 @@ struct DeviceInformationSection: View {
     List {
         DeviceInformationSection(mission: .none)
     }
+    #if os(macOS)
     .frame(maxWidth: 300, maxHeight: 300)
+    #endif
 }

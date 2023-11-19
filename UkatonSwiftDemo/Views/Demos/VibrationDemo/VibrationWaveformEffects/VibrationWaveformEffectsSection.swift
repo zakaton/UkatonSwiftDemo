@@ -3,7 +3,7 @@ import UkatonKit
 
 struct VibrationWaveformEffectsSection: View {
     var vibratable: UKVibratable
-    @State private var waveformEffectsArray: [[UKVibrationWaveformEffect]] = []
+    @State private var waveformEffectsArray: [[UKVibrationWaveformEffect]] = [[]]
 
     var body: some View {
         Section {
@@ -44,5 +44,7 @@ struct VibrationWaveformEffectsSection: View {
             VibrationWaveformEffectsSection(vibratable: UKMission.none)
         }
     }
+    #if os(macOS)
     .frame(maxWidth: 300, maxHeight: 300)
+    #endif
 }
