@@ -25,7 +25,11 @@ struct MissionPair: View {
                     MissionPairDemosSection(missionPair: missionPair)
                 }
                 else {
-                    Text(notConnectedMessage)
+                    HStack {
+                        Spacer()
+                        Text(notConnectedMessage)
+                        Spacer()
+                    }
                 }
             }
             .navigationTitle("Mission Pair")
