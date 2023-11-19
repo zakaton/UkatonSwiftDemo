@@ -31,6 +31,18 @@ struct ContentView: View {
         #endif
     }
 
+    var missionPairImageString: String {
+        if missionPair.isConnected {
+            return "shoe.2"
+        }
+        else if missionPair.isHalfConnected {
+            return "shoe"
+        }
+        else {
+            return "xmark"
+        }
+    }
+
     @State private var selectedTab: TabEnum = .deviceDiscovery
 
     var body: some View {
@@ -49,7 +61,7 @@ struct ContentView: View {
                 .modify {
                     if !isWatch {
                         $0.tabItem {
-                            Label("Mission Pair", systemImage: missionPair.isConnected ? "shoe.2" : "xmark")
+                            Label("Mission Pair", systemImage: missionPairImageString)
                         }
                     }
                 }
