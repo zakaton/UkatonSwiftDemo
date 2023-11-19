@@ -68,5 +68,7 @@ struct TranslationModePicker: View {
 
 #Preview {
     TranslationModePicker(sensorDataConfigurable: UKMission.none, sensorDataConfigurations: .constant(.init()))
+#if os(macOS)
         .frame(maxWidth: 300)
+#endif
 }

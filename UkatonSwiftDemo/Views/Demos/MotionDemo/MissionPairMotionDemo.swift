@@ -34,6 +34,10 @@ struct MissionPairMotionDemo: View {
 }
 
 #Preview {
-    NavigationStack { MissionPairMotionDemo(missionPair: .shared) }
-        .frame(maxWidth: 500, maxHeight: 300)
+    NavigationStack {
+        MissionPairMotionDemo(missionPair: .shared)
+    }
+#if os(macOS)
+    .frame(maxWidth: 500, maxHeight: 300)
+#endif
 }

@@ -51,5 +51,7 @@ struct MotionDemo: View {
     NavigationStack {
         MotionDemo(mission: .none)
     }
+    #if os(macOS)
     .frame(maxWidth: 360, maxHeight: 500)
+    #endif
 }
