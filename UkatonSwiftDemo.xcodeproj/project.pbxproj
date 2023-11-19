@@ -78,6 +78,50 @@
 		5F83E5E12B069E1800056593 /* DiscoveredDeviceRowConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F83E5E02B069E1800056593 /* DiscoveredDeviceRowConnection.swift */; };
 		5F83E5E22B069E1800056593 /* DiscoveredDeviceRowConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F83E5E02B069E1800056593 /* DiscoveredDeviceRowConnection.swift */; };
 		5F8656542B06EE43007F1D00 /* DiscoveredDeviceRowConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8656532B06EE43007F1D00 /* DiscoveredDeviceRowConnection.swift */; };
+		5F8741E82B0AA62E00D67026 /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = 5F8741E72B0AA62E00D67026 /* RealityKitContent */; };
+		5F8741F12B0AA62E00D67026 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F8741F02B0AA62E00D67026 /* Preview Assets.xcassets */; };
+		5F8741F72B0AA66200D67026 /* UkatonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5F8741F62B0AA66200D67026 /* UkatonKit */; };
+		5F8741F82B0AA67B00D67026 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FF58F372ADE51DA00AD2941 /* Assets.xcassets */; };
+		5F8741F92B0AA67C00D67026 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FF58F372ADE51DA00AD2941 /* Assets.xcassets */; };
+		5F8741FA2B0AA88E00D67026 /* UkatonSwiftDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF58F332ADE51D900AD2941 /* UkatonSwiftDemoApp.swift */; };
+		5F8741FB2B0AA89100D67026 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF58F352ADE51D900AD2941 /* ContentView.swift */; };
+		5F8741FC2B0AA89800D67026 /* MotionCalibrationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCC84A32AFC414100B755FA /* MotionCalibrationSection.swift */; };
+		5F8741FD2B0AA89800D67026 /* SensorDataDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F76163F2AFAB083000E1A80 /* SensorDataDemo.swift */; };
+		5F8741FE2B0AA89800D67026 /* PressureDataSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCC84AF2AFC445C00B755FA /* PressureDataSection.swift */; };
+		5F8741FF2B0AA89800D67026 /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F82BA2B029AC500DDD9AB /* NavigationCoordinator.swift */; };
+		5F8742002B0AA89800D67026 /* DeviceRotationViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0FE43C2B0729D300953012 /* DeviceRotationViewModifier.swift */; };
+		5F8742012B0AA89800D67026 /* ViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0F6F5A2AFEC9E8007D0D03 /* ViewModifier.swift */; };
+		5F8742022B0AA89800D67026 /* LabelSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF24DE52AF41127009FAA0E /* LabelSpacing.swift */; };
+		5F8742032B0AA89800D67026 /* MotionDataSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCC84A72AFC426000B755FA /* MotionDataSection.swift */; };
+		5F8742042B0AA8A800D67026 /* CenterOfMassDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3F4E292B091F0C00F81B6F /* CenterOfMassDemo.swift */; };
+		5F8742052B0AA8A800D67026 /* MotionDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCC84B42AFC9B6700B755FA /* MotionDemo.swift */; };
+		5F8742062B0AA8A800D67026 /* DeviceWifiInformationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3AFFC2AFAAA2800F5295C /* DeviceWifiInformationSection.swift */; };
+		5F8742072B0AA8A800D67026 /* PressureModePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FACE8C62AFFEFE400F1AFFD /* PressureModePicker.swift */; };
+		5F8742082B0AA8A800D67026 /* VibrationWaveformsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0DB9402B00053D00FB413E /* VibrationWaveformsSection.swift */; };
+		5F8742092B0AA8A800D67026 /* VibrationDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCC84BE2AFCA34100B755FA /* VibrationDemo.swift */; };
+		5F87420A2B0AA8A800D67026 /* VibrationWaveformEffectsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0DB93C2B00005F00FB413E /* VibrationWaveformEffectsSection.swift */; };
+		5F87420B2B0AA8A800D67026 /* DiscoveredDeviceRowHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F83E5D82B068FF900056593 /* DiscoveredDeviceRowHeader.swift */; };
+		5F87420C2B0AA8A800D67026 /* TranslationModePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0F6F562AFEA87F007D0D03 /* TranslationModePicker.swift */; };
+		5F87420D2B0AA8A800D67026 /* DiscoveredDeviceRowStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F83E5DC2B06943800056593 /* DiscoveredDeviceRowStatus.swift */; };
+		5F87420E2B0AA8A800D67026 /* VibrationWaveformEffectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F777D452B0143780001509A /* VibrationWaveformEffectsView.swift */; };
+		5F87420F2B0AA8A800D67026 /* PressureDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCC84BA2AFCA33800B755FA /* PressureDemo.swift */; };
+		5F8742102B0AA8A800D67026 /* MotionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F446F7D2B05743C00797659 /* MotionView.swift */; };
+		5F8742112B0AA8A800D67026 /* DiscoveredDeviceRowConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F83E5E02B069E1800056593 /* DiscoveredDeviceRowConnection.swift */; };
+		5F8742122B0AA8A800D67026 /* RSSIDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F446F742B0468C900797659 /* RSSIDemo.swift */; };
+		5F8742132B0AA8A800D67026 /* PressureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F446F812B0577E500797659 /* PressureView.swift */; };
+		5F8742142B0AA8A800D67026 /* DeviceBluetoothInformationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB11E6C2B04673800784EDD /* DeviceBluetoothInformationSection.swift */; };
+		5F8742152B0AA8A800D67026 /* MissionPairPressureDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F82C22B03E5DB00DDD9AB /* MissionPairPressureDemo.swift */; };
+		5F8742162B0AA8A800D67026 /* AllVibrationWaveformEffectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0DB9442B000C8800FB413E /* AllVibrationWaveformEffectsView.swift */; };
+		5F8742172B0AA8A800D67026 /* MissionPairDemosSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F82BE2B03E2D900DDD9AB /* MissionPairDemosSection.swift */; };
+		5F8742182B0AA8A800D67026 /* DeviceDemosSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3B0022AFAAB6E00F5295C /* DeviceDemosSection.swift */; };
+		5F8742192B0AA8A800D67026 /* DeviceDiscovery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFBE8102AF160CF00F8CBD7 /* DeviceDiscovery.swift */; };
+		5F87421A2B0AA8A800D67026 /* VibrationWaveformsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F777D492B01481A0001509A /* VibrationWaveformsView.swift */; };
+		5F87421B2B0AA8A800D67026 /* MissionPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F82B62B02970300DDD9AB /* MissionPair.swift */; };
+		5F87421C2B0AA8A800D67026 /* RotationModePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0F6F522AFEA877007D0D03 /* RotationModePicker.swift */; };
+		5F87421D2B0AA8A800D67026 /* MissionPairMotionDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F82C62B03EC0200DDD9AB /* MissionPairMotionDemo.swift */; };
+		5F87421E2B0AA8A800D67026 /* DeviceInformationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3AFF82AFAA97800F5295C /* DeviceInformationSection.swift */; };
+		5F87421F2B0AA8A800D67026 /* DeviceDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F426ED22AF1F51D00E58F15 /* DeviceDetail.swift */; };
+		5F8742202B0AA8A800D67026 /* DiscoveredDeviceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F426ECE2AF17CEA00E58F15 /* DiscoveredDeviceRow.swift */; };
 		5F8B9DB22B096CDF00E53711 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F8B9DB12B096CDF00E53711 /* Preview Assets.xcassets */; };
 		5F8B9DB72B096CFD00E53711 /* UkatonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5F8B9DB62B096CFD00E53711 /* UkatonKit */; };
 		5F8B9DB82B096D1F00E53711 /* monkey.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 5F0F6F4E2AFE9CCB007D0D03 /* monkey.usdz */; };
@@ -265,6 +309,13 @@
 		5F83E5DC2B06943800056593 /* DiscoveredDeviceRowStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveredDeviceRowStatus.swift; sourceTree = "<group>"; };
 		5F83E5E02B069E1800056593 /* DiscoveredDeviceRowConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveredDeviceRowConnection.swift; sourceTree = "<group>"; };
 		5F8656532B06EE43007F1D00 /* DiscoveredDeviceRowConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveredDeviceRowConnection.swift; sourceTree = "<group>"; };
+		5F8741E32B0AA62D00D67026 /* VisionOS UkatonSwiftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VisionOS UkatonSwiftDemo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F8741E62B0AA62E00D67026 /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
+		5F8741E92B0AA62E00D67026 /* VisionOS_UkatonSwiftDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionOS_UkatonSwiftDemoApp.swift; sourceTree = "<group>"; };
+		5F8741EB2B0AA62E00D67026 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		5F8741ED2B0AA62E00D67026 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5F8741F02B0AA62E00D67026 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5F8741F22B0AA62E00D67026 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F8B9DA82B096CDE00E53711 /* TvUkatonSwiftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TvUkatonSwiftDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F8B9DAA2B096CDE00E53711 /* TvUkatonSwiftDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvUkatonSwiftDemoApp.swift; sourceTree = "<group>"; };
 		5F8B9DAC2B096CDE00E53711 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -319,6 +370,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5F8741E02B0AA62D00D67026 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F8741E82B0AA62E00D67026 /* RealityKitContent in Frameworks */,
+				5F8741F72B0AA66200D67026 /* UkatonKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5F8B9DA52B096CDE00E53711 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -465,6 +525,34 @@
 				5FFAFA552B083404002286C7 /* DiscoveredDeviceRow.swift */,
 			);
 			path = DiscoveredDeviceRow;
+			sourceTree = "<group>";
+		};
+		5F8741E42B0AA62E00D67026 /* VisionOS UkatonSwiftDemo */ = {
+			isa = PBXGroup;
+			children = (
+				5F8741E92B0AA62E00D67026 /* VisionOS_UkatonSwiftDemoApp.swift */,
+				5F8741EB2B0AA62E00D67026 /* ContentView.swift */,
+				5F8741ED2B0AA62E00D67026 /* Assets.xcassets */,
+				5F8741F22B0AA62E00D67026 /* Info.plist */,
+				5F8741EF2B0AA62E00D67026 /* Preview Content */,
+			);
+			path = "VisionOS UkatonSwiftDemo";
+			sourceTree = "<group>";
+		};
+		5F8741E52B0AA62E00D67026 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				5F8741E62B0AA62E00D67026 /* RealityKitContent */,
+			);
+			path = Packages;
+			sourceTree = "<group>";
+		};
+		5F8741EF2B0AA62E00D67026 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				5F8741F02B0AA62E00D67026 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		5F8B9DA92B096CDE00E53711 /* TvUkatonSwiftDemo */ = {
@@ -625,6 +713,8 @@
 				5FF58F622ADF182F00AD2941 /* WatchUkatonSwiftDemo Watch App */,
 				5F8B9DA92B096CDE00E53711 /* TvUkatonSwiftDemo */,
 				5F9778EF2B0AA1230057AA56 /* Ukaton Swift Demo Safari Extension */,
+				5F8741E42B0AA62E00D67026 /* VisionOS UkatonSwiftDemo */,
+				5F8741E52B0AA62E00D67026 /* Packages */,
 				5FF58F312ADE51D900AD2941 /* Products */,
 				5F2B871D2AE18E2100BF304B /* Frameworks */,
 			);
@@ -638,6 +728,7 @@
 				5FF58F612ADF182F00AD2941 /* WatchUkatonSwiftDemo.app */,
 				5F8B9DA82B096CDE00E53711 /* TvUkatonSwiftDemo.app */,
 				5F9778EE2B0AA1230057AA56 /* Ukaton Swift Demo Safari Extension.appex */,
+				5F8741E32B0AA62D00D67026 /* VisionOS UkatonSwiftDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -719,6 +810,27 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		5F8741E22B0AA62D00D67026 /* VisionOS UkatonSwiftDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5F8741F52B0AA62E00D67026 /* Build configuration list for PBXNativeTarget "VisionOS UkatonSwiftDemo" */;
+			buildPhases = (
+				5F8741DF2B0AA62D00D67026 /* Sources */,
+				5F8741E02B0AA62D00D67026 /* Frameworks */,
+				5F8741E12B0AA62D00D67026 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "VisionOS UkatonSwiftDemo";
+			packageProductDependencies = (
+				5F8741E72B0AA62E00D67026 /* RealityKitContent */,
+				5F8741F62B0AA66200D67026 /* UkatonKit */,
+			);
+			productName = "VisionOS UkatonSwiftDemo";
+			productReference = 5F8741E32B0AA62D00D67026 /* VisionOS UkatonSwiftDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
 		5F8B9DA72B096CDE00E53711 /* TvUkatonSwiftDemo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5F8B9DB52B096CDF00E53711 /* Build configuration list for PBXNativeTarget "TvUkatonSwiftDemo" */;
@@ -833,6 +945,9 @@
 				LastSwiftUpdateCheck = 1510;
 				LastUpgradeCheck = 1510;
 				TargetAttributes = {
+					5F8741E22B0AA62D00D67026 = {
+						CreatedOnToolsVersion = 15.1;
+					};
 					5F8B9DA72B096CDE00E53711 = {
 						CreatedOnToolsVersion = 15.0.1;
 					};
@@ -871,11 +986,21 @@
 				5FF58F602ADF182F00AD2941 /* WatchUkatonSwiftDemo */,
 				5F8B9DA72B096CDE00E53711 /* TvUkatonSwiftDemo */,
 				5F9778ED2B0AA1230057AA56 /* Ukaton Swift Demo Safari Extension */,
+				5F8741E22B0AA62D00D67026 /* VisionOS UkatonSwiftDemo */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5F8741E12B0AA62D00D67026 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F8741F92B0AA67C00D67026 /* Assets.xcassets in Resources */,
+				5F8741F12B0AA62E00D67026 /* Preview Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5F8B9DA62B096CDE00E53711 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -898,6 +1023,7 @@
 				5F9778F82B0AA1230057AA56 /* manifest.json in Resources */,
 				5F9778F42B0AA1230057AA56 /* _locales in Resources */,
 				5F9778FC2B0AA1230057AA56 /* content.js in Resources */,
+				5F8741F82B0AA67B00D67026 /* Assets.xcassets in Resources */,
 				5F9779022B0AA1230057AA56 /* popup.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -938,6 +1064,52 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5F8741DF2B0AA62D00D67026 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F87420B2B0AA8A800D67026 /* DiscoveredDeviceRowHeader.swift in Sources */,
+				5F8742162B0AA8A800D67026 /* AllVibrationWaveformEffectsView.swift in Sources */,
+				5F8741FE2B0AA89800D67026 /* PressureDataSection.swift in Sources */,
+				5F8742112B0AA8A800D67026 /* DiscoveredDeviceRowConnection.swift in Sources */,
+				5F8742152B0AA8A800D67026 /* MissionPairPressureDemo.swift in Sources */,
+				5F8742142B0AA8A800D67026 /* DeviceBluetoothInformationSection.swift in Sources */,
+				5F8742122B0AA8A800D67026 /* RSSIDemo.swift in Sources */,
+				5F8742012B0AA89800D67026 /* ViewModifier.swift in Sources */,
+				5F8741FC2B0AA89800D67026 /* MotionCalibrationSection.swift in Sources */,
+				5F8742102B0AA8A800D67026 /* MotionView.swift in Sources */,
+				5F8742192B0AA8A800D67026 /* DeviceDiscovery.swift in Sources */,
+				5F8742032B0AA89800D67026 /* MotionDataSection.swift in Sources */,
+				5F8742202B0AA8A800D67026 /* DiscoveredDeviceRow.swift in Sources */,
+				5F87420A2B0AA8A800D67026 /* VibrationWaveformEffectsSection.swift in Sources */,
+				5F8742172B0AA8A800D67026 /* MissionPairDemosSection.swift in Sources */,
+				5F8742042B0AA8A800D67026 /* CenterOfMassDemo.swift in Sources */,
+				5F8742002B0AA89800D67026 /* DeviceRotationViewModifier.swift in Sources */,
+				5F8741FA2B0AA88E00D67026 /* UkatonSwiftDemoApp.swift in Sources */,
+				5F87421B2B0AA8A800D67026 /* MissionPair.swift in Sources */,
+				5F87421C2B0AA8A800D67026 /* RotationModePicker.swift in Sources */,
+				5F8742182B0AA8A800D67026 /* DeviceDemosSection.swift in Sources */,
+				5F8742082B0AA8A800D67026 /* VibrationWaveformsSection.swift in Sources */,
+				5F87420D2B0AA8A800D67026 /* DiscoveredDeviceRowStatus.swift in Sources */,
+				5F87421A2B0AA8A800D67026 /* VibrationWaveformsView.swift in Sources */,
+				5F87421F2B0AA8A800D67026 /* DeviceDetail.swift in Sources */,
+				5F87420E2B0AA8A800D67026 /* VibrationWaveformEffectsView.swift in Sources */,
+				5F8742062B0AA8A800D67026 /* DeviceWifiInformationSection.swift in Sources */,
+				5F87420C2B0AA8A800D67026 /* TranslationModePicker.swift in Sources */,
+				5F87420F2B0AA8A800D67026 /* PressureDemo.swift in Sources */,
+				5F87421E2B0AA8A800D67026 /* DeviceInformationSection.swift in Sources */,
+				5F87421D2B0AA8A800D67026 /* MissionPairMotionDemo.swift in Sources */,
+				5F8742022B0AA89800D67026 /* LabelSpacing.swift in Sources */,
+				5F8741FB2B0AA89100D67026 /* ContentView.swift in Sources */,
+				5F8742072B0AA8A800D67026 /* PressureModePicker.swift in Sources */,
+				5F8741FD2B0AA89800D67026 /* SensorDataDemo.swift in Sources */,
+				5F8741FF2B0AA89800D67026 /* NavigationCoordinator.swift in Sources */,
+				5F8742132B0AA8A800D67026 /* PressureView.swift in Sources */,
+				5F8742092B0AA8A800D67026 /* VibrationDemo.swift in Sources */,
+				5F8742052B0AA8A800D67026 /* MotionDemo.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5F8B9DA42B096CDE00E53711 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1146,6 +1318,71 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		5F8741F32B0AA62E00D67026 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "VisionOS-AppIcon";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"VisionOS UkatonSwiftDemo/Preview Content\"";
+				DEVELOPMENT_TEAM = MG88YM735Y;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Ukaton Demo";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use Bluetooth to detect Ukaton Mission devices";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use Bluetooth to detect Ukaton Mission devices";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ukaton.demo.VisionOS-UkatonSwiftDemo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = xros;
+				SUPPORTED_PLATFORMS = "xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				XROS_DEPLOYMENT_TARGET = 1.0;
+			};
+			name = Debug;
+		};
+		5F8741F42B0AA62E00D67026 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "VisionOS-AppIcon";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"VisionOS UkatonSwiftDemo/Preview Content\"";
+				DEVELOPMENT_TEAM = MG88YM735Y;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Ukaton Demo";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use Bluetooth to detect Ukaton Mission devices";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use Bluetooth to detect Ukaton Mission devices";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ukaton.demo.VisionOS-UkatonSwiftDemo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = xros;
+				SUPPORTED_PLATFORMS = "xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				VALIDATE_PRODUCT = YES;
+				XROS_DEPLOYMENT_TARGET = 1.0;
+			};
+			name = Release;
+		};
 		5F8B9DB32B096CDF00E53711 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1158,7 +1395,7 @@
 				DEVELOPMENT_TEAM = MG88YM735Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "Ukaton Swift Demo";
+				INFOPLIST_KEY_CFBundleDisplayName = "Ukaton Demo";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use Bluetooth to detect Ukaton Mission devices";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use Bluetooth to detect Ukaton Mission devices";
@@ -1191,7 +1428,7 @@
 				DEVELOPMENT_TEAM = MG88YM735Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "Ukaton Swift Demo";
+				INFOPLIST_KEY_CFBundleDisplayName = "Ukaton Demo";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use Bluetooth to detect Ukaton Mission devices";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use Bluetooth to detect Ukaton Mission devices";
@@ -1415,7 +1652,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UkatonSwiftDemo/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Ukaton Swift Demo";
+				INFOPLIST_KEY_CFBundleDisplayName = "Ukaton Demo";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use bluetooth to access Ukaton Mission devices";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use bluetooth to access Ukaton Mission devices";
@@ -1462,7 +1699,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UkatonSwiftDemo/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Ukaton Swift Demo";
+				INFOPLIST_KEY_CFBundleDisplayName = "Ukaton Demo";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use bluetooth to access Ukaton Mission devices";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use bluetooth to access Ukaton Mission devices";
@@ -1509,7 +1746,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MacUkatonSwiftDemo/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Ukaton Swift Demo";
+				INFOPLIST_KEY_CFBundleDisplayName = "Ukaton Demo";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use bluetooth to detect Ukaton Mission devices";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use bluetooth to detect Ukaton Mission devices";
@@ -1545,7 +1782,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MacUkatonSwiftDemo/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Ukaton Swift Demo";
+				INFOPLIST_KEY_CFBundleDisplayName = "Ukaton Demo";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use bluetooth to detect Ukaton Mission devices";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use bluetooth to detect Ukaton Mission devices";
@@ -1576,7 +1813,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "WatchUkatonSwiftDemo-Watch-App-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Ukaton Swift Demo";
+				INFOPLIST_KEY_CFBundleDisplayName = "Ukaton Demo";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use Bluetooth to detect Ukaton Mission devices";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use Bluetooth to detect Ukaton Mission devices";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -1610,7 +1847,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "WatchUkatonSwiftDemo-Watch-App-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Ukaton Swift Demo";
+				INFOPLIST_KEY_CFBundleDisplayName = "Ukaton Demo";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use Bluetooth to detect Ukaton Mission devices";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use Bluetooth to detect Ukaton Mission devices";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -1636,6 +1873,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5F8741F52B0AA62E00D67026 /* Build configuration list for PBXNativeTarget "VisionOS UkatonSwiftDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5F8741F32B0AA62E00D67026 /* Debug */,
+				5F8741F42B0AA62E00D67026 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		5F8B9DB52B096CDF00E53711 /* Build configuration list for PBXNativeTarget "TvUkatonSwiftDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1710,6 +1956,15 @@
 			productName = UkatonKit;
 		};
 		5F2B87202AE18E2600BF304B /* UkatonKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5F2B871A2AE18DFA00BF304B /* XCLocalSwiftPackageReference "../UkatonKit" */;
+			productName = UkatonKit;
+		};
+		5F8741E72B0AA62E00D67026 /* RealityKitContent */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RealityKitContent;
+		};
+		5F8741F62B0AA66200D67026 /* UkatonKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5F2B871A2AE18DFA00BF304B /* XCLocalSwiftPackageReference "../UkatonKit" */;
 			productName = UkatonKit;
