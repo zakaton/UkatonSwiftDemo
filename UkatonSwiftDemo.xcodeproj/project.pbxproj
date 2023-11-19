@@ -29,6 +29,9 @@
 		5F0F6F5B2AFEC9E8007D0D03 /* ViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0F6F5A2AFEC9E8007D0D03 /* ViewModifier.swift */; };
 		5F0F6F5C2AFEC9E8007D0D03 /* ViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0F6F5A2AFEC9E8007D0D03 /* ViewModifier.swift */; };
 		5F0F6F5D2AFEC9E8007D0D03 /* ViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0F6F5A2AFEC9E8007D0D03 /* ViewModifier.swift */; };
+		5F0F95362B099B6500BEDCE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FF58F372ADE51DA00AD2941 /* Assets.xcassets */; };
+		5F0F95372B099B6500BEDCE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FF58F372ADE51DA00AD2941 /* Assets.xcassets */; };
+		5F0F95382B099B6600BEDCE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FF58F372ADE51DA00AD2941 /* Assets.xcassets */; };
 		5F0FE43D2B0729D300953012 /* DeviceRotationViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0FE43C2B0729D300953012 /* DeviceRotationViewModifier.swift */; };
 		5F0FE43E2B0729D300953012 /* DeviceRotationViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0FE43C2B0729D300953012 /* DeviceRotationViewModifier.swift */; };
 		5F0FE43F2B0729D300953012 /* DeviceRotationViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0FE43C2B0729D300953012 /* DeviceRotationViewModifier.swift */; };
@@ -171,15 +174,12 @@
 		5FF24DE82AF41127009FAA0E /* LabelSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF24DE52AF41127009FAA0E /* LabelSpacing.swift */; };
 		5FF58F342ADE51D900AD2941 /* UkatonSwiftDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF58F332ADE51D900AD2941 /* UkatonSwiftDemoApp.swift */; };
 		5FF58F362ADE51D900AD2941 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF58F352ADE51D900AD2941 /* ContentView.swift */; };
-		5FF58F382ADE51DA00AD2941 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FF58F372ADE51DA00AD2941 /* Assets.xcassets */; };
 		5FF58F3C2ADE51DA00AD2941 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FF58F3B2ADE51DA00AD2941 /* Preview Assets.xcassets */; };
 		5FF58F552ADF13E800AD2941 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FF58F542ADF13E800AD2941 /* Preview Assets.xcassets */; };
 		5FF58F5B2ADF140C00AD2941 /* UkatonSwiftDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF58F332ADE51D900AD2941 /* UkatonSwiftDemoApp.swift */; };
 		5FF58F6B2ADF183000AD2941 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FF58F6A2ADF183000AD2941 /* Preview Assets.xcassets */; };
 		5FF58F6E2ADF183000AD2941 /* WatchUkatonSwiftDemo.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 5FF58F612ADF182F00AD2941 /* WatchUkatonSwiftDemo.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5FF58F752ADF18A000AD2941 /* UkatonSwiftDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF58F332ADE51D900AD2941 /* UkatonSwiftDemoApp.swift */; };
-		5FF58F772ADF1BF300AD2941 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FF58F372ADE51DA00AD2941 /* Assets.xcassets */; };
-		5FF58F782ADF1F1800AD2941 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FF58F372ADE51DA00AD2941 /* Assets.xcassets */; };
 		5FFAFA562B083404002286C7 /* DiscoveredDeviceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFAFA552B083404002286C7 /* DiscoveredDeviceRow.swift */; };
 		5FFBE8112AF160CF00F8CBD7 /* DeviceDiscovery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFBE8102AF160CF00F8CBD7 /* DeviceDiscovery.swift */; };
 		5FFBE8122AF160CF00F8CBD7 /* DeviceDiscovery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFBE8102AF160CF00F8CBD7 /* DeviceDiscovery.swift */; };
@@ -791,8 +791,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5FF58F3C2ADE51DA00AD2941 /* Preview Assets.xcassets in Resources */,
-				5FF58F382ADE51DA00AD2941 /* Assets.xcassets in Resources */,
 				5F0F6F4F2AFE9CCB007D0D03 /* monkey.usdz in Resources */,
+				5F0F95382B099B6600BEDCE3 /* Assets.xcassets in Resources */,
 				5F0F6F4B2AFDF3C5007D0D03 /* leftShoe.usdz in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -801,9 +801,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5FF58F782ADF1F1800AD2941 /* Assets.xcassets in Resources */,
 				5FF58F552ADF13E800AD2941 /* Preview Assets.xcassets in Resources */,
 				5F0F6F502AFE9CCB007D0D03 /* monkey.usdz in Resources */,
+				5F0F95372B099B6500BEDCE3 /* Assets.xcassets in Resources */,
 				5F0F6F4C2AFDF3C5007D0D03 /* leftShoe.usdz in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -812,9 +812,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5FF58F772ADF1BF300AD2941 /* Assets.xcassets in Resources */,
 				5FF58F6B2ADF183000AD2941 /* Preview Assets.xcassets in Resources */,
 				5F0F6F512AFE9CCB007D0D03 /* monkey.usdz in Resources */,
+				5F0F95362B099B6500BEDCE3 /* Assets.xcassets in Resources */,
 				5F0F6F4D2AFDF3C5007D0D03 /* leftShoe.usdz in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1022,6 +1022,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TV Ukaton Swift Demo/Preview Content\"";
@@ -1054,6 +1055,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TV Ukaton Swift Demo/Preview Content\"";
