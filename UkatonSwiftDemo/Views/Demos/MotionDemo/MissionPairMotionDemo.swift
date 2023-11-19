@@ -19,6 +19,9 @@ struct MissionPairMotionDemo: View {
             RotationModePicker(sensorDataConfigurable: missionPair, sensorDataConfigurations: $sensorDataConfigurations)
             TranslationModePicker(sensorDataConfigurable: missionPair, sensorDataConfigurations: $sensorDataConfigurations)
         }
+        .onDisappear {
+            try? missionPair.clearSensorDataConfigurations()
+        }
         .navigationTitle("Motion")
         .toolbar {
             Button {
