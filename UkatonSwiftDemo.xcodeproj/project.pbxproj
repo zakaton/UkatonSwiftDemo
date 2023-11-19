@@ -224,6 +224,8 @@
 		5FCC84BF2AFCA34100B755FA /* VibrationDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCC84BE2AFCA34100B755FA /* VibrationDemo.swift */; };
 		5FCC84C02AFCA34100B755FA /* VibrationDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCC84BE2AFCA34100B755FA /* VibrationDemo.swift */; };
 		5FCC84C12AFCA34100B755FA /* VibrationDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCC84BE2AFCA34100B755FA /* VibrationDemo.swift */; };
+		5FD458AA2B0AB1180030BE6E /* leftShoe.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 5F0F6F4A2AFDF3C5007D0D03 /* leftShoe.usdz */; };
+		5FD458AB2B0AB11B0030BE6E /* monkey.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 5F0F6F4E2AFE9CCB007D0D03 /* monkey.usdz */; };
 		5FF24DE62AF41127009FAA0E /* LabelSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF24DE52AF41127009FAA0E /* LabelSpacing.swift */; };
 		5FF24DE72AF41127009FAA0E /* LabelSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF24DE52AF41127009FAA0E /* LabelSpacing.swift */; };
 		5FF24DE82AF41127009FAA0E /* LabelSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF24DE52AF41127009FAA0E /* LabelSpacing.swift */; };
@@ -998,6 +1000,8 @@
 			files = (
 				5F8741F92B0AA67C00D67026 /* Assets.xcassets in Resources */,
 				5F8741F12B0AA62E00D67026 /* Preview Assets.xcassets in Resources */,
+				5FD458AB2B0AB11B0030BE6E /* monkey.usdz in Resources */,
+				5FD458AA2B0AB1180030BE6E /* leftShoe.usdz in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

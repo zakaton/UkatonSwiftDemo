@@ -99,5 +99,7 @@ struct MotionView: View {
     NavigationStack {
         MotionView(mission: .none)
     }
+    #if os(MacOS)
     .frame(maxWidth: 360, maxHeight: 500)
+    #endif
 }
