@@ -18,6 +18,6 @@ struct VibrationDemo: View {
         VibrationDemo(vibratable: UKMission.none)
     }
     #if os(macOS)
-    .frame(maxWidth: 360, maxHeight: 500)
+    .frame(maxWidth: 300, maxHeight: 300)
     #endif
 }

@@ -36,5 +36,7 @@ struct VibrationWaveformsSection: View {
     List {
         VibrationWaveformsSection(vibratable: UKMission.none)
     }
-    .frame(maxWidth: 300)
+    #if os(macOS)
+    .frame(maxWidth: 300, maxHeight: 300)
+    #endif
 }

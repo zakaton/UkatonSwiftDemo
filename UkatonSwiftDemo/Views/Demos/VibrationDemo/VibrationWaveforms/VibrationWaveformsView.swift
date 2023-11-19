@@ -51,14 +51,33 @@ struct VibrationWaveformsView: View {
             layout {
                 centerView(Text("intensity"))
                 #if os(tvOS)
+                Picker(selection: $waveforms[index].intensity) {
+                    ForEach(Array(stride(from: 0, through: 1, by: 0.1)), id: \.self) { intensity in
+                        Text("\(Int(intensity * 100))%")
+                            .tag(UKVibrationWaveformIntensity(intensity))
+                    }
+                } label: {
+                    EmptyView()
+                }
+                .pickerStyle(.menu)
                 #else
                 Slider(value: $waveforms[index].intensity)
                 #endif
             }
             layout {
-                centerView(Text(String(format: "delay %.1fs", waveforms[index].delay / 1000)))
                 #if os(tvOS)
+                centerView(Text("delay"))
+                Picker(selection: $waveforms[index].delay) {
+                    ForEach(Array(stride(from: 0, through: UKVibrationWaveformDelay.max, by: 200)), id: \.self) { delay in
+                        Text(String(format: "%.1fs", delay / 1000))
+                            .tag(UKVibrationWaveformDelay(delay))
+                    }
+                } label: {
+                    EmptyView()
+                }
+                .pickerStyle(.menu)
                 #else
+                centerView(Text(String(format: "delay %.1fs", waveforms[index].delay / 1000)))
                 Slider(value: $waveforms[index].delay, in: 0 ... UKVibrationWaveformDelay.max, step: isWatch ? 200 : 100)
                 #endif
             }
@@ -76,4 +95,7 @@ struct VibrationWaveformsView: View {
 #Preview {
     @State var waveforms: [UKVibrationWaveform] = [.init(intensity: 0.5, delay: 1000)]
     return VibrationWaveformsView(vibratable: UKMission.none, waveforms: $waveforms)
+    #if os(macOS)
+        .frame(maxWidth: 300, maxHeight: 300)
+    #endif
 }
