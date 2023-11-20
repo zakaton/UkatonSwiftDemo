@@ -443,7 +443,7 @@
 		5FF58F632ADF182F00AD2941 /* WatchUkatonSwiftDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchUkatonSwiftDemoApp.swift; sourceTree = "<group>"; };
 		5FF58F652ADF182F00AD2941 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5FF58F6A2ADF183000AD2941 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		5FF58F732ADF185600AD2941 /* WatchUkatonSwiftDemo-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "WatchUkatonSwiftDemo-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
+		5FF58F732ADF185600AD2941 /* WatchUkatonDemo-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WatchUkatonDemo-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
 		5FFAFA552B083404002286C7 /* DiscoveredDeviceRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveredDeviceRow.swift; sourceTree = "<group>"; };
 		5FFBE8102AF160CF00F8CBD7 /* DeviceDiscovery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDiscovery.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -929,7 +929,7 @@
 			isa = PBXGroup;
 			children = (
 				5F8656502B06EE20007F1D00 /* Views */,
-				5FF58F732ADF185600AD2941 /* WatchUkatonSwiftDemo-Watch-App-Info.plist */,
+				5FF58F732ADF185600AD2941 /* WatchUkatonDemo-Watch-App-Info.plist */,
 				5FF58F632ADF182F00AD2941 /* WatchUkatonSwiftDemoApp.swift */,
 				5FF58F652ADF182F00AD2941 /* ContentView.swift */,
 				5FF58F692ADF183000AD2941 /* Preview Content */,
@@ -1146,7 +1146,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5FF58F2B2ADE51D900AD2941 /* Build configuration list for PBXProject "UkatonSwiftDemo" */;
+			buildConfigurationList = 5FF58F2B2ADE51D900AD2941 /* Build configuration list for PBXProject "UkatonDemo" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -2190,7 +2190,7 @@
 				DEVELOPMENT_TEAM = MG88YM735Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "WatchUkatonSwiftDemo-Watch-App-Info.plist";
+				INFOPLIST_FILE = "WatchUkatonDemo-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Ukaton Demo";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use Bluetooth to detect Ukaton Mission devices";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use Bluetooth to detect Ukaton Mission devices";
@@ -2224,7 +2224,7 @@
 				DEVELOPMENT_TEAM = MG88YM735Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "WatchUkatonSwiftDemo-Watch-App-Info.plist";
+				INFOPLIST_FILE = "WatchUkatonDemo-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Ukaton Demo";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use Bluetooth to detect Ukaton Mission devices";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use Bluetooth to detect Ukaton Mission devices";
@@ -2296,7 +2296,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5FF58F2B2ADE51D900AD2941 /* Build configuration list for PBXProject "UkatonSwiftDemo" */ = {
+		5FF58F2B2ADE51D900AD2941 /* Build configuration list for PBXProject "UkatonDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5FF58F3D2ADE51DA00AD2941 /* Debug */,

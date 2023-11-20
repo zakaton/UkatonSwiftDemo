@@ -17,7 +17,7 @@
                BlueprintIdentifier = "5F8B9DA72B096CDE00E53711"
                BuildableName = "(TV) Ukaton Demo.app"
                BlueprintName = "(TV) Ukaton Demo"
-               ReferencedContainer = "container:UkatonSwiftDemo.xcodeproj">
+               ReferencedContainer = "container:UkatonDemo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -46,7 +46,7 @@
             BlueprintIdentifier = "5F8B9DA72B096CDE00E53711"
             BuildableName = "(TV) Ukaton Demo.app"
             BlueprintName = "(TV) Ukaton Demo"
-            ReferencedContainer = "container:UkatonSwiftDemo.xcodeproj">
+            ReferencedContainer = "container:UkatonDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -63,7 +63,7 @@
             BlueprintIdentifier = "5F8B9DA72B096CDE00E53711"
             BuildableName = "(TV) Ukaton Demo.app"
             BlueprintName = "(TV) Ukaton Demo"
-            ReferencedContainer = "container:UkatonSwiftDemo.xcodeproj">
+            ReferencedContainer = "container:UkatonDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

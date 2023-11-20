@@ -17,7 +17,7 @@
                BlueprintIdentifier = "5F8741E22B0AA62D00D67026"
                BuildableName = "(VisionOS) Ukaton Demo.app"
                BlueprintName = "(VisionOS) Ukaton Demo"
-               ReferencedContainer = "container:UkatonSwiftDemo.xcodeproj">
+               ReferencedContainer = "container:UkatonDemo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -46,7 +46,7 @@
             BlueprintIdentifier = "5F8741E22B0AA62D00D67026"
             BuildableName = "(VisionOS) Ukaton Demo.app"
             BlueprintName = "(VisionOS) Ukaton Demo"
-            ReferencedContainer = "container:UkatonSwiftDemo.xcodeproj">
+            ReferencedContainer = "container:UkatonDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -63,7 +63,7 @@
             BlueprintIdentifier = "5F8741E22B0AA62D00D67026"
             BuildableName = "(VisionOS) Ukaton Demo.app"
             BlueprintName = "(VisionOS) Ukaton Demo"
-            ReferencedContainer = "container:UkatonSwiftDemo.xcodeproj">
+            ReferencedContainer = "container:UkatonDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

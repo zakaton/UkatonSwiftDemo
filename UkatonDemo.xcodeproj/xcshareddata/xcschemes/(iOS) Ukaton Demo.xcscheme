@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5FF58F4A2ADF13E700AD2941"
-               BuildableName = "(Mac) Ukaton Demo.app"
-               BlueprintName = "(Mac) Ukaton Demo"
-               ReferencedContainer = "container:UkatonSwiftDemo.xcodeproj">
+               BlueprintIdentifier = "5FF58F2F2ADE51D900AD2941"
+               BuildableName = "(iOS) Ukaton Demo.app"
+               BlueprintName = "(iOS) Ukaton Demo"
+               ReferencedContainer = "container:UkatonDemo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -43,15 +43,15 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5FF58F4A2ADF13E700AD2941"
-            BuildableName = "(Mac) Ukaton Demo.app"
-            BlueprintName = "(Mac) Ukaton Demo"
-            ReferencedContainer = "container:UkatonSwiftDemo.xcodeproj">
+            BlueprintIdentifier = "5FF58F2F2ADE51D900AD2941"
+            BuildableName = "(iOS) Ukaton Demo.app"
+            BlueprintName = "(iOS) Ukaton Demo"
+            ReferencedContainer = "container:UkatonDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
-      buildConfiguration = "Debug"
+      buildConfiguration = "Release"
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
@@ -60,10 +60,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5FF58F4A2ADF13E700AD2941"
-            BuildableName = "(Mac) Ukaton Demo.app"
-            BlueprintName = "(Mac) Ukaton Demo"
-            ReferencedContainer = "container:UkatonSwiftDemo.xcodeproj">
+            BlueprintIdentifier = "5FF58F2F2ADE51D900AD2941"
+            BuildableName = "(iOS) Ukaton Demo.app"
+            BlueprintName = "(iOS) Ukaton Demo"
+            ReferencedContainer = "container:UkatonDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
@@ -71,7 +71,7 @@
       buildConfiguration = "Debug">
    </AnalyzeAction>
    <ArchiveAction
-      buildConfiguration = "Debug"
+      buildConfiguration = "Release"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>
