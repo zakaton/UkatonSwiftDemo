@@ -80,8 +80,6 @@
 		5F8656542B06EE43007F1D00 /* DiscoveredDeviceRowConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8656532B06EE43007F1D00 /* DiscoveredDeviceRowConnection.swift */; };
 		5F8741F12B0AA62E00D67026 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F8741F02B0AA62E00D67026 /* Preview Assets.xcassets */; };
 		5F8741F72B0AA66200D67026 /* UkatonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5F8741F62B0AA66200D67026 /* UkatonKit */; };
-		5F8741F82B0AA67B00D67026 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FF58F372ADE51DA00AD2941 /* Assets.xcassets */; };
-		5F8741F92B0AA67C00D67026 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FF58F372ADE51DA00AD2941 /* Assets.xcassets */; };
 		5F8741FA2B0AA88E00D67026 /* UkatonDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF58F332ADE51D900AD2941 /* UkatonDemoApp.swift */; };
 		5F8741FB2B0AA89100D67026 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF58F352ADE51D900AD2941 /* ContentView.swift */; };
 		5F8741FC2B0AA89800D67026 /* MotionCalibrationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCC84A32AFC414100B755FA /* MotionCalibrationSection.swift */; };
@@ -125,7 +123,6 @@
 		5F8B9DB72B096CFD00E53711 /* UkatonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5F8B9DB62B096CFD00E53711 /* UkatonKit */; };
 		5F8B9DB82B096D1F00E53711 /* monkey.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 5F0F6F4E2AFE9CCB007D0D03 /* monkey.usdz */; };
 		5F8B9DB92B096D2200E53711 /* leftShoe.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 5F0F6F4A2AFDF3C5007D0D03 /* leftShoe.usdz */; };
-		5F8B9DBA2B096D2C00E53711 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FF58F372ADE51DA00AD2941 /* Assets.xcassets */; };
 		5F8B9DBB2B096DA900E53711 /* UkatonDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF58F332ADE51D900AD2941 /* UkatonDemoApp.swift */; };
 		5F8B9DBC2B096DBA00E53711 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF58F352ADE51D900AD2941 /* ContentView.swift */; };
 		5F8B9DBD2B096DC800E53711 /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F82BA2B029AC500DDD9AB /* NavigationCoordinator.swift */; };
@@ -260,6 +257,13 @@
 		5FFBE8112AF160CF00F8CBD7 /* DeviceDiscovery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFBE8102AF160CF00F8CBD7 /* DeviceDiscovery.swift */; };
 		5FFBE8122AF160CF00F8CBD7 /* DeviceDiscovery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFBE8102AF160CF00F8CBD7 /* DeviceDiscovery.swift */; };
 		5FFBE8132AF160CF00F8CBD7 /* DeviceDiscovery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFBE8102AF160CF00F8CBD7 /* DeviceDiscovery.swift */; };
+		5FFD693A2B0BFB92005F0C73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F8741ED2B0AA62E00D67026 /* Assets.xcassets */; };
+		5FFD693D2B0BFBC6005F0C73 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FFD693C2B0BFBC6005F0C73 /* Images.xcassets */; };
+		5FFD693E2B0BFBCD005F0C73 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FFD693C2B0BFBC6005F0C73 /* Images.xcassets */; };
+		5FFD693F2B0BFBCE005F0C73 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FFD693C2B0BFBC6005F0C73 /* Images.xcassets */; };
+		5FFD69402B0BFBCE005F0C73 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FFD693C2B0BFBC6005F0C73 /* Images.xcassets */; };
+		5FFD69412B0BFBCE005F0C73 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FFD693C2B0BFBC6005F0C73 /* Images.xcassets */; };
+		5FFD69432B0BFC1C005F0C73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FFD69422B0BFC1C005F0C73 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -446,6 +450,8 @@
 		5FF58F732ADF185600AD2941 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
 		5FFAFA552B083404002286C7 /* DiscoveredDeviceRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveredDeviceRow.swift; sourceTree = "<group>"; };
 		5FFBE8102AF160CF00F8CBD7 /* DeviceDiscovery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDiscovery.swift; sourceTree = "<group>"; };
+		5FFD693C2B0BFBC6005F0C73 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		5FFD69422B0BFC1C005F0C73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -645,6 +651,7 @@
 				5F8B9DAA2B096CDE00E53711 /* TvUkatonDemoApp.swift */,
 				5F8B9DAC2B096CDE00E53711 /* ContentView.swift */,
 				5F8B9DB02B096CDF00E53711 /* Preview Content */,
+				5FFD69422B0BFC1C005F0C73 /* Assets.xcassets */,
 			);
 			path = "(TV) Ukaton Demo";
 			sourceTree = "<group>";
@@ -880,6 +887,7 @@
 				5FF58F332ADE51D900AD2941 /* UkatonDemoApp.swift */,
 				5FF58F352ADE51D900AD2941 /* ContentView.swift */,
 				5FF58F372ADE51DA00AD2941 /* Assets.xcassets */,
+				5FFD693C2B0BFBC6005F0C73 /* Images.xcassets */,
 				5FF58F392ADE51DA00AD2941 /* UkatonDemo.entitlements */,
 				5FF58F3A2ADE51DA00AD2941 /* Preview Content */,
 			);
@@ -1179,10 +1187,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F8741F92B0AA67C00D67026 /* Assets.xcassets in Resources */,
 				5F8741F12B0AA62E00D67026 /* Preview Assets.xcassets in Resources */,
 				5FD458AB2B0AB11B0030BE6E /* monkey.usdz in Resources */,
 				5FD458AA2B0AB1180030BE6E /* leftShoe.usdz in Resources */,
+				5FFD693E2B0BFBCD005F0C73 /* Images.xcassets in Resources */,
+				5FFD693A2B0BFB92005F0C73 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1191,8 +1200,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F8B9DB82B096D1F00E53711 /* monkey.usdz in Resources */,
+				5FFD693F2B0BFBCE005F0C73 /* Images.xcassets in Resources */,
 				5F8B9DB22B096CDF00E53711 /* Preview Assets.xcassets in Resources */,
-				5F8B9DBA2B096D2C00E53711 /* Assets.xcassets in Resources */,
+				5FFD69432B0BFC1C005F0C73 /* Assets.xcassets in Resources */,
 				5F8B9DB92B096D2200E53711 /* leftShoe.usdz in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1208,7 +1218,6 @@
 				5F9778F82B0AA1230057AA56 /* manifest.json in Resources */,
 				5F9778F42B0AA1230057AA56 /* _locales in Resources */,
 				5F9778FC2B0AA1230057AA56 /* content.js in Resources */,
-				5F8741F82B0AA67B00D67026 /* Assets.xcassets in Resources */,
 				5F9779022B0AA1230057AA56 /* popup.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1248,6 +1257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5FF58F3C2ADE51DA00AD2941 /* Preview Assets.xcassets in Resources */,
+				5FFD693D2B0BFBC6005F0C73 /* Images.xcassets in Resources */,
 				5F0F6F4F2AFE9CCB007D0D03 /* monkey.usdz in Resources */,
 				5F0F95382B099B6600BEDCE3 /* Assets.xcassets in Resources */,
 				5F0F6F4B2AFDF3C5007D0D03 /* leftShoe.usdz in Resources */,
@@ -1259,6 +1269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5FF58F552ADF13E800AD2941 /* Preview Assets.xcassets in Resources */,
+				5FFD69412B0BFBCE005F0C73 /* Images.xcassets in Resources */,
 				5F0F6F502AFE9CCB007D0D03 /* monkey.usdz in Resources */,
 				5F0F95372B099B6500BEDCE3 /* Assets.xcassets in Resources */,
 				5F0F6F4C2AFDF3C5007D0D03 /* leftShoe.usdz in Resources */,
@@ -1270,6 +1281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5FF58F6B2ADF183000AD2941 /* Preview Assets.xcassets in Resources */,
+				5FFD69402B0BFBCE005F0C73 /* Images.xcassets in Resources */,
 				5F0F6F512AFE9CCB007D0D03 /* monkey.usdz in Resources */,
 				5F0F95362B099B6500BEDCE3 /* Assets.xcassets in Resources */,
 				5F0F6F4D2AFDF3C5007D0D03 /* leftShoe.usdz in Resources */,
@@ -1562,7 +1574,7 @@
 		5F8741F32B0AA62E00D67026 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "VisionOS-AppIcon";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
@@ -1595,7 +1607,7 @@
 		5F8741F42B0AA62E00D67026 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "VisionOS-AppIcon";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
@@ -1629,7 +1641,7 @@
 		5F8B9DB32B096CDF00E53711 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-tv";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
@@ -1662,7 +1674,7 @@
 		5F8B9DB42B096CDF00E53711 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-tv";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
