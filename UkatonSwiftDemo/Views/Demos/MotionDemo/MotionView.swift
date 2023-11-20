@@ -83,7 +83,9 @@ struct MotionView: View {
             .onReceive(mission.sensorData.motion.accelerationSubject, perform: { onAcceleration($0.value) })
             .onReceive(mission.sensorData.motion.linearAccelerationSubject, perform: { onLinearAcceleration($0.value) })
             .onAppear {
-                setupScene()
+                if model == nil {
+                    setupScene()
+                }
             }
             .modify {
                 if let recalibrateSubject {
