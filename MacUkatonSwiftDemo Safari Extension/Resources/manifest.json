@@ -22,7 +22,7 @@
         "js": [ "content.js" ],
         "matches": [ "*://example.com/*" ]
     }],
- 
+
     "action": {
         "default_popup": "popup.html",
         "default_icon": {
