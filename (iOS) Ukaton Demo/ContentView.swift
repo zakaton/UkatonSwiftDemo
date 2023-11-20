@@ -33,13 +33,13 @@ struct ContentView: View {
 
     var missionPairImageString: String {
         if missionPair.isConnected {
-            return "shoe.2"
+            return "shoe.2.fill"
         }
         else if missionPair.isHalfConnected {
-            return "shoe"
+            return "shoe.fill"
         }
         else {
-            return "xmark"
+            return "circle.dashed"
         }
     }
 
