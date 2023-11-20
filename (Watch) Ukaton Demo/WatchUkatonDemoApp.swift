@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct UkatonSwiftDemoApp: App {
+struct WatchUkatonDemoApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
