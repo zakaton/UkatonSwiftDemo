@@ -10,8 +10,8 @@
 		<string>$(PRODUCT_MODULE_NAME).SafariWebExtensionHandler</string>
 	</dict>
 	<key>SFSafariCorrespondingIOSExtensionBundleIdentifier</key>
-	<string>com.ukaton.demo.UkatonSwiftDemo.Ukaton-Swift-Demo-Safari-Extension</string>
+	<string>com.ukaton.demo.Ukaton-Demo-iOS.Safari-Extension</string>
 	<key>SFSafariCorrespondingMacOSExtensionBundleIdentifier</key>
-	<string>com.ukaton.demo.MacUkatonSwiftDemo.MacUkatonSwiftDemo-Safari-Extension</string>
+	<string>com.ukaton.demo.Ukaton-Demo-Mac.Safari-Extension</string>
 </dict>
 </plist>

@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>SFSafariCorrespondingMacOSAppBundleIdentifier</key>
-	<string>com.ukaton.demo.MacUkatonSwiftDemo</string>
+	<string>com.ukaton.demo.Ukaton-Demo-Mac</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>bluetooth-central</string>

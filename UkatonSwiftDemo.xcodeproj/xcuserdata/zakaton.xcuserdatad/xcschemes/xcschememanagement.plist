@@ -4,25 +4,35 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>MacUkatonSwiftDemo.xcscheme_^#shared#^_</key>
+		<key>(Mac) Ukaton Demo.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
-		<key>TV Ukaton Swift Demo.xcscheme_^#shared#^_</key>
+		<key>(TV) Ukaton Demo.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>2</integer>
+		</dict>
+		<key>(VisionOS) Ukaton Demo.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
+		<key>(Watch) Ukaton Demo.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>(iOS) Ukaton Demo.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
 		</dict>
 		<key>TvUkatonSwiftDemo.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>3</integer>
-		</dict>
-		<key>UkatonSwiftDemo.xcscheme_^#shared#^_</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>0</integer>
 		</dict>
 		<key>VisionOS UkatonSwiftDemo.xcscheme_^#shared#^_</key>
 		<dict>
@@ -42,6 +52,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>5F8741E22B0AA62D00D67026</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>5F8B9DA72B096CDE00E53711</key>
 		<dict>
 			<key>primary</key>

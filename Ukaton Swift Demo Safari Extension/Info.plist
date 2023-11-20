@@ -10,6 +10,6 @@
 		<string>$(PRODUCT_MODULE_NAME).SafariWebExtensionHandler</string>
 	</dict>
 	<key>SFSafariCorrespondingMacOSExtensionBundleIdentifier</key>
-	<string>com.ukaton.demo.MacUkatonSwiftDemo.MacUkatonSwiftDemo-Safari-Extension</string>
+	<string>com.ukaton.demo.Ukaton-Demo-Mac.Safari-Extension</string>
 </dict>
 </plist>

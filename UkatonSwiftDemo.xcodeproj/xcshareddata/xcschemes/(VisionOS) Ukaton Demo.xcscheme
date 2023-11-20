@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5FF58F2F2ADE51D900AD2941"
-               BuildableName = "UkatonSwiftDemo.app"
-               BlueprintName = "UkatonSwiftDemo"
+               BlueprintIdentifier = "5F8741E22B0AA62D00D67026"
+               BuildableName = "(VisionOS) Ukaton Demo.app"
+               BlueprintName = "(VisionOS) Ukaton Demo"
                ReferencedContainer = "container:UkatonSwiftDemo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -43,9 +43,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5FF58F2F2ADE51D900AD2941"
-            BuildableName = "UkatonSwiftDemo.app"
-            BlueprintName = "UkatonSwiftDemo"
+            BlueprintIdentifier = "5F8741E22B0AA62D00D67026"
+            BuildableName = "(VisionOS) Ukaton Demo.app"
+            BlueprintName = "(VisionOS) Ukaton Demo"
             ReferencedContainer = "container:UkatonSwiftDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -60,9 +60,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5FF58F2F2ADE51D900AD2941"
-            BuildableName = "UkatonSwiftDemo.app"
-            BlueprintName = "UkatonSwiftDemo"
+            BlueprintIdentifier = "5F8741E22B0AA62D00D67026"
+            BuildableName = "(VisionOS) Ukaton Demo.app"
+            BlueprintName = "(VisionOS) Ukaton Demo"
             ReferencedContainer = "container:UkatonSwiftDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
