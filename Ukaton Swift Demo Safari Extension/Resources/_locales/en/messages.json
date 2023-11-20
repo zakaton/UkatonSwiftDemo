@@ -1,10 +1,10 @@
 {
     "extension_name": {
-        "message": "Ukaton Swift Demo Safari Extension",
+        "message": "Ukaton Safari Extension Demo",
         "description": "The display name for the extension."
     },
     "extension_description": {
-        "message": "This is Ukaton Swift Demo Safari Extension. You should tell us what your extension does here.",
+        "message": "Access Ukaton devices in the browser",
         "description": "Description of what the extension does."
     }
 }
