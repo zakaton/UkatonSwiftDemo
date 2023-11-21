@@ -1,6 +1,10 @@
 import os.log
+import OSLog
 import SafariServices
+import UkatonKit
+import UkatonMacros
 
+@StaticLogger()
 class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
     func beginRequest(with context: NSExtensionContext) {
         let request = context.inputItems.first as? NSExtensionItem
@@ -18,6 +22,8 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
         } else {
             message = request?.userInfo?["message"]
         }
+
+        logger.debug("\(String(describing: message))")
 
         os_log(.default, "Received message from browser.runtime.sendNativeMessage: %@ (profile: %@)", String(describing: message), profile?.uuidString ?? "none")
 
