@@ -1,15 +1,7 @@
-//
-//  SafariWebExtensionHandler.swift
-//  MacUkatonSwiftDemo Safari Extension
-//
-//  Created by Zack Qattan on 11/20/23.
-//
-
-import SafariServices
 import os.log
+import SafariServices
 
 class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
-
     func beginRequest(with context: NSExtensionContext) {
         let request = context.inputItems.first as? NSExtensionItem
 
@@ -30,9 +22,8 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
         os_log(.default, "Received message from browser.runtime.sendNativeMessage: %@ (profile: %@)", String(describing: message), profile?.uuidString ?? "none")
 
         let response = NSExtensionItem()
-        response.userInfo = [ SFExtensionMessageKey: [ "echo": message ] ]
+        response.userInfo = [SFExtensionMessageKey: ["echo": message]]
 
-        context.completeRequest(returningItems: [ response ], completionHandler: nil)
+        context.completeRequest(returningItems: [response], completionHandler: nil)
     }
-
 }

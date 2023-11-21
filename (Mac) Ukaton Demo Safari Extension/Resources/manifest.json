@@ -36,5 +36,5 @@
         }
     },
 
-    "permissions": ["activeTab", "scripting", "externally_connected" ]
+    "permissions": ["activeTab", "scripting", "externally_connected", "nativeMessaging" ]
 }
