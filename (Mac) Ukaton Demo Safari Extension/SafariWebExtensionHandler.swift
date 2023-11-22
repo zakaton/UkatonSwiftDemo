@@ -1,35 +1,52 @@
-import os.log
+import Combine
 import OSLog
 import SafariServices
 import UkatonKit
 import UkatonMacros
 
+let bluetoothManager: UKBluetoothManager = .shared
+
 @StaticLogger()
 class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
+    func sendMessageToExtension() {
+        let messageName = "Hello from App"
+        let messageInfo = ["AdditionalInformation": "Goes Here"]
+        SFSafariApplication.dispatchMessage(withName: messageName, toExtensionWithIdentifier: Bundle.main.bundleIdentifier!, userInfo: messageInfo) { [self] error in
+            guard let error else { return }
+            logger.error("Message attempted. Error info: \(String(describing: error), privacy: .public)")
+        }
+    }
+
     func beginRequest(with context: NSExtensionContext) {
-        let request = context.inputItems.first as? NSExtensionItem
-
-        let profile: UUID?
-        if #available(iOS 17.0, macOS 14.0, *) {
-            profile = request?.userInfo?[SFExtensionProfileKey] as? UUID
-        } else {
-            profile = request?.userInfo?["profile"] as? UUID
+        guard let item = context.inputItems.first as? NSExtensionItem,
+              let userInfo = item.userInfo as? [String: Any],
+              let messageData = userInfo[SFExtensionMessageKey]
+        else {
+            context.completeRequest(returningItems: nil, completionHandler: nil)
+            return
         }
 
-        let message: Any?
-        if #available(iOS 17.0, macOS 14.0, *) {
-            message = request?.userInfo?[SFExtensionMessageKey]
-        } else {
-            message = request?.userInfo?["message"]
+        guard let message = messageData as? [String: Any] else {
+            logger.error("invalid message")
+            return
         }
-
-        logger.debug("\(String(describing: message))")
-
-        os_log(.default, "Received message from browser.runtime.sendNativeMessage: %@ (profile: %@)", String(describing: message), profile?.uuidString ?? "none")
 
         let response = NSExtensionItem()
-        response.userInfo = [SFExtensionMessageKey: ["echo": message]]
+
+        logger.debug("\(String(describing: message), privacy: .public)")
+
+        switch message["type"] {
+        case "toggleScan" as String:
+            logger.debug("toggle scan")
+            bluetoothManager.toggleDeviceScan()
+            response.userInfo = [SFExtensionMessageKey: ["isScanning": bluetoothManager.isScanning]]
+        default:
+            logger.warning("uncaught exception for message type")
+            response.userInfo = [SFExtensionMessageKey: ["echo": message]]
+        }
 
         context.completeRequest(returningItems: [response], completionHandler: nil)
+
+        sendMessageToExtension()
     }
 }

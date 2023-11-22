@@ -1,6 +1,10 @@
 var isScanning = false;
-function toggleScan() {
-    isScanning = !isScanning
+function toggleScan(sender) {
+    browser.runtime.sendNativeMessage("application.id", {type: "toggleScan"}, function(response) {
+        console.log("Received sendNativeMessage response:", response);
+        isScanning = response.isScanning
+        browser.runtime.sendMessage({ type: "isScanning", isScanning })
+    });
 }
 
 browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
@@ -11,8 +15,8 @@ browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
             sendResponse({ isScanning });
             break;
         case "toggleScan":
-            toggleScan();
-            sendResponse({ isScanning });
+            toggleScan(sender)
+            sendResponse({isScanning})
             break;
         default:
             console.log("uncaught request type", request.type);
@@ -26,4 +30,10 @@ browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
 browser.runtime.sendNativeMessage("application.id", {message: "Hello from background page"}, function(response) {
     console.log("Received sendNativeMessage response:");
     console.log(response);
+});
+
+let port = browser.runtime.connectNative("application.id");
+port.onMessage.addListener(function(message) {
+    console.log("Received native port message:");
+    console.log(message);
 });
