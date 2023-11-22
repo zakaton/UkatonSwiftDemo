@@ -19,18 +19,22 @@ class SafariWebExtension {
 
         bluetoothManager.isScanningSubject
             .sink(receiveValue: { isScanning in
+                #if !os(iOS)
                 self.sendMessageToExtension(
                     withName: "isScanning",
                     userInfo: ["isScanning": isScanning]
                 )
+                #endif
             }).store(in: &cancellables)
     }
 
     func sendMessageToExtension(withName messageName: String, userInfo messageInfo: [String: Any]) {
+        #if !os(iOS)
         SFSafariApplication.dispatchMessage(withName: messageName, toExtensionWithIdentifier: Bundle.main.bundleIdentifier!, userInfo: messageInfo) { [self] error in
             guard let error else { return }
             logger.error("Message attempted. Error info: \(String(describing: error), privacy: .public)")
         }
+        #endif
     }
 }
 
@@ -38,13 +42,6 @@ class SafariWebExtension {
 class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
     var bluetoothManager: UKBluetoothManager { .shared }
     let safariWebExtension: SafariWebExtension = .shared
-
-    func sendMessageToExtension(withName messageName: String, userInfo messageInfo: [String: Any]) {
-        SFSafariApplication.dispatchMessage(withName: messageName, toExtensionWithIdentifier: Bundle.main.bundleIdentifier!, userInfo: messageInfo) { [self] error in
-            guard let error else { return }
-            logger.error("Message attempted. Error info: \(String(describing: error), privacy: .public)")
-        }
-    }
 
     func beginRequest(with context: NSExtensionContext) {
         guard let item = context.inputItems.first as? NSExtensionItem,
