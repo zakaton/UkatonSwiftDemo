@@ -19,7 +19,7 @@ class SafariWebExtension {
 
         bluetoothManager.isScanningSubject
             .sink(receiveValue: { isScanning in
-                #if !os(iOS)
+                #if os(macOS)
                 self.sendMessageToExtension(
                     withName: "isScanning",
                     userInfo: ["isScanning": isScanning]
@@ -29,7 +29,7 @@ class SafariWebExtension {
     }
 
     func sendMessageToExtension(withName messageName: String, userInfo messageInfo: [String: Any]) {
-        #if !os(iOS)
+        #if os(macOS)
         SFSafariApplication.dispatchMessage(withName: messageName, toExtensionWithIdentifier: Bundle.main.bundleIdentifier!, userInfo: messageInfo) { [self] error in
             guard let error else { return }
             logger.error("Message attempted. Error info: \(String(describing: error), privacy: .public)")
