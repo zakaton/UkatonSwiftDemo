@@ -4,13 +4,42 @@ import SafariServices
 import UkatonKit
 import UkatonMacros
 
-let bluetoothManager: UKBluetoothManager = .shared
+@StaticLogger()
+class SafariWebExtension {
+    static let shared = SafariWebExtension()
+
+    var bluetoothManager: UKBluetoothManager { .shared }
+    var cancellables: Set<AnyCancellable> = .init()
+
+    init() {
+        bluetoothManager.discoveredDevicesSubject
+            .sink(receiveValue: { _ in
+                // TODO: - fill
+            }).store(in: &cancellables)
+
+        bluetoothManager.isScanningSubject
+            .sink(receiveValue: { isScanning in
+                self.sendMessageToExtension(
+                    withName: "isScanning",
+                    userInfo: ["isScanning": isScanning]
+                )
+            }).store(in: &cancellables)
+    }
+
+    func sendMessageToExtension(withName messageName: String, userInfo messageInfo: [String: Any]) {
+        SFSafariApplication.dispatchMessage(withName: messageName, toExtensionWithIdentifier: Bundle.main.bundleIdentifier!, userInfo: messageInfo) { [self] error in
+            guard let error else { return }
+            logger.error("Message attempted. Error info: \(String(describing: error), privacy: .public)")
+        }
+    }
+}
 
 @StaticLogger()
 class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
-    func sendMessageToExtension() {
-        let messageName = "Hello from App"
-        let messageInfo = ["AdditionalInformation": "Goes Here"]
+    var bluetoothManager: UKBluetoothManager { .shared }
+    let safariWebExtension: SafariWebExtension = .shared
+
+    func sendMessageToExtension(withName messageName: String, userInfo messageInfo: [String: Any]) {
         SFSafariApplication.dispatchMessage(withName: messageName, toExtensionWithIdentifier: Bundle.main.bundleIdentifier!, userInfo: messageInfo) { [self] error in
             guard let error else { return }
             logger.error("Message attempted. Error info: \(String(describing: error), privacy: .public)")
@@ -46,7 +75,5 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
         }
 
         context.completeRequest(returningItems: [response], completionHandler: nil)
-
-        sendMessageToExtension()
     }
 }
