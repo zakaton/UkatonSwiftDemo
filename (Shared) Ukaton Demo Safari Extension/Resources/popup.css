@@ -10,6 +10,15 @@ body {
     text-align: center;
 }
 
+#discoveredDevices {
+    display: flex;
+    flex-direction: column;
+}
+
+.hidden {
+    display: none;
+}
+
 @media (prefers-color-scheme: dark) {
     /* Dark Mode styles go here. */
 }

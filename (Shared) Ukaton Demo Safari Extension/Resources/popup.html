@@ -1,12 +1,24 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="popup.css">
-    <script type="module" src="popup.js"></script>
-</head>
-<body>
-    <button id="toggleScan">scan</button>
-    <div id="response"></div>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="popup.css" />
+        <script type="module" src="popup.js"></script>
+    </head>
+    <body>
+        <button id="toggleScan">scan</button>
+        <div id="discoveredDevices">
+            <template id="discoveredDeviceTemplate">
+                <div class="discoveredDevice">
+                    <span class="name"></span>
+                    <span class="deviceType"></span>
+                    <span class="rssi"></span>
+                    <span class="ipAddress"></span>
+                    <button class="connectBle">connect (ble)</button>
+                    <button class="connectUdp">connect (udp)</button>
+                    <button class="disconnect">disconnect</button>
+                </div>
+            </template>
+        </div>
+    </body>
 </html>
