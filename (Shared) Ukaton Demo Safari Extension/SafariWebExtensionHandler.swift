@@ -11,48 +11,13 @@ class SafariWebExtension {
     var bluetoothManager: UKBluetoothManager { .shared }
     var cancellables: Set<AnyCancellable> = .init()
 
+    var lastTimeUpdatedDiscoveredDevices: Date = .now
+
     init() {
         bluetoothManager.discoveredDevicesSubject
-            .sink(receiveValue: { _ in
-                #if os(macOS)
-                self.logger.debug("sending message...")
-                self.sendMessageToExtension(
-                    withName: "discoveredDevices",
-                    userInfo: ["discoveredDevices": self.bluetoothManager.discoveredDevices.map {
-                        var discoveredDeviceInfo: [String: Any] = [
-                            "name": $0.name,
-                            "deviceType": $0.deviceType.rawValue,
-                            "rssi": $0.rssi?.intValue ?? 0,
-                            "id": $0.id?.uuidString ?? ""
-                        ]
-                        if $0.isConnectedToWifi, let ipAddress = $0.ipAddress {
-                            discoveredDeviceInfo["ipAddress"] = ipAddress
-                        }
-                        return discoveredDeviceInfo
-                    }]
-                )
-                #endif
-
+            .sink(receiveValue: { [self] _ in
+                lastTimeUpdatedDiscoveredDevices = .now
             }).store(in: &cancellables)
-
-        bluetoothManager.isScanningSubject
-            .sink(receiveValue: { isScanning in
-                #if os(macOS)
-                self.sendMessageToExtension(
-                    withName: "isScanning",
-                    userInfo: ["isScanning": isScanning]
-                )
-                #endif
-            }).store(in: &cancellables)
-    }
-
-    func sendMessageToExtension(withName messageName: String, userInfo messageInfo: [String: Any]) {
-        #if os(macOS)
-        SFSafariApplication.dispatchMessage(withName: messageName, toExtensionWithIdentifier: Bundle.main.bundleIdentifier!, userInfo: messageInfo) { [self] error in
-            guard let error else { return }
-            logger.error("Message attempted. Error info: \(String(describing: error), privacy: .public)")
-        }
-        #endif
     }
 }
 
@@ -75,15 +40,33 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
             return
         }
 
-        let response = NSExtensionItem()
-
         logger.debug("\(String(describing: message), privacy: .public)")
 
-        switch message["type"] {
-        case "toggleScan" as String:
+        let response = NSExtensionItem()
+
+        switch message["type"] as? String {
+        case "toggleScan":
             logger.debug("toggle scan")
             bluetoothManager.toggleDeviceScan()
             response.userInfo = [SFExtensionMessageKey: ["isScanning": bluetoothManager.isScanning]]
+        case "requestIsScanning":
+            logger.debug("request scan")
+            response.userInfo = [SFExtensionMessageKey: ["isScanning": bluetoothManager.isScanning]]
+        case "requestDiscoveredDevices":
+            logger.debug("request discovered devices")
+            response.userInfo = [SFExtensionMessageKey:
+                ["discoveredDevices": bluetoothManager.discoveredDevices.map {
+                    var discoveredDeviceInfo: [String: Any] = [
+                        "name": $0.name,
+                        "deviceType": $0.deviceType.rawValue,
+                        "rssi": $0.rssi?.intValue ?? 0,
+                        "id": $0.id?.uuidString ?? ""
+                    ]
+                    if $0.isConnectedToWifi, let ipAddress = $0.ipAddress {
+                        discoveredDeviceInfo["ipAddress"] = ipAddress
+                    }
+                    return discoveredDeviceInfo
+                }]]
         default:
             logger.warning("uncaught exception for message type")
             response.userInfo = [SFExtensionMessageKey: ["echo": message]]

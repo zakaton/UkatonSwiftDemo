@@ -1,21 +1,105 @@
+// SCANNING
 var isScanning = false;
+var expectedIsScanning = isScanning;
 function setIsScanning(newIsScanning) {
-    console.log("set isScannng", newIsScanning);
-    isScanning = newIsScanning;
-    toggleScanButton.innerText = isScanning ? "stop scan" : "scan";
+    if (newIsScanning == expectedIsScanning) {
+        pollForIsScanningUpdate.stop();
+        console.log("set isScannng", newIsScanning);
+        isScanning = newIsScanning;
+        toggleScanButton.innerText = isScanning ? "stop scan" : "scan";
+
+        if (isScanning) {
+            pollDiscoveredDevicesUpdate.start();
+        } else {
+            pollDiscoveredDevicesUpdate.stop();
+        }
+    } else {
+        pollForIsScanningUpdate.start();
+    }
 }
 
 const toggleScanButton = document.getElementById("toggleScan");
 toggleScanButton.addEventListener("click", () => {
+    expectedIsScanning = !expectedIsScanning;
     browser.runtime.sendMessage({ type: "toggleScan" }).then((response) => {
         console.log("toggleScan response: ", response);
         setIsScanning(response.isScanning);
     });
 });
 
-var discoveredDevices = {}; // {id: {rssi, name, deviceType, ipAddress}}
+class Poll {
+    /**
+     *
+     * @param {function():void} callback
+     * @param {number} interval
+     */
+    constructor(callback, interval) {
+        this.callback = callback;
+        this.interval = interval;
+        this.intervalId = null;
+    }
+
+    /** @type {number|null} */
+    intervalId = null;
+
+    get isRunning() {
+        return this.intervalId != null;
+    }
+
+    start() {
+        if (!this.isRunning) {
+            this.intervalId = setInterval(() => this.callback(), this.interval);
+        }
+    }
+    stop() {
+        if (this.isRunning) {
+            clearInterval(this.intervalId);
+            this.intervalId = null;
+        }
+    }
+}
+
+const pollForIsScanningUpdate = new Poll(() => {
+    browser.runtime.sendMessage({ type: "isScanning" }).then((response) => {
+        console.log("toggleScan response: ", response);
+        setIsScanning(response.isScanning);
+    });
+}, 100);
+
+browser.runtime.sendMessage({ type: "isScanning" }).then((response) => {
+    console.log("isScanning response: ", response);
+    expectedIsScanning = response.isScanning;
+    setIsScanning(response.isScanning);
+});
+
+// DISCOVERED DEVICES
+/**
+ * @typedef DiscoveredDevice
+ * @type {object}
+ * @property {string} id
+ * @property {string} name
+ * @property {number} deviceType
+ * @property {number} rssi
+ * @property {HTMLElement|undefined} container
+ * @property {string|undefined} ipAddress
+ */
+/** @type {Object.<string, DiscoveredDevice>} */
+var discoveredDevices = {};
+
+const pollDiscoveredDevicesUpdate = new Poll(() => {
+    browser.runtime.sendMessage({ type: "requestDiscoveredDevices" }).then((response) => {
+        console.log("requestDiscoveredDevices response: ", response);
+        setDiscoveredDevices(response.discoveredDevices);
+    });
+}, 100);
+
+/** @type {HTMLTemplateElement} */
 const discoveredDeviceTemplate = document.getElementById("discoveredDeviceTemplate");
 const discoveredDevicesContainer = document.getElementById("discoveredDevices");
+/**
+ *
+ * @param {[DiscoveredDevice]} newDiscoveredDevices
+ */
 function setDiscoveredDevices(newDiscoveredDevices) {
     for (const id in discoveredDevices) {
         discoveredDevices[id].shouldRemove = true;
@@ -63,11 +147,7 @@ function setDiscoveredDevices(newDiscoveredDevices) {
     console.log("discoveredDevices", discoveredDevices);
 }
 
-browser.runtime.sendMessage({ type: "isScanning" }).then((response) => {
-    console.log("isScanning response: ", response);
-    setIsScanning(response.isScanning);
-});
-
+// popup.js <- background.js
 browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
     console.log("received message", message);
 

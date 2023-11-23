@@ -1,29 +1,48 @@
+function sendMessage(message, callback) {
+    browser.runtime.sendNativeMessage("application.id", message, callback);
+}
+
 var isScanning = false;
-function toggleScan(sender) {
-    browser.runtime.sendNativeMessage(
-        "application.id",
-        { type: "toggleScan" },
-        function (response) {
-            console.log("Received sendNativeMessage response:", response);
-            isScanning = response.isScanning;
-            browser.runtime.sendMessage({ type: "isScanning", isScanning });
-        }
-    );
+function toggleScan() {
+    sendMessage({ type: "toggleScan" }, (response) => {
+        console.log("Received toggleScan response:", response);
+        isScanning = response.isScanning;
+        browser.runtime.sendMessage({ type: "isScanning", isScanning });
+    });
+}
+function requestIsScanning() {
+    sendMessage({ type: "requestIsScanning" }, (response) => {
+        console.log("Received requestIsScanning response:", response);
+        isScanning = response.isScanning;
+        browser.runtime.sendMessage({ type: "isScanning", isScanning });
+    });
 }
 
 var discoveredDevices = [];
+function requestDiscoveredDevices() {
+    sendMessage({ type: "requestDiscoveredDevices" }, (response) => {
+        console.log("Received requestDiscoveredDevices response:", response);
+        discoveredDevices = response.discoveredDevices;
+        browser.runtime.sendMessage({ type: "discoveredDevices", discoveredDevices });
+    });
+}
 
-// content.js -> background.js
+// background.js <- popup.js/content.js
 browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
     console.log("Received message: ", message);
 
     switch (message.type) {
         case "isScanning":
+            requestIsScanning();
             sendResponse({ isScanning });
             break;
         case "toggleScan":
-            toggleScan(sender);
+            toggleScan();
             sendResponse({ isScanning });
+            break;
+        case "requestDiscoveredDevices":
+            requestDiscoveredDevices();
+            sendResponse({ discoveredDevices });
             break;
         default:
             console.log("uncaught message type", message.type);
@@ -42,26 +61,3 @@ browser.runtime.sendNativeMessage(
         console.log(response);
     }
 );
-
-// SafariWebExtesionHandler.swift -> background.js
-let port = browser.runtime.connectNative("application.id");
-port.onMessage.addListener(function ({ name: type, userInfo: message }) {
-    console.log("Received native port message:", type, message);
-
-    switch (type) {
-        case "isScanning":
-            isScanning = message.isScanning;
-            browser.runtime.sendMessage({ type: "isScanning", isScanning });
-            break;
-        case "discoveredDevices":
-            discoveredDevices = message.discoveredDevices;
-            browser.runtime.sendMessage({
-                type: "discoveredDevices",
-                discoveredDevices,
-            });
-            break;
-        default:
-            console.log("uncaught message name", type);
-            break;
-    }
-});
