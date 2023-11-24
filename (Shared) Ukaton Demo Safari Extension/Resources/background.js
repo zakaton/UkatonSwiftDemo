@@ -1,3 +1,4 @@
+// background.js -> SafariWebExtesionHandler.swift
 function sendMessage(message, callback) {
     browser.runtime.sendNativeMessage("application.id", message, (response) => {
         if (response) {
@@ -56,6 +57,17 @@ function requestDiscoveredDevices() {
     );
 }
 
+function connect({ id, connectionType }) {
+    sendMessage({ type: "connect", id, connectionType }, (response) => {
+        console.log("Received connect response:", response);
+    });
+}
+function disconnect({ id }) {
+    sendMessage({ type: "disconnect", id }, (response) => {
+        console.log("Received disconnect response:", response);
+    });
+}
+
 // background.js <- popup.js/content.js
 browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
     console.log("Received message: ", message);
@@ -79,16 +91,16 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
             requestDiscoveredDevices();
             sendResponse({ discoveredDevices });
             break;
+        case "connect":
+            connect(message);
+            sendResponse(message);
+            break;
+        case "disconnect":
+            disconnect(message);
+            sendResponse(message);
+            break;
         default:
             console.log("uncaught message type", message.type);
             break;
     }
-
-    if (message.greeting === "hello") sendResponse({ farewell: "goodbye" });
-});
-
-// background.js -> SafariWebExtesionHandler.swift
-browser.runtime.sendNativeMessage("application.id", { message: "Hello from background page" }, function (response) {
-    console.log("Received sendNativeMessage response:");
-    console.log(response);
 });

@@ -40,27 +40,18 @@ browser.runtime.sendMessage({ type: "isScanning" }).then((response) => {
     setIsScanning(response.isScanning);
 });
 
-// DISCOVERED DEVICES
-/**
- * @typedef DiscoveredDevice
- * @type {object}
- * @property {string} id
- * @property {string} name
- * @property {number} deviceType
- * @property {boolean} isConnected
- * @property {number} rssi
- * @property {HTMLElement|undefined} container
- * @property {string|undefined} ipAddress
- * @property {number} timestampDifference
- */
-/** @type {Object.<string, DiscoveredDevice>} */
-var discoveredDevices = {};
-
-const discoveredDevicesPoll = new Poll(() => {
+/** @type {Object.<string, UKDiscoveredDevice>} */
+let discoveredDevices = {};
+function requestDiscoveredDevices() {
     browser.runtime.sendMessage({ type: "requestDiscoveredDevices" }).then((response) => {
         console.log("requestDiscoveredDevices response: ", response);
         setDiscoveredDevices(response.discoveredDevices);
     });
+}
+requestDiscoveredDevices();
+
+const discoveredDevicesPoll = new Poll(() => {
+    requestDiscoveredDevices();
 }, 200);
 
 /** @type {HTMLTemplateElement} */
@@ -68,7 +59,7 @@ const discoveredDeviceTemplate = document.getElementById("discoveredDeviceTempla
 const discoveredDevicesContainer = document.getElementById("discoveredDevices");
 /**
  *
- * @param {[DiscoveredDevice]} newDiscoveredDevices
+ * @param {[UKDiscoveredDevice]} newDiscoveredDevices
  */
 function setDiscoveredDevices(newDiscoveredDevices) {
     for (const id in discoveredDevices) {
@@ -83,7 +74,21 @@ function setDiscoveredDevices(newDiscoveredDevices) {
             Object.assign(discoveredDevices[id], discoveredDevice);
         } else {
             const container = discoveredDeviceTemplate.content.cloneNode(true).querySelector(".discoveredDevice");
-            // add listeners
+            container.querySelector(".connectBle").addEventListener("click", () => {
+                browser.runtime.sendMessage({ type: "connect", id, connectionType: "bluetooth" }).then((response) => {
+                    console.log("disconnect response: ", response);
+                });
+            });
+            container.querySelector(".connectUdp").addEventListener("click", () => {
+                browser.runtime.sendMessage({ type: "connect", id, connectionType: "udp" }).then((response) => {
+                    console.log("disconnect response: ", response);
+                });
+            });
+            container.querySelector(".disconnect").addEventListener("click", () => {
+                browser.runtime.sendMessage({ type: "disconnect", id }).then((response) => {
+                    console.log("disconnect response: ", response);
+                });
+            });
             discoveredDevice.container = container;
             discoveredDevices[id] = discoveredDevice;
             discoveredDevicesContainer.appendChild(container);

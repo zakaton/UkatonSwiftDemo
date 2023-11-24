@@ -40,6 +40,15 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
     var bluetoothManager: UKBluetoothManager { .shared }
     let safariWebExtension: SafariWebExtension = .shared
 
+    func getDiscoveredDeviceIndex(id: String) -> Int? {
+        bluetoothManager.discoveredDevices.firstIndex(where: { $0.id?.uuidString == id })
+    }
+
+    func getMission(id: String) -> UKMission? {
+        guard let discoveredDevice = bluetoothManager.discoveredDevices.first(where: { $0.id?.uuidString == id }) else { return nil }
+        return discoveredDevice.mission
+    }
+
     func beginRequest(with context: NSExtensionContext) {
         guard let item = context.inputItems.first as? NSExtensionItem,
               let userInfo = item.userInfo as? [String: Any],
@@ -103,6 +112,26 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
                     },
                     "timestamp": safariWebExtension.timeSinceUpdatedDiscoveredDevices
                 ]]
+            }
+        case "connect":
+            if let id = message["id"] as? String,
+               let discoveredDeviceIndex = getDiscoveredDeviceIndex(id: id),
+               let connectionTypeString = message["connectionType"] as? String,
+               let connectionType: UKConnectionType = .init(from: connectionTypeString)
+            {
+                bluetoothManager.discoveredDevices[discoveredDeviceIndex].connect(type: connectionType)
+            }
+            else {
+                logger.error("no discoveredDevice found in connect message")
+            }
+        case "disconnect":
+            if let id = message["id"] as? String,
+               let discoveredDeviceIndex = getDiscoveredDeviceIndex(id: id)
+            {
+                bluetoothManager.discoveredDevices[discoveredDeviceIndex].disconnect()
+            }
+            else {
+                logger.error("no discoveredDevice found in disconnect message")
             }
         default:
             logger.warning("uncaught exception for message type")
