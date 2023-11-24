@@ -5,6 +5,8 @@ struct DiscoveredDeviceRowStatus: View {
     @Binding var discoveredDevice: UKDiscoveredBluetoothDevice
     @ObservedObject var mission: UKMission
 
+    @ObservedObject private var bluetoothManager: UKBluetoothManager = .shared
+
     init(discoveredDevice: Binding<UKDiscoveredBluetoothDevice>) {
         self._discoveredDevice = discoveredDevice
         self.mission = discoveredDevice.wrappedValue.mission
@@ -12,9 +14,9 @@ struct DiscoveredDeviceRowStatus: View {
 
     var isWatch: Bool {
         #if os(watchOS)
-        true
+            true
         #else
-        false
+            false
         #endif
     }
 
@@ -49,7 +51,7 @@ struct DiscoveredDeviceRowStatus: View {
         let layout = isWatch ? AnyLayout(VStackLayout()) : AnyLayout(HStackLayout(spacing: 15))
 
         layout {
-            if !mission.isConnected {
+            if bluetoothManager.isScanning, !mission.isConnected {
                 HStack(spacing: 15) {
                     if let rssi = discoveredDevice.rssi {
                         Label(String(format: "%3d", rssi.intValue), systemImage: "cellularbars")
@@ -81,4 +83,7 @@ struct DiscoveredDeviceRowStatus: View {
 
 #Preview {
     DiscoveredDeviceRowStatus(discoveredDevice: .constant(.none))
+    #if os(macOS)
+        .frame(maxWidth: 300)
+    #endif
 }
