@@ -8,6 +8,16 @@ body {
 
     font-family: system-ui;
     text-align: center;
+
+    font-size: larger;
+}
+
+#toggleScan {
+    font-size: larger;
+}
+
+button {
+    font-size: large;
 }
 
 #discoveredDevices {

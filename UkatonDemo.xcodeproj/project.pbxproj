@@ -182,6 +182,12 @@
 		5F8B9DDF2B096DE400E53711 /* DiscoveredDeviceRowHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F83E5D82B068FF900056593 /* DiscoveredDeviceRowHeader.swift */; };
 		5F8B9DE02B096DE800E53711 /* MissionPairDemosSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F82BE2B03E2D900DDD9AB /* MissionPairDemosSection.swift */; };
 		5F8B9DE12B096DE800E53711 /* MissionPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F82B62B02970300DDD9AB /* MissionPair.swift */; };
+		5F93F7F02B10021C0007B4BD /* Poll.js in Resources */ = {isa = PBXBuildFile; fileRef = 5F93F7EF2B10021C0007B4BD /* Poll.js */; };
+		5F93F7F12B10021C0007B4BD /* Poll.js in Resources */ = {isa = PBXBuildFile; fileRef = 5F93F7EF2B10021C0007B4BD /* Poll.js */; };
+		5F93F7F22B10021C0007B4BD /* Poll.js in Resources */ = {isa = PBXBuildFile; fileRef = 5F93F7EF2B10021C0007B4BD /* Poll.js */; };
+		5F93F7F42B10366F0007B4BD /* UkatonKit.js in Resources */ = {isa = PBXBuildFile; fileRef = 5F93F7F32B10366F0007B4BD /* UkatonKit.js */; };
+		5F93F7F52B10366F0007B4BD /* UkatonKit.js in Resources */ = {isa = PBXBuildFile; fileRef = 5F93F7F32B10366F0007B4BD /* UkatonKit.js */; };
+		5F93F7F62B10366F0007B4BD /* UkatonKit.js in Resources */ = {isa = PBXBuildFile; fileRef = 5F93F7F32B10366F0007B4BD /* UkatonKit.js */; };
 		5F9779062B0AA1230057AA56 /* (iOS) Ukaton Demo Safari Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5F9778EE2B0AA1230057AA56 /* (iOS) Ukaton Demo Safari Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5F97790C2B0AA28E0057AA56 /* UkatonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5F97790B2B0AA28E0057AA56 /* UkatonKit */; };
 		5F9F82B72B02970300DDD9AB /* MissionPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F82B62B02970300DDD9AB /* MissionPair.swift */; };
@@ -378,6 +384,8 @@
 		5F8741F22B0AA62E00D67026 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F8B9DA82B096CDE00E53711 /* (TV) Ukaton Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "(TV) Ukaton Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F8B9DB12B096CDF00E53711 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5F93F7EF2B10021C0007B4BD /* Poll.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Poll.js; sourceTree = "<group>"; };
+		5F93F7F32B10366F0007B4BD /* UkatonKit.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = UkatonKit.js; sourceTree = "<group>"; };
 		5F9778EE2B0AA1230057AA56 /* (iOS) Ukaton Demo Safari Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "(iOS) Ukaton Demo Safari Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F9779032B0AA1230057AA56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F9F82B62B02970300DDD9AB /* MissionPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionPair.swift; sourceTree = "<group>"; };
@@ -763,6 +771,8 @@
 				5FD458C52B0BDB7D0030BE6E /* popup.html */,
 				5FD458C72B0BDB7D0030BE6E /* popup.css */,
 				5FD458C92B0BDB7D0030BE6E /* popup.js */,
+				5F93F7EF2B10021C0007B4BD /* Poll.js */,
+				5F93F7F32B10366F0007B4BD /* UkatonKit.js */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1171,6 +1181,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F93F7F02B10021C0007B4BD /* Poll.js in Resources */,
+				5F93F7F42B10366F0007B4BD /* UkatonKit.js in Resources */,
 				5F6A0DF02B0D471600E15FFC /* content.js in Resources */,
 				5F6A0DEC2B0D471600E15FFC /* popup.css in Resources */,
 				5F6A0DEE2B0D471600E15FFC /* popup.js in Resources */,
@@ -1186,6 +1198,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F93F7F12B10021C0007B4BD /* Poll.js in Resources */,
+				5F93F7F52B10366F0007B4BD /* UkatonKit.js in Resources */,
 				5FD458C22B0BDB7D0030BE6E /* background.js in Resources */,
 				5FD458C82B0BDB7D0030BE6E /* popup.css in Resources */,
 				5FD458C62B0BDB7D0030BE6E /* popup.html in Resources */,
@@ -1201,6 +1215,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F93F7F22B10021C0007B4BD /* Poll.js in Resources */,
+				5F93F7F62B10366F0007B4BD /* UkatonKit.js in Resources */,
 				5F6A0DE02B0D462900E15FFC /* popup.css in Resources */,
 				5F6A0DE22B0D462900E15FFC /* popup.js in Resources */,
 				5F6A0DE42B0D462E00E15FFC /* _locales in Resources */,

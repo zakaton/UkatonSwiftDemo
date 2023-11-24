@@ -3,18 +3,18 @@ var isScanning = false;
 var expectedIsScanning = isScanning;
 function setIsScanning(newIsScanning) {
     if (newIsScanning == expectedIsScanning) {
-        pollForIsScanningUpdate.stop();
+        isScanningPoll.stop();
         console.log("set isScannng", newIsScanning);
         isScanning = newIsScanning;
-        toggleScanButton.innerText = isScanning ? "stop scan" : "scan";
+        toggleScanButton.innerText = isScanning ? "stop scanning" : "scan for devices";
 
         if (isScanning) {
-            pollDiscoveredDevicesUpdate.start();
+            discoveredDevicesPoll.start();
         } else {
-            pollDiscoveredDevicesUpdate.stop();
+            discoveredDevicesPoll.stop();
         }
     } else {
-        pollForIsScanningUpdate.start();
+        isScanningPoll.start();
     }
 }
 
@@ -27,39 +27,7 @@ toggleScanButton.addEventListener("click", () => {
     });
 });
 
-class Poll {
-    /**
-     *
-     * @param {function():void} callback
-     * @param {number} interval
-     */
-    constructor(callback, interval) {
-        this.callback = callback;
-        this.interval = interval;
-        this.intervalId = null;
-    }
-
-    /** @type {number|null} */
-    intervalId = null;
-
-    get isRunning() {
-        return this.intervalId != null;
-    }
-
-    start() {
-        if (!this.isRunning) {
-            this.intervalId = setInterval(() => this.callback(), this.interval);
-        }
-    }
-    stop() {
-        if (this.isRunning) {
-            clearInterval(this.intervalId);
-            this.intervalId = null;
-        }
-    }
-}
-
-const pollForIsScanningUpdate = new Poll(() => {
+const isScanningPoll = new Poll(() => {
     browser.runtime.sendMessage({ type: "isScanning" }).then((response) => {
         console.log("toggleScan response: ", response);
         setIsScanning(response.isScanning);
@@ -86,12 +54,12 @@ browser.runtime.sendMessage({ type: "isScanning" }).then((response) => {
 /** @type {Object.<string, DiscoveredDevice>} */
 var discoveredDevices = {};
 
-const pollDiscoveredDevicesUpdate = new Poll(() => {
+const discoveredDevicesPoll = new Poll(() => {
     browser.runtime.sendMessage({ type: "requestDiscoveredDevices" }).then((response) => {
         console.log("requestDiscoveredDevices response: ", response);
         setDiscoveredDevices(response.discoveredDevices);
     });
-}, 100);
+}, 200);
 
 /** @type {HTMLTemplateElement} */
 const discoveredDeviceTemplate = document.getElementById("discoveredDeviceTemplate");
@@ -112,16 +80,13 @@ function setDiscoveredDevices(newDiscoveredDevices) {
             delete discoveredDevices[id].shouldRemove;
             Object.assign(discoveredDevices[id], discoveredDevice);
         } else {
-            const container = discoveredDeviceTemplate.content
-                .cloneNode(true)
-                .querySelector(".discoveredDevice");
+            const container = discoveredDeviceTemplate.content.cloneNode(true).querySelector(".discoveredDevice");
             // add listeners
             discoveredDevice.container = container;
             discoveredDevices[id] = discoveredDevice;
             discoveredDevicesContainer.appendChild(container);
         }
 
-        // FILL - styling
         const { container } = discoveredDevices[id];
         console.log(container.querySelector(".name"));
         container.querySelector(".name").innerText = name;
