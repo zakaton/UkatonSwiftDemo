@@ -131,9 +131,14 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
             if let id = message["id"] as? String,
                let mission = getMission(id: id)
             {
-                response.userInfo = [SFExtensionMessageKey: [
+                var message: [String: Any] = [
                     "connectionStatus": mission.connectionStatus.name
-                ]]
+                ]
+                if let connectionType = mission.connectionType {
+                    message["connectionType"] = connectionType.name
+                }
+
+                response.userInfo = [SFExtensionMessageKey: message]
             }
             else {
                 logger.error("no mission found in isConnected message")

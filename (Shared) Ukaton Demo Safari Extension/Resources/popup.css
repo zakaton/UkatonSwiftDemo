@@ -52,11 +52,24 @@ button {
     content: "👟 ";
 }
 
-.discoveredDevice[data-connection-status="connected"] .notConnected {
+.discoveredDevice:not([data-connection-status="connected"]) .connected {
     display: none;
 }
-.discoveredDevice[data-connection-status="not connected"] .connected {
+.discoveredDevice:not([data-connection-status="not connected"]) .notConnected {
     display: none;
+}
+.discoveredDevice:not([data-connection-status="connecting"]) .connecting {
+    display: none;
+}
+.discoveredDevice:not([data-connection-status="disconnecting"]) .disconnecting {
+    display: none;
+}
+
+.discoveredDevice[data-connection-type="bluetooth"] .connectionType::after {
+    content: "bluetooth"
+}
+.discoveredDevice[data-connection-type="udp"] .connectionType::after {
+    content: "udp"
 }
 
 .discoveredDevice .connection {

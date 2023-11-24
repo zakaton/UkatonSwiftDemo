@@ -75,8 +75,15 @@ function requestConnectionStatus({ id }) {
         console.log("Received connectionStatus response:", response);
         const discoveredDevice = getDiscoveredDeviceById(id);
         const newConnectionStatus = response.connectionStatus;
+        const newConnectionType = response.connectionType;
         discoveredDevice.connectionStatus = newConnectionStatus;
-        browser.runtime.sendMessage({ type: "connectionStatus", id, connectionStatus: newConnectionStatus });
+        discoveredDevice.connectionType = newConnectionType;
+        browser.runtime.sendMessage({
+            type: "connectionStatus",
+            id,
+            connectionStatus: newConnectionStatus,
+            connectionType: newConnectionType,
+        });
     });
 }
 

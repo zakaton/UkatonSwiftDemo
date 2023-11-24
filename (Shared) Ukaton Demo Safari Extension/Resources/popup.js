@@ -86,13 +86,15 @@ function setDiscoveredDevices(newDiscoveredDevices) {
             }, 500);
             const onConnectionStatusUpdate = (response) => {
                 console.log("connectionStatus response: ", response);
+                discoveredDevice.connectionStatus = response.connectionStatus;
+                container.dataset.connectionStatus = response.connectionStatus;
+
+                discoveredDevice.connectionType = response.connectionType;
+                container.dataset.connectionType = response.connectionType;
+
                 if (response.connectionStatus == expectedConnectionStatus) {
                     console.log("connection updated!");
-                    discoveredDevice.connectionStatus = response.connectionStatus;
-                    container.dataset.connectionStatus = response.connectionStatus;
                     connectionStatusPoll.stop();
-                } else {
-                    // FILL - connecting... or disconnecting...
                 }
             };
             const container = discoveredDeviceTemplate.content.cloneNode(true).querySelector(".discoveredDevice");
@@ -127,6 +129,9 @@ function setDiscoveredDevices(newDiscoveredDevices) {
         const { container } = discoveredDevices[id];
         container.dataset.deviceType = deviceType;
         container.dataset.connectionStatus = connectionStatus;
+        if (connectionType) {
+            container.dataset.connectionType = connectionType;
+        }
         container.querySelector(".name").innerText = name;
         container.querySelector(".deviceType").innerText = deviceType;
         container.querySelector(".rssi").innerText = rssi;
