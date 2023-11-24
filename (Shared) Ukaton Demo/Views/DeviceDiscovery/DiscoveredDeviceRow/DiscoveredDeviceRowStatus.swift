@@ -5,7 +5,8 @@ struct DiscoveredDeviceRowStatus: View {
     @Binding var discoveredDevice: UKDiscoveredBluetoothDevice
     @ObservedObject var mission: UKMission
 
-    @ObservedObject private var bluetoothManager: UKBluetoothManager = .shared
+    private var bluetoothManager: UKBluetoothManager = .shared
+    @State private var isScanning: Bool = false
 
     init(discoveredDevice: Binding<UKDiscoveredBluetoothDevice>) {
         self._discoveredDevice = discoveredDevice
@@ -51,7 +52,7 @@ struct DiscoveredDeviceRowStatus: View {
         let layout = isWatch ? AnyLayout(VStackLayout()) : AnyLayout(HStackLayout(spacing: 15))
 
         layout {
-            if bluetoothManager.isScanning, !mission.isConnected {
+            if isScanning, !mission.isConnected {
                 HStack(spacing: 15) {
                     if let rssi = discoveredDevice.rssi {
                         Label(String(format: "%3d", rssi.intValue), systemImage: "cellularbars")
@@ -74,6 +75,8 @@ struct DiscoveredDeviceRowStatus: View {
             }
         }
         .onReceive(mission.batteryLevelSubject, perform: { batteryLevel = $0
+        })
+        .onReceive(bluetoothManager.$isScanning, perform: { isScanning = $0
         })
         .labelStyle(LabelSpacing(spacing: 4))
         .font(Font.system(isWatch ? .caption2 : .caption, design: .monospaced))
