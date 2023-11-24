@@ -52,10 +52,10 @@ button {
     content: "👟 ";
 }
 
-.discoveredDevice[data-is-connected="true"] .notConnected {
+.discoveredDevice[data-connection-status="connected"] .notConnected {
     display: none;
 }
-.discoveredDevice[data-is-connected="false"] .connected {
+.discoveredDevice[data-connection-status="not connected"] .connected {
     display: none;
 }
 

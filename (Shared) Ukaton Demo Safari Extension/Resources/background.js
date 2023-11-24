@@ -70,13 +70,13 @@ function disconnect({ id }) {
         console.log("Received disconnect response:", response);
     });
 }
-function requestIsConnected({ id }) {
-    sendMessage({ type: "requestIsConnected", id }, (response) => {
-        console.log("Received isConnected response:", response);
+function requestConnectionStatus({ id }) {
+    sendMessage({ type: "requestConnectionStatus", id }, (response) => {
+        console.log("Received connectionStatus response:", response);
         const discoveredDevice = getDiscoveredDeviceById(id);
-        const newIsConnected = response.isConnected;
-        discoveredDevice.isConnected = newIsConnected;
-        browser.runtime.sendMessage({ type: "isConnected", id, isConnected: newIsConnected });
+        const newConnectionStatus = response.connectionStatus;
+        discoveredDevice.connectionStatus = newConnectionStatus;
+        browser.runtime.sendMessage({ type: "connectionStatus", id, connectionStatus: newConnectionStatus });
     });
 }
 
@@ -111,8 +111,8 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
             disconnect(message);
             sendResponse(message);
             break;
-        case "requestIsConnected":
-            requestIsConnected(message);
+        case "requestConnectionStatus":
+            requestConnectionStatus(message);
             sendResponse(message);
             break;
         default:

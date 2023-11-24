@@ -15,13 +15,14 @@ function iOS() {
  * @property {string} id
  * @property {string} name
  * @property {number} deviceType
- * @property {boolean} isConnected
+ * @property {string|undefined} connectionType
+ * @property {string} connectionStatus
  * @property {number} rssi
  * @property {HTMLElement|undefined} container
  * @property {string|undefined} ipAddress
  * @property {number} timestampDifference
  * @property {boolean|undefined} shouldRemove
- * @property {Poll} isConnectedPoll
+ * @property {Poll} connectionStatusPoll
  */
 
 class UKMission {}

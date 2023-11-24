@@ -103,10 +103,13 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
                             "rssi": $0.rssi?.intValue ?? 0,
                             "id": $0.id?.uuidString ?? "",
                             "timestampDifference": $0.timestampDifference_ms,
-                            "isConnected": $0.mission.isConnected
+                            "connectionStatus": $0.mission.connectionStatus.name
                         ]
                         if $0.isConnectedToWifi, let ipAddress = $0.ipAddress {
                             discoveredDeviceInfo["ipAddress"] = ipAddress
+                        }
+                        if let connectionType = $0.mission.connectionType {
+                            discoveredDeviceInfo["connectionType"] = connectionType.name
                         }
                         return discoveredDeviceInfo
                     },
@@ -124,12 +127,12 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
             else {
                 logger.error("no discoveredDevice found in connect message")
             }
-        case "requestIsConnected":
+        case "requestConnectionStatus":
             if let id = message["id"] as? String,
                let mission = getMission(id: id)
             {
                 response.userInfo = [SFExtensionMessageKey: [
-                    "isConnected": mission.isConnected
+                    "connectionStatus": mission.connectionStatus.name
                 ]]
             }
             else {
