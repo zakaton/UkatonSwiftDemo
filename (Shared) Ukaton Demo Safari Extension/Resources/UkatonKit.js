@@ -1,1 +1,6 @@
-const UkatonKit = {};
+class UKMission {}
+
+const UkatonKit = {
+    /** @type {[UKMission]} */
+    devices: [],
+};

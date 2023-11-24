@@ -90,7 +90,7 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
                     "discoveredDevices": bluetoothManager.discoveredDevices.map {
                         var discoveredDeviceInfo: [String: Any] = [
                             "name": $0.name,
-                            "deviceType": $0.deviceType.rawValue,
+                            "deviceType": $0.deviceType.name,
                             "rssi": $0.rssi?.intValue ?? 0,
                             "id": $0.id?.uuidString ?? ""
                         ]
