@@ -47,10 +47,11 @@ browser.runtime.sendMessage({ type: "isScanning" }).then((response) => {
  * @property {string} id
  * @property {string} name
  * @property {number} deviceType
+ * @property {boolean} isConnected
  * @property {number} rssi
  * @property {HTMLElement|undefined} container
  * @property {string|undefined} ipAddress
- * @property {timestampDifference|undefined} timestampDifference
+ * @property {number} timestampDifference
  */
 /** @type {Object.<string, DiscoveredDevice>} */
 var discoveredDevices = {};
@@ -75,7 +76,7 @@ function setDiscoveredDevices(newDiscoveredDevices) {
     }
 
     newDiscoveredDevices.forEach((discoveredDevice) => {
-        const { id, name, deviceType, ipAddress, rssi, timestampDifference } = discoveredDevice;
+        const { id, name, deviceType, ipAddress, rssi, timestampDifference, isConnected } = discoveredDevice;
 
         if (discoveredDevices[id]) {
             delete discoveredDevices[id].shouldRemove;
@@ -89,11 +90,12 @@ function setDiscoveredDevices(newDiscoveredDevices) {
         }
 
         const { container } = discoveredDevices[id];
-        console.log(container.querySelector(".name"));
+        container.dataset.deviceType = deviceType;
+        container.dataset.isConnected = isConnected;
         container.querySelector(".name").innerText = name;
         container.querySelector(".deviceType").innerText = deviceType;
         container.querySelector(".rssi").innerText = rssi;
-        container.querySelector(".timestampDifference").innerText = timestampDifference;
+        container.querySelector(".timestampDifference").innerText = timestampDifference.toFixed(3);
         if (ipAddress) {
             container.querySelector(".ipAddress").innerText = ipAddress;
             container.querySelector(".ipAddress").classList.remove(".hidden");

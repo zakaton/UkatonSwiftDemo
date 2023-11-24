@@ -3,13 +3,14 @@
 }
 
 body {
-    min-width: 150px;
+    width: max-content;
     padding: 10px;
 
     font-family: system-ui;
     text-align: center;
 
-    font-size: larger;
+    font-size: large;
+    margin: auto;
 }
 
 #toggleScan {
@@ -23,6 +24,66 @@ button {
 #discoveredDevices {
     display: flex;
     flex-direction: column;
+}
+
+.discoveredDevice {
+    display: flex;
+    flex-direction: column;
+}
+
+#discoveredDevices .discoveredDevice:not(:first-of-type) {
+    margin-top: 30px;
+}
+
+.discoveredDevice .header {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+}
+.discoveredDevice .header *:not(:first-child) {
+    margin-left: 10px;
+}
+
+.discoveredDevice[data-device-type$="insole"] .deviceType::before {
+    content: "👟 ";
+}
+
+.discoveredDevice[data-is-connected="true"] .notConnected {
+    display: none;
+}
+.discoveredDevice[data-is-connected="false"] .connected {
+    display: none;
+}
+
+.discoveredDevice .connection {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: auto;
+}
+.discoveredDevice .connection *:not(:first-child) {
+    margin-left: 10px;
+}
+
+.discoveredDevice .status {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: auto;
+}
+
+.discoveredDevice .status *:not(:first-child) {
+    margin-left: 10px;
+}
+
+.discoveredDevice .rssi::before {
+    content: "📶 ";
+}
+.timestampDifference::before {
+    content: "⏱️ ";
+}
+.discoveredDevice .ipAddress::before {
+    content: "🛜 ";
 }
 
 .hidden {

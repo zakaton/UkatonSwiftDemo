@@ -10,20 +10,20 @@
         <div id="discoveredDevices">
             <template id="discoveredDeviceTemplate">
                 <div class="discoveredDevice">
-                    <div class="header" style="display: flex; flex-direction: column">
-                        <span class="name"></span>
+                    <div class="header">
+                        <b><span class="name"></span></b>
                         <span class="deviceType"></span>
                     </div>
-                    <div class="connection" style="display: flex; flex-direction: row">
+                    <div class="connection">
                         <div class="notConnected">connect via:</div>
                         <button class="connectBle notConnected">bluetooth</button>
                         <button class="connectUdp notConnected">udp</button>
                         <button class="disconnect connected">disconnect</button>
                     </div>
-                    <div class="status" style="display: flex; flex-direction: row">
+                    <div class="status">
                         <span class="rssi"></span>
-                        <span class="ipAddress"></span>
                         <span class="timestampDifference"></span>
+                        <span class="ipAddress"></span>
                     </div>
                 </div>
             </template>
