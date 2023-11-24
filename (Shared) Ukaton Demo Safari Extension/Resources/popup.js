@@ -127,3 +127,12 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
             console.log("uncaught type", message.type);
     }
 });
+
+window.addEventListener("unload", () => {
+    if (isScanning) {
+        browser.runtime.sendMessage({ type: "stopScan" }).then((response) => {
+            console.log("stopScan response: ", response);
+            setIsScanning(response.isScanning);
+        });
+    }
+});

@@ -68,6 +68,13 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
                 "isScanning": bluetoothManager.isScanning,
                 "timestamp": safariWebExtension.timeSinceUpdatedIsScanning
             ]]
+        case "stopScan":
+            logger.debug("stop scan")
+            bluetoothManager.stopScanningForDevices()
+            response.userInfo = [SFExtensionMessageKey: [
+                "isScanning": bluetoothManager.isScanning,
+                "timestamp": safariWebExtension.timeSinceUpdatedIsScanning
+            ]]
         case "requestIsScanning":
             logger.debug("request isScanning")
             if timestamp != safariWebExtension.timeSinceUpdatedIsScanning {

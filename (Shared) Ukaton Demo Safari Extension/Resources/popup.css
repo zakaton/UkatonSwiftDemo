@@ -3,7 +3,7 @@
 }
 
 body {
-    min-width: 300px;
+    min-width: 150px;
     padding: 10px;
 
     font-family: system-ui;
@@ -13,7 +13,7 @@ body {
 }
 
 #toggleScan {
-    font-size: larger;
+    font-size: large;
 }
 
 button {

@@ -16,6 +16,14 @@ function toggleScan() {
         browser.runtime.sendMessage({ type: "isScanning", isScanning });
     });
 }
+function stopScan() {
+    sendMessage({ type: "stopScan" }, (response) => {
+        console.log("Received toggleScan response:", response);
+        isScanning = response.isScanning;
+        isScanningTimestamp = response.timestamp;
+        browser.runtime.sendMessage({ type: "isScanning", isScanning });
+    });
+}
 function requestIsScanning() {
     sendMessage(
         {
@@ -61,6 +69,10 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
             break;
         case "toggleScan":
             toggleScan();
+            sendResponse({ isScanning });
+            break;
+        case "stopScan":
+            stopScan();
             sendResponse({ isScanning });
             break;
         case "requestDiscoveredDevices":
