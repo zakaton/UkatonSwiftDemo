@@ -92,7 +92,8 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
                             "name": $0.name,
                             "deviceType": $0.deviceType.name,
                             "rssi": $0.rssi?.intValue ?? 0,
-                            "id": $0.id?.uuidString ?? ""
+                            "id": $0.id?.uuidString ?? "",
+                            "timestampDifference": $0.timestampDifference_ms
                         ]
                         if $0.isConnectedToWifi, let ipAddress = $0.ipAddress {
                             discoveredDeviceInfo["ipAddress"] = ipAddress

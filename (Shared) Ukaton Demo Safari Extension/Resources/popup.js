@@ -50,6 +50,7 @@ browser.runtime.sendMessage({ type: "isScanning" }).then((response) => {
  * @property {number} rssi
  * @property {HTMLElement|undefined} container
  * @property {string|undefined} ipAddress
+ * @property {timestampDifference|undefined} timestampDifference
  */
 /** @type {Object.<string, DiscoveredDevice>} */
 var discoveredDevices = {};
@@ -74,7 +75,7 @@ function setDiscoveredDevices(newDiscoveredDevices) {
     }
 
     newDiscoveredDevices.forEach((discoveredDevice) => {
-        const { id, name, deviceType, ipAddress, rssi } = discoveredDevice;
+        const { id, name, deviceType, ipAddress, rssi, timestampDifference } = discoveredDevice;
 
         if (discoveredDevices[id]) {
             delete discoveredDevices[id].shouldRemove;
@@ -92,6 +93,7 @@ function setDiscoveredDevices(newDiscoveredDevices) {
         container.querySelector(".name").innerText = name;
         container.querySelector(".deviceType").innerText = deviceType;
         container.querySelector(".rssi").innerText = rssi;
+        container.querySelector(".timestampDifference").innerText = timestampDifference;
         if (ipAddress) {
             container.querySelector(".ipAddress").innerText = ipAddress;
             container.querySelector(".ipAddress").classList.remove(".hidden");
