@@ -41,6 +41,9 @@ function requestIsScanning() {
 }
 
 var discoveredDevices = [];
+function getDiscoveredDeviceById(id) {
+    return discoveredDevices.find((discoveredDevice) => discoveredDevice.id == id);
+}
 var discoveredDevicesTimestamp = 0;
 function requestDiscoveredDevices() {
     sendMessage(
@@ -65,6 +68,15 @@ function connect({ id, connectionType }) {
 function disconnect({ id }) {
     sendMessage({ type: "disconnect", id }, (response) => {
         console.log("Received disconnect response:", response);
+    });
+}
+function requestIsConnected({ id }) {
+    sendMessage({ type: "requestIsConnected", id }, (response) => {
+        console.log("Received isConnected response:", response);
+        const discoveredDevice = getDiscoveredDeviceById(id);
+        const newIsConnected = response.isConnected;
+        discoveredDevice.isConnected = newIsConnected;
+        browser.runtime.sendMessage({ type: "isConnected", id, isConnected: newIsConnected });
     });
 }
 
@@ -97,6 +109,10 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
             break;
         case "disconnect":
             disconnect(message);
+            sendResponse(message);
+            break;
+        case "requestIsConnected":
+            requestIsConnected(message);
             sendResponse(message);
             break;
         default:

@@ -1,3 +1,7 @@
+if (iOS()) {
+    document.body.classList.add("iOS");
+}
+
 // SCANNING
 var isScanning = false;
 var expectedIsScanning = isScanning;
@@ -73,24 +77,46 @@ function setDiscoveredDevices(newDiscoveredDevices) {
             delete discoveredDevices[id].shouldRemove;
             Object.assign(discoveredDevices[id], discoveredDevice);
         } else {
+            let expectedIsConnected = isConnected;
+            const isConnectedPoll = new Poll(() => {
+                browser.runtime.sendMessage({ type: "requestIsConnected", id }).then((response) => {
+                    console.log("isConnected response: ", response);
+                });
+            }, 500);
+            const onIsConnectedUpdate = (response) => {
+                console.log("isConnected response: ", response);
+                if (response.isConnected == expectedIsConnected) {
+                    console.log("connection updated!");
+                    discoveredDevice.isConnected = response.isConnected;
+                    container.dataset.isConnected = response.isConnected;
+                }
+            };
             const container = discoveredDeviceTemplate.content.cloneNode(true).querySelector(".discoveredDevice");
             container.querySelector(".connectBle").addEventListener("click", () => {
                 browser.runtime.sendMessage({ type: "connect", id, connectionType: "bluetooth" }).then((response) => {
-                    console.log("disconnect response: ", response);
+                    console.log("connect response: ", response);
+                    expectedIsConnected = true;
+                    isConnectedPoll.start();
                 });
             });
             container.querySelector(".connectUdp").addEventListener("click", () => {
                 browser.runtime.sendMessage({ type: "connect", id, connectionType: "udp" }).then((response) => {
-                    console.log("disconnect response: ", response);
+                    console.log("connect response: ", response);
+                    expectedIsConnected = true;
+                    isConnectedPoll.start();
                 });
             });
             container.querySelector(".disconnect").addEventListener("click", () => {
                 browser.runtime.sendMessage({ type: "disconnect", id }).then((response) => {
                     console.log("disconnect response: ", response);
+                    expectedIsConnected = false;
+                    isConnectedPoll.start();
                 });
             });
             discoveredDevice.container = container;
             discoveredDevices[id] = discoveredDevice;
+            discoveredDevices[id].isConnectedPoll = isConnectedPoll;
+            discoveredDevices[id].onIsConnectedUpdate = onIsConnectedUpdate;
             discoveredDevicesContainer.appendChild(container);
         }
 
@@ -121,6 +147,11 @@ function setDiscoveredDevices(newDiscoveredDevices) {
     console.log("discoveredDevices", discoveredDevices);
 }
 
+function setDiscoveredDeviceIsConnected(response) {
+    const discoveredDevice = discoveredDevices[response.id];
+    discoveredDevice.onIsConnectedUpdate(response);
+}
+
 // popup.js <- background.js
 browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
     console.log("received message", message);
@@ -131,6 +162,9 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
             break;
         case "discoveredDevices":
             setDiscoveredDevices(message.discoveredDevices);
+            break;
+        case "isConnected":
+            setDiscoveredDeviceIsConnected(message);
             break;
         default:
             console.log("uncaught type", message.type);

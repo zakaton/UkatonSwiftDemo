@@ -124,6 +124,17 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
             else {
                 logger.error("no discoveredDevice found in connect message")
             }
+        case "requestIsConnected":
+            if let id = message["id"] as? String,
+               let mission = getMission(id: id)
+            {
+                response.userInfo = [SFExtensionMessageKey: [
+                    "isConnected": mission.isConnected
+                ]]
+            }
+            else {
+                logger.error("no mission found in isConnected message")
+            }
         case "disconnect":
             if let id = message["id"] as? String,
                let discoveredDeviceIndex = getDiscoveredDeviceIndex(id: id)
