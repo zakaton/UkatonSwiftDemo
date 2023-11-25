@@ -5,7 +5,7 @@
     "name": "__MSG_extension_name__",
     "description": "__MSG_extension_description__",
     "version": "1.0",
-    "homepage_url": "https://www.linkedin.com/company/ukaton",
+    "homepage_url": "https://www.ukaton.com",
 
     "icons": {
         "48": "images/icon-48.png",
@@ -18,9 +18,13 @@
     "background": {
         "service_worker": "background.js"
     },
+    
+    "web_accessible_resources": [
+        "UkatonKit/*.js"
+    ],
 
     "content_scripts": [{
-        "js": [ "UkatonKit.js", "content.js"],
+        "js": [ "UkatonKit.js"],
         "matches": ["<all_urls>"]
     }],
 

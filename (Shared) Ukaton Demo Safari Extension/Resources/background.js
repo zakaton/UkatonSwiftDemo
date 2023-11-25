@@ -9,30 +9,22 @@ function sendMessage(message, callback) {
 
 var isScanning = false;
 var isScanningTimestamp = 0;
-function toggleScan() {
-    sendMessage({ type: "toggleScan" }, (response) => {
-        console.log("Received toggleScan response:", response);
+function setScan({ newValue }) {
+    sendMessage({ type: "setScan", newValue }, (response) => {
+        console.log("Received setScan response:", response);
         isScanning = response.isScanning;
         isScanningTimestamp = response.timestamp;
         browser.runtime.sendMessage({ type: "isScanning", isScanning });
     });
 }
-function stopScan() {
-    sendMessage({ type: "stopScan" }, (response) => {
-        console.log("Received toggleScan response:", response);
-        isScanning = response.isScanning;
-        isScanningTimestamp = response.timestamp;
-        browser.runtime.sendMessage({ type: "isScanning", isScanning });
-    });
-}
-function requestIsScanning() {
+function checkIsScanning() {
     sendMessage(
         {
-            type: "requestIsScanning",
+            type: "isScanning",
             timestamp: isScanningTimestamp,
         },
         (response) => {
-            console.log("Received requestIsScanning response:", response);
+            console.log("Received checkIsScanning response:", response);
             isScanning = response.isScanning;
             isScanningTimestamp = response.timestamp;
             browser.runtime.sendMessage({ type: "isScanning", isScanning });
@@ -45,14 +37,14 @@ function getDiscoveredDeviceById(id) {
     return discoveredDevices.find((discoveredDevice) => discoveredDevice.id == id);
 }
 var discoveredDevicesTimestamp = 0;
-function requestDiscoveredDevices() {
+function checkDiscoveredDevices() {
     sendMessage(
         {
-            type: "requestDiscoveredDevices",
+            type: "discoveredDevices",
             timestamp: discoveredDevicesTimestamp,
         },
         (response) => {
-            console.log("Received requestDiscoveredDevices response:", response);
+            console.log("Received discoveredDevices response:", response);
             discoveredDevices = response.discoveredDevices;
             discoveredDevicesTimestamp = response.timestamp;
             browser.runtime.sendMessage({ type: "discoveredDevices", discoveredDevices });
@@ -70,8 +62,8 @@ function disconnect({ id }) {
         console.log("Received disconnect response:", response);
     });
 }
-function requestConnectionStatus({ id }) {
-    sendMessage({ type: "requestConnectionStatus", id }, (response) => {
+function connectionStatus({ id }) {
+    sendMessage({ type: "connectionStatus", id }, (response) => {
         console.log("Received connectionStatus response:", response);
         const discoveredDevice = getDiscoveredDeviceById(id);
         const newConnectionStatus = response.connectionStatus;
@@ -95,21 +87,18 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
     switch (type) {
         case "isScanning":
-            requestIsScanning();
+            checkIsScanning();
             sendResponse({ isScanning });
             break;
-        case "toggleScan":
-            toggleScan();
+        case "setScan":
+            setScan(message);
             sendResponse({ isScanning });
             break;
-        case "stopScan":
-            stopScan();
-            sendResponse({ isScanning });
-            break;
-        case "requestDiscoveredDevices":
-            requestDiscoveredDevices();
+        case "discoveredDevices":
+            checkDiscoveredDevices();
             sendResponse({ discoveredDevices });
             break;
+
         case "connect":
             connect(message);
             sendResponse(message);
@@ -118,10 +107,12 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
             disconnect(message);
             sendResponse(message);
             break;
-        case "requestConnectionStatus":
-            requestConnectionStatus(message);
+
+        case "connectionStatus":
+            connectionStatus(message);
             sendResponse(message);
             break;
+
         default:
             console.log("uncaught message type", message.type);
             break;

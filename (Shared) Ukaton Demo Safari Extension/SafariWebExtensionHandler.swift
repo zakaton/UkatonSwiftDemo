@@ -70,29 +70,32 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
         let timestamp = message["timestamp"] as? Double
 
         switch message["type"] as? String {
-        case "toggleScan":
-            logger.debug("toggle scan")
-            bluetoothManager.toggleDeviceScan()
+        case "setScan":
+            logger.debug("set scan")
+            if let newIsScanning = message["newValue"] as? Bool {
+                if newIsScanning {
+                    bluetoothManager.scanForDevices()
+                }
+                else {
+                    bluetoothManager.stopScanningForDevices()
+                }
+            }
+            else {
+                logger.error("undefined newValue")
+            }
             response.userInfo = [SFExtensionMessageKey: [
                 "isScanning": bluetoothManager.isScanning,
                 "timestamp": safariWebExtension.timeSinceUpdatedIsScanning
             ]]
-        case "stopScan":
-            logger.debug("stop scan")
-            bluetoothManager.stopScanningForDevices()
-            response.userInfo = [SFExtensionMessageKey: [
-                "isScanning": bluetoothManager.isScanning,
-                "timestamp": safariWebExtension.timeSinceUpdatedIsScanning
-            ]]
-        case "requestIsScanning":
-            logger.debug("request isScanning")
+        case "isScanning":
+            logger.debug("check isScanning")
             if timestamp != safariWebExtension.timeSinceUpdatedIsScanning {
                 response.userInfo = [SFExtensionMessageKey: [
                     "isScanning": bluetoothManager.isScanning,
                     "timestamp": safariWebExtension.timeSinceUpdatedIsScanning
                 ]]
             }
-        case "requestDiscoveredDevices":
+        case "discoveredDevices":
             logger.debug("request discovered devices")
             if timestamp != safariWebExtension.timeSinceUpdatedDiscoveredDevices {
                 response.userInfo = [SFExtensionMessageKey: [
@@ -116,6 +119,7 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
                     "timestamp": safariWebExtension.timeSinceUpdatedDiscoveredDevices
                 ]]
             }
+
         case "connect":
             if let id = message["id"] as? String,
                let discoveredDeviceIndex = getDiscoveredDeviceIndex(id: id),
@@ -127,7 +131,17 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
             else {
                 logger.error("no discoveredDevice found in connect message")
             }
-        case "requestConnectionStatus":
+        case "disconnect":
+            if let id = message["id"] as? String,
+               let discoveredDeviceIndex = getDiscoveredDeviceIndex(id: id)
+            {
+                bluetoothManager.discoveredDevices[discoveredDeviceIndex].disconnect()
+            }
+            else {
+                logger.error("no discoveredDevice found in disconnect message")
+            }
+
+        case "connectionStatus":
             if let id = message["id"] as? String,
                let mission = getMission(id: id)
             {
@@ -142,15 +156,6 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
             }
             else {
                 logger.error("no mission found in isConnected message")
-            }
-        case "disconnect":
-            if let id = message["id"] as? String,
-               let discoveredDeviceIndex = getDiscoveredDeviceIndex(id: id)
-            {
-                bluetoothManager.discoveredDevices[discoveredDeviceIndex].disconnect()
-            }
-            else {
-                logger.error("no discoveredDevice found in disconnect message")
             }
         default:
             logger.warning("uncaught exception for message type")
