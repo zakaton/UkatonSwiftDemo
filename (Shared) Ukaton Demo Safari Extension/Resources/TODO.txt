@@ -1,5 +1,4 @@
 UKDiscoveredDevice
     constructor
-    add or update
     connect/disconnect
 lit-element

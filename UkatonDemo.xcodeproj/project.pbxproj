@@ -241,6 +241,15 @@
 		5FD0E5482B127B85001CDBEF /* three.module.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 5FD0E5472B127B85001CDBEF /* three.module.min.js */; };
 		5FD0E5492B127B85001CDBEF /* three.module.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 5FD0E5472B127B85001CDBEF /* three.module.min.js */; };
 		5FD0E54A2B127B85001CDBEF /* three.module.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 5FD0E5472B127B85001CDBEF /* three.module.min.js */; };
+		5FD0E54E2B12A2B7001CDBEF /* UKDiscoveredDevice.js in Resources */ = {isa = PBXBuildFile; fileRef = 5FD0E54D2B12A2B7001CDBEF /* UKDiscoveredDevice.js */; };
+		5FD0E54F2B12A2B7001CDBEF /* UKDiscoveredDevice.js in Resources */ = {isa = PBXBuildFile; fileRef = 5FD0E54D2B12A2B7001CDBEF /* UKDiscoveredDevice.js */; };
+		5FD0E5502B12A2B7001CDBEF /* UKDiscoveredDevice.js in Resources */ = {isa = PBXBuildFile; fileRef = 5FD0E54D2B12A2B7001CDBEF /* UKDiscoveredDevice.js */; };
+		5FD0E5522B12A339001CDBEF /* UKBluetoothManager.js in Resources */ = {isa = PBXBuildFile; fileRef = 5FD0E5512B12A339001CDBEF /* UKBluetoothManager.js */; };
+		5FD0E5532B12A339001CDBEF /* UKBluetoothManager.js in Resources */ = {isa = PBXBuildFile; fileRef = 5FD0E5512B12A339001CDBEF /* UKBluetoothManager.js */; };
+		5FD0E5542B12A339001CDBEF /* UKBluetoothManager.js in Resources */ = {isa = PBXBuildFile; fileRef = 5FD0E5512B12A339001CDBEF /* UKBluetoothManager.js */; };
+		5FD0E5562B12A37B001CDBEF /* UKMission.js in Resources */ = {isa = PBXBuildFile; fileRef = 5FD0E5552B12A37B001CDBEF /* UKMission.js */; };
+		5FD0E5572B12A37B001CDBEF /* UKMission.js in Resources */ = {isa = PBXBuildFile; fileRef = 5FD0E5552B12A37B001CDBEF /* UKMission.js */; };
+		5FD0E5582B12A37B001CDBEF /* UKMission.js in Resources */ = {isa = PBXBuildFile; fileRef = 5FD0E5552B12A37B001CDBEF /* UKMission.js */; };
 		5FD458AA2B0AB1180030BE6E /* leftShoe.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 5F0F6F4A2AFDF3C5007D0D03 /* leftShoe.usdz */; };
 		5FD458AB2B0AB11B0030BE6E /* monkey.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 5F0F6F4E2AFE9CCB007D0D03 /* monkey.usdz */; };
 		5FD458B92B0BDB7D0030BE6E /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD458B82B0BDB7D0030BE6E /* SafariWebExtensionHandler.swift */; };
@@ -409,6 +418,9 @@
 		5FCC84BE2AFCA34100B755FA /* VibrationDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibrationDemo.swift; sourceTree = "<group>"; };
 		5FD0E53A2B1199F6001CDBEF /* lit-core.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "lit-core.min.js"; sourceTree = "<group>"; };
 		5FD0E5472B127B85001CDBEF /* three.module.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = three.module.min.js; sourceTree = "<group>"; };
+		5FD0E54D2B12A2B7001CDBEF /* UKDiscoveredDevice.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = UKDiscoveredDevice.js; sourceTree = "<group>"; };
+		5FD0E5512B12A339001CDBEF /* UKBluetoothManager.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = UKBluetoothManager.js; sourceTree = "<group>"; };
+		5FD0E5552B12A37B001CDBEF /* UKMission.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = UKMission.js; sourceTree = "<group>"; };
 		5FD458B62B0BDB7C0030BE6E /* (Mac) Ukaton Demo Safari Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "(Mac) Ukaton Demo Safari Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FD458B82B0BDB7D0030BE6E /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
 		5FD458BB2B0BDB7D0030BE6E /* _locales */ = {isa = PBXFileReference; lastKnownFileType = folder; path = _locales; sourceTree = "<group>"; };
@@ -761,6 +773,9 @@
 				5FD0E5472B127B85001CDBEF /* three.module.min.js */,
 				5F93F7EF2B10021C0007B4BD /* utils.js */,
 				5F93F7F32B10366F0007B4BD /* UkatonKit.js */,
+				5FD0E54D2B12A2B7001CDBEF /* UKDiscoveredDevice.js */,
+				5FD0E5512B12A339001CDBEF /* UKBluetoothManager.js */,
+				5FD0E5552B12A37B001CDBEF /* UKMission.js */,
 			);
 			path = UkatonKit;
 			sourceTree = "<group>";
@@ -1208,8 +1223,11 @@
 				5FD0E5482B127B85001CDBEF /* three.module.min.js in Resources */,
 				5F6A0DEC2B0D471600E15FFC /* popup.css in Resources */,
 				5F6A0DEE2B0D471600E15FFC /* popup.js in Resources */,
+				5FD0E5522B12A339001CDBEF /* UKBluetoothManager.js in Resources */,
+				5FD0E5562B12A37B001CDBEF /* UKMission.js in Resources */,
 				5F6A0DEF2B0D471600E15FFC /* background.js in Resources */,
 				5F6A0DED2B0D471600E15FFC /* popup.html in Resources */,
+				5FD0E54E2B12A2B7001CDBEF /* UKDiscoveredDevice.js in Resources */,
 				5F6A0DE52B0D462E00E15FFC /* images in Resources */,
 				5F6A0DEB2B0D470E00E15FFC /* manifest.json in Resources */,
 				5F6A0DE62B0D462E00E15FFC /* _locales in Resources */,
@@ -1226,8 +1244,11 @@
 				5FD0E5492B127B85001CDBEF /* three.module.min.js in Resources */,
 				5FD458C22B0BDB7D0030BE6E /* background.js in Resources */,
 				5FD458C82B0BDB7D0030BE6E /* popup.css in Resources */,
+				5FD0E5532B12A339001CDBEF /* UKBluetoothManager.js in Resources */,
+				5FD0E5572B12A37B001CDBEF /* UKMission.js in Resources */,
 				5FD458C62B0BDB7D0030BE6E /* popup.html in Resources */,
 				5FD458BE2B0BDB7D0030BE6E /* images in Resources */,
+				5FD0E54F2B12A2B7001CDBEF /* UKDiscoveredDevice.js in Resources */,
 				5FD458C02B0BDB7D0030BE6E /* manifest.json in Resources */,
 				5FD458BC2B0BDB7D0030BE6E /* _locales in Resources */,
 				5FD458CA2B0BDB7D0030BE6E /* popup.js in Resources */,
@@ -1244,8 +1265,11 @@
 				5FD0E54A2B127B85001CDBEF /* three.module.min.js in Resources */,
 				5F6A0DE02B0D462900E15FFC /* popup.css in Resources */,
 				5F6A0DE22B0D462900E15FFC /* popup.js in Resources */,
+				5FD0E5542B12A339001CDBEF /* UKBluetoothManager.js in Resources */,
+				5FD0E5582B12A37B001CDBEF /* UKMission.js in Resources */,
 				5F6A0DE42B0D462E00E15FFC /* _locales in Resources */,
 				5F6A0DDF2B0D462900E15FFC /* manifest.json in Resources */,
+				5FD0E5502B12A2B7001CDBEF /* UKDiscoveredDevice.js in Resources */,
 				5F6A0DDE2B0D462900E15FFC /* popup.html in Resources */,
 				5F6A0DE32B0D462E00E15FFC /* images in Resources */,
 				5F6A0DE12B0D462900E15FFC /* background.js in Resources */,
