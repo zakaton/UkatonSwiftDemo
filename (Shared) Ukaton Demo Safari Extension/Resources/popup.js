@@ -14,8 +14,10 @@ function setIsScanning(newIsScanning) {
 
         if (isScanning) {
             discoveredDevicesPoll.start();
+            document.body.classList.add("isScanning");
         } else {
             discoveredDevicesPoll.stop();
+            document.body.classList.remove("isScanning");
         }
     } else {
         isScanningPoll.start();

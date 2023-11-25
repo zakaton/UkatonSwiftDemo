@@ -65,6 +65,10 @@ button {
     display: none;
 }
 
+body:not(.isScanning) .scanning {
+    display: none;
+}
+
 .discoveredDevice[data-connection-type="bluetooth"] .connectionType::after {
     content: "bluetooth"
 }
