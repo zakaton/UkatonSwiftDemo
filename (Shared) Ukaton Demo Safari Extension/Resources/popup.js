@@ -112,13 +112,15 @@ function setDiscoveredDevices(newDiscoveredDevices) {
                     connectionStatusPoll.start();
                 });
             });
-            container.querySelector(".disconnect").addEventListener("click", () => {
+            const disconnect = () => {
                 browser.runtime.sendMessage({ type: "disconnect", id }).then((response) => {
                     console.log("disconnect response: ", response);
                     expectedConnectionStatus = "not connected";
                     connectionStatusPoll.start();
                 });
-            });
+            };
+            container.querySelector(".disconnect").addEventListener("click", () => disconnect());
+            container.querySelector(".cancelConnecting").addEventListener("click", () => disconnect());
             discoveredDevice.container = container;
             discoveredDevices[id] = discoveredDevice;
             discoveredDevices[id].connectionStatusPoll = connectionStatusPoll;
