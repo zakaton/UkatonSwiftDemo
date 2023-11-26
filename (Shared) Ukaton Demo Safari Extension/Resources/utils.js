@@ -37,7 +37,7 @@ class Logger {
 }
 
 class Poll {
-    logger = new Logger(true, this);
+    logger = new Logger(false, this);
 
     /**
      *
@@ -75,7 +75,7 @@ class Poll {
     }
 }
 
-function is_iOS() {
+function check_is_iOS() {
     return (
         ["iPad Simulator", "iPhone Simulator", "iPod Simulator", "iPad", "iPhone", "iPod"].includes(
             navigator.platform
@@ -84,6 +84,7 @@ function is_iOS() {
         (navigator.userAgent.includes("Mac") && "ontouchend" in document)
     );
 }
+const is_iOS = check_is_iOS();
 
 /**
  * @param {object} message

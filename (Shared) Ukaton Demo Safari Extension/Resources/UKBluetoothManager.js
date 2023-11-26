@@ -3,7 +3,7 @@ import { Poll, Logger, sendMessage, receiveMessage } from "./utils.js";
 import UKDiscoveredDevice from "./UKDiscoveredDevice.js";
 
 class UKBluetoothManager {
-    logger = new Logger(this, true);
+    logger = new Logger(false, this);
     eventDispatcher = new EventDispatcher();
 
     static #shared = new UKBluetoothManager();
@@ -103,11 +103,20 @@ class UKBluetoothManager {
             } else {
                 const discoveredDevice = new UKDiscoveredDevice(discoveredDeviceInfo);
                 this.#discoveredDevices[id] = discoveredDevice;
+                this.eventDispatcher.dispatchEvent({
+                    type: "discoveredDeviceAdded",
+                    message: { discoveredDevice },
+                });
             }
         });
         idsToDelete.forEach((id) => {
-            this.#discoveredDevices[id].destroy();
+            const discoveredDevice = this.#discoveredDevices[id];
+            discoveredDevice.destroy();
             delete this.#discoveredDevices[id];
+            this.eventDispatcher.dispatchEvent({
+                type: "discoveredDeviceRemoved",
+                message: { discoveredDevice },
+            });
         });
 
         this.eventDispatcher.dispatchEvent({

@@ -1,7 +1,7 @@
 import { is_iOS, Logger, sendMessage, Poll } from "./utils.js";
 import { EventDispatcher } from "./three.module.min.js";
 
-/** @typedef {"motion module" | "left insole" | "right insole"} UKDevicetype */
+/** @typedef {"motion module" | "left insole" | "right insole"} UKDeviceType */
 /** @typedef {"bluetooth" | "udp"} UKConnectionType */
 /** @typedef {"not connected" | "connecting" | "connected" | "disconnecting"} UKConnectionStatus */
 
@@ -23,10 +23,21 @@ import { EventDispatcher } from "./three.module.min.js";
 class UKDiscoveredDevice {
     eventDispatcher = new EventDispatcher();
 
+    #update(type, newValue) {
+        this.logger.log(`updated ${type} to ${newValue}`);
+        this.eventDispatcher.dispatchEvent({ type, message: { [type]: newValue } });
+    }
+
     /** @type {string} */
     #id;
     get id() {
         return this.#id;
+    }
+    #updateId(newValue) {
+        if (this.#id != newValue) {
+            this.#id = newValue;
+            this.#update("id", newValue);
+        }
     }
 
     /** @type {string} */
@@ -34,11 +45,24 @@ class UKDiscoveredDevice {
     get name() {
         return this.#name;
     }
+    #updateName(newValue) {
+        if (this.#name != newValue) {
+            this.#name = newValue;
+            this.#update("name", newValue);
+        }
+    }
 
-    /** @type {UKDevicetype} */
+    /** @type {UKDeviceType} */
     #deviceType;
     get deviceType() {
         return this.#deviceType;
+    }
+    /** @param {UKDeviceType} newValue */
+    #updateDeviceType(newValue) {
+        if (this.#deviceType != newValue) {
+            this.#deviceType = newValue;
+            this.#update("deviceType", newValue);
+        }
     }
 
     /** @type {number} */
@@ -46,17 +70,38 @@ class UKDiscoveredDevice {
     get rssi() {
         return this.#rssi;
     }
+    /** @param {number} newValue */
+    #updateRssi(newValue) {
+        if (this.#rssi != newValue) {
+            this.#rssi = newValue;
+            this.#update("rssi", newValue);
+        }
+    }
 
     /** @type {number} */
     #timestampDifference;
     get timestampDifference() {
         return this.#timestampDifference;
     }
+    /** @param {number} newValue */
+    #updateTimestampDifference(newValue) {
+        if (this.#timestampDifference != newValue) {
+            this.#timestampDifference = newValue;
+            this.#update("timestampDifference", newValue);
+        }
+    }
 
     /** @type {string|undefined} */
     #ipAddress;
     get ipAddress() {
         return this.#ipAddress;
+    }
+    /** @param {string} newValue */
+    #updateIpAddress(newValue) {
+        if (this.#ipAddress != newValue) {
+            this.#ipAddress = newValue;
+            this.#update("ipAddress", newValue);
+        }
     }
     get isConnectedToWifi() {
         return Boolean(this.ipAddress);
@@ -67,14 +112,14 @@ class UKDiscoveredDevice {
     get connectionStatus() {
         return this.#connectionStatus;
     }
-    set connectionStatus(newValue) {
+    /** @param {UKConnectionStatus|undefined} newValue */
+    #updateConnectionStatus(newValue) {
         if (this.#connectionStatus != newValue) {
             this.#connectionStatus = newValue;
             if (newValue == "connected" || newValue == "not connected") {
                 this.#connectionStatusPoll.stop();
             }
-            this.logger.log(`new connection status: ${this.connectionStatus}`);
-            this.eventDispatcher.dispatchEvent({ type: "connectionStatus", connectionStatus: this.connectionStatus });
+            this.#update("connectionStatus", newValue);
         }
     }
     get isConnected() {
@@ -86,12 +131,19 @@ class UKDiscoveredDevice {
     get connectionType() {
         return this.#connectionType;
     }
+    /** @param {UKConnectionType} newValue */
+    #updateConnectionType(newValue) {
+        if (this.#connectionType != newValue) {
+            this.#connectionType = newValue;
+            this.#update("connectionType", newValue);
+        }
+    }
 
     /**
      * @param {DiscoveredDeviceInfo} discoveredDeviceInfo
      */
     constructor(discoveredDeviceInfo) {
-        this.logger = new Logger(true, this, discoveredDeviceInfo.id);
+        this.logger = new Logger(false, this, discoveredDeviceInfo.id);
         this.update(discoveredDeviceInfo);
     }
 
@@ -102,17 +154,17 @@ class UKDiscoveredDevice {
         const { id, name, deviceType, rssi, timestampDifference, ipAddress, connectionStatus, connectionType } =
             discoveredDeviceInfo;
 
-        this.#id = id;
-        this.#name = name;
-        this.#deviceType = deviceType;
+        this.#updateId(id);
+        this.#updateName(name);
+        this.#updateDeviceType(deviceType);
 
-        this.#rssi = rssi;
-        this.#timestampDifference = timestampDifference;
+        this.#updateRssi(rssi);
+        this.#updateTimestampDifference(timestampDifference);
 
-        this.#ipAddress = ipAddress;
+        this.#updateIpAddress(ipAddress);
 
-        this.#connectionStatus = connectionStatus;
-        this.#connectionType = connectionType;
+        this.#updateConnectionStatus(connectionStatus);
+        this.#updateConnectionType(connectionType);
 
         this.logger.log(`updated discovered device ${id}`, discoveredDeviceInfo);
     }
@@ -164,7 +216,7 @@ class UKDiscoveredDevice {
         this.logger.log(`received background message of type ${message.type}`, message);
         switch (message.type) {
             case "connectionStatus":
-                this.connectionStatus = message.connectionStatus;
+                this.#updateConnectionStatus(message.connectionStatus);
                 break;
             default:
                 this.logger.log(`uncaught message type ${message.typs}`);
