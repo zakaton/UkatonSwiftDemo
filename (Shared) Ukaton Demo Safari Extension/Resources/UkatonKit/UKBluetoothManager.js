@@ -1,9 +1,9 @@
 import { EventDispatcher } from "./three.module.min.js";
-import { Poll, Logger, sendMessage } from "./utils.js";
+import { Poll, Logger, sendMessage, receiveMessage } from "./utils.js";
 import UKDiscoveredDevice from "./UKDiscoveredDevice.js";
 
 class UKBluetoothManager {
-    logger = new Logger(true);
+    logger = new Logger(this, true);
     eventDispatcher = new EventDispatcher();
 
     static #shared = new UKBluetoothManager();
@@ -120,6 +120,41 @@ class UKBluetoothManager {
     constructor() {
         if (this.shared) {
             throw new Error("UKBluetoothManager is a singleton - use UKBluetoothManager.shared");
+        }
+
+        window.addEventListener("unload", () => {
+            this.setScan(false);
+        });
+
+        receiveMessage(this.#onBackgroundMessage.bind(this));
+    }
+
+    /**
+     * @param {object} message
+     * @param {string} message.type
+     */
+    #onBackgroundMessage(message) {
+        this.logger.log(`received background message of type ${message.type}`, message);
+
+        switch (message.type) {
+            case "isScanning":
+                this.isScanning = message.isScanning;
+                break;
+            case "discoveredDevices":
+                this.#updateDiscoveredDevices(message.discoveredDevices);
+                break;
+            case "connectionStatus":
+                const { id } = message;
+                const discoveredDevice = this.discoveredDevices[id];
+                if (discoveredDevice) {
+                    discoveredDevice.onBackgroundMessage(message);
+                } else {
+                    this.logger.log(`uncaught message for id ${id}`, message);
+                }
+                break;
+            default:
+                this.logger.log(`uncaught message type ${message.typs}`);
+                break;
         }
     }
 }

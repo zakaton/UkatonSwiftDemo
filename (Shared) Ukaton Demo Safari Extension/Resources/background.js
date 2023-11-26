@@ -62,7 +62,7 @@ function disconnect({ id }) {
         console.log("Received disconnect response:", response);
     });
 }
-function connectionStatus({ id }) {
+function checkConnectionStatus({ id }) {
     sendMessage({ type: "connectionStatus", id }, (response) => {
         console.log("Received connectionStatus response:", response);
         const discoveredDevice = getDiscoveredDeviceById(id);
@@ -85,36 +85,37 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
     const { type } = message;
 
+    let response = Object.assign({}, message);
+
     switch (type) {
         case "isScanning":
             checkIsScanning();
-            sendResponse({ isScanning });
+            response = { isScanning };
             break;
         case "setScan":
             setScan(message);
-            sendResponse({ isScanning });
+            response = { isScanning };
             break;
         case "discoveredDevices":
             checkDiscoveredDevices();
-            sendResponse({ discoveredDevices });
+            response = { discoveredDevices };
             break;
 
         case "connect":
             connect(message);
-            sendResponse(message);
             break;
         case "disconnect":
             disconnect(message);
-            sendResponse(message);
             break;
 
         case "connectionStatus":
-            connectionStatus(message);
-            sendResponse(message);
+            checkConnectionStatus(message);
             break;
 
         default:
             console.log("uncaught message type", message.type);
             break;
     }
+
+    sendResponse(response);
 });

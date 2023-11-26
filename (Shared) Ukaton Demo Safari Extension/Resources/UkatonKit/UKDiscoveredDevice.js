@@ -1,4 +1,4 @@
-import { is_iOS, Logger, sendMessage } from "./utils.js";
+import { is_iOS, Logger, sendMessage, Poll } from "./utils.js";
 import { EventDispatcher } from "./three.module.min.js";
 
 /** @typedef {"motion module" | "left insole" | "right insole"} UKDevicetype */
@@ -70,8 +70,10 @@ class UKDiscoveredDevice {
     set connectionStatus(newValue) {
         if (this.#connectionStatus != newValue) {
             this.#connectionStatus = newValue;
-            this.#connectionStatusPoll.stop();
-            this.logger.log(`new connection status: ${this.connectionStatus}`, response);
+            if (newValue == "connected" || newValue == "not connected") {
+                this.#connectionStatusPoll.stop();
+            }
+            this.logger.log(`new connection status: ${this.connectionStatus}`);
             this.eventDispatcher.dispatchEvent({ type: "connectionStatus", connectionStatus: this.connectionStatus });
         }
     }
@@ -89,8 +91,8 @@ class UKDiscoveredDevice {
      * @param {DiscoveredDeviceInfo} discoveredDeviceInfo
      */
     constructor(discoveredDeviceInfo) {
+        this.logger = new Logger(true, this, discoveredDeviceInfo.id);
         this.update(discoveredDeviceInfo);
-        this.logger = new Logger(true, this.id);
     }
 
     /**
@@ -100,17 +102,17 @@ class UKDiscoveredDevice {
         const { id, name, deviceType, rssi, timestampDifference, ipAddress, connectionStatus, connectionType } =
             discoveredDeviceInfo;
 
-        this.id = id;
-        this.name = name;
-        this.deviceType = deviceType;
+        this.#id = id;
+        this.#name = name;
+        this.#deviceType = deviceType;
 
-        this.rssi = rssi;
-        this.timestampDifference = timestampDifference;
+        this.#rssi = rssi;
+        this.#timestampDifference = timestampDifference;
 
-        this.ipAddress = ipAddress;
+        this.#ipAddress = ipAddress;
 
-        this.connectionStatus = connectionStatus;
-        this.connectionType = connectionType;
+        this.#connectionStatus = connectionStatus;
+        this.#connectionType = connectionType;
 
         this.logger.log(`updated discovered device ${id}`, discoveredDeviceInfo);
     }
@@ -127,15 +129,13 @@ class UKDiscoveredDevice {
 
     #connectionStatusPoll = new Poll(this.#checkConectionStatus.bind(this), 200);
     async #checkConectionStatus() {
-        const response = await this.#sendMessage({ type: "connectionStatus" });
-        const { connectionStatus } = response;
-        this.connectionStatus = connectionStatus;
+        await this.#sendMessage({ type: "connectionStatus" });
     }
 
     /**
      * @param {UKConnectionType} connectionType
      */
-    async connect(connectionType) {
+    async connect(connectionType = "bluetooth") {
         if (this.connectionStatus == "connected") {
             this.logger.log("can't connect - already connected");
             return;
@@ -144,9 +144,7 @@ class UKDiscoveredDevice {
             this.logger.log(`unable to connect via ${connectionType} on iOS - changing to bluetooth`);
             connectionType = "bluetooth";
         }
-        const response = await this.#sendMessage({ type: "connect", connectionType });
-        const { connectionStatus } = response;
-        this.connectionStatus = connectionStatus;
+        await this.#sendMessage({ type: "connect", connectionType });
         this.#connectionStatusPoll.start();
     }
     async disconnect() {
@@ -154,14 +152,28 @@ class UKDiscoveredDevice {
             this.logger.log("can't disconnect - not connected");
             return;
         }
-        const response = await this.#sendMessage({ type: "disconnect" });
-        const { connectionStatus } = response;
-        this.connectionStatus = connectionStatus;
+        await this.#sendMessage({ type: "disconnect" });
         this.#connectionStatusPoll.start();
     }
 
+    /**
+     * @param {object} message
+     * @param {string} message.type
+     */
+    onBackgroundMessage(message) {
+        this.logger.log(`received background message of type ${message.type}`, message);
+        switch (message.type) {
+            case "connectionStatus":
+                this.connectionStatus = message.connectionStatus;
+                break;
+            default:
+                this.logger.log(`uncaught message type ${message.typs}`);
+                break;
+        }
+    }
+
     destroy() {
-        // FILL
+        this.#connectionStatusPoll.stop();
     }
 }
 

@@ -2,14 +2,18 @@ class Logger {
     /**
      *
      * @param {boolean} isEnabled
+     * @param {any} host
      * @param {string|undefined} suffix
      */
-    constructor(isEnabled = true, suffix) {
+    constructor(isEnabled, host, suffix) {
         this.isEnabled = isEnabled;
+        this.#host = host;
         this.#suffix = suffix;
     }
 
     isEnabled = true;
+    /** @type {any} */
+    #host;
     /** @type {string|undefined} */
     #suffix;
 
@@ -20,7 +24,9 @@ class Logger {
      */
     log(label, ...rest) {
         if (this.isEnabled) {
-            console.groupCollapsed(`[${this.constructor.name}]${this.#suffix ? `(${this.#suffix})` : ""} - ${label}`);
+            console.groupCollapsed(
+                `[${this.#host.constructor.name}]${this.#suffix ? `(${this.#suffix})` : ""} - ${label}`
+            );
             if (rest.length > 0) {
                 console.log(...rest);
             }
@@ -31,7 +37,7 @@ class Logger {
 }
 
 class Poll {
-    logger = new Logger(true);
+    logger = new Logger(true, this);
 
     /**
      *
@@ -84,17 +90,16 @@ function is_iOS() {
  * @param {string} message.type
  */
 async function sendMessage(message) {
-    // TODO - distinguish between popup/content.js and background.js
-    if (true) {
-        return browser.runtime.sendMessage(message);
-    } else {
-        const promise = new Promise((resolve) => {
-            browser.runtime.sendNativeMessage("application.id", message, (response) => {
-                resolve(response);
-            });
-        });
-        return promise;
-    }
+    return browser.runtime.sendMessage(message);
 }
 
-export { Poll, Logger, is_iOS, sendMessage };
+/**
+ * @param {function():void} callback
+ */
+function receiveMessage(callback) {
+    browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
+        callback(message);
+    });
+}
+
+export { Poll, Logger, is_iOS, sendMessage, receiveMessage };
