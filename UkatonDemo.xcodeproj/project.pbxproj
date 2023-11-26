@@ -57,6 +57,9 @@
 		5F3314FE2B13C4BC00011E40 /* discovered-devices-component.js in Resources */ = {isa = PBXBuildFile; fileRef = 5F3314FD2B13C4BC00011E40 /* discovered-devices-component.js */; };
 		5F3314FF2B13C4BC00011E40 /* discovered-devices-component.js in Resources */ = {isa = PBXBuildFile; fileRef = 5F3314FD2B13C4BC00011E40 /* discovered-devices-component.js */; };
 		5F3315002B13C4BC00011E40 /* discovered-devices-component.js in Resources */ = {isa = PBXBuildFile; fileRef = 5F3314FD2B13C4BC00011E40 /* discovered-devices-component.js */; };
+		5F3315022B13C79000011E40 /* scan-button-component.js in Resources */ = {isa = PBXBuildFile; fileRef = 5F3315012B13C79000011E40 /* scan-button-component.js */; };
+		5F3315032B13C79000011E40 /* scan-button-component.js in Resources */ = {isa = PBXBuildFile; fileRef = 5F3315012B13C79000011E40 /* scan-button-component.js */; };
+		5F3315042B13C79000011E40 /* scan-button-component.js in Resources */ = {isa = PBXBuildFile; fileRef = 5F3315012B13C79000011E40 /* scan-button-component.js */; };
 		5F3F4E2A2B091F0C00F81B6F /* CenterOfMassDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3F4E292B091F0C00F81B6F /* CenterOfMassDemo.swift */; };
 		5F3F4E2B2B091F0C00F81B6F /* CenterOfMassDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3F4E292B091F0C00F81B6F /* CenterOfMassDemo.swift */; };
 		5F3F4E2C2B091F0C00F81B6F /* CenterOfMassDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3F4E292B091F0C00F81B6F /* CenterOfMassDemo.swift */; };
@@ -395,6 +398,7 @@
 		5F3314F52B13C44700011E40 /* scan-controller.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = "scan-controller.js"; sourceTree = "<group>"; };
 		5F3314F92B13C45400011E40 /* discovered-devices-controller.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = "discovered-devices-controller.js"; sourceTree = "<group>"; };
 		5F3314FD2B13C4BC00011E40 /* discovered-devices-component.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = "discovered-devices-component.js"; sourceTree = "<group>"; };
+		5F3315012B13C79000011E40 /* scan-button-component.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = "scan-button-component.js"; sourceTree = "<group>"; };
 		5F3F4E292B091F0C00F81B6F /* CenterOfMassDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterOfMassDemo.swift; sourceTree = "<group>"; };
 		5F3F4E2F2B092FF200F81B6F /* RotationModePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationModePicker.swift; sourceTree = "<group>"; };
 		5F3F4E312B0930A900F81B6F /* TranslationModePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationModePicker.swift; sourceTree = "<group>"; };
@@ -810,6 +814,7 @@
 				5FD0E53A2B1199F6001CDBEF /* lit-core.min.js */,
 				5F3314FD2B13C4BC00011E40 /* discovered-devices-component.js */,
 				5F3314F52B13C44700011E40 /* scan-controller.js */,
+				5F3315012B13C79000011E40 /* scan-button-component.js */,
 				5F93F7EF2B10021C0007B4BD /* utils.js */,
 				5FD0E5472B127B85001CDBEF /* three.module.min.js */,
 				5F3314E92B13BECA00011E40 /* lit-all.min.js */,
@@ -1231,6 +1236,7 @@
 				5F93F7F42B10366F0007B4BD /* UkatonKit.js in Resources */,
 				5FD0E53B2B1199F6001CDBEF /* lit-core.min.js in Resources */,
 				5FD0E5482B127B85001CDBEF /* three.module.min.js in Resources */,
+				5F3315022B13C79000011E40 /* scan-button-component.js in Resources */,
 				5F6A0DEC2B0D471600E15FFC /* popup.css in Resources */,
 				5F3314EE2B13C24900011E40 /* discovered-device-component.js in Resources */,
 				5FD0E5522B12A339001CDBEF /* UKBluetoothManager.js in Resources */,
@@ -1257,6 +1263,7 @@
 				5F93F7F52B10366F0007B4BD /* UkatonKit.js in Resources */,
 				5FD0E53C2B1199F6001CDBEF /* lit-core.min.js in Resources */,
 				5FD0E5492B127B85001CDBEF /* three.module.min.js in Resources */,
+				5F3315032B13C79000011E40 /* scan-button-component.js in Resources */,
 				5FD458C22B0BDB7D0030BE6E /* background.js in Resources */,
 				5F3314EF2B13C24900011E40 /* discovered-device-component.js in Resources */,
 				5FD458C82B0BDB7D0030BE6E /* popup.css in Resources */,
@@ -1283,6 +1290,7 @@
 				5F93F7F62B10366F0007B4BD /* UkatonKit.js in Resources */,
 				5FD0E53D2B1199F6001CDBEF /* lit-core.min.js in Resources */,
 				5FD0E54A2B127B85001CDBEF /* three.module.min.js in Resources */,
+				5F3315042B13C79000011E40 /* scan-button-component.js in Resources */,
 				5F6A0DE02B0D462900E15FFC /* popup.css in Resources */,
 				5F3314F02B13C24900011E40 /* discovered-device-component.js in Resources */,
 				5FD0E5542B12A339001CDBEF /* UKBluetoothManager.js in Resources */,
