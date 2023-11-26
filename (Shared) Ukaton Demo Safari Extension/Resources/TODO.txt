@@ -1,4 +1,3 @@
 UKDiscoveredDevice
-    constructor
-    connect/disconnect
+    connectionPoll
 lit-element

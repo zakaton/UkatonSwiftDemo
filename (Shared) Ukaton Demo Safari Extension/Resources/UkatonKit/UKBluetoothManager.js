@@ -1,5 +1,6 @@
 import { EventDispatcher } from "./three.module.min.js";
-import { Poll, Logger } from "./utils.js";
+import { Poll, Logger, sendMessage } from "./utils.js";
+import UKDiscoveredDevice from "./UKDiscoveredDevice.js";
 
 class UKBluetoothManager {
     logger = new Logger(true);
@@ -33,18 +34,12 @@ class UKBluetoothManager {
         }
     }
 
+    /**
+     * @param {object} message
+     * @param {string} message.type
+     */
     async #sendMessage(message) {
-        // TODO - distinguish between popup/content.js and background.js
-        if (true) {
-            return browser.runtime.sendMessage(message);
-        } else {
-            const promise = new Promise((resolve) => {
-                browser.runtime.sendNativeMessage("application.id", message, (response) => {
-                    resolve(response);
-                });
-            });
-            return promise;
-        }
+        return sendMessage(message);
     }
 
     async checkIsScanning() {
@@ -86,18 +81,7 @@ class UKBluetoothManager {
     }
 
     /**
-     * @typedef DiscoveredDeviceInfo
-     * @type {object}
-     * @property {string} id
-     * @property {string} name
-     * @property {number} deviceType
-     *
-     * @property {number} timestampDifference
-     * @property {number} rssi
-     * @property {string|undefined} ipAddress
-     *
-     * @property {string} connectionStatus
-     * @property {string|undefined} connectionType
+     * @typedef {import('./UKDiscoveredDevice.js').DiscoveredDeviceInfo} DiscoveredDeviceInfo
      */
 
     /**
@@ -119,6 +103,7 @@ class UKBluetoothManager {
             }
         });
         idsToDelete.forEach((id) => {
+            this.#discoveredDevices[id].destroy();
             delete this.#discoveredDevices[id];
         });
 

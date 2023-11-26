@@ -7,4 +7,4 @@ render(sayHi, document.body);
 
 console.log(UKBluetoothManager);
 
-console.log("FUC")
+console.log("FUC");

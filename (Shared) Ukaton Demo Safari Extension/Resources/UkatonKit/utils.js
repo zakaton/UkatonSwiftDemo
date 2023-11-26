@@ -1,9 +1,17 @@
 class Logger {
-    constructor(isEnabled = true) {
+    /**
+     *
+     * @param {boolean} isEnabled
+     * @param {string|undefined} suffix
+     */
+    constructor(isEnabled = true, suffix) {
         this.isEnabled = isEnabled;
+        this.#suffix = suffix;
     }
 
     isEnabled = true;
+    /** @type {string|undefined} */
+    #suffix;
 
     /**
      *
@@ -12,7 +20,7 @@ class Logger {
      */
     log(label, ...rest) {
         if (this.isEnabled) {
-            console.groupCollapsed(`[${this.constructor.name}] - ${label}`);
+            console.groupCollapsed(`[${this.constructor.name}]${this.#suffix ? `(${this.#suffix})` : ""} - ${label}`);
             if (rest.length > 0) {
                 console.log(...rest);
             }
@@ -61,4 +69,32 @@ class Poll {
     }
 }
 
-export { Poll, Logger };
+function is_iOS() {
+    return (
+        ["iPad Simulator", "iPhone Simulator", "iPod Simulator", "iPad", "iPhone", "iPod"].includes(
+            navigator.platform
+        ) ||
+        // iPad on iOS 13 detection
+        (navigator.userAgent.includes("Mac") && "ontouchend" in document)
+    );
+}
+
+/**
+ * @param {object} message
+ * @param {string} message.type
+ */
+async function sendMessage(message) {
+    // TODO - distinguish between popup/content.js and background.js
+    if (true) {
+        return browser.runtime.sendMessage(message);
+    } else {
+        const promise = new Promise((resolve) => {
+            browser.runtime.sendNativeMessage("application.id", message, (response) => {
+                resolve(response);
+            });
+        });
+        return promise;
+    }
+}
+
+export { Poll, Logger, is_iOS, sendMessage };
