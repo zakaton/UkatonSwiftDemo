@@ -1,3 +1,17 @@
+const logger = {
+    isEnabled: true,
+    log(label, ...rest) {
+        if (this.isEnabled) {
+            console.groupCollapsed(label);
+            if (rest.length > 0) {
+                console.log(...rest);
+            }
+            console.trace();
+            console.groupEnd();
+        }
+    },
+};
+
 // background.js -> SafariWebExtesionHandler.swift
 function sendMessage(message, callback) {
     browser.runtime.sendNativeMessage("application.id", message, (response) => {
@@ -11,10 +25,7 @@ var isScanning = false;
 var isScanningTimestamp = 0;
 function setScan({ newValue }) {
     sendMessage({ type: "setScan", newValue }, (response) => {
-        console.log("Received setScan response:", response);
-        isScanning = response.isScanning;
-        isScanningTimestamp = response.timestamp;
-        browser.runtime.sendMessage({ type: "isScanning", isScanning });
+        onIsScanningResponse(response);
     });
 }
 function checkIsScanning() {
@@ -24,12 +35,16 @@ function checkIsScanning() {
             timestamp: isScanningTimestamp,
         },
         (response) => {
-            console.log("Received checkIsScanning response:", response);
-            isScanning = response.isScanning;
-            isScanningTimestamp = response.timestamp;
-            browser.runtime.sendMessage({ type: "isScanning", isScanning });
+            onIsScanningResponse(response);
         }
     );
+}
+
+function onIsScanningResponse(response) {
+    logger.log(`Received checkIsScanning response: ${response.isScanning}`, response);
+    isScanning = response.isScanning;
+    isScanningTimestamp = response.timestamp;
+    browser.runtime.sendMessage({ type: "isScanning", isScanning });
 }
 
 var discoveredDevices = [];
@@ -44,7 +59,7 @@ function checkDiscoveredDevices() {
             timestamp: discoveredDevicesTimestamp,
         },
         (response) => {
-            console.log("Received discoveredDevices response:", response);
+            logger.log(`Received ${response.discoveredDevices.length} discoveredDevices`, response);
             discoveredDevices = response.discoveredDevices;
             discoveredDevicesTimestamp = response.timestamp;
             browser.runtime.sendMessage({ type: "discoveredDevices", discoveredDevices });
@@ -54,17 +69,20 @@ function checkDiscoveredDevices() {
 
 function connect({ id, connectionType }) {
     sendMessage({ type: "connect", id, connectionType }, (response) => {
-        console.log("Received connect response:", response);
+        logger.log(`Received connect response`, response);
     });
 }
 function disconnect({ id }) {
     sendMessage({ type: "disconnect", id }, (response) => {
-        console.log("Received disconnect response:", response);
+        logger.log(`Received disconnect response`, response);
     });
 }
 function checkConnectionStatus({ id }) {
     sendMessage({ type: "connectionStatus", id }, (response) => {
-        console.log("Received connectionStatus response:", response);
+        logger.log(
+            `Received connectionStatus response: ${response.connectionStatus} via ${response.connectionType}`,
+            response
+        );
         const discoveredDevice = getDiscoveredDeviceById(id);
         const newConnectionStatus = response.connectionStatus;
         const newConnectionType = response.connectionType;
@@ -81,7 +99,7 @@ function checkConnectionStatus({ id }) {
 
 // background.js <- popup.js/content.js
 browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
-    console.log("Received message: ", message);
+    logger.log(`Received message of type "${message.type}"`, message);
 
     const { type } = message;
 
@@ -113,7 +131,7 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
             break;
 
         default:
-            console.log("uncaught message type", message.type);
+            logger.log("uncaught message type", message.type);
             break;
     }
 

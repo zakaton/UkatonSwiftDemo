@@ -39,6 +39,9 @@
 		5F2B871C2AE18DFA00BF304B /* UkatonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5F2B871B2AE18DFA00BF304B /* UkatonKit */; };
 		5F2B871F2AE18E2100BF304B /* UkatonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5F2B871E2AE18E2100BF304B /* UkatonKit */; };
 		5F2B87212AE18E2600BF304B /* UkatonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5F2B87202AE18E2600BF304B /* UkatonKit */; };
+		5F3314DE2B131AD900011E40 /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = 5F3314DD2B131AD900011E40 /* popup.js */; };
+		5F3314DF2B131AD900011E40 /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = 5F3314DD2B131AD900011E40 /* popup.js */; };
+		5F3314E02B131AD900011E40 /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = 5F3314DD2B131AD900011E40 /* popup.js */; };
 		5F3F4E2A2B091F0C00F81B6F /* CenterOfMassDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3F4E292B091F0C00F81B6F /* CenterOfMassDemo.swift */; };
 		5F3F4E2B2B091F0C00F81B6F /* CenterOfMassDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3F4E292B091F0C00F81B6F /* CenterOfMassDemo.swift */; };
 		5F3F4E2C2B091F0C00F81B6F /* CenterOfMassDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3F4E292B091F0C00F81B6F /* CenterOfMassDemo.swift */; };
@@ -64,7 +67,6 @@
 		5F6A0DDF2B0D462900E15FFC /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 5FD458BF2B0BDB7D0030BE6E /* manifest.json */; };
 		5F6A0DE02B0D462900E15FFC /* popup.css in Resources */ = {isa = PBXBuildFile; fileRef = 5FD458C72B0BDB7D0030BE6E /* popup.css */; };
 		5F6A0DE12B0D462900E15FFC /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = 5FD458C12B0BDB7D0030BE6E /* background.js */; };
-		5F6A0DE22B0D462900E15FFC /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = 5FD458C92B0BDB7D0030BE6E /* popup.js */; };
 		5F6A0DE32B0D462E00E15FFC /* images in Resources */ = {isa = PBXBuildFile; fileRef = 5FD458BD2B0BDB7D0030BE6E /* images */; };
 		5F6A0DE42B0D462E00E15FFC /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = 5FD458BB2B0BDB7D0030BE6E /* _locales */; };
 		5F6A0DE52B0D462E00E15FFC /* images in Resources */ = {isa = PBXBuildFile; fileRef = 5FD458BD2B0BDB7D0030BE6E /* images */; };
@@ -75,7 +77,6 @@
 		5F6A0DEB2B0D470E00E15FFC /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 5FD458BF2B0BDB7D0030BE6E /* manifest.json */; };
 		5F6A0DEC2B0D471600E15FFC /* popup.css in Resources */ = {isa = PBXBuildFile; fileRef = 5FD458C72B0BDB7D0030BE6E /* popup.css */; };
 		5F6A0DED2B0D471600E15FFC /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = 5FD458C52B0BDB7D0030BE6E /* popup.html */; };
-		5F6A0DEE2B0D471600E15FFC /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = 5FD458C92B0BDB7D0030BE6E /* popup.js */; };
 		5F6A0DEF2B0D471600E15FFC /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = 5FD458C12B0BDB7D0030BE6E /* background.js */; };
 		5F7616402AFAB083000E1A80 /* SensorDataDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F76163F2AFAB083000E1A80 /* SensorDataDemo.swift */; };
 		5F7616412AFAB083000E1A80 /* SensorDataDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F76163F2AFAB083000E1A80 /* SensorDataDemo.swift */; };
@@ -259,7 +260,6 @@
 		5FD458C22B0BDB7D0030BE6E /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = 5FD458C12B0BDB7D0030BE6E /* background.js */; };
 		5FD458C62B0BDB7D0030BE6E /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = 5FD458C52B0BDB7D0030BE6E /* popup.html */; };
 		5FD458C82B0BDB7D0030BE6E /* popup.css in Resources */ = {isa = PBXBuildFile; fileRef = 5FD458C72B0BDB7D0030BE6E /* popup.css */; };
-		5FD458CA2B0BDB7D0030BE6E /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = 5FD458C92B0BDB7D0030BE6E /* popup.js */; };
 		5FD458CF2B0BDB7D0030BE6E /* (Mac) Ukaton Demo Safari Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5FD458B62B0BDB7C0030BE6E /* (Mac) Ukaton Demo Safari Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5FF24DE62AF41127009FAA0E /* LabelSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF24DE52AF41127009FAA0E /* LabelSpacing.swift */; };
 		5FF24DE72AF41127009FAA0E /* LabelSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF24DE52AF41127009FAA0E /* LabelSpacing.swift */; };
@@ -374,6 +374,7 @@
 		5F0F6F562AFEA87F007D0D03 /* TranslationModePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationModePicker.swift; sourceTree = "<group>"; };
 		5F0F6F5A2AFEC9E8007D0D03 /* ViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifier.swift; sourceTree = "<group>"; };
 		5F0FE43C2B0729D300953012 /* DeviceRotationViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceRotationViewModifier.swift; sourceTree = "<group>"; };
+		5F3314DD2B131AD900011E40 /* popup.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = popup.js; sourceTree = "<group>"; };
 		5F3F4E292B091F0C00F81B6F /* CenterOfMassDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterOfMassDemo.swift; sourceTree = "<group>"; };
 		5F3F4E2F2B092FF200F81B6F /* RotationModePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationModePicker.swift; sourceTree = "<group>"; };
 		5F3F4E312B0930A900F81B6F /* TranslationModePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationModePicker.swift; sourceTree = "<group>"; };
@@ -429,7 +430,6 @@
 		5FD458C12B0BDB7D0030BE6E /* background.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = background.js; sourceTree = "<group>"; };
 		5FD458C52B0BDB7D0030BE6E /* popup.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = popup.html; sourceTree = "<group>"; };
 		5FD458C72B0BDB7D0030BE6E /* popup.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = popup.css; sourceTree = "<group>"; };
-		5FD458C92B0BDB7D0030BE6E /* popup.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = popup.js; sourceTree = "<group>"; };
 		5FD458CB2B0BDB7D0030BE6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FD458CC2B0BDB7D0030BE6E /* UkatonDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UkatonDemo.entitlements; sourceTree = "<group>"; };
 		5FD458D82B0BE6FB0030BE6E /* (VisionOS) Ukaton Demo Safari Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "(VisionOS) Ukaton Demo Safari Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -528,6 +528,14 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5F3314DC2B131AA400011E40 /* components */ = {
+			isa = PBXGroup;
+			children = (
+				5F3314DD2B131AD900011E40 /* popup.js */,
+			);
+			path = components;
 			sourceTree = "<group>";
 		};
 		5F3F4E282B087EA800F81B6F /* CenterOfMassDemo */ = {
@@ -783,8 +791,8 @@
 		5FD0E54C2B128034001CDBEF /* popup */ = {
 			isa = PBXGroup;
 			children = (
+				5F3314DC2B131AA400011E40 /* components */,
 				5FD458C52B0BDB7D0030BE6E /* popup.html */,
-				5FD458C92B0BDB7D0030BE6E /* popup.js */,
 				5FD0E53A2B1199F6001CDBEF /* lit-core.min.js */,
 				5FD458C72B0BDB7D0030BE6E /* popup.css */,
 			);
@@ -1222,9 +1230,9 @@
 				5FD0E53B2B1199F6001CDBEF /* lit-core.min.js in Resources */,
 				5FD0E5482B127B85001CDBEF /* three.module.min.js in Resources */,
 				5F6A0DEC2B0D471600E15FFC /* popup.css in Resources */,
-				5F6A0DEE2B0D471600E15FFC /* popup.js in Resources */,
 				5FD0E5522B12A339001CDBEF /* UKBluetoothManager.js in Resources */,
 				5FD0E5562B12A37B001CDBEF /* UKMission.js in Resources */,
+				5F3314DE2B131AD900011E40 /* popup.js in Resources */,
 				5F6A0DEF2B0D471600E15FFC /* background.js in Resources */,
 				5F6A0DED2B0D471600E15FFC /* popup.html in Resources */,
 				5FD0E54E2B12A2B7001CDBEF /* UKDiscoveredDevice.js in Resources */,
@@ -1245,13 +1253,13 @@
 				5FD458C22B0BDB7D0030BE6E /* background.js in Resources */,
 				5FD458C82B0BDB7D0030BE6E /* popup.css in Resources */,
 				5FD0E5532B12A339001CDBEF /* UKBluetoothManager.js in Resources */,
+				5F3314DF2B131AD900011E40 /* popup.js in Resources */,
 				5FD0E5572B12A37B001CDBEF /* UKMission.js in Resources */,
 				5FD458C62B0BDB7D0030BE6E /* popup.html in Resources */,
 				5FD458BE2B0BDB7D0030BE6E /* images in Resources */,
 				5FD0E54F2B12A2B7001CDBEF /* UKDiscoveredDevice.js in Resources */,
 				5FD458C02B0BDB7D0030BE6E /* manifest.json in Resources */,
 				5FD458BC2B0BDB7D0030BE6E /* _locales in Resources */,
-				5FD458CA2B0BDB7D0030BE6E /* popup.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1264,9 +1272,9 @@
 				5FD0E53D2B1199F6001CDBEF /* lit-core.min.js in Resources */,
 				5FD0E54A2B127B85001CDBEF /* three.module.min.js in Resources */,
 				5F6A0DE02B0D462900E15FFC /* popup.css in Resources */,
-				5F6A0DE22B0D462900E15FFC /* popup.js in Resources */,
 				5FD0E5542B12A339001CDBEF /* UKBluetoothManager.js in Resources */,
 				5FD0E5582B12A37B001CDBEF /* UKMission.js in Resources */,
+				5F3314E02B131AD900011E40 /* popup.js in Resources */,
 				5F6A0DE42B0D462E00E15FFC /* _locales in Resources */,
 				5F6A0DDF2B0D462900E15FFC /* manifest.json in Resources */,
 				5FD0E5502B12A2B7001CDBEF /* UKDiscoveredDevice.js in Resources */,
