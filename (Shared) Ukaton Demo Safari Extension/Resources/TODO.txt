@@ -1,5 +1,3 @@
 lit-element
-    toggle scan
-    display discovered devices
-    connect/disconnect
-    cleanup
+    scanning button
+    discoveredDevices list

@@ -65,9 +65,12 @@ class UKBluetoothManager {
             this.logger.log("redundant setScan");
         }
     }
+    async toggleScan() {
+        return this.setScan(!this.isScanning);
+    }
 
-    #discoveredDevicesPoll = new Poll(this.#checkDiscoveredDevices.bind(this), 200);
-    async #checkDiscoveredDevices() {
+    #discoveredDevicesPoll = new Poll(this.checkDiscoveredDevices.bind(this), 200);
+    async checkDiscoveredDevices() {
         const response = await this.#sendMessage({ type: "discoveredDevices" });
         const { discoveredDevices: discoveredDeviceInfo } = response;
         this.logger.log(`discovered ${discoveredDeviceInfo.length} devices`, response);
@@ -127,6 +130,9 @@ class UKBluetoothManager {
         });
 
         receiveMessage(this.#onBackgroundMessage.bind(this));
+
+        this.checkIsScanning();
+        this.checkDiscoveredDevices();
     }
 
     /**
