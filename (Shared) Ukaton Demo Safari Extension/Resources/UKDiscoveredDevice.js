@@ -1,5 +1,5 @@
 import { is_iOS, Logger, sendMessage, Poll } from "./utils.js";
-import { EventDispatcher } from "./three.module.min.js";
+import EventDispatcher from "./EventDispatcher.js";
 
 /** @typedef {"motion module" | "left insole" | "right insole"} UKDeviceType */
 /** @typedef {"bluetooth" | "udp"} UKConnectionType */

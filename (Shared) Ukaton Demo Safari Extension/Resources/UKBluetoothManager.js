@@ -1,4 +1,4 @@
-import { EventDispatcher } from "./three.module.min.js";
+import EventDispatcher from "./EventDispatcher.js";
 import { Poll, Logger, sendMessage, receiveMessage } from "./utils.js";
 import UKDiscoveredDevice from "./UKDiscoveredDevice.js";
 
