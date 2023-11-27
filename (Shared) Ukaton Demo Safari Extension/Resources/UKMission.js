@@ -1,3 +1,1 @@
-class UKMission {}
-
-export default UKMission;
+export default class UKMission {}

@@ -1,10 +1,10 @@
-import { DiscoveredDevicesController } from "./discovered-devices-controller.js";
 import { LitElement, html, css, repeat } from "./lit-all.min.js";
-import { UKDiscoveredDeviceElement } from "./discovered-device-component.js";
+import UKDiscoveredDevicesController from "./UKDiscoveredDevicesController.js";
+import UKDiscoveredDeviceElement from "./UKDiscoveredDeviceElement.js";
 import { bluetoothManager } from "./UkatonKit.js";
 
-export class UKDiscoveredDevicesElement extends LitElement {
-    discoveredDevicesController = new DiscoveredDevicesController(this);
+export default class UKDiscoveredDevicesElement extends LitElement {
+    discoveredDevicesController = new UKDiscoveredDevicesController(this);
 
     static styles = css`
         #discoveredDevices {

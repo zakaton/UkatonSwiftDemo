@@ -1,6 +1,6 @@
 import { bluetoothManager } from "./UkatonKit.js";
 
-export class ScanController {
+export default class UKScanController {
     host;
 
     constructor(host) {

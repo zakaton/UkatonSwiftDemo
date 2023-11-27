@@ -1,6 +1,6 @@
 import { bluetoothManager } from "./UkatonKit.js";
 
-export class DiscoveredDevicesController {
+export default class UKDiscoveredDevicesController {
     host;
 
     constructor(host) {

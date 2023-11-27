@@ -1,9 +1,9 @@
 import { bluetoothManager } from "./UkatonKit.js";
-import { ScanController } from "./scan-controller.js";
+import UKScanController from "./UKScanController.js";
 import { LitElement, html, css } from "./lit-all.min.js";
 
-export class UKScanButtonElement extends LitElement {
-    scanController = new ScanController(this);
+export default class UKScanButtonElement extends LitElement {
+    scanController = new UKScanController(this);
 
     static styles = css`
         #toggleScanButton {
@@ -33,7 +33,7 @@ export class UKScanButtonElement extends LitElement {
                 @click=${() => bluetoothManager.toggleScan()}
                 id="toggleScanButton"
             >
-                ${bluetoothManager.isScanning ? "stop scanning" : "scan for devices"}
+                ${bluetoothManager.isScanning ? "scanning for devices..." : "scan for devices"}
             </button>
         `;
     }

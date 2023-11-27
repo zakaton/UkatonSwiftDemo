@@ -1,2 +1,2 @@
-uk-discovered-device
-    css
+content.js
+    import UkatonKit.js and all that

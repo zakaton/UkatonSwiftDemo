@@ -20,7 +20,7 @@ import { EventDispatcher } from "./three.module.min.js";
  * @property {UKConnectionType|undefined} connectionType
  */
 
-class UKDiscoveredDevice {
+export default class UKDiscoveredDevice {
     eventDispatcher = new EventDispatcher();
 
     #update(type, newValue) {
@@ -229,5 +229,3 @@ class UKDiscoveredDevice {
         this.#connectionStatusPoll.stop();
     }
 }
-
-export default UKDiscoveredDevice;

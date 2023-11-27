@@ -1,18 +1,18 @@
-import UKDiscoveredDevice from "./UKDiscoveredDevice.js";
 import { LitElement, html, css, choose } from "./lit-all.min.js";
-import { is_iOS } from "./utils.js";
-import { DiscoveredDeviceController } from "./discovered-device-controller.js";
+import UKDiscoveredDevice from "./UKDiscoveredDevice.js";
+import UKDiscoveredDeviceController from "./UKDiscoveredDeviceController.js";
 import { bluetoothManager } from "./UkatonKit.js";
-import { ScanController } from "./scan-controller.js";
+import UKScanController from "./UKScanController.js";
 import { wifiIcon, signalIcon, clockIcon } from "./icons.js";
+import { is_iOS } from "./utils.js";
 
-export class UKDiscoveredDeviceElement extends LitElement {
+export default class UKDiscoveredDeviceElement extends LitElement {
     /** @type {UKDiscoveredDevice} */
     discoveredDevice;
-    /** @type {DiscoveredDeviceController} */
+    /** @type {UKDiscoveredDeviceController} */
     discoveredDeviceController;
 
-    scanController = new ScanController(this);
+    scanController = new UKScanController(this);
 
     static styles = css`
         .discoveredDevice {
@@ -87,7 +87,7 @@ export class UKDiscoveredDeviceElement extends LitElement {
 
     connectedCallback() {
         super.connectedCallback();
-        this.discoveredDeviceController = new DiscoveredDeviceController(this, this.discoveredDevice);
+        this.discoveredDeviceController = new UKDiscoveredDeviceController(this, this.discoveredDevice);
     }
 
     headerTemplate() {

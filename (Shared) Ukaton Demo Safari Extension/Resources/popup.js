@@ -1,6 +1,6 @@
 import { LitElement, html } from "./lit-all.min.js";
-import { UKDiscoveredDevicesElement } from "./discovered-devices-component.js";
-import { UKScanButtonElement } from "./scan-button-component.js";
+import UKDiscoveredDevicesElement from "./UKDiscoveredDevicesElement.js";
+import UKScanButtonElement from "./UKScanButtonElement.js";
 
 export class UKPopupElement extends LitElement {
     render() {

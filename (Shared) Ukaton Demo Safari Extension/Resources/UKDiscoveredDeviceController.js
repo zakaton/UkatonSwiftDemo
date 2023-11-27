@@ -1,7 +1,7 @@
 import UKDiscoveredDevice from "./UKDiscoveredDevice.js";
 import { LitElement } from "./lit-all.min.js";
 
-export class DiscoveredDeviceController {
+export default class UKDiscoveredDeviceController {
     host;
 
     /** @type {UKDiscoveredDevice} */

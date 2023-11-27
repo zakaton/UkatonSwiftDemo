@@ -2,7 +2,7 @@ import { EventDispatcher } from "./three.module.min.js";
 import { Poll, Logger, sendMessage, receiveMessage } from "./utils.js";
 import UKDiscoveredDevice from "./UKDiscoveredDevice.js";
 
-class UKBluetoothManager {
+export default class UKBluetoothManager {
     logger = new Logger(false, this);
     eventDispatcher = new EventDispatcher();
 
@@ -173,5 +173,3 @@ class UKBluetoothManager {
         }
     }
 }
-
-export default UKBluetoothManager;
