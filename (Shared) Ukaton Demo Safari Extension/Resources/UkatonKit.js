@@ -1,8 +1,10 @@
 import UKBluetoothManager from "./UKBluetoothManager.js";
+const bluetoothManager = UKBluetoothManager.shared;
 
 // FILL - devices
 
-const bluetoothManager = UKBluetoothManager.shared;
-window.UkatonKit = { bluetoothManager };
+const UkatonKit = { bluetoothManager };
+
+window.UkatonKit = UkatonKit;
 
 export { bluetoothManager };

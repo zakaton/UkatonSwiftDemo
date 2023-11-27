@@ -1,2 +1,4 @@
+UkatonKit
+    store discoveredDevices
 content.js
     import UkatonKit.js and all that
