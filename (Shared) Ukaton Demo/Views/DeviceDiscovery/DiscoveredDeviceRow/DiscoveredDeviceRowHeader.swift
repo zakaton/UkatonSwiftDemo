@@ -48,6 +48,7 @@ struct DiscoveredDeviceRowHeader: View {
             Label(deviceType.name, systemImage: deviceTypeSystemImage)
                 // .foregroundColor(.secondary)
                 .labelStyle(LabelSpacing(spacing: 4))
+                
         }
     }
 }

@@ -2,6 +2,9 @@ import UKDiscoveredDevice from "./UKDiscoveredDevice.js";
 import { LitElement, html, css, choose } from "./lit-all.min.js";
 import { is_iOS } from "./utils.js";
 import { DiscoveredDeviceController } from "./discovered-device-controller.js";
+import { bluetoothManager } from "./UkatonKit.js";
+import { ScanController } from "./scan-controller.js";
+import { wifiIcon, signalIcon, clockIcon } from "./icons.js";
 
 export class UKDiscoveredDeviceElement extends LitElement {
     /** @type {UKDiscoveredDevice} */
@@ -9,8 +12,76 @@ export class UKDiscoveredDeviceElement extends LitElement {
     /** @type {DiscoveredDeviceController} */
     discoveredDeviceController;
 
+    scanController = new ScanController(this);
+
     static styles = css`
         .discoveredDevice {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2em;
+        }
+
+        .header {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: baseline;
+            gap: 0.8em;
+        }
+        .name {
+            font-size: x-large;
+        }
+
+        .icon {
+            display: inline-block;
+        }
+        .mirror {
+            transform: scale(-1, 1);
+        }
+
+        button {
+            font-size: large;
+        }
+
+        @keyframes pulsateAnimation {
+            0% {
+                scale: 1;
+            }
+            100% {
+                scale: 0.95;
+            }
+        }
+        .pulsating {
+            opacity: 1;
+            animation: pulsateAnimation 0.6s infinite;
+            animation-timing-function: ease-in-out;
+            animation-direction: alternate;
+        }
+
+        .connection {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 0.5em;
+            align-items: center;
+        }
+
+        .status {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 0.7em;
+        }
+
+        .status > *:not([hidden]) {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 0.3em;
+        }
+
+        svg {
+            height: 1em;
         }
     `;
 
@@ -23,9 +94,24 @@ export class UKDiscoveredDeviceElement extends LitElement {
         return html`
             <div class="header">
                 <b><span class="name">${this.discoveredDevice.name}</span></b>
-                <span class="deviceType">${this.discoveredDevice.deviceType}</span>
+
+                <span class="deviceType"
+                    ><div class="icon ${this.discoveredDevice.deviceType == "left insole" ? "mirror" : ""}">
+                        ${this.icon}
+                    </div>
+                    ${this.discoveredDevice.deviceType}</span
+                >
             </div>
         `;
+    }
+    get icon() {
+        switch (this.discoveredDevice.deviceType) {
+            case "left insole":
+            case "right insole":
+                return "👟";
+            case "motion module":
+                return "📦";
+        }
     }
 
     notConnectedTemplate() {
@@ -35,16 +121,19 @@ export class UKDiscoveredDeviceElement extends LitElement {
     }
     connectingTemplate() {
         return html`
-            <button @click=${() => this.discoveredDevice.disconnect()}>
+            <button class="pulsating" @click=${() => this.discoveredDevice.disconnect()}>
                 connecting via ${this.discoveredDevice.connectionType}...
             </button>
         `;
     }
     connectedTemplate() {
-        return html` <div>connected via ${this.discoveredDevice.connectionType}</div> `;
+        return html`
+            <div>connected via ${this.discoveredDevice.connectionType}</div>
+            <button @click=${() => this.discoveredDevice.disconnect()}>disconnect</button>
+        `;
     }
     disconnectingTemplate() {
-        return html`<div>disconnecting...</div> `;
+        return html`<div class="pulsating">disconnecting...</div> `;
     }
 
     connectionTemplate() {
@@ -64,16 +153,27 @@ export class UKDiscoveredDeviceElement extends LitElement {
         `;
     }
 
+    get showScanningStatus() {
+        return bluetoothManager.isScanning && this.discoveredDevice.connectionStatus == "not connected";
+    }
+
     statusTemplate() {
         return html`
             <div class="status">
-                <span class="rssi" ?hidden=${!this.discoveredDevice.rssi}>${this.discoveredDevice.rssi}</span>
-                <span class="timestampDifference" ?hidden=${!this.discoveredDevice.timestampDifference}
-                    >${this.discoveredDevice.timestampDifference.toFixed(3)}</span
+                <div class="rssi" ?hidden=${!this.showScanningStatus || !this.discoveredDevice.rssi}>
+                    ${signalIcon()} <span>${this.discoveredDevice.rssi}</span>
+                </div>
+
+                <div
+                    class="timestampDifference"
+                    ?hidden=${!this.showScanningStatus || !this.discoveredDevice.timestampDifference}
                 >
-                <span class="ipAddress" ?hidden=${!this.discoveredDevice.isConnectedToWifi}
-                    >${this.discoveredDevice.ipAddress}</span
-                >
+                    ${clockIcon()} <span>${this.discoveredDevice.timestampDifference?.toFixed(3)}</span>
+                </div>
+
+                <div class="ipAddress" ?hidden=${!this.discoveredDevice.isConnectedToWifi}>
+                    ${wifiIcon()} <span>${this.discoveredDevice.ipAddress}</span>
+                </div>
             </div>
         `;
     }

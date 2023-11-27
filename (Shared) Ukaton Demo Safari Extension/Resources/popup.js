@@ -4,7 +4,11 @@ import { UKScanButtonElement } from "./scan-button-component.js";
 
 export class UKPopupElement extends LitElement {
     render() {
-        return html` <uk-scan-button></uk-scan-button> <uk-discovered-devices></uk-discovered-devices> `;
+        return html`
+            <uk-scan-button></uk-scan-button>
+            <hr />
+            <uk-discovered-devices></uk-discovered-devices>
+        `;
     }
 }
 customElements.define("uk-popup", UKPopupElement);

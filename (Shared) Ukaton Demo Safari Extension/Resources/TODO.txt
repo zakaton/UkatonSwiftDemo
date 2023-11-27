@@ -1,4 +1,2 @@
 uk-discovered-device
-    update individual device
-    render info
-    toggle connection
+    css

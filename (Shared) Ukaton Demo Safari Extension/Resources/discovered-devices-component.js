@@ -10,6 +10,8 @@ export class UKDiscoveredDevicesElement extends LitElement {
         #discoveredDevices {
             display: flex;
             flex-direction: column;
+            gap: 1.5em;
+            justify-content: center;
         }
     `;
 

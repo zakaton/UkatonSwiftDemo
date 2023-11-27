@@ -28,7 +28,6 @@ export class DiscoveredDeviceController {
         this.discoveredDevice = discoveredDevice;
         this._requestUpdate = this._requestUpdate.bind(this);
         (this.host = host).addController(this);
-        console.log("A", host, discoveredDevice);
     }
 
     _requestUpdate() {

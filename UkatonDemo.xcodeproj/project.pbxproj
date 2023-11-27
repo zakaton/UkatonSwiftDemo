@@ -63,6 +63,9 @@
 		5F3315062B13D46E00011E40 /* discovered-device-controller.js in Resources */ = {isa = PBXBuildFile; fileRef = 5F3315052B13D46E00011E40 /* discovered-device-controller.js */; };
 		5F3315072B13D46E00011E40 /* discovered-device-controller.js in Resources */ = {isa = PBXBuildFile; fileRef = 5F3315052B13D46E00011E40 /* discovered-device-controller.js */; };
 		5F3315082B13D46E00011E40 /* discovered-device-controller.js in Resources */ = {isa = PBXBuildFile; fileRef = 5F3315052B13D46E00011E40 /* discovered-device-controller.js */; };
+		5F33150A2B1409E200011E40 /* icons.js in Resources */ = {isa = PBXBuildFile; fileRef = 5F3315092B1409E200011E40 /* icons.js */; };
+		5F33150B2B1409E200011E40 /* icons.js in Resources */ = {isa = PBXBuildFile; fileRef = 5F3315092B1409E200011E40 /* icons.js */; };
+		5F33150C2B1409E200011E40 /* icons.js in Resources */ = {isa = PBXBuildFile; fileRef = 5F3315092B1409E200011E40 /* icons.js */; };
 		5F3F4E2A2B091F0C00F81B6F /* CenterOfMassDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3F4E292B091F0C00F81B6F /* CenterOfMassDemo.swift */; };
 		5F3F4E2B2B091F0C00F81B6F /* CenterOfMassDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3F4E292B091F0C00F81B6F /* CenterOfMassDemo.swift */; };
 		5F3F4E2C2B091F0C00F81B6F /* CenterOfMassDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3F4E292B091F0C00F81B6F /* CenterOfMassDemo.swift */; };
@@ -403,6 +406,7 @@
 		5F3314FD2B13C4BC00011E40 /* discovered-devices-component.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = "discovered-devices-component.js"; sourceTree = "<group>"; };
 		5F3315012B13C79000011E40 /* scan-button-component.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = "scan-button-component.js"; sourceTree = "<group>"; };
 		5F3315052B13D46E00011E40 /* discovered-device-controller.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = "discovered-device-controller.js"; sourceTree = "<group>"; };
+		5F3315092B1409E200011E40 /* icons.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = icons.js; sourceTree = "<group>"; };
 		5F3F4E292B091F0C00F81B6F /* CenterOfMassDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterOfMassDemo.swift; sourceTree = "<group>"; };
 		5F3F4E2F2B092FF200F81B6F /* RotationModePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationModePicker.swift; sourceTree = "<group>"; };
 		5F3F4E312B0930A900F81B6F /* TranslationModePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationModePicker.swift; sourceTree = "<group>"; };
@@ -813,6 +817,7 @@
 				5FD458C12B0BDB7D0030BE6E /* background.js */,
 				5F3314ED2B13C24900011E40 /* discovered-device-component.js */,
 				5F3315052B13D46E00011E40 /* discovered-device-controller.js */,
+				5F3315092B1409E200011E40 /* icons.js */,
 				5FD458C72B0BDB7D0030BE6E /* popup.css */,
 				5F3314DD2B131AD900011E40 /* popup.js */,
 				5F3314F92B13C45400011E40 /* discovered-devices-controller.js */,
@@ -1257,6 +1262,7 @@
 				5F6A0DEB2B0D470E00E15FFC /* manifest.json in Resources */,
 				5F6A0DE62B0D462E00E15FFC /* _locales in Resources */,
 				5F3314FA2B13C45400011E40 /* discovered-devices-controller.js in Resources */,
+				5F33150A2B1409E200011E40 /* icons.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1285,6 +1291,7 @@
 				5FD458C02B0BDB7D0030BE6E /* manifest.json in Resources */,
 				5FD458BC2B0BDB7D0030BE6E /* _locales in Resources */,
 				5F3314FB2B13C45400011E40 /* discovered-devices-controller.js in Resources */,
+				5F33150B2B1409E200011E40 /* icons.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1313,6 +1320,7 @@
 				5F6A0DE32B0D462E00E15FFC /* images in Resources */,
 				5F6A0DE12B0D462900E15FFC /* background.js in Resources */,
 				5F3314FC2B13C45400011E40 /* discovered-devices-controller.js in Resources */,
+				5F33150C2B1409E200011E40 /* icons.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

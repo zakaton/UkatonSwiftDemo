@@ -192,7 +192,7 @@ class UKDiscoveredDevice {
             this.logger.log("can't connect - already connected");
             return;
         }
-        if (connectionType != "bluetooth" && is_iOS()) {
+        if (connectionType != "bluetooth" && is_iOS) {
             this.logger.log(`unable to connect via ${connectionType} on iOS - changing to bluetooth`);
             connectionType = "bluetooth";
         }
@@ -217,6 +217,7 @@ class UKDiscoveredDevice {
         switch (message.type) {
             case "connectionStatus":
                 this.#updateConnectionStatus(message.connectionStatus);
+                this.#updateConnectionType(message.connectionType);
                 break;
             default:
                 this.logger.log(`uncaught message type ${message.typs}`);

@@ -9,11 +9,30 @@ export class UKScanButtonElement extends LitElement {
         #toggleScanButton {
             font-size: larger;
         }
+
+        @keyframes pulsateAnimation {
+            0% {
+                scale: 1;
+            }
+            100% {
+                scale: 0.95;
+            }
+        }
+        .pulsating {
+            opacity: 1;
+            animation: pulsateAnimation 0.7s infinite;
+            animation-timing-function: ease-in-out;
+            animation-direction: alternate;
+        }
     `;
 
     render() {
         return html`
-            <button @click=${() => bluetoothManager.toggleScan()} id="toggleScanButton">
+            <button
+                class="${bluetoothManager.isScanning ? "pulsating" : ""}"
+                @click=${() => bluetoothManager.toggleScan()}
+                id="toggleScanButton"
+            >
                 ${bluetoothManager.isScanning ? "stop scanning" : "scan for devices"}
             </button>
         `;
