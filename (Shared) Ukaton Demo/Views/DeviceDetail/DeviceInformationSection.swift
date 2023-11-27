@@ -14,22 +14,6 @@ struct DeviceInformationSection: View {
         self.newDeviceType = mission.deviceType
     }
 
-    var isWatch: Bool {
-        #if os(watchOS)
-        true
-        #else
-        false
-        #endif
-    }
-
-    var isTv: Bool {
-        #if os(tvOS)
-        true
-        #else
-        false
-        #endif
-    }
-
     var shouldEdit: Bool {
         !isWatch && !isTv
     }

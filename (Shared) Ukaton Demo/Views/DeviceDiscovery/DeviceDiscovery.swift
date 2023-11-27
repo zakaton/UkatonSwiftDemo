@@ -8,14 +8,6 @@ struct DeviceDiscovery: View {
 
     @StateObject private var navigationCoordinator: NavigationCoordinator = .init()
 
-    var isWatch: Bool {
-        #if os(watchOS)
-        true
-        #else
-        false
-        #endif
-    }
-
     @State private var wasScanning: Bool = false
 
     var body: some View {

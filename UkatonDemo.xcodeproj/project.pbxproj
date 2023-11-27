@@ -69,6 +69,14 @@
 		5F33150E2B144C2700011E40 /* EventDispatcher.js in Resources */ = {isa = PBXBuildFile; fileRef = 5F33150D2B144C2700011E40 /* EventDispatcher.js */; };
 		5F33150F2B144C2700011E40 /* EventDispatcher.js in Resources */ = {isa = PBXBuildFile; fileRef = 5F33150D2B144C2700011E40 /* EventDispatcher.js */; };
 		5F3315102B144C2700011E40 /* EventDispatcher.js in Resources */ = {isa = PBXBuildFile; fileRef = 5F33150D2B144C2700011E40 /* EventDispatcher.js */; };
+		5F3315122B1504D500011E40 /* UKDeviceManager.js in Resources */ = {isa = PBXBuildFile; fileRef = 5F3315112B1504D500011E40 /* UKDeviceManager.js */; };
+		5F3315132B1504D500011E40 /* UKDeviceManager.js in Resources */ = {isa = PBXBuildFile; fileRef = 5F3315112B1504D500011E40 /* UKDeviceManager.js */; };
+		5F3315142B1504D500011E40 /* UKDeviceManager.js in Resources */ = {isa = PBXBuildFile; fileRef = 5F3315112B1504D500011E40 /* UKDeviceManager.js */; };
+		5F3315162B1505E200011E40 /* PlatformUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3315152B1505E200011E40 /* PlatformUtils.swift */; };
+		5F3315172B1505E200011E40 /* PlatformUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3315152B1505E200011E40 /* PlatformUtils.swift */; };
+		5F3315182B1505E200011E40 /* PlatformUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3315152B1505E200011E40 /* PlatformUtils.swift */; };
+		5F3315192B1505E200011E40 /* PlatformUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3315152B1505E200011E40 /* PlatformUtils.swift */; };
+		5F33151A2B1505E200011E40 /* PlatformUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3315152B1505E200011E40 /* PlatformUtils.swift */; };
 		5F3F4E2A2B091F0C00F81B6F /* CenterOfMassDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3F4E292B091F0C00F81B6F /* CenterOfMassDemo.swift */; };
 		5F3F4E2B2B091F0C00F81B6F /* CenterOfMassDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3F4E292B091F0C00F81B6F /* CenterOfMassDemo.swift */; };
 		5F3F4E2C2B091F0C00F81B6F /* CenterOfMassDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3F4E292B091F0C00F81B6F /* CenterOfMassDemo.swift */; };
@@ -408,6 +416,8 @@
 		5F3315052B13D46E00011E40 /* UKDiscoveredDeviceController.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = UKDiscoveredDeviceController.js; sourceTree = "<group>"; };
 		5F3315092B1409E200011E40 /* icons.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = icons.js; sourceTree = "<group>"; };
 		5F33150D2B144C2700011E40 /* EventDispatcher.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = EventDispatcher.js; sourceTree = "<group>"; };
+		5F3315112B1504D500011E40 /* UKDeviceManager.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = UKDeviceManager.js; sourceTree = "<group>"; };
+		5F3315152B1505E200011E40 /* PlatformUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformUtils.swift; sourceTree = "<group>"; };
 		5F3F4E292B091F0C00F81B6F /* CenterOfMassDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterOfMassDemo.swift; sourceTree = "<group>"; };
 		5F3F4E2F2B092FF200F81B6F /* RotationModePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationModePicker.swift; sourceTree = "<group>"; };
 		5F3F4E312B0930A900F81B6F /* TranslationModePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationModePicker.swift; sourceTree = "<group>"; };
@@ -817,6 +827,7 @@
 				5FD458C12B0BDB7D0030BE6E /* background.js */,
 				5F33150D2B144C2700011E40 /* EventDispatcher.js */,
 				5F3314ED2B13C24900011E40 /* UKDiscoveredDeviceElement.js */,
+				5F3315112B1504D500011E40 /* UKDeviceManager.js */,
 				5F3315052B13D46E00011E40 /* UKDiscoveredDeviceController.js */,
 				5F3315092B1409E200011E40 /* icons.js */,
 				5FD458C72B0BDB7D0030BE6E /* popup.css */,
@@ -874,6 +885,7 @@
 				5F9F82BA2B029AC500DDD9AB /* NavigationCoordinator.swift */,
 				5F0F6F5A2AFEC9E8007D0D03 /* ViewModifier.swift */,
 				5F0FE43C2B0729D300953012 /* DeviceRotationViewModifier.swift */,
+				5F3315152B1505E200011E40 /* PlatformUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1262,6 +1274,7 @@
 				5F33150E2B144C2700011E40 /* EventDispatcher.js in Resources */,
 				5F6A0DE62B0D462E00E15FFC /* _locales in Resources */,
 				5F3314FA2B13C45400011E40 /* UKDiscoveredDevicesController.js in Resources */,
+				5F3315122B1504D500011E40 /* UKDeviceManager.js in Resources */,
 				5F33150A2B1409E200011E40 /* icons.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1291,6 +1304,7 @@
 				5F33150F2B144C2700011E40 /* EventDispatcher.js in Resources */,
 				5FD458BC2B0BDB7D0030BE6E /* _locales in Resources */,
 				5F3314FB2B13C45400011E40 /* UKDiscoveredDevicesController.js in Resources */,
+				5F3315132B1504D500011E40 /* UKDeviceManager.js in Resources */,
 				5F33150B2B1409E200011E40 /* icons.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1320,6 +1334,7 @@
 				5F3315102B144C2700011E40 /* EventDispatcher.js in Resources */,
 				5F6A0DE12B0D462900E15FFC /* background.js in Resources */,
 				5F3314FC2B13C45400011E40 /* UKDiscoveredDevicesController.js in Resources */,
+				5F3315142B1504D500011E40 /* UKDeviceManager.js in Resources */,
 				5F33150C2B1409E200011E40 /* icons.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1386,6 +1401,7 @@
 				5F8742002B0AA89800D67026 /* DeviceRotationViewModifier.swift in Sources */,
 				5F8741FA2B0AA88E00D67026 /* UkatonDemoApp.swift in Sources */,
 				5F87421B2B0AA8A800D67026 /* MissionPair.swift in Sources */,
+				5F33151A2B1505E200011E40 /* PlatformUtils.swift in Sources */,
 				5F87421C2B0AA8A800D67026 /* RotationModePicker.swift in Sources */,
 				5F8742182B0AA8A800D67026 /* DeviceDemosSection.swift in Sources */,
 				5F8742082B0AA8A800D67026 /* VibrationWaveformsSection.swift in Sources */,
@@ -1432,6 +1448,7 @@
 				5F8B9DDC2B096DE400E53711 /* DiscoveredDeviceRow.swift in Sources */,
 				5F8B9DBF2B096DC800E53711 /* DeviceRotationViewModifier.swift in Sources */,
 				5F8B9DD02B096DDF00E53711 /* DeviceInformationSection.swift in Sources */,
+				5F3315192B1505E200011E40 /* PlatformUtils.swift in Sources */,
 				5F8B9DD92B096DE000E53711 /* PressureDemo.swift in Sources */,
 				5F8B9DDA2B096DE000E53711 /* PressureModePicker.swift in Sources */,
 				5F8B9DCE2B096DD800E53711 /* VibrationWaveformsView.swift in Sources */,
@@ -1502,6 +1519,7 @@
 				5F777D4A2B01481A0001509A /* VibrationWaveformsView.swift in Sources */,
 				5F0F6F5B2AFEC9E8007D0D03 /* ViewModifier.swift in Sources */,
 				5FA3AFFD2AFAAA2800F5295C /* DeviceWifiInformationSection.swift in Sources */,
+				5F3315162B1505E200011E40 /* PlatformUtils.swift in Sources */,
 				5F0F6F572AFEA87F007D0D03 /* TranslationModePicker.swift in Sources */,
 				5F446F752B0468C900797659 /* RSSIDemo.swift in Sources */,
 				5F9F82C72B03EC0200DDD9AB /* MissionPairMotionDemo.swift in Sources */,
@@ -1548,6 +1566,7 @@
 				5F777D4B2B01481A0001509A /* VibrationWaveformsView.swift in Sources */,
 				5F0F6F5C2AFEC9E8007D0D03 /* ViewModifier.swift in Sources */,
 				5FA3AFFE2AFAAA2800F5295C /* DeviceWifiInformationSection.swift in Sources */,
+				5F3315172B1505E200011E40 /* PlatformUtils.swift in Sources */,
 				5F0F6F582AFEA87F007D0D03 /* TranslationModePicker.swift in Sources */,
 				5F446F762B0468C900797659 /* RSSIDemo.swift in Sources */,
 				5F9F82C82B03EC0200DDD9AB /* MissionPairMotionDemo.swift in Sources */,
@@ -1594,6 +1613,7 @@
 				5F0F6F5D2AFEC9E8007D0D03 /* ViewModifier.swift in Sources */,
 				5FA3AFFF2AFAAA2800F5295C /* DeviceWifiInformationSection.swift in Sources */,
 				5F83E5D62B0596DC00056593 /* ContentView.swift in Sources */,
+				5F3315182B1505E200011E40 /* PlatformUtils.swift in Sources */,
 				5F446F772B0468C900797659 /* RSSIDemo.swift in Sources */,
 				5F9F82C92B03EC0200DDD9AB /* MissionPairMotionDemo.swift in Sources */,
 				5FCC84BD2AFCA33800B755FA /* PressureDemo.swift in Sources */,

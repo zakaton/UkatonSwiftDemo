@@ -7,18 +7,6 @@ export default class UKDiscoveredDeviceController {
     /** @type {UKDiscoveredDevice} */
     discoveredDevice;
 
-    messageTypes = [
-        "name",
-        "deviceType",
-
-        "connectionStatus",
-        "connectionType",
-
-        "rssi",
-        "ipAddress",
-        "timestampDifference",
-    ];
-
     /**
      *
      * @param {LitElement} host
@@ -35,14 +23,10 @@ export default class UKDiscoveredDeviceController {
     }
 
     hostConnected() {
-        this.messageTypes.forEach((type) => {
-            this.discoveredDevice.eventDispatcher.addEventListener(type, this._requestUpdate);
-        });
+        this.discoveredDevice.eventDispatcher.addEventListener("updated", this._requestUpdate);
     }
 
     hostDisconnected() {
-        this.messageTypes.forEach((type) => {
-            this.discoveredDevice.eventDispatcher.removeEventListener(type, this._requestUpdate);
-        });
+        this.discoveredDevice.eventDispatcher.removeEventListener("updated", this._requestUpdate);
     }
 }

@@ -31,14 +31,6 @@ struct DiscoveredDeviceRowHeader: View {
         }
     }
 
-    var isWatch: Bool {
-        #if os(watchOS)
-        true
-        #else
-        false
-        #endif
-    }
-
     var body: some View {
         VStack(alignment: isWatch ? .center : .leading) {
             Text(name)
@@ -48,7 +40,6 @@ struct DiscoveredDeviceRowHeader: View {
             Label(deviceType.name, systemImage: deviceTypeSystemImage)
                 // .foregroundColor(.secondary)
                 .labelStyle(LabelSpacing(spacing: 4))
-                
         }
     }
 }

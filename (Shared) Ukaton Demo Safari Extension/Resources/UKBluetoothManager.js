@@ -1,5 +1,5 @@
 import EventDispatcher from "./EventDispatcher.js";
-import { Poll, Logger, sendMessage, receiveMessage } from "./utils.js";
+import { Poll, Logger, sendBackgroundMessage, addBackgroundListener } from "./utils.js";
 import UKDiscoveredDevice from "./UKDiscoveredDevice.js";
 
 export default class UKBluetoothManager {
@@ -38,12 +38,12 @@ export default class UKBluetoothManager {
      * @param {object} message
      * @param {string} message.type
      */
-    async #sendMessage(message) {
-        return sendMessage(message);
+    async #sendBackgroundMessage(message) {
+        return sendBackgroundMessage(message);
     }
 
     async checkIsScanning() {
-        const response = await this.#sendMessage({ type: "isScanning" });
+        const response = await this.#sendBackgroundMessage({ type: "isScanning" });
         const { isScanning } = response;
         this.logger.log(`isScanning response: ${isScanning}`, response);
         this.isScanning = isScanning;
@@ -53,7 +53,7 @@ export default class UKBluetoothManager {
 
     async setScan(newValue) {
         if (newValue != this.isScanning) {
-            const response = await this.#sendMessage({ type: "setScan", newValue });
+            const response = await this.#sendBackgroundMessage({ type: "setScan", newValue });
             const { isScanning } = response;
             this.logger.log(`setScan response: ${isScanning}`, response);
             if (isScanning == newValue) {
@@ -71,7 +71,7 @@ export default class UKBluetoothManager {
 
     #discoveredDevicesPoll = new Poll(this.checkDiscoveredDevices.bind(this), 200);
     async checkDiscoveredDevices() {
-        const response = await this.#sendMessage({ type: "discoveredDevices" });
+        const response = await this.#sendBackgroundMessage({ type: "discoveredDevices" });
         const { discoveredDevices: discoveredDeviceInfo } = response;
         this.logger.log(`discovered ${discoveredDeviceInfo.length} devices`, response);
         this.#updateDiscoveredDevices(discoveredDeviceInfo);
@@ -138,7 +138,7 @@ export default class UKBluetoothManager {
             this.setScan(false);
         });
 
-        receiveMessage(this.#onBackgroundMessage.bind(this));
+        addBackgroundListener(this.#onBackgroundMessage.bind(this));
 
         this.checkIsScanning();
         this.checkDiscoveredDevices();
@@ -157,15 +157,6 @@ export default class UKBluetoothManager {
                 break;
             case "discoveredDevices":
                 this.#updateDiscoveredDevices(message.discoveredDevices);
-                break;
-            case "connectionStatus":
-                const { id } = message;
-                const discoveredDevice = this.discoveredDevices[id];
-                if (discoveredDevice) {
-                    discoveredDevice.onBackgroundMessage(message);
-                } else {
-                    this.logger.log(`uncaught message for id ${id}`, message);
-                }
                 break;
             default:
                 this.logger.log(`uncaught message type ${message.typs}`);

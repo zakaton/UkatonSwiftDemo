@@ -5,14 +5,6 @@ struct VibrationWaveformsView: View {
     var vibratable: UKVibratable
     @Binding var waveforms: [UKVibrationWaveform]
 
-    var isWatch: Bool {
-        #if os(watchOS)
-        true
-        #else
-        false
-        #endif
-    }
-
     @ViewBuilder
     func centerView(_ view: some View) -> some View {
         if isWatch {

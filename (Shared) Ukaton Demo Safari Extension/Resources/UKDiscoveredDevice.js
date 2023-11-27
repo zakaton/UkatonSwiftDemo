@@ -1,4 +1,11 @@
-import { is_iOS, Logger, sendMessage, Poll } from "./utils.js";
+import {
+    is_iOS,
+    Logger,
+    Poll,
+    sendBackgroundMessage,
+    addBackgroundListener,
+    removeBackgroundListener,
+} from "./utils.js";
 import EventDispatcher from "./EventDispatcher.js";
 
 /** @typedef {"motion module" | "left insole" | "right insole"} UKDeviceType */
@@ -145,6 +152,9 @@ export default class UKDiscoveredDevice {
     constructor(discoveredDeviceInfo) {
         this.logger = new Logger(false, this, discoveredDeviceInfo.id);
         this.update(discoveredDeviceInfo);
+
+        this.#boundOnBackgroundMessage = this.#onBackgroundMessage.bind(this);
+        addBackgroundListener(this.#boundOnBackgroundMessage);
     }
 
     /**
@@ -167,6 +177,8 @@ export default class UKDiscoveredDevice {
         this.#updateConnectionType(connectionType);
 
         this.logger.log(`updated discovered device ${id}`, discoveredDeviceInfo);
+
+        this.eventDispatcher.dispatchEvent({ type: "updated" });
     }
 
     /**
@@ -174,14 +186,14 @@ export default class UKDiscoveredDevice {
      * @param {object} message
      * @param {string} message.type
      */
-    async #sendMessage(message) {
+    async #sendBackgroundMessage(message) {
         Object.assign(message, { id: this.id });
-        return sendMessage(message);
+        return sendBackgroundMessage(message);
     }
 
     #connectionStatusPoll = new Poll(this.#checkConectionStatus.bind(this), 200);
     async #checkConectionStatus() {
-        await this.#sendMessage({ type: "connectionStatus" });
+        await this.#sendBackgroundMessage({ type: "connectionStatus" });
     }
 
     /**
@@ -196,7 +208,7 @@ export default class UKDiscoveredDevice {
             this.logger.log(`unable to connect via ${connectionType} on iOS - changing to bluetooth`);
             connectionType = "bluetooth";
         }
-        await this.#sendMessage({ type: "connect", connectionType });
+        await this.#sendBackgroundMessage({ type: "connect", connectionType });
         this.#connectionStatusPoll.start();
     }
     async disconnect() {
@@ -204,7 +216,7 @@ export default class UKDiscoveredDevice {
             this.logger.log("can't disconnect - not connected");
             return;
         }
-        await this.#sendMessage({ type: "disconnect" });
+        await this.#sendBackgroundMessage({ type: "disconnect" });
         this.#connectionStatusPoll.start();
     }
 
@@ -212,7 +224,11 @@ export default class UKDiscoveredDevice {
      * @param {object} message
      * @param {string} message.type
      */
-    onBackgroundMessage(message) {
+    #onBackgroundMessage(message) {
+        if (message.id != this.id) {
+            return;
+        }
+
         this.logger.log(`received background message of type ${message.type}`, message);
         switch (message.type) {
             case "connectionStatus":
@@ -220,12 +236,16 @@ export default class UKDiscoveredDevice {
                 this.#updateConnectionType(message.connectionType);
                 break;
             default:
-                this.logger.log(`uncaught message type ${message.typs}`);
+                this.logger.log(`uncaught message type ${message.type}`);
                 break;
         }
     }
+    /** @type {function} */
+    #boundOnBackgroundMessage;
 
     destroy() {
+        this.logger.log(`destroying self`);
         this.#connectionStatusPoll.stop();
+        removeBackgroundListener(this.#boundOnBackgroundMessage);
     }
 }

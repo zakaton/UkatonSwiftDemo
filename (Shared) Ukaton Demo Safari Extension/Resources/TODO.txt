@@ -1,4 +1,4 @@
-UkatonKit
+UKDeviceManager
     store discoveredDevices
 content.js
-    import UkatonKit.js and all that
+    import UkatonKit if window.UKATON is found

@@ -13,22 +13,6 @@ struct DeviceWifiInformationSection: View {
         requiresWifi == false
     }
 
-    var isWatch: Bool {
-        #if os(watchOS)
-        true
-        #else
-        false
-        #endif
-    }
-
-    var isTv: Bool {
-        #if os(tvOS)
-        true
-        #else
-        false
-        #endif
-    }
-
     var shouldEditWifi: Bool {
         !isWatch && !isTv
     }

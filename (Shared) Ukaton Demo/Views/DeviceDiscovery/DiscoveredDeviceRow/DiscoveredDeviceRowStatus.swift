@@ -13,14 +13,6 @@ struct DiscoveredDeviceRowStatus: View {
         self.mission = discoveredDevice.wrappedValue.mission
     }
 
-    var isWatch: Bool {
-        #if os(watchOS)
-            true
-        #else
-            false
-        #endif
-    }
-
     @State private var batteryLevel: UKBatteryLevel = .zero
     var batteryLevelSystemImage: String {
         switch batteryLevel {

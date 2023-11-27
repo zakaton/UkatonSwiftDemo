@@ -16,14 +16,6 @@ struct MotionDataSection: View {
     @State private var rotationRateData: UKRotationRateData = (.init(), 0)
     @State private var quaternionData: UKQuaternionData = (.init(), 0)
 
-    var isWatch: Bool {
-        #if os(watchOS)
-            true
-        #else
-            false
-        #endif
-    }
-
     var body: some View {
         let layout = isWatch ? AnyLayout(VStackLayout(alignment: .leading)) : AnyLayout(HStackLayout())
 

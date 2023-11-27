@@ -23,14 +23,6 @@ struct ContentView: View {
         }
     }
 
-    var isWatch: Bool {
-        #if os(watchOS)
-            true
-        #else
-            false
-        #endif
-    }
-
     var missionPairImageString: String {
         if missionPair.isConnected {
             return "shoe.2.fill"

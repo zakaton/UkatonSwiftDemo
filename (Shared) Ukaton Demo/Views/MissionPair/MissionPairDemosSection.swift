@@ -34,14 +34,6 @@ enum MissionPairDemo: CaseIterable, Identifiable {
 struct MissionPairDemosSection: View {
     let missionPair: UKMissionPair
 
-    var isWatch: Bool {
-        #if os(watchOS)
-            true
-        #else
-            false
-        #endif
-    }
-
     var body: some View {
         Section {
             ForEach(MissionPairDemo.allCases.filter {

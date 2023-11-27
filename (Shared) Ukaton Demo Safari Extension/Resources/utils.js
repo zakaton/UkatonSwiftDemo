@@ -90,17 +90,22 @@ const is_iOS = check_is_iOS();
  * @param {object} message
  * @param {string} message.type
  */
-async function sendMessage(message) {
+async function sendBackgroundMessage(message) {
     return browser.runtime.sendMessage(message);
 }
 
 /**
  * @param {function():void} callback
  */
-function receiveMessage(callback) {
-    browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
-        callback(message);
-    });
+function addBackgroundListener(callback) {
+    browser.runtime.onMessage.addListener(callback);
 }
 
-export { Poll, Logger, is_iOS, sendMessage, receiveMessage };
+/**
+ * @param {function():void} callback
+ */
+function removeBackgroundListener(callback) {
+    browser.runtime.onMessage.removeListener(callback);
+}
+
+export { Poll, Logger, is_iOS, sendBackgroundMessage, addBackgroundListener, removeBackgroundListener };

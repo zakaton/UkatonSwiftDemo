@@ -12,14 +12,6 @@ struct PressureDataSection: View {
     @State private var massData: UKMassData = (.zero, 0)
     @State private var heelToToeData: UKHeelToToeData = (.zero, 0)
 
-    var isWatch: Bool {
-        #if os(watchOS)
-        true
-        #else
-        false
-        #endif
-    }
-
     private let nf: NumberFormatter = {
         let nf = NumberFormatter()
         nf.numberStyle = .decimal

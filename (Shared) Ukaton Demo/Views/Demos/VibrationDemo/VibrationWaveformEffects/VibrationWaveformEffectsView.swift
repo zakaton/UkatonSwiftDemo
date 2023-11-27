@@ -5,14 +5,6 @@ struct VibrationWaveformEffectsView: View {
     var vibratable: UKVibratable
     @Binding var waveformEffects: [UKVibrationWaveformEffect]
 
-    var isWatch: Bool {
-        #if os(watchOS)
-            true
-        #else
-            false
-        #endif
-    }
-
     @ViewBuilder
     func pickerLabel(index: Int) -> some View {
         if isWatch {
