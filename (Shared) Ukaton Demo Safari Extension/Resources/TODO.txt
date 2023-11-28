@@ -1,4 +1,11 @@
-UKDeviceManager
-    store discoveredDevices
-content.js
-    import UkatonKit if window.UKATON is found
+browser.runtime.sendMessage(message)
+    send window message to content.js
+    respond from content.js (how to identify?)
+browser.runtime.onMessage.removeListener(callback);
+browser.runtime.onMessage.addListener(callback);
+
+UKMission
+    deviceInformation
+    config
+    data
+    haptics

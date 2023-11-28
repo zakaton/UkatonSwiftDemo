@@ -21,6 +21,13 @@ function sendMessage(message, callback) {
     });
 }
 
+// background.js -> content.js/popup.js
+async function sendMessageToWebpage(message) {
+    browser.runtime.sendMessage(message);
+    const tab = await browser.tabs.getCurrent();
+    browser.tabs.sendMessage(tab.id, message);
+}
+
 var isScanning = false;
 var isScanningTimestamp = 0;
 function setScan({ newValue }) {
@@ -44,7 +51,7 @@ function onIsScanningResponse(response) {
     logger.log(`Received checkIsScanning response: ${response.isScanning}`, response);
     isScanning = response.isScanning;
     isScanningTimestamp = response.timestamp;
-    browser.runtime.sendMessage({ type: "isScanning", isScanning });
+    sendMessageToWebpage({ type: "isScanning", isScanning });
 }
 
 var discoveredDevices = [];
@@ -62,7 +69,7 @@ function checkDiscoveredDevices() {
             logger.log(`Received ${response.discoveredDevices.length} discoveredDevices`, response);
             discoveredDevices = response.discoveredDevices;
             discoveredDevicesTimestamp = response.timestamp;
-            browser.runtime.sendMessage({ type: "discoveredDevices", discoveredDevices });
+            sendMessageToWebpage({ type: "discoveredDevices", discoveredDevices });
         }
     );
 }
@@ -88,7 +95,7 @@ function checkConnectionStatus({ id }) {
         const newConnectionType = response.connectionType;
         discoveredDevice.connectionStatus = newConnectionStatus;
         discoveredDevice.connectionType = newConnectionType;
-        browser.runtime.sendMessage({
+        sendMessageToWebpage({
             type: "connectionStatus",
             id,
             connectionStatus: newConnectionStatus,
@@ -99,7 +106,7 @@ function checkConnectionStatus({ id }) {
 
 // background.js <- popup.js/content.js
 browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
-    logger.log(`Received message of type "${message.type}"`, message);
+    logger.log(`Received message of type "${message.type}"`, message, sender);
 
     const { type } = message;
 

@@ -69,14 +69,20 @@
 		5F33150E2B144C2700011E40 /* EventDispatcher.js in Resources */ = {isa = PBXBuildFile; fileRef = 5F33150D2B144C2700011E40 /* EventDispatcher.js */; };
 		5F33150F2B144C2700011E40 /* EventDispatcher.js in Resources */ = {isa = PBXBuildFile; fileRef = 5F33150D2B144C2700011E40 /* EventDispatcher.js */; };
 		5F3315102B144C2700011E40 /* EventDispatcher.js in Resources */ = {isa = PBXBuildFile; fileRef = 5F33150D2B144C2700011E40 /* EventDispatcher.js */; };
-		5F3315122B1504D500011E40 /* UKDeviceManager.js in Resources */ = {isa = PBXBuildFile; fileRef = 5F3315112B1504D500011E40 /* UKDeviceManager.js */; };
-		5F3315132B1504D500011E40 /* UKDeviceManager.js in Resources */ = {isa = PBXBuildFile; fileRef = 5F3315112B1504D500011E40 /* UKDeviceManager.js */; };
-		5F3315142B1504D500011E40 /* UKDeviceManager.js in Resources */ = {isa = PBXBuildFile; fileRef = 5F3315112B1504D500011E40 /* UKDeviceManager.js */; };
+		5F3315122B1504D500011E40 /* UKMissionsManager.js in Resources */ = {isa = PBXBuildFile; fileRef = 5F3315112B1504D500011E40 /* UKMissionsManager.js */; };
+		5F3315132B1504D500011E40 /* UKMissionsManager.js in Resources */ = {isa = PBXBuildFile; fileRef = 5F3315112B1504D500011E40 /* UKMissionsManager.js */; };
+		5F3315142B1504D500011E40 /* UKMissionsManager.js in Resources */ = {isa = PBXBuildFile; fileRef = 5F3315112B1504D500011E40 /* UKMissionsManager.js */; };
 		5F3315162B1505E200011E40 /* PlatformUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3315152B1505E200011E40 /* PlatformUtils.swift */; };
 		5F3315172B1505E200011E40 /* PlatformUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3315152B1505E200011E40 /* PlatformUtils.swift */; };
 		5F3315182B1505E200011E40 /* PlatformUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3315152B1505E200011E40 /* PlatformUtils.swift */; };
 		5F3315192B1505E200011E40 /* PlatformUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3315152B1505E200011E40 /* PlatformUtils.swift */; };
 		5F33151A2B1505E200011E40 /* PlatformUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3315152B1505E200011E40 /* PlatformUtils.swift */; };
+		5F33151C2B1518A300011E40 /* content.js in Resources */ = {isa = PBXBuildFile; fileRef = 5F33151B2B1518A300011E40 /* content.js */; };
+		5F33151D2B1518A300011E40 /* content.js in Resources */ = {isa = PBXBuildFile; fileRef = 5F33151B2B1518A300011E40 /* content.js */; };
+		5F33151E2B1518A300011E40 /* content.js in Resources */ = {isa = PBXBuildFile; fileRef = 5F33151B2B1518A300011E40 /* content.js */; };
+		5F3315202B1525AD00011E40 /* UkatonKit.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 5F33151F2B1525AD00011E40 /* UkatonKit.min.js */; };
+		5F3315212B1525AD00011E40 /* UkatonKit.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 5F33151F2B1525AD00011E40 /* UkatonKit.min.js */; };
+		5F3315222B1525AD00011E40 /* UkatonKit.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 5F33151F2B1525AD00011E40 /* UkatonKit.min.js */; };
 		5F3F4E2A2B091F0C00F81B6F /* CenterOfMassDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3F4E292B091F0C00F81B6F /* CenterOfMassDemo.swift */; };
 		5F3F4E2B2B091F0C00F81B6F /* CenterOfMassDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3F4E292B091F0C00F81B6F /* CenterOfMassDemo.swift */; };
 		5F3F4E2C2B091F0C00F81B6F /* CenterOfMassDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3F4E292B091F0C00F81B6F /* CenterOfMassDemo.swift */; };
@@ -416,8 +422,10 @@
 		5F3315052B13D46E00011E40 /* UKDiscoveredDeviceController.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = UKDiscoveredDeviceController.js; sourceTree = "<group>"; };
 		5F3315092B1409E200011E40 /* icons.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = icons.js; sourceTree = "<group>"; };
 		5F33150D2B144C2700011E40 /* EventDispatcher.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = EventDispatcher.js; sourceTree = "<group>"; };
-		5F3315112B1504D500011E40 /* UKDeviceManager.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = UKDeviceManager.js; sourceTree = "<group>"; };
+		5F3315112B1504D500011E40 /* UKMissionsManager.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = UKMissionsManager.js; sourceTree = "<group>"; };
 		5F3315152B1505E200011E40 /* PlatformUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformUtils.swift; sourceTree = "<group>"; };
+		5F33151B2B1518A300011E40 /* content.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = content.js; sourceTree = "<group>"; };
+		5F33151F2B1525AD00011E40 /* UkatonKit.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = UkatonKit.min.js; sourceTree = "<group>"; };
 		5F3F4E292B091F0C00F81B6F /* CenterOfMassDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterOfMassDemo.swift; sourceTree = "<group>"; };
 		5F3F4E2F2B092FF200F81B6F /* RotationModePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationModePicker.swift; sourceTree = "<group>"; };
 		5F3F4E312B0930A900F81B6F /* TranslationModePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationModePicker.swift; sourceTree = "<group>"; };
@@ -827,8 +835,10 @@
 				5FD458C12B0BDB7D0030BE6E /* background.js */,
 				5F33150D2B144C2700011E40 /* EventDispatcher.js */,
 				5F3314ED2B13C24900011E40 /* UKDiscoveredDeviceElement.js */,
-				5F3315112B1504D500011E40 /* UKDeviceManager.js */,
+				5F3315112B1504D500011E40 /* UKMissionsManager.js */,
 				5F3315052B13D46E00011E40 /* UKDiscoveredDeviceController.js */,
+				5F33151F2B1525AD00011E40 /* UkatonKit.min.js */,
+				5F33151B2B1518A300011E40 /* content.js */,
 				5F3315092B1409E200011E40 /* icons.js */,
 				5FD458C72B0BDB7D0030BE6E /* popup.css */,
 				5F3314DD2B131AD900011E40 /* popup.js */,
@@ -1253,6 +1263,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F33151C2B1518A300011E40 /* content.js in Resources */,
 				5F93F7F02B10021C0007B4BD /* utils.js in Resources */,
 				5F3314F62B13C44700011E40 /* UKScanController.js in Resources */,
 				5F93F7F42B10366F0007B4BD /* UkatonKit.js in Resources */,
@@ -1271,10 +1282,11 @@
 				5F3314FE2B13C4BC00011E40 /* UKDiscoveredDevicesElement.js in Resources */,
 				5F6A0DE52B0D462E00E15FFC /* images in Resources */,
 				5F6A0DEB2B0D470E00E15FFC /* manifest.json in Resources */,
+				5F3315202B1525AD00011E40 /* UkatonKit.min.js in Resources */,
 				5F33150E2B144C2700011E40 /* EventDispatcher.js in Resources */,
 				5F6A0DE62B0D462E00E15FFC /* _locales in Resources */,
 				5F3314FA2B13C45400011E40 /* UKDiscoveredDevicesController.js in Resources */,
-				5F3315122B1504D500011E40 /* UKDeviceManager.js in Resources */,
+				5F3315122B1504D500011E40 /* UKMissionsManager.js in Resources */,
 				5F33150A2B1409E200011E40 /* icons.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1283,6 +1295,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F33151D2B1518A300011E40 /* content.js in Resources */,
 				5F93F7F12B10021C0007B4BD /* utils.js in Resources */,
 				5F3314F72B13C44700011E40 /* UKScanController.js in Resources */,
 				5F93F7F52B10366F0007B4BD /* UkatonKit.js in Resources */,
@@ -1301,10 +1314,11 @@
 				5F3314FF2B13C4BC00011E40 /* UKDiscoveredDevicesElement.js in Resources */,
 				5FD0E54F2B12A2B7001CDBEF /* UKDiscoveredDevice.js in Resources */,
 				5FD458C02B0BDB7D0030BE6E /* manifest.json in Resources */,
+				5F3315212B1525AD00011E40 /* UkatonKit.min.js in Resources */,
 				5F33150F2B144C2700011E40 /* EventDispatcher.js in Resources */,
 				5FD458BC2B0BDB7D0030BE6E /* _locales in Resources */,
 				5F3314FB2B13C45400011E40 /* UKDiscoveredDevicesController.js in Resources */,
-				5F3315132B1504D500011E40 /* UKDeviceManager.js in Resources */,
+				5F3315132B1504D500011E40 /* UKMissionsManager.js in Resources */,
 				5F33150B2B1409E200011E40 /* icons.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1313,6 +1327,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F33151E2B1518A300011E40 /* content.js in Resources */,
 				5F93F7F22B10021C0007B4BD /* utils.js in Resources */,
 				5F3314F82B13C44700011E40 /* UKScanController.js in Resources */,
 				5F93F7F62B10366F0007B4BD /* UkatonKit.js in Resources */,
@@ -1331,10 +1346,11 @@
 				5F3315002B13C4BC00011E40 /* UKDiscoveredDevicesElement.js in Resources */,
 				5F6A0DDE2B0D462900E15FFC /* popup.html in Resources */,
 				5F6A0DE32B0D462E00E15FFC /* images in Resources */,
+				5F3315222B1525AD00011E40 /* UkatonKit.min.js in Resources */,
 				5F3315102B144C2700011E40 /* EventDispatcher.js in Resources */,
 				5F6A0DE12B0D462900E15FFC /* background.js in Resources */,
 				5F3314FC2B13C45400011E40 /* UKDiscoveredDevicesController.js in Resources */,
-				5F3315142B1504D500011E40 /* UKDeviceManager.js in Resources */,
+				5F3315142B1504D500011E40 /* UKMissionsManager.js in Resources */,
 				5F33150C2B1409E200011E40 /* icons.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

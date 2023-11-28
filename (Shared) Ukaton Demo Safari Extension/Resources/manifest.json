@@ -21,14 +21,19 @@
         "persistent": "false"
     },
     
-    "web_accessible_resources": [
-        "*.js"
-    ],
+    "web_accessible_resources": [{
+      "resources": [""],
+      "matches": ["<all_urls>"],
+    }],
 
     "content_scripts": [{
-        "js": [ "UkatonKit.js"],
+        "js": [ "content.js"],
         "matches": ["<all_urls>"]
     }],
+    
+    "externally_connectable": {
+        "matches": [ "<all_urls>" ]
+    },
 
     "action": {
         "default_popup": "popup.html",
@@ -42,5 +47,5 @@
         }
     },
 
-    "permissions": ["activeTab", "scripting", "externally_connected", "nativeMessaging" ]
+    "permissions": ["activeTab", "scripting", "externally_connectable", "nativeMessaging" ]
 }

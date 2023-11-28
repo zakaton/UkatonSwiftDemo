@@ -2,7 +2,7 @@ import EventDispatcher from "./EventDispatcher.js";
 import { Poll, Logger, sendBackgroundMessage, addBackgroundListener } from "./utils.js";
 import UKDiscoveredDevice from "./UKDiscoveredDevice.js";
 
-export default class UKBluetoothManager {
+class UKBluetoothManager {
     logger = new Logger(false, this);
     eventDispatcher = new EventDispatcher();
 
@@ -164,3 +164,5 @@ export default class UKBluetoothManager {
         }
     }
 }
+
+export default UKBluetoothManager.shared;

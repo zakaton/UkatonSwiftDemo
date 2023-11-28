@@ -7,6 +7,7 @@ import {
     removeBackgroundListener,
 } from "./utils.js";
 import EventDispatcher from "./EventDispatcher.js";
+import UKMission from "./UKMission.js";
 
 /** @typedef {"motion module" | "left insole" | "right insole"} UKDeviceType */
 /** @typedef {"bluetooth" | "udp"} UKConnectionType */
@@ -29,6 +30,12 @@ import EventDispatcher from "./EventDispatcher.js";
 
 export default class UKDiscoveredDevice {
     eventDispatcher = new EventDispatcher();
+
+    /** @type {UKMission|undefined} */
+    #mission;
+    get mission() {
+        return this.#mission;
+    }
 
     #update(type, newValue) {
         this.logger.log(`updated ${type} to ${newValue}`);
@@ -126,6 +133,14 @@ export default class UKDiscoveredDevice {
             if (newValue == "connected" || newValue == "not connected") {
                 this.#connectionStatusPoll.stop();
             }
+
+            if (newValue == "connected") {
+                this.#mission = new UKMission(this);
+            } else if (newValue == "not connected" && this.#mission) {
+                this.#mission.destroy();
+                this.#mission = undefined;
+            }
+
             this.#update("connectionStatus", newValue);
         }
     }
@@ -177,8 +192,6 @@ export default class UKDiscoveredDevice {
         this.#updateConnectionType(connectionType);
 
         this.logger.log(`updated discovered device ${id}`, discoveredDeviceInfo);
-
-        this.eventDispatcher.dispatchEvent({ type: "updated" });
     }
 
     /**

@@ -86,12 +86,17 @@ function check_is_iOS() {
 }
 const is_iOS = check_is_iOS();
 
+const isInExtension = Boolean(browser.runtime.onMessage);
+
 /**
  * @param {object} message
  * @param {string} message.type
  */
 async function sendBackgroundMessage(message) {
-    return browser.runtime.sendMessage(message);
+    if (isInExtension) {
+        return browser.runtime.sendMessage(message);
+    } else {
+    }
 }
 
 /**
@@ -108,4 +113,4 @@ function removeBackgroundListener(callback) {
     browser.runtime.onMessage.removeListener(callback);
 }
 
-export { Poll, Logger, is_iOS, sendBackgroundMessage, addBackgroundListener, removeBackgroundListener };
+export { Poll, Logger, is_iOS, sendBackgroundMessage, addBackgroundListener, removeBackgroundListener, isInExtension };
