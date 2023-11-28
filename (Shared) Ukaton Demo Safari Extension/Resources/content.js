@@ -24,6 +24,5 @@ window.addEventListener("ukatonkit-sendBackgroundMessage", async (event) => {
 });
 
 browser.runtime.onMessage.addListener((message) => {
-    console.log("message from background.js", message);
     window.dispatchEvent(new CustomEvent("ukatonkit-backgroundListener", { detail: message }));
 });

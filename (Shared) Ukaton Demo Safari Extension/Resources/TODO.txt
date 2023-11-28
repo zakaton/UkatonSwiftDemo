@@ -1,9 +1,3 @@
-browser.runtime.sendMessage(message)
-    send window message to content.js
-    respond from content.js (how to identify?)
-browser.runtime.onMessage.removeListener(callback);
-browser.runtime.onMessage.addListener(callback);
-
 UKMission
     deviceInformation
     config

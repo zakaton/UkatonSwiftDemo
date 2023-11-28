@@ -30,7 +30,7 @@ class Logger {
             if (rest.length > 0) {
                 console.log(...rest);
             }
-            console.trace(); // hidden in collapsed group
+            //console.trace(); // hidden in collapsed group
             console.groupEnd();
         }
     }
