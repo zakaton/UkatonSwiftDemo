@@ -69,7 +69,12 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
 
         let timestamp = message["timestamp"] as? Double
 
-        switch message["type"] as? String {
+        guard let messageType = message["type"] as? String else {
+            logger.error("no message type defined")
+            return
+        }
+
+        switch messageType {
         case "setScan":
             logger.debug("set scan")
             if let newIsScanning = message["newValue"] as? Bool {
@@ -129,7 +134,7 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
                 bluetoothManager.discoveredDevices[discoveredDeviceIndex].connect(type: connectionType)
             }
             else {
-                logger.error("no discoveredDevice found in connect message")
+                logger.error("no discoveredDevice found in \(messageType) message")
             }
         case "disconnect":
             if let id = message["id"] as? String,
@@ -138,7 +143,7 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
                 bluetoothManager.discoveredDevices[discoveredDeviceIndex].disconnect()
             }
             else {
-                logger.error("no discoveredDevice found in disconnect message")
+                logger.error("no discoveredDevice found in \(messageType) message")
             }
 
         case "connectionStatus":
@@ -155,10 +160,58 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
                 response.userInfo = [SFExtensionMessageKey: message]
             }
             else {
-                logger.error("no mission found in isConnected message")
+                logger.error("no mission found in \(messageType) message")
+            }
+        case "getSensorDataConfigurations":
+            if let id = message["id"] as? String,
+               let mission = getMission(id: id)
+            {
+                let message: [String: Any] = [
+                    "sensorDataConfigurations": mission.sensorDataConfigurations.json
+                ]
+
+                response.userInfo = [SFExtensionMessageKey: message]
+            }
+            else {
+                logger.error("no mission found in \(messageType) message")
+            }
+        case "setSensorDataConfigurations":
+            if let id = message["id"] as? String,
+               let mission = getMission(id: id)
+            {
+                if let sensorDataConfigurationsJson = message["sensorDataConfigurations"] as? [String: [String: UKSensorDataRate]] {
+                    logger.log("sensorDataConfigurationsJson, \(sensorDataConfigurationsJson.debugDescription, privacy: .public)")
+                    let sensorDataConfigurations: UKSensorDataConfigurations = .init(from: sensorDataConfigurationsJson)
+                    print(sensorDataConfigurations)
+                    try? mission.setSensorDataConfigurations(sensorDataConfigurations)
+                }
+                else {
+                    logger.error("no sensorDataConfigurations found in message")
+                }
+            }
+            else {
+                logger.error("no mission found in \(messageType) message")
+            }
+        case "vibrateWaveformEffects":
+            if let id = message["id"] as? String,
+               let mission = getMission(id: id)
+            {
+                // TODO: - FILL
+            }
+            else {
+                logger.error("no mission found in \(messageType) message")
+            }
+        case "vibrateWaveforms":
+            if let id = message["id"] as? String,
+               let mission = getMission(id: id)
+            {
+                // TODO: - FILL
+            }
+            else {
+                logger.error("no mission found in \(messageType) message")
             }
         default:
-            logger.warning("uncaught exception for message type")
+            logger.warning("uncaught exception for message type \(messageType)")
             response.userInfo = [SFExtensionMessageKey: ["echo": message]]
         }
 

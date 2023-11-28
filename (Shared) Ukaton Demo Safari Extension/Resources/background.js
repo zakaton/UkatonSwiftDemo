@@ -104,6 +104,30 @@ function checkConnectionStatus({ id }) {
     });
 }
 
+function getSensorDataConfigurations({ id }) {
+    sendMessage({ type: "getSensorDataConfigurations", id }, (response) => {
+        logger.log(`Received getSensorDataConfigurations response: ${response.sensorDataConfigurations}`, response);
+        onSensorDataConfigurationsResponse(id, response);
+    });
+}
+function setSensorDataConfigurations({ id, sensorDataConfigurations }) {
+    sendMessage({ type: "setSensorDataConfigurations", id, sensorDataConfigurations }, (response) => {
+        logger.log(`Received setSensorDataConfigurations response: ${response.sensorDataConfigurations}`, response);
+        onSensorDataConfigurationsResponse(id, response);
+    });
+}
+
+function onSensorDataConfigurationsResponse(id, response) {
+    const discoveredDevice = getDiscoveredDeviceById(id);
+    const newSensorDataConfigurations = response.sensorDataConfigurations;
+    discoveredDevice.sensorDataConfigurations = newSensorDataConfigurations;
+    sendMessageToWebpage({
+        type: "sensorDataConfigurations",
+        id,
+        sensorDataConfigurations: newSensorDataConfigurations,
+    });
+}
+
 // background.js <- popup.js/content.js
 browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
     logger.log(`Received message of type "${message.type}"`, message, sender);
@@ -135,6 +159,13 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
         case "connectionStatus":
             checkConnectionStatus(message);
+            break;
+
+        case "getSensorDataConfigurations":
+            getSensorDataConfigurations(message);
+            break;
+        case "setSensorDataConfigurations":
+            setSensorDataConfigurations(message);
             break;
 
         default:

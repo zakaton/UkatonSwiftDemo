@@ -1,5 +1,5 @@
-UKMission
-    deviceInformation
-    config
-    data
-    haptics
+background.js
+    DeviceInformation
+    SensorDataConfiguration
+    SensorData
+    Haptics
