@@ -143,13 +143,20 @@ function onSensorDataConfigurationsResponse(id, response) {
 
 function checkSensorData({ id }) {
     sendMessage({ type: "sensorData", id }, (response) => {
-        const { sensorData } = response;
+        const { sensorData, timestamp } = response;
         logger.log(`Received sensorData response: ${JSON.stringify(sensorData)}`, response);
         sendMessageToWebpage({
             type: "sensorData",
             id,
             sensorData,
+            timestamp,
         });
+    });
+}
+
+function vibrate({ id, vibrationType, vibration }) {
+    sendMessage({ type: "vibrate", id, vibrationType, vibration }, (response) => {
+        logger.log(`Received vibration response`, response);
     });
 }
 
@@ -195,6 +202,10 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
         case "sensorData":
             checkSensorData(message);
+            break;
+
+        case "vibrate":
+            vibrate(message);
             break;
 
         default:

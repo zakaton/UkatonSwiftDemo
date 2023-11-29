@@ -38,8 +38,16 @@ struct UKSensorDataFlags {
             pressure.removeAll(keepingCapacity: true)
         }
 
-        logger.log("JSON \(json)")
+        logger.log("sensorData \(json)")
         return json
+    }
+}
+
+extension Array {
+    func chunked(into size: Int) -> [[Element]] {
+        return stride(from: 0, to: count, by: size).map {
+            Array(self[$0 ..< Swift.min($0 + size, count)])
+        }
     }
 }
 
@@ -88,11 +96,7 @@ class SafariWebExtension {
 
         missionsManager.missionAddedSubject.sink(receiveValue: { [self] mission in
             missionsSensorDataFlags[mission.id] = .init()
-            logger.log("WHAT \(mission.id, privacy: .public)")
             mission.sensorData.motion.dataSubject.sink(receiveValue: { [self] motionDataType in
-                logger.log("A \(motionDataType.name)")
-                logger.log("B \(missionsSensorDataFlags[mission.id].debugDescription, privacy: .public)")
-                logger.log("THE \(mission.id, privacy: .public)")
                 missionsSensorDataFlags[mission.id]?.motion.insert(motionDataType)
             }).store(in: &cancellables)
             mission.sensorData.pressure.dataSubject.sink(receiveValue: { [self] pressureDataType in
@@ -286,20 +290,35 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
             else {
                 logger.error("no mission found in \(messageType, privacy: .public) message")
             }
-        case "vibrateWaveformEffects":
-            if let id = message["id"] as? String,
+        case "vibrate":
+            if let vibrationType = message["vibrationType"] as? String,
+               let vibration = message["vibration"] as? [Any],
+               let id = message["id"] as? String,
                let mission = getMission(id: id)
             {
-                // TODO: - FILL
-            }
-            else {
-                logger.error("no mission found in \(messageType, privacy: .public) message")
-            }
-        case "vibrateWaveforms":
-            if let id = message["id"] as? String,
-               let mission = getMission(id: id)
-            {
-                // TODO: - FILL
+                switch vibrationType {
+                case "waveforms":
+                    if let waveformArray = vibration as? [[String: Double]] {
+                        let waveforms: [UKVibrationWaveform] = waveformArray.map {
+                            .init(
+                                intensity: .init($0["intensity"] ?? 0),
+                                delay: .init($0["delay"] ?? 0)
+                            )
+                        }
+                        logger.debug("waveforms: \(waveforms, privacy: .public)")
+                        try? mission.vibrate(waveforms: waveforms)
+                    }
+                case "waveformEffects":
+                    if let waveformEffectsArray = vibration as? [Double] {
+                        let waveformEffects: [UKVibrationWaveformEffect] = waveformEffectsArray.map {
+                            .init(rawValue: .init($0)) ?? .none
+                        }
+                        logger.debug("waveformEffects: \(waveformEffects, privacy: .public)")
+                        try? mission.vibrate(waveformEffects: waveformEffects)
+                    }
+                default:
+                    logger.error("uncaught vibration type \(vibrationType, privacy: .public)")
+                }
             }
             else {
                 logger.error("no mission found in \(messageType, privacy: .public) message")
