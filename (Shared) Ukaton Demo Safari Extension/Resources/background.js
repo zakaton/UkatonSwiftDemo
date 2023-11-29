@@ -105,22 +105,35 @@ function checkConnectionStatus({ id }) {
 }
 
 function getSensorDataConfigurations({ id }) {
-    sendMessage({ type: "getSensorDataConfigurations", id }, (response) => {
-        logger.log(`Received getSensorDataConfigurations response: ${response.sensorDataConfigurations}`, response);
-        onSensorDataConfigurationsResponse(id, response);
-    });
+    const discoveredDevice = getDiscoveredDeviceById(id);
+    sendMessage(
+        { type: "getSensorDataConfigurations", id, timestamp: discoveredDevice.sensorDataConfigurationsTimestamp },
+        (response) => {
+            logger.log(
+                `Received getSensorDataConfigurations response: ${JSON.stringify(response.sensorDataConfigurations)}`,
+                response
+            );
+            onSensorDataConfigurationsResponse(id, response);
+        }
+    );
 }
 function setSensorDataConfigurations({ id, sensorDataConfigurations }) {
     sendMessage({ type: "setSensorDataConfigurations", id, sensorDataConfigurations }, (response) => {
-        logger.log(`Received setSensorDataConfigurations response: ${response.sensorDataConfigurations}`, response);
-        onSensorDataConfigurationsResponse(id, response);
+        logger.log(
+            `Received setSensorDataConfigurations response: ${JSON.stringify(response.sensorDataConfigurations)}`,
+            response
+        );
+        //onSensorDataConfigurationsResponse(id, response);
     });
 }
 
 function onSensorDataConfigurationsResponse(id, response) {
     const discoveredDevice = getDiscoveredDeviceById(id);
     const newSensorDataConfigurations = response.sensorDataConfigurations;
+    const sensorDataConfigurationsTimestamp = response.timestamp;
+
     discoveredDevice.sensorDataConfigurations = newSensorDataConfigurations;
+    discoveredDevice.sensorDataConfigurationsTimestamp = sensorDataConfigurationsTimestamp;
     sendMessageToWebpage({
         type: "sensorDataConfigurations",
         id,

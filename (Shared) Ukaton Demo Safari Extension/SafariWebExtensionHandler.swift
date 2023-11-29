@@ -9,6 +9,7 @@ class SafariWebExtension {
     static let shared = SafariWebExtension()
 
     var bluetoothManager: UKBluetoothManager { .shared }
+    var missionsManager: UKMissionsManager { .shared }
     var cancellables: Set<AnyCancellable> = .init()
 
     private let now: Date = .now
@@ -22,6 +23,14 @@ class SafariWebExtension {
         lastTimeUpdatedIsScanning.timeIntervalSince(now)
     }
 
+    private var lastTimeMissionsUpdatedSensorDataConfigurations: [String: Date] = [:]
+    func timeSinceMissionUpdatedSensorDataConfigurations(mission: UKMission) -> TimeInterval {
+        guard let lastTimeMissionUpdatedSensorDataConfigurations = lastTimeMissionsUpdatedSensorDataConfigurations[mission.id] else {
+            return .zero
+        }
+        return lastTimeMissionUpdatedSensorDataConfigurations.timeIntervalSince(now)
+    }
+
     init() {
         bluetoothManager.discoveredDevicesSubject
             .sink(receiveValue: { [self] _ in
@@ -32,6 +41,12 @@ class SafariWebExtension {
             .sink(receiveValue: { [self] _ in
                 lastTimeUpdatedIsScanning = .now
             }).store(in: &cancellables)
+
+        missionsManager.missionAddedSubject.sink(receiveValue: { [self] mission in
+            mission.sensorDataConfigurationsSubject.sink(receiveValue: { [self, mission] _ in
+                lastTimeMissionsUpdatedSensorDataConfigurations[mission.id] = .now
+            }).store(in: &cancellables)
+        }).store(in: &cancellables)
     }
 }
 
@@ -163,11 +178,14 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
                 logger.error("no mission found in \(messageType) message")
             }
         case "getSensorDataConfigurations":
+            logger.debug("request sensorDataConfigurations")
             if let id = message["id"] as? String,
-               let mission = getMission(id: id)
+               let mission = getMission(id: id),
+               timestamp != safariWebExtension.timeSinceMissionUpdatedSensorDataConfigurations(mission: mission)
             {
                 let message: [String: Any] = [
-                    "sensorDataConfigurations": mission.sensorDataConfigurations.json
+                    "sensorDataConfigurations": mission.sensorDataConfigurations.json,
+                    "timestamp": safariWebExtension.timeSinceMissionUpdatedSensorDataConfigurations(mission: mission)
                 ]
 
                 response.userInfo = [SFExtensionMessageKey: message]

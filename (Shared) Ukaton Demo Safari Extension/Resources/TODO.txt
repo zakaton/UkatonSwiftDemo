@@ -1,5 +1,3 @@
 background.js
-    DeviceInformation
-    SensorDataConfiguration
     SensorData
     Haptics
