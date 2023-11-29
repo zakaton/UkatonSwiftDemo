@@ -3,7 +3,7 @@ import UkatonKit
 
 struct DiscoveredDeviceRowConnection: View {
     @Binding var discoveredDevice: UKDiscoveredBluetoothDevice
-    @ObservedObject var mission: UKMission
+    let mission: UKMission
     var onSelectDevice: (() -> Void)?
 
     init(discoveredDevice: Binding<UKDiscoveredBluetoothDevice>, onSelectDevice: (() -> Void)? = nil) {
@@ -12,9 +12,7 @@ struct DiscoveredDeviceRowConnection: View {
         self.onSelectDevice = onSelectDevice
     }
 
-    var connectionStatus: UKConnectionStatus {
-        mission.connectionStatus
-    }
+    @State var connectionStatus: UKConnectionStatus = .notConnected
 
     var body: some View {
         HStack {
@@ -63,6 +61,8 @@ struct DiscoveredDeviceRowConnection: View {
                 Spacer()
             }
         }
+        .onReceive(mission.$connectionStatus, perform: { self.connectionStatus = $0
+        })
     }
 }
 
