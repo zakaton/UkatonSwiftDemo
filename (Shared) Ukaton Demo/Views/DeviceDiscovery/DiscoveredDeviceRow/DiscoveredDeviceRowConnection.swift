@@ -14,6 +14,9 @@ struct DiscoveredDeviceRowConnection: View {
 
     @State var connectionStatus: UKConnectionStatus = .notConnected
 
+    @State private var connectingAnimationAmount: CGFloat = 1
+    @Namespace private var animation
+
     var body: some View {
         HStack {
             if connectionStatus == .connected || connectionStatus == .disconnecting {
@@ -37,6 +40,7 @@ struct DiscoveredDeviceRowConnection: View {
                             .accessibilityLabel("connect via bluetooth")
                     })
                     .buttonStyle(.borderedProminent)
+
                     if discoveredDevice.isConnectedToWifi {
                         Button(action: {
                             discoveredDevice.connect(type: .udp)
@@ -48,20 +52,31 @@ struct DiscoveredDeviceRowConnection: View {
                     }
                 }
                 else {
-                    Text("connecting via \(mission.connectionType!.name)...")
                     Button(role: .cancel, action: {
                         discoveredDevice.disconnect()
                     }, label: {
-                        Text("cancel")
+                        Text("connecting via \(mission.connectionType!.name)...")
                             .accessibilityLabel("cancel connection")
                     })
                     .buttonStyle(.borderedProminent)
+                    .scaleEffect(connectingAnimationAmount)
+                    .animation(
+                        .easeInOut(duration: 0.5)
+                            .repeatForever(autoreverses: true),
+                        value: connectingAnimationAmount)
+                    .onAppear {
+                        connectingAnimationAmount = 0.97
+                    }
+                    .onDisappear {
+                        connectingAnimationAmount = 1
+                    }
                 }
 
                 Spacer()
             }
         }
-        .onReceive(mission.$connectionStatus, perform: { self.connectionStatus = $0
+        .onReceive(mission.$connectionStatus, perform: { newConnectionStatus in
+            self.connectionStatus = newConnectionStatus
         })
     }
 }
