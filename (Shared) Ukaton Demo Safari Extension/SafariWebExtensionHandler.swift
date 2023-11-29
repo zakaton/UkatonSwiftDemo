@@ -4,6 +4,45 @@ import SafariServices
 import UkatonKit
 import UkatonMacros
 
+typealias UKSensorDataJson = [String: [String: Any]]
+
+@StaticLogger
+struct UKSensorDataFlags {
+    var motion: Set<UKMotionDataType> = .init()
+    var pressure: Set<UKPressureDataType> = .init()
+
+    private var isEmpty: Bool {
+        motion.isEmpty && pressure.isEmpty
+    }
+
+    mutating func json(mission: UKMission) -> UKSensorDataJson? {
+        guard !isEmpty else { return nil }
+
+        var json: UKSensorDataJson = [:]
+
+        if !motion.isEmpty {
+            var motionJson: [String: Any] = .init()
+            motion.forEach { motionDataType in
+                motionJson[spacesToCamelCase(motionDataType.name)] = mission.sensorData.motion.json(motionDataType: motionDataType)
+            }
+            json["motion"] = motionJson
+            motion.removeAll(keepingCapacity: true)
+        }
+
+        if !pressure.isEmpty {
+            var pressureJson: [String: Any] = .init()
+            pressure.forEach { pressureDataType in
+                pressureJson[spacesToCamelCase(pressureDataType.name)] = mission.sensorData.pressure.json(pressureDataType: pressureDataType)
+            }
+            json["pressure"] = pressureJson
+            pressure.removeAll(keepingCapacity: true)
+        }
+
+        logger.log("JSON \(json)")
+        return json
+    }
+}
+
 @StaticLogger()
 class SafariWebExtension {
     static let shared = SafariWebExtension()
@@ -31,6 +70,11 @@ class SafariWebExtension {
         return lastTimeMissionUpdatedSensorDataConfigurations.timeIntervalSince(now)
     }
 
+    private var missionsSensorDataFlags: [String: UKSensorDataFlags] = [:]
+    func getJson(mission: UKMission) -> UKSensorDataJson? {
+        missionsSensorDataFlags[mission.id]?.json(mission: mission)
+    }
+
     init() {
         bluetoothManager.discoveredDevicesSubject
             .sink(receiveValue: { [self] _ in
@@ -43,9 +87,26 @@ class SafariWebExtension {
             }).store(in: &cancellables)
 
         missionsManager.missionAddedSubject.sink(receiveValue: { [self] mission in
+            missionsSensorDataFlags[mission.id] = .init()
+            logger.log("WHAT \(mission.id, privacy: .public)")
+            mission.sensorData.motion.dataSubject.sink(receiveValue: { [self] motionDataType in
+                logger.log("A \(motionDataType.name)")
+                logger.log("B \(missionsSensorDataFlags[mission.id].debugDescription, privacy: .public)")
+                logger.log("THE \(mission.id, privacy: .public)")
+                missionsSensorDataFlags[mission.id]?.motion.insert(motionDataType)
+            }).store(in: &cancellables)
+            mission.sensorData.pressure.dataSubject.sink(receiveValue: { [self] pressureDataType in
+                missionsSensorDataFlags[mission.id]?.pressure.insert(pressureDataType)
+            }).store(in: &cancellables)
+
             mission.sensorDataConfigurationsSubject.sink(receiveValue: { [self, mission] _ in
                 lastTimeMissionsUpdatedSensorDataConfigurations[mission.id] = .now
             }).store(in: &cancellables)
+        }).store(in: &cancellables)
+
+        missionsManager.missionRemovedSubject.sink(receiveValue: { [self] mission in
+            lastTimeMissionsUpdatedSensorDataConfigurations.removeValue(forKey: mission.id)
+            missionsSensorDataFlags.removeValue(forKey: mission.id)
         }).store(in: &cancellables)
     }
 }
@@ -53,7 +114,7 @@ class SafariWebExtension {
 @StaticLogger()
 class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
     var bluetoothManager: UKBluetoothManager { .shared }
-    let safariWebExtension: SafariWebExtension = .shared
+    var safariWebExtension: SafariWebExtension { .shared }
 
     func getDiscoveredDeviceIndex(id: String) -> Int? {
         bluetoothManager.discoveredDevices.firstIndex(where: { $0.id?.uuidString == id })
@@ -149,7 +210,7 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
                 bluetoothManager.discoveredDevices[discoveredDeviceIndex].connect(type: connectionType)
             }
             else {
-                logger.error("no discoveredDevice found in \(messageType) message")
+                logger.error("no discoveredDevice found in \(messageType, privacy: .public) message")
             }
         case "disconnect":
             if let id = message["id"] as? String,
@@ -158,7 +219,7 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
                 bluetoothManager.discoveredDevices[discoveredDeviceIndex].disconnect()
             }
             else {
-                logger.error("no discoveredDevice found in \(messageType) message")
+                logger.error("no discoveredDevice found in \(messageType, privacy: .public) message")
             }
 
         case "connectionStatus":
@@ -175,7 +236,7 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
                 response.userInfo = [SFExtensionMessageKey: message]
             }
             else {
-                logger.error("no mission found in \(messageType) message")
+                logger.error("no mission found in \(messageType, privacy: .public) message")
             }
         case "getSensorDataConfigurations":
             logger.debug("request sensorDataConfigurations")
@@ -191,7 +252,7 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
                 response.userInfo = [SFExtensionMessageKey: message]
             }
             else {
-                logger.error("no mission found in \(messageType) message")
+                logger.error("no mission found in \(messageType, privacy: .public) message")
             }
         case "setSensorDataConfigurations":
             if let id = message["id"] as? String,
@@ -208,7 +269,22 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
                 }
             }
             else {
-                logger.error("no mission found in \(messageType) message")
+                logger.error("no mission found in \(messageType, privacy: .public) message")
+            }
+        case "sensorData":
+            if let id = message["id"] as? String,
+               let mission = getMission(id: id),
+               let sensorData = safariWebExtension.getJson(mission: mission)
+            {
+                let message: [String: Any] = [
+                    "sensorData": sensorData,
+                    "timestamp": mission.sensorData.timestamp
+                ]
+
+                response.userInfo = [SFExtensionMessageKey: message]
+            }
+            else {
+                logger.error("no mission found in \(messageType, privacy: .public) message")
             }
         case "vibrateWaveformEffects":
             if let id = message["id"] as? String,
@@ -217,7 +293,7 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
                 // TODO: - FILL
             }
             else {
-                logger.error("no mission found in \(messageType) message")
+                logger.error("no mission found in \(messageType, privacy: .public) message")
             }
         case "vibrateWaveforms":
             if let id = message["id"] as? String,
@@ -226,7 +302,7 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
                 // TODO: - FILL
             }
             else {
-                logger.error("no mission found in \(messageType) message")
+                logger.error("no mission found in \(messageType, privacy: .public) message")
             }
         default:
             logger.warning("uncaught exception for message type \(messageType)")

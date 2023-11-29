@@ -141,6 +141,18 @@ function onSensorDataConfigurationsResponse(id, response) {
     });
 }
 
+function checkSensorData({ id }) {
+    sendMessage({ type: "sensorData", id }, (response) => {
+        const { sensorData } = response;
+        logger.log(`Received sensorData response: ${JSON.stringify(sensorData)}`, response);
+        sendMessageToWebpage({
+            type: "sensorData",
+            id,
+            sensorData,
+        });
+    });
+}
+
 // background.js <- popup.js/content.js
 browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
     logger.log(`Received message of type "${message.type}"`, message, sender);
@@ -181,8 +193,12 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
             setSensorDataConfigurations(message);
             break;
 
+        case "sensorData":
+            checkSensorData(message);
+            break;
+
         default:
-            logger.log("uncaught message type", message.type);
+            logger.log(`uncaught message type "${message.type}"`);
             break;
     }
 
