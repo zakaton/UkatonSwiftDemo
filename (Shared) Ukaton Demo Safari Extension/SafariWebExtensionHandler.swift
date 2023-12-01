@@ -328,6 +328,7 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
             response.userInfo = [SFExtensionMessageKey: ["echo": message]]
         }
 
+        logger.debug("response: \(response, privacy: .public)")
         context.completeRequest(returningItems: [response], completionHandler: nil)
     }
 }

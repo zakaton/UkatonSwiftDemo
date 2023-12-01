@@ -52,7 +52,7 @@ export default class UKDiscoveredDeviceElement extends LitElement {
             }
         }
         .pulsating {
-            opacity: 1;
+            scale: 1;
             animation: pulsateAnimation 0.6s infinite;
             animation-timing-function: ease-in-out;
             animation-direction: alternate;

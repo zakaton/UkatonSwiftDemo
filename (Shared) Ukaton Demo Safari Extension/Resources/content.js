@@ -19,10 +19,13 @@ const logger = {
 
 window.addEventListener("ukatonkit-sendBackgroundMessage", async (event) => {
     const { id, message } = event.detail;
+    this.logger.log(`ukatonkit-sendBackgroundMessage ${id} ${JSON.stringify(message)}`, event.detail)
     const response = await browser.runtime.sendMessage(message);
+    this.logger.log(`response: ${JSON.stringify(response)}`, response)
     window.dispatchEvent(new CustomEvent(`ukatonkit-sendBackgroundMessage-${id}`, { detail: response }));
 });
 
 browser.runtime.onMessage.addListener((message) => {
+    this.logger.log(`message from background.js: ${JSON.stringify(message)}`)
     window.dispatchEvent(new CustomEvent("ukatonkit-backgroundListener", { detail: message }));
 });
