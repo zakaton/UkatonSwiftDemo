@@ -6,6 +6,8 @@ import UkatonMacros
 struct ContentView: View {
     @ObservedObject private var missionPair: UKMissionPair = .shared
 
+    @StateObject private var deviceDiscoveryNavigationCoordinator: NavigationCoordinator = .init()
+
     @EnumName
     enum TabEnum: Identifiable {
         var id: String { name }
@@ -39,7 +41,7 @@ struct ContentView: View {
 
     var body: some View {
         TabView(selection: $selectedTab) {
-            DeviceDiscovery()
+            DeviceDiscovery(navigationCoordinator: deviceDiscoveryNavigationCoordinator)
                 .modify {
                     if !isWatch {
                         $0.tabItem {

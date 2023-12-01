@@ -50,35 +50,47 @@ struct DeviceWifiInformationSection: View {
 
             if mission.isConnectedToWifi, let ipAddress = mission.ipAddress {
                 HStack {
-                    Text("__ip address__: \(ipAddress)")
-                    #if os(iOS)
-                    Button(action: {
-                        let pasteboard = UIPasteboard.general
-                        pasteboard.string = ipAddress
-                        print("copied!")
-                        didCopyIpAddressToClipboard = true
-                    }) {
-                        if didCopyIpAddressToClipboard {
-                            Label("copied!", systemImage: "list.clipboard")
-                                .labelStyle(LabelSpacing(spacing: 4))
-                        }
-                        else {
-                            Label("", systemImage: "clipboard")
-                                .labelStyle(LabelSpacing(spacing: 4))
-                        }
+                    HStack {
+                        Text("__ip address__:")
+                        Text("\(ipAddress)")
+                        #if os(iOS)
+                            .textSelection(.enabled)
+                        #endif
                     }
-                    .onReceive(mission.$ipAddress.dropFirst(), perform: { _ in
-                        didCopyIpAddressToClipboard = false
-                    })
-                    .onReceive(mission.$isConnectedToWifi.dropFirst(), perform: { _ in
-                        didCopyIpAddressToClipboard = false
-                    })
+                    #if os(iOS)
+                        Button(action: {
+                            let pasteboard = UIPasteboard.general
+                            pasteboard.string = ipAddress
+                            print("copied!")
+                            didCopyIpAddressToClipboard = true
+                        }) {
+                            if didCopyIpAddressToClipboard {
+                                Label("copied!", systemImage: "list.clipboard")
+                                    .labelStyle(LabelSpacing(spacing: 4))
+                            }
+                            else {
+                                Label("", systemImage: "clipboard")
+                                    .labelStyle(LabelSpacing(spacing: 4))
+                            }
+                        }
+                        .onReceive(mission.$ipAddress.dropFirst(), perform: { _ in
+                            didCopyIpAddressToClipboard = false
+                        })
+                        .onReceive(mission.$isConnectedToWifi.dropFirst(), perform: { _ in
+                            didCopyIpAddressToClipboard = false
+                        })
                     #endif
                 }
             }
 
             if !requiresWifi {
-                Text("__ssid__: \(mission.wifiSsid)")
+                HStack {
+                    Text("__ssid__:")
+                    Text("\(mission.wifiSsid)")
+                    #if os(iOS)
+                        .textSelection(.enabled)
+                    #endif
+                }
                 if canEditWifi, shouldEditWifi {
                     HStack {
                         TextField("new wifi ssid", text: $newWifiSsid)
@@ -99,7 +111,18 @@ struct DeviceWifiInformationSection: View {
                     }) {
                         Image(systemName: showWifiPassword ? "eye" : "eye.slash")
                     }
-                    Text("__password__: \(showWifiPassword ? mission.wifiPassword : mission.wifiPassword.map { _ in "•" }.joined())")
+                    HStack {
+                        Text("__password__:")
+                        if showWifiPassword {
+                            Text("\(mission.wifiPassword)")
+                            #if os(iOS)
+                                .textSelection(.enabled)
+                            #endif
+                        }
+                        else {
+                            Text("__password__: \(mission.wifiPassword.map { _ in "•" }.joined())")
+                        }
+                    }
                 }
                 if canEditWifi, shouldEditWifi {
                     HStack {

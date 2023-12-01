@@ -16,11 +16,13 @@ struct DiscoveredDeviceRowStatus: View {
     @State private var batteryLevel: UKBatteryLevel = .zero
     var batteryLevelSystemImage: String {
         switch batteryLevel {
-        case 75 ..< 100:
+        case 85 ... 100:
             "battery.100"
-        case 50 ..< 75:
+        case 65 ... 85:
             "battery.75"
-        case 25 ..< 50:
+        case 35 ... 65:
+            "battery.50"
+        case 15 ... 35:
             "battery.25"
         default:
             "battery.0"
@@ -29,11 +31,11 @@ struct DiscoveredDeviceRowStatus: View {
 
     var batteryLevelColor: Color {
         switch batteryLevel {
-        case 75 ..< 100:
+        case 70 ... 100:
             .green
-        case 50 ..< 75:
+        case 25 ... 70:
             .orange
-        case 25 ..< 50:
+        case 0 ... 25:
             .red
         default:
             .red
@@ -44,7 +46,7 @@ struct DiscoveredDeviceRowStatus: View {
         let layout = isWatch ? AnyLayout(VStackLayout()) : AnyLayout(HStackLayout(spacing: 15))
 
         layout {
-            if isScanning, !mission.isConnected {
+            if isScanning, mission.connectionStatus == .notConnected {
                 HStack(spacing: 15) {
                     if let rssi = discoveredDevice.rssi {
                         Label(String(format: "%3d", rssi.intValue), systemImage: "cellularbars")

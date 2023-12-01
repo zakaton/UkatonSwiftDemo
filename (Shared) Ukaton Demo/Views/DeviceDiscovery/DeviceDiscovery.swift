@@ -6,7 +6,7 @@ struct DeviceDiscovery: View {
 
     @ObservedObject private var bluetoothManager: UKBluetoothManager = .shared
 
-    @StateObject private var navigationCoordinator: NavigationCoordinator = .init()
+    @ObservedObject var navigationCoordinator: NavigationCoordinator
 
     @State private var wasScanning: Bool = false
 
@@ -91,7 +91,7 @@ struct DeviceDiscovery: View {
 }
 
 #Preview {
-    DeviceDiscovery()
+    DeviceDiscovery(navigationCoordinator: .init())
     #if os(macOS)
         .frame(maxWidth: 350, minHeight: 300)
     #endif

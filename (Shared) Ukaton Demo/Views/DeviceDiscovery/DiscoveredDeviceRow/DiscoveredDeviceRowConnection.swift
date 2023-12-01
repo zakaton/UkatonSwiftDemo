@@ -28,7 +28,9 @@ struct DiscoveredDeviceRowConnection: View {
                 })
                 .buttonStyle(.borderedProminent)
                 .tint(.red)
-                Spacer()
+                if !is_iOS {
+                    Spacer()
+                }
             }
             else {
                 if connectionStatus == .notConnected {
@@ -52,6 +54,9 @@ struct DiscoveredDeviceRowConnection: View {
                     }
                 }
                 else {
+                    if is_iOS {
+                        Spacer()
+                    }
                     Button(role: .cancel, action: {
                         discoveredDevice.disconnect()
                     }, label: {

@@ -20,7 +20,13 @@ struct DeviceInformationSection: View {
 
     var body: some View {
         Section {
-            Text("__name:__ \(mission.name)")
+            HStack {
+                Text("__name:__")
+                Text("\(mission.name)")
+                #if os(iOS)
+                    .textSelection(.enabled)
+                #endif
+            }
             if shouldEdit {
                 HStack {
                     TextField("new name", text: $newName)
