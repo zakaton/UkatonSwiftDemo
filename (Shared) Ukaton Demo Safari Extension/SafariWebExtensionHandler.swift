@@ -16,7 +16,10 @@ struct UKSensorDataFlags {
     }
 
     mutating func json(mission: UKMission) -> UKSensorDataJson? {
-        guard !isEmpty else { return nil }
+        guard !isEmpty else {
+            logger.debug("no sensor data")
+            return nil
+        }
 
         var json: UKSensorDataJson = [:]
 
@@ -38,7 +41,7 @@ struct UKSensorDataFlags {
             pressure.removeAll(keepingCapacity: true)
         }
 
-        logger.log("sensorData \(json)")
+        logger.debug("sensorData \(json, privacy: .public)")
         return json
     }
 }
@@ -125,7 +128,10 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
     }
 
     func getMission(id: String) -> UKMission? {
-        guard let discoveredDevice = bluetoothManager.discoveredDevices.first(where: { $0.id?.uuidString == id }) else { return nil }
+        guard let discoveredDevice = bluetoothManager.discoveredDevices.first(where: { $0.id?.uuidString == id }) else {
+            logger.debug("no discoveredDevice found")
+            return nil
+        }
         return discoveredDevice.mission
     }
 
@@ -245,8 +251,8 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
         case "getSensorDataConfigurations":
             logger.debug("request sensorDataConfigurations")
             if let id = message["id"] as? String,
-               let mission = getMission(id: id),
-               timestamp != safariWebExtension.timeSinceMissionUpdatedSensorDataConfigurations(mission: mission)
+               let mission = getMission(id: id)
+            // timestamp != safariWebExtension.timeSinceMissionUpdatedSensorDataConfigurations(mission: mission)
             {
                 let message: [String: Any] = [
                     "sensorDataConfigurations": mission.sensorDataConfigurations.json,
@@ -263,7 +269,7 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
                let mission = getMission(id: id)
             {
                 if let sensorDataConfigurationsJson = message["sensorDataConfigurations"] as? [String: [String: UKSensorDataRate]] {
-                    logger.log("sensorDataConfigurationsJson, \(sensorDataConfigurationsJson.debugDescription, privacy: .public)")
+                    logger.debug("sensorDataConfigurationsJson, \(sensorDataConfigurationsJson.debugDescription, privacy: .public)")
                     let sensorDataConfigurations: UKSensorDataConfigurations = .init(from: sensorDataConfigurationsJson)
                     print(sensorDataConfigurations)
                     try? mission.setSensorDataConfigurations(sensorDataConfigurations)
@@ -275,7 +281,19 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
             else {
                 logger.error("no mission found in \(messageType, privacy: .public) message")
             }
+        case "clearSensorDataConfigurations":
+            if let id = message["id"] as? String,
+               let mission = getMission(id: id)
+            {
+                try? mission.clearSensorDataConfigurations()
+            }
+            else {
+                logger.error("no mission found in \(messageType, privacy: .public) message")
+            }
         case "sensorData":
+            if let id = message["id"] as? String {
+                logger.debug("id: \(id, privacy: .public)")
+            }
             if let id = message["id"] as? String,
                let mission = getMission(id: id),
                let sensorData = safariWebExtension.getJson(mission: mission)
@@ -288,7 +306,7 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
                 response.userInfo = [SFExtensionMessageKey: message]
             }
             else {
-                logger.error("no mission found in \(messageType, privacy: .public) message")
+                logger.error("no sensorData or mission found in \(messageType, privacy: .public) message")
             }
         case "vibrate":
             if let vibrationType = message["vibrationType"] as? String,

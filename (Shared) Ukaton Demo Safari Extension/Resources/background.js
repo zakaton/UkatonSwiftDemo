@@ -127,6 +127,15 @@ function setSensorDataConfigurations({ id, sensorDataConfigurations }) {
     });
 }
 
+function clearSensorDataConfigurations({ id }) {
+    sendMessage({ type: "clearSensorDataConfigurations", id }, (response) => {
+        logger.log(
+            `Received clearSensorDataConfigurations response: ${JSON.stringify(response)}`,
+            response
+        );
+    });
+}
+
 function onSensorDataConfigurationsResponse(id, response) {
     const discoveredDevice = getDiscoveredDeviceById(id);
     const newSensorDataConfigurations = response.sensorDataConfigurations;
@@ -198,6 +207,9 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
             break;
         case "setSensorDataConfigurations":
             setSensorDataConfigurations(message);
+            break;
+        case "clearSensorDataConfigurations":
+            clearSensorDataConfigurations(message);
             break;
 
         case "sensorData":
