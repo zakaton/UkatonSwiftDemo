@@ -117,7 +117,12 @@ export default class UKDiscoveredDeviceElement extends LitElement {
     notConnectedTemplate() {
         return html`<div>connect via:</div>
             <button @click=${() => this.discoveredDevice.connect("bluetooth")}>bluetooth</button>
-            <button @click=${() => this.discoveredDevice.connect("udp")} ?hidden=${is_iOS}>udp</button>`;
+            <button
+                @click=${() => this.discoveredDevice.connect("udp")}
+                ?hidden=${!this.discoveredDevice.isConnectedToWifi || is_iOS}
+            >
+                udp
+            </button>`;
     }
     connectingTemplate() {
         return html`

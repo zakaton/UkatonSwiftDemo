@@ -1,5 +1,5 @@
 const logger = {
-    isEnabled: true,
+    isEnabled: false,
     log(label, ...rest) {
         if (this.isEnabled) {
             console.groupCollapsed(label);

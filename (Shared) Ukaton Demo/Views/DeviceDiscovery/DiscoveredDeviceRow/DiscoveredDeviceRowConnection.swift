@@ -15,7 +15,6 @@ struct DiscoveredDeviceRowConnection: View {
     @State var connectionStatus: UKConnectionStatus = .notConnected
 
     @State private var connectingAnimationAmount: CGFloat = 1
-    @Namespace private var animation
 
     var body: some View {
         HStack {

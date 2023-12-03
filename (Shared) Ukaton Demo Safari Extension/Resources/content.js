@@ -1,5 +1,5 @@
 const logger = {
-    isEnabled: true,
+    isEnabled: false,
     /**
      *
      * @param {string} label
