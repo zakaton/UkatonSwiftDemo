@@ -150,8 +150,8 @@ function onSensorDataConfigurationsResponse(id, response) {
     });
 }
 
-function checkSensorData({ id }) {
-    sendMessage({ type: "sensorData", id }, (response) => {
+function checkSensorData({ id, timestamp }) {
+    sendMessage({ type: "sensorData", id, timestamp }, (response) => {
         const { sensorData, timestamp } = response;
         logger.log(`Received sensorData response: ${JSON.stringify(sensorData)}`, response);
         sendMessageToWebpage({

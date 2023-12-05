@@ -103,6 +103,11 @@
 		5F446F822B0577E500797659 /* PressureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F446F812B0577E500797659 /* PressureView.swift */; };
 		5F446F832B0577E500797659 /* PressureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F446F812B0577E500797659 /* PressureView.swift */; };
 		5F446F842B0577E500797659 /* PressureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F446F812B0577E500797659 /* PressureView.swift */; };
+		5F63E02D2B1D2E2700B868BE /* BalanceDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F63E02C2B1D2E2700B868BE /* BalanceDemo.swift */; };
+		5F63E02E2B1D2E2700B868BE /* BalanceDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F63E02C2B1D2E2700B868BE /* BalanceDemo.swift */; };
+		5F63E02F2B1D2E2700B868BE /* BalanceDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F63E02C2B1D2E2700B868BE /* BalanceDemo.swift */; };
+		5F63E0302B1D2E2700B868BE /* BalanceDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F63E02C2B1D2E2700B868BE /* BalanceDemo.swift */; };
+		5F63E0312B1D2E2700B868BE /* BalanceDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F63E02C2B1D2E2700B868BE /* BalanceDemo.swift */; };
 		5F6A0DDC2B0D359600E15FFC /* UkatonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5F6A0DDB2B0D359600E15FFC /* UkatonKit */; };
 		5F6A0DDE2B0D462900E15FFC /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = 5FD458C52B0BDB7D0030BE6E /* popup.html */; };
 		5F6A0DDF2B0D462900E15FFC /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 5FD458BF2B0BDB7D0030BE6E /* manifest.json */; };
@@ -435,6 +440,7 @@
 		5F446F742B0468C900797659 /* RSSIDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSIDemo.swift; sourceTree = "<group>"; };
 		5F446F7D2B05743C00797659 /* MotionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionView.swift; sourceTree = "<group>"; };
 		5F446F812B0577E500797659 /* PressureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressureView.swift; sourceTree = "<group>"; };
+		5F63E02C2B1D2E2700B868BE /* BalanceDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceDemo.swift; sourceTree = "<group>"; };
 		5F76163F2AFAB083000E1A80 /* SensorDataDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorDataDemo.swift; sourceTree = "<group>"; };
 		5F777D452B0143780001509A /* VibrationWaveformEffectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibrationWaveformEffectsView.swift; sourceTree = "<group>"; };
 		5F777D492B01481A0001509A /* VibrationWaveformsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibrationWaveformsView.swift; sourceTree = "<group>"; };
@@ -622,6 +628,14 @@
 			path = RSSIDemo;
 			sourceTree = "<group>";
 		};
+		5F63E02B2B1D2E1400B868BE /* BalanceDemo */ = {
+			isa = PBXGroup;
+			children = (
+				5F63E02C2B1D2E2700B868BE /* BalanceDemo.swift */,
+			);
+			path = BalanceDemo;
+			sourceTree = "<group>";
+		};
 		5F777D4D2B016A140001509A /* VibrationWaveformEffects */ = {
 			isa = PBXGroup;
 			children = (
@@ -733,6 +747,7 @@
 		5FA3AFF62AF9937B00F5295C /* Demos */ = {
 			isa = PBXGroup;
 			children = (
+				5F63E02B2B1D2E1400B868BE /* BalanceDemo */,
 				5F3F4E282B087EA800F81B6F /* CenterOfMassDemo */,
 				5F446F732B0468BC00797659 /* RSSIDemo */,
 				5FCC84B92AFCA31300B755FA /* PressureDemo */,
@@ -1419,6 +1434,7 @@
 				5F87421B2B0AA8A800D67026 /* MissionPair.swift in Sources */,
 				5F33151A2B1505E200011E40 /* PlatformUtils.swift in Sources */,
 				5F87421C2B0AA8A800D67026 /* RotationModePicker.swift in Sources */,
+				5F63E0312B1D2E2700B868BE /* BalanceDemo.swift in Sources */,
 				5F8742182B0AA8A800D67026 /* DeviceDemosSection.swift in Sources */,
 				5F8742082B0AA8A800D67026 /* VibrationWaveformsSection.swift in Sources */,
 				5F87420D2B0AA8A800D67026 /* DiscoveredDeviceRowStatus.swift in Sources */,
@@ -1466,6 +1482,7 @@
 				5F8B9DD02B096DDF00E53711 /* DeviceInformationSection.swift in Sources */,
 				5F3315192B1505E200011E40 /* PlatformUtils.swift in Sources */,
 				5F8B9DD92B096DE000E53711 /* PressureDemo.swift in Sources */,
+				5F63E0302B1D2E2700B868BE /* BalanceDemo.swift in Sources */,
 				5F8B9DDA2B096DE000E53711 /* PressureModePicker.swift in Sources */,
 				5F8B9DCE2B096DD800E53711 /* VibrationWaveformsView.swift in Sources */,
 				5F8B9DC32B096DCF00E53711 /* MotionCalibrationSection.swift in Sources */,
@@ -1537,6 +1554,7 @@
 				5FA3AFFD2AFAAA2800F5295C /* DeviceWifiInformationSection.swift in Sources */,
 				5F3315162B1505E200011E40 /* PlatformUtils.swift in Sources */,
 				5F0F6F572AFEA87F007D0D03 /* TranslationModePicker.swift in Sources */,
+				5F63E02D2B1D2E2700B868BE /* BalanceDemo.swift in Sources */,
 				5F446F752B0468C900797659 /* RSSIDemo.swift in Sources */,
 				5F9F82C72B03EC0200DDD9AB /* MissionPairMotionDemo.swift in Sources */,
 				5FCC84BB2AFCA33800B755FA /* PressureDemo.swift in Sources */,
@@ -1584,6 +1602,7 @@
 				5FA3AFFE2AFAAA2800F5295C /* DeviceWifiInformationSection.swift in Sources */,
 				5F3315172B1505E200011E40 /* PlatformUtils.swift in Sources */,
 				5F0F6F582AFEA87F007D0D03 /* TranslationModePicker.swift in Sources */,
+				5F63E02E2B1D2E2700B868BE /* BalanceDemo.swift in Sources */,
 				5F446F762B0468C900797659 /* RSSIDemo.swift in Sources */,
 				5F9F82C82B03EC0200DDD9AB /* MissionPairMotionDemo.swift in Sources */,
 				5FCC84BC2AFCA33800B755FA /* PressureDemo.swift in Sources */,
@@ -1631,6 +1650,7 @@
 				5F83E5D62B0596DC00056593 /* ContentView.swift in Sources */,
 				5F3315182B1505E200011E40 /* PlatformUtils.swift in Sources */,
 				5F446F772B0468C900797659 /* RSSIDemo.swift in Sources */,
+				5F63E02F2B1D2E2700B868BE /* BalanceDemo.swift in Sources */,
 				5F9F82C92B03EC0200DDD9AB /* MissionPairMotionDemo.swift in Sources */,
 				5FCC84BD2AFCA33800B755FA /* PressureDemo.swift in Sources */,
 				5F3F4E2C2B091F0C00F81B6F /* CenterOfMassDemo.swift in Sources */,

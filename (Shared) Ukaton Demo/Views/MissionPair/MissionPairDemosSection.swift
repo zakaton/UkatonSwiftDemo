@@ -9,6 +9,7 @@ enum MissionPairDemo: CaseIterable, Identifiable {
     case motion
     case pressure
     case centerOfMass
+    case balance
     case vibration
 
     var worksWithWatch: Bool {
@@ -25,6 +26,7 @@ enum MissionPairDemo: CaseIterable, Identifiable {
         case .motion: MissionPairMotionDemo(missionPair: missionPair)
         case .pressure: MissionPairPressureDemo(missionPair: missionPair)
         case .centerOfMass: CenterOfMassDemo(centerOfMassProvider: missionPair)
+        case .balance: BalanceDemo(centerOfMassProvider: missionPair)
         case .vibration:
             VibrationDemo(vibratable: missionPair)
         }

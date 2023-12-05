@@ -2,17 +2,13 @@ import simd
 import SwiftUI
 import UkatonKit
 
-extension CGRect {
-    func contains(_ point: UKCenterOfMass) -> Bool {
-        let cgPoint: CGPoint = .init(
-            x: point.x + (width/2),
-            y: point.y + (height/2)
-        )
-        return contains(cgPoint)
-    }
-}
+/**
+ TODO:
+    -check if in target
+    -rings
+ */
 
-struct CenterOfMassDemo: View {
+struct BalanceDemo: View {
     let centerOfMassProvider: UKCenterOfMassProvider
 
     @State private var sensorDataConfigurations: UKSensorDataConfigurations = .init()
@@ -30,7 +26,7 @@ struct CenterOfMassDemo: View {
     @State private var centerOfMass: UKCenterOfMass = .init() {
         didSet {
             if isPlayingGame {
-                let newIsInsideTarget = target.contains(centerOfMass)
+                let newIsInsideTarget = targetRange.contains(centerOfMass.x)
                 if newIsInsideTarget != isInsideTarget {
                     isInsideTarget = newIsInsideTarget
                 }
@@ -46,7 +42,7 @@ struct CenterOfMassDemo: View {
     @State private var firstTimeInsideTarget: Date = .now
     private let timePerTarget: Double = 2
     private var timeInsideTarget: TimeInterval { -firstTimeInsideTarget.timeIntervalSinceNow }
-    private var timeInterpolation: Double { timeInsideTarget/timePerTarget }
+    private var timeInterpolation: Double { timeInsideTarget / timePerTarget }
 
     @State private var isPlayingGame = false
     func toggleGame() {
@@ -56,15 +52,58 @@ struct CenterOfMassDemo: View {
         }
     }
 
-    @State private var target: CGRect = .init()
+    @State private var targetPosition: Double = .zero
+    @State private var targetDiameter: Double = .zero
+    private var targetRadius: Double { targetDiameter / 2 }
+    @State private var targetRange: ClosedRange<Double> = 0.0 ... 1.0
     func resetTarget() {
         firstTimeInsideTarget = .now
 
-        target.size.width = .random(in: 0.1 ... 0.3)
-        target.size.height = .random(in: 0.1 ... 0.3)
+        targetDiameter = .random(in: 0.1 ... 0.2)
+        targetPosition = .random(in: targetRadius ... 1 - targetRadius)
+        targetRange = targetPosition - targetRadius ... targetPosition + targetRadius
+    }
 
-        target.origin.x = .random(in: target.size.width/2 ... 1 - target.size.width/2)
-        target.origin.y = .random(in: target.size.height/2 ... 1 - target.size.height/2)
+    private let cornerRadius: CGFloat = 10.0
+    func verticalBar(geometry: GeometryProxy, side: UKInsoleSide) -> some View {
+        ZStack(alignment: .bottom) {
+            let barWidth = geometry.size.width * 0.15
+            RoundedRectangle(cornerRadius: cornerRadius)
+                .fill(.red)
+                .frame(width: barWidth)
+                .frame(height: geometry.size.height * (side == .left ? 1 - centerOfMass.x : centerOfMass.x))
+            RoundedRectangle(cornerRadius: cornerRadius)
+                .stroke(.black, lineWidth: 3)
+                .frame(height: geometry.size.height)
+                .frame(width: barWidth)
+
+            let targetHeight = geometry.size.height * targetDiameter
+            let targetOffset = -geometry.size.height * (side == .left ? 1 - targetPosition : targetPosition)
+            ZStack {
+                RoundedRectangle(cornerRadius: cornerRadius)
+                    .fill(isInsideTarget ? .green : .yellow)
+                    .opacity(0.5)
+                if isInsideTarget {
+                    GeometryReader { geometry in
+                        RoundedRectangle(cornerRadius: cornerRadius)
+                            .stroke(.blue, lineWidth: 3)
+                            .frame(width: geometry.size.width * (1 - timeInterpolation), height: geometry.size.height * (1 - timeInterpolation), alignment: .center)
+                            .position(
+                                x: geometry.size.width * 0.5,
+                                y: geometry.size.height * 0.5
+                            )
+                    }
+                }
+            }
+            .frame(width: geometry.size.width * 0.2)
+            .frame(height: targetHeight)
+            .offset(y: targetOffset + (targetHeight / 2))
+            .modify {
+                if !isPlayingGame {
+                    $0.hidden()
+                }
+            }
+        }
     }
 
     var body: some View {
@@ -73,47 +112,9 @@ struct CenterOfMassDemo: View {
                 ZStack {
                     RoundedRectangle(cornerRadius: 15.0)
                         .fill(.white)
-                    VStack {
-                        Spacer()
-                        HStack {
-                            Spacer()
-                            GeometryReader { geometry in
-                                if isPlayingGame {
-                                    ZStack(alignment: .center) {
-                                        RoundedRectangle(cornerRadius: 10.0)
-                                            .fill(isInsideTarget ? .green : .yellow)
-                                        if isInsideTarget {
-                                            GeometryReader { geometry in
-                                                RoundedRectangle(cornerRadius: 10.0)
-                                                    .stroke(.blue, lineWidth: 5)
-                                                    .frame(width: geometry.size.width * (1 - timeInterpolation), height: geometry.size.height * (1 - timeInterpolation), alignment: .center)
-                                                    .position(
-                                                        x: geometry.size.width * 0.5,
-                                                        y: geometry.size.height * 0.5
-                                                    )
-                                            }
-                                        }
-                                    }
-                                    .frame(
-                                        width: geometry.size.width * target.size.width,
-                                        height: geometry.size.height * target.size.height
-                                    )
-                                    .position(
-                                        x: geometry.size.width * target.origin.x,
-                                        y: geometry.size.height * (1 - target.origin.y)
-                                    )
-                                }
-                                Circle()
-                                    .fill(.red)
-                                    .frame(width: min(geometry.size.width, geometry.size.height) * 0.1)
-                                    .position(
-                                        x: geometry.size.width * centerOfMass.x,
-                                        y: geometry.size.height * (1 - centerOfMass.y)
-                                    )
-                            }
-                            Spacer()
-                        }
-                        Spacer()
+                    HStack(spacing: geometry.size.width * 0.2) {
+                        verticalBar(geometry: geometry, side: .left)
+                        verticalBar(geometry: geometry, side: .right)
                     }
                     .frame(width: geometry.size.width - 10, height: geometry.size.height - 10)
                 }
@@ -125,7 +126,7 @@ struct CenterOfMassDemo: View {
 
             PressureModePicker(sensorDataConfigurable: centerOfMassProvider, sensorDataConfigurations: $sensorDataConfigurations)
         }
-        .navigationTitle("Center of Mass")
+        .navigationTitle("Balance")
         .onReceive(centerOfMassProvider.sensorDataConfigurationsSubject, perform: {
             sensorDataConfigurations = $0
         })
@@ -168,7 +169,7 @@ struct CenterOfMassDemo: View {
 
 #Preview {
     NavigationStack {
-        CenterOfMassDemo(centerOfMassProvider: UKMissionPair.shared)
+        BalanceDemo(centerOfMassProvider: UKMissionPair.shared)
     }
     #if os(macOS)
     .frame(maxWidth: 350, maxHeight: 300)

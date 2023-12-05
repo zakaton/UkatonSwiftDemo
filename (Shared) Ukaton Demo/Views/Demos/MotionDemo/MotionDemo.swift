@@ -31,7 +31,8 @@ struct MotionDemo: View {
             let button = Button {
                 recalibrateSubject.send(())
             } label: {
-                Label("reset orientation", systemImage: "arrow.counterclockwise")
+                Image(systemName: "arrow.counterclockwise")
+                    .accessibilityLabel("reset orientation")
             }
             #if os(watchOS)
             ToolbarItem(placement: .topBarTrailing) {

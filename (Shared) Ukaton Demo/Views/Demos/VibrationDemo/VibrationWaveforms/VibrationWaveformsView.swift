@@ -88,6 +88,6 @@ struct VibrationWaveformsView: View {
     @State var waveforms: [UKVibrationWaveform] = [.init(intensity: 0.5, delay: 1000)]
     return VibrationWaveformsView(vibratable: UKMission.none, waveforms: $waveforms)
     #if os(macOS)
-        .frame(maxWidth: 300, maxHeight: 300)
+        .frame(maxWidth: 300, maxHeight: 100)
     #endif
 }

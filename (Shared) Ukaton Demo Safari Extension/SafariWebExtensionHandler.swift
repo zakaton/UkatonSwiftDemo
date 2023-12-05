@@ -8,40 +8,36 @@ typealias UKSensorDataJson = [String: [String: Any]]
 
 @StaticLogger
 struct UKSensorDataFlags {
-    var motion: Set<UKMotionDataType> = .init()
-    var pressure: Set<UKPressureDataType> = .init()
+    var motionDataTimestamps: [UKMotionDataType: UKTimestamp] = .init()
+    var pressureDataTimestamps: [UKPressureDataType: UKTimestamp] = .init()
 
-    private var isEmpty: Bool {
-        motion.isEmpty && pressure.isEmpty
-    }
-
-    mutating func json(mission: UKMission) -> UKSensorDataJson? {
-        guard !isEmpty else {
-            logger.debug("no sensor data")
-            return nil
-        }
-
+    func json(for mission: UKMission, since timestamp: UKTimestamp) -> UKSensorDataJson? {
         var json: UKSensorDataJson = [:]
 
-        if !motion.isEmpty {
-            var motionJson: [String: Any] = .init()
-            motion.forEach { motionDataType in
-                motionJson[spacesToCamelCase(motionDataType.name)] = mission.sensorData.motion.json(motionDataType: motionDataType)
+        var motionJson: [String: Any] = .init()
+        for (motionDataType, _timestamp) in motionDataTimestamps {
+            if timestamp < _timestamp {
+                motionJson[spacesToCamelCase(motionDataType.name)] = mission.sensorData.motion.json(for: motionDataType)
             }
+        }
+        if !motionJson.isEmpty {
             json["motion"] = motionJson
-            motion.removeAll(keepingCapacity: true)
         }
 
-        if !pressure.isEmpty {
-            var pressureJson: [String: Any] = .init()
-            pressure.forEach { pressureDataType in
-                pressureJson[spacesToCamelCase(pressureDataType.name)] = mission.sensorData.pressure.json(pressureDataType: pressureDataType)
+        var pressureJson: [String: Any] = .init()
+        for (pressureDataType, _timestamp) in pressureDataTimestamps {
+            if timestamp < _timestamp {
+                pressureJson[spacesToCamelCase(pressureDataType.name)] = mission.sensorData.pressure.json(for: pressureDataType)
             }
+        }
+        if !pressureJson.isEmpty {
             json["pressure"] = pressureJson
-            pressure.removeAll(keepingCapacity: true)
         }
 
         logger.debug("sensorData \(json, privacy: .public)")
+        if json.isEmpty {
+            return nil
+        }
         return json
     }
 }
@@ -57,6 +53,7 @@ extension Array {
 @StaticLogger()
 class SafariWebExtension {
     static let shared = SafariWebExtension()
+    private let queue = DispatchQueue(label: "SafariWebExtension.sync")
 
     var bluetoothManager: UKBluetoothManager { .shared }
     var missionsManager: UKMissionsManager { .shared }
@@ -82,8 +79,8 @@ class SafariWebExtension {
     }
 
     private var missionsSensorDataFlags: [String: UKSensorDataFlags] = [:]
-    func getJson(mission: UKMission) -> UKSensorDataJson? {
-        missionsSensorDataFlags[mission.id]?.json(mission: mission)
+    func getJson(for mission: UKMission, since timestamp: UKTimestamp) -> UKSensorDataJson? {
+        missionsSensorDataFlags[mission.id]?.json(for: mission, since: timestamp)
     }
 
     init() {
@@ -99,11 +96,15 @@ class SafariWebExtension {
 
         missionsManager.missionAddedSubject.sink(receiveValue: { [self] mission in
             missionsSensorDataFlags[mission.id] = .init()
-            mission.sensorData.motion.dataSubject.sink(receiveValue: { [self] motionDataType in
-                missionsSensorDataFlags[mission.id]?.motion.insert(motionDataType)
+            mission.sensorData.motion.dataSubject.sink(receiveValue: { [self, mission] motionData in
+                queue.async {
+                    self.missionsSensorDataFlags[mission.id]?.motionDataTimestamps[motionData.type] = motionData.timestamp
+                }
             }).store(in: &cancellables)
-            mission.sensorData.pressure.dataSubject.sink(receiveValue: { [self] pressureDataType in
-                missionsSensorDataFlags[mission.id]?.pressure.insert(pressureDataType)
+            mission.sensorData.pressure.dataSubject.sink(receiveValue: { [self, mission] pressureData in
+                queue.async {
+                    self.missionsSensorDataFlags[mission.id]?.pressureDataTimestamps[pressureData.type] = pressureData.timestamp
+                }
             }).store(in: &cancellables)
 
             mission.sensorDataConfigurationsSubject.sink(receiveValue: { [self, mission] _ in
@@ -113,7 +114,9 @@ class SafariWebExtension {
 
         missionsManager.missionRemovedSubject.sink(receiveValue: { [self] mission in
             lastTimeMissionsUpdatedSensorDataConfigurations.removeValue(forKey: mission.id)
-            missionsSensorDataFlags.removeValue(forKey: mission.id)
+            queue.async {
+                self.missionsSensorDataFlags.removeValue(forKey: mission.id)
+            }
         }).store(in: &cancellables)
     }
 }
@@ -296,7 +299,8 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
             }
             if let id = message["id"] as? String,
                let mission = getMission(id: id),
-               let sensorData = safariWebExtension.getJson(mission: mission)
+               let timestamp = message["timestamp"] as? Double,
+               let sensorData = safariWebExtension.getJson(for: mission, since: .init(timestamp))
             {
                 let message: [String: Any] = [
                     "sensorData": sensorData,

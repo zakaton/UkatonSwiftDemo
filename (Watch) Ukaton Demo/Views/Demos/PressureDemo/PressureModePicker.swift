@@ -68,9 +68,9 @@ struct PressureModePicker: View {
 
                         switch newPressureMode {
                         case .singleByte:
-                            sensorDataConfigurations.pressure[.pressureSingleByte] = 20
+                            sensorDataConfigurations.pressure[.pressureSingleByte] = 40
                         case .doubleByte:
-                            sensorDataConfigurations.pressure[.pressureDoubleByte] = 20
+                            sensorDataConfigurations.pressure[.pressureDoubleByte] = 40
                         default:
                             break
                         }
