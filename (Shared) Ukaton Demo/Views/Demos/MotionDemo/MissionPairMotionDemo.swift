@@ -27,7 +27,8 @@ struct MissionPairMotionDemo: View {
             Button {
                 recalibrateSubject.send(())
             } label: {
-                Label("reset orientation", systemImage: "arrow.counterclockwise")
+                Image(systemName: "arrow.counterclockwise")
+                    .accessibilityLabel("reset orientation")
             }
         }
     }
@@ -37,7 +38,7 @@ struct MissionPairMotionDemo: View {
     NavigationStack {
         MissionPairMotionDemo(missionPair: .shared)
     }
-#if os(macOS)
+    #if os(macOS)
     .frame(maxWidth: 500, maxHeight: 300)
-#endif
+    #endif
 }

@@ -129,10 +129,7 @@ function setSensorDataConfigurations({ id, sensorDataConfigurations }) {
 
 function clearSensorDataConfigurations({ id }) {
     sendMessage({ type: "clearSensorDataConfigurations", id }, (response) => {
-        logger.log(
-            `Received clearSensorDataConfigurations response: ${JSON.stringify(response)}`,
-            response
-        );
+        logger.log(`Received clearSensorDataConfigurations response: ${JSON.stringify(response)}`, response);
     });
 }
 
@@ -166,6 +163,15 @@ function checkSensorData({ id, timestamp }) {
 function vibrate({ id, vibrationType, vibration }) {
     sendMessage({ type: "vibrate", id, vibrationType, vibration }, (response) => {
         logger.log(`Received vibration response`, response);
+    });
+}
+
+function sendMessageToApp(message) {
+    logger.log(`sending ${message.type} message`, message);
+    sendMessage(message, (response) => {
+        logger.log(`Received ${message.type} response`, response);
+        response.type = response.type || message.type;
+        sendMessageToWebpage(response);
     });
 }
 
@@ -218,6 +224,22 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
         case "vibrate":
             vibrate(message);
+            break;
+
+        case "isHeadphoneMotionAvailable":
+            sendMessageToApp({ type });
+            break;
+        case "isHeadphoneMotionActive":
+            sendMessageToApp({ type });
+            break;
+        case "startHeadphoneMotionUpdates":
+            sendMessageToApp({ type });
+            break;
+        case "stopHeadphoneMotionUpdates":
+            sendMessageToApp({ type });
+            break;
+        case "headphoneMotionData":
+            sendMessageToApp(message);
             break;
 
         default:

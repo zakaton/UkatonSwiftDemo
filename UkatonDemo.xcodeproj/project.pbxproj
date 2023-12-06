@@ -1847,6 +1847,7 @@
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use bluetooth to detect Ukaton Mission devices";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use bluetooth to detect Ukaton Mission devices";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMotionUsageDescription = "We provide motion data from your airpods to web developers ";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1884,6 +1885,7 @@
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use bluetooth to detect Ukaton Mission devices";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use bluetooth to detect Ukaton Mission devices";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMotionUsageDescription = "We provide motion data from your airpods to web developers ";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1924,6 +1926,7 @@
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use bluetooth to detect Ukaton Mission devices";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use bluetooth to detect Ukaton Mission devices";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMotionUsageDescription = "We provide motion data from your airpods to web developers ";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -1958,6 +1961,7 @@
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use bluetooth to detect Ukaton Mission devices";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use bluetooth to detect Ukaton Mission devices";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMotionUsageDescription = "We provide motion data from your airpods to web developers ";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -1990,6 +1994,7 @@
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use bluetooth to detect Ukaton Mission devices";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use bluetooth to detect Ukaton Mission devices";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMotionUsageDescription = "We provide motion data from your airpods to web developers ";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2024,6 +2029,7 @@
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use bluetooth to detect Ukaton Mission devices";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use bluetooth to detect Ukaton Mission devices";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMotionUsageDescription = "We provide motion data from your airpods to web developers ";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2281,6 +2287,7 @@
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use bluetooth to detect Ukaton Mission devices";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use bluetooth to detect Ukaton Mission devices";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMotionUsageDescription = "We use motion data from your airpods for cool demos :)";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -2319,6 +2326,7 @@
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use bluetooth to detect Ukaton Mission devices";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use bluetooth to detect Ukaton Mission devices";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMotionUsageDescription = "We use motion data from your airpods for cool demos :)";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",

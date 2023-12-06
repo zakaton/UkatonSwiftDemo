@@ -1,10 +1,50 @@
 import Combine
+import CoreMotion
 import OSLog
 import SafariServices
 import UkatonKit
 import UkatonMacros
 
 typealias UKSensorDataJson = [String: [String: Any]]
+
+extension CMQuaternion {
+    var array: [Double] {
+        [x, y, z, w]
+    }
+}
+
+extension CMAttitude {
+    var array: [Double] {
+        [pitch, yaw, roll]
+    }
+}
+
+extension CMDeviceMotion.SensorLocation {
+    var name: String {
+        switch self {
+        case .default:
+            "default"
+        case .headphoneLeft:
+            "left headphone"
+        case .headphoneRight:
+            "right headphone"
+        @unknown default:
+            "unknown"
+        }
+    }
+}
+
+extension CMAcceleration {
+    var array: [Double] {
+        [x, y, z]
+    }
+}
+
+extension CMRotationRate {
+    var array: [Double] {
+        [x, y, z]
+    }
+}
 
 @StaticLogger
 struct UKSensorDataFlags {
@@ -58,6 +98,10 @@ class SafariWebExtension {
     var bluetoothManager: UKBluetoothManager { .shared }
     var missionsManager: UKMissionsManager { .shared }
     var cancellables: Set<AnyCancellable> = .init()
+
+    #if !os(visionOS)
+        let headphoneMotionManager: CMHeadphoneMotionManager = .init()
+    #endif
 
     private let now: Date = .now
     private var lastTimeUpdatedDiscoveredDevices: Date = .now
@@ -125,6 +169,7 @@ class SafariWebExtension {
 class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
     var bluetoothManager: UKBluetoothManager { .shared }
     var safariWebExtension: SafariWebExtension { .shared }
+    var headphoneMotionManager: CMHeadphoneMotionManager { safariWebExtension.headphoneMotionManager }
 
     func getDiscoveredDeviceIndex(id: String) -> Int? {
         bluetoothManager.discoveredDevices.firstIndex(where: { $0.id?.uuidString == id })
@@ -345,6 +390,70 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
             else {
                 logger.error("no mission found in \(messageType, privacy: .public) message")
             }
+        #if os(macOS) || os(iOS)
+            case "isHeadphoneMotionAvailable":
+                logger.debug("requested isHeadphoneMotionAvailable")
+                let message: [String: Any] = [
+                    "isHeadphoneMotionAvailable": headphoneMotionManager.isDeviceMotionAvailable
+                ]
+                response.userInfo = [SFExtensionMessageKey: message]
+            case "isHeadphoneMotionActive":
+                logger.debug("requested isHeadphoneMotionActive")
+                let message: [String: Any] = [
+                    "isHeadphoneMotionActive": headphoneMotionManager.isDeviceMotionActive
+                ]
+                response.userInfo = [SFExtensionMessageKey: message]
+            case "startHeadphoneMotionUpdates":
+                logger.debug("requested startHeadphoneMotionUpdates")
+                if headphoneMotionManager.isDeviceMotionAvailable, !headphoneMotionManager.isDeviceMotionActive {
+                    headphoneMotionManager.startDeviceMotionUpdates()
+                    logger.debug("started headphone motion updates")
+                    let message: [String: Any] = [
+                        "type": "isHeadphoneMotionActive",
+                        "isHeadphoneMotionActive": headphoneMotionManager.isDeviceMotionActive
+                    ]
+                    response.userInfo = [SFExtensionMessageKey: message]
+                }
+                else {
+                    logger.debug("headphoneMotionManager not available or is already active")
+                }
+            case "stopHeadphoneMotionUpdates":
+                logger.debug("requested stopHeadphoneMotionUpdates")
+                if headphoneMotionManager.isDeviceMotionAvailable, headphoneMotionManager.isDeviceMotionActive {
+                    headphoneMotionManager.stopDeviceMotionUpdates()
+                    logger.debug("stopped headphone motion updates")
+                    let message: [String: Any] = [
+                        "type": "isHeadphoneMotionActive",
+                        "isHeadphoneMotionActive": headphoneMotionManager.isDeviceMotionActive
+                    ]
+                    response.userInfo = [SFExtensionMessageKey: message]
+                }
+                else {
+                    logger.debug("headphoneMotionManager not available or is not currently active")
+                }
+            case "headphoneMotionData":
+                logger.debug("requested headphoneMotionData")
+                if headphoneMotionManager.isDeviceMotionActive,
+                   let timestamp = message["timestamp"] as? Double,
+                   let motionData = headphoneMotionManager.deviceMotion,
+                   timestamp != motionData.timestamp
+                {
+                    let message: [String: Any] = [
+                        "sensorLocation": motionData.sensorLocation.name,
+                        "timestamp": motionData.timestamp,
+                        "quaternion": motionData.attitude.quaternion.array,
+                        "userAcceleration": motionData.userAcceleration.array
+
+                        // "euler": motionData.attitude.array,
+                        // "gravity": motionData.gravity.array,
+                        // "heading": motionData.heading
+                    ]
+                    response.userInfo = [SFExtensionMessageKey: message]
+                }
+                else {
+                    logger.debug("no headphoneMotionData")
+                }
+        #endif
         default:
             logger.warning("uncaught exception for message type \(messageType)")
             response.userInfo = [SFExtensionMessageKey: ["echo": message]]
