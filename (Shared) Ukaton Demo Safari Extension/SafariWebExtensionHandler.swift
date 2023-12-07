@@ -9,7 +9,7 @@ typealias UKSensorDataJson = [String: [String: Any]]
 
 extension CMQuaternion {
     var array: [Double] {
-        [x, y, z, w]
+        [x, z, -y, w]
     }
 }
 
@@ -36,13 +36,13 @@ extension CMDeviceMotion.SensorLocation {
 
 extension CMAcceleration {
     var array: [Double] {
-        [x, y, z]
+        [x, z, -y]
     }
 }
 
 extension CMRotationRate {
     var array: [Double] {
-        [x, y, z]
+        [x, z, -y]
     }
 }
 
@@ -442,10 +442,11 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
                         "sensorLocation": motionData.sensorLocation.name,
                         "timestamp": motionData.timestamp,
                         "quaternion": motionData.attitude.quaternion.array,
-                        "userAcceleration": motionData.userAcceleration.array
+                        "userAcceleration": motionData.userAcceleration.array,
+                        "gravity": motionData.gravity.array,
+                        "rotationRate": motionData.rotationRate.array
 
                         // "euler": motionData.attitude.array,
-                        // "gravity": motionData.gravity.array,
                         // "heading": motionData.heading
                     ]
                     response.userInfo = [SFExtensionMessageKey: message]

@@ -11,7 +11,5 @@
 	</dict>
 	<key>SFSafariCorrespondingIOSExtensionBundleIdentifier</key>
 	<string>com.ukaton.demo.Ukaton-Demo-iOS.Safari-Extension</string>
-	<key>NSMotionUsageDescription</key>
-	<string>We provide motion data from your airpods to web developers </string>
 </dict>
 </plist>

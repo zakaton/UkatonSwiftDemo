@@ -2190,6 +2190,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use bluetooth to access Ukaton Mission devices";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use bluetooth to access Ukaton Mission devices";
+				INFOPLIST_KEY_NSMotionUsageDescription = "We use motion data from your airpods for cool demos :)";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -2237,6 +2238,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use bluetooth to access Ukaton Mission devices";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use bluetooth to access Ukaton Mission devices";
+				INFOPLIST_KEY_NSMotionUsageDescription = "We use motion data from your airpods for cool demos :)";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -2356,6 +2358,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "Ukaton Demo";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use Bluetooth to detect Ukaton Mission devices";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use Bluetooth to detect Ukaton Mission devices";
+				INFOPLIST_KEY_NSMotionUsageDescription = "We use motion data from your airpods for cool demos :)";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "com.ukaton.demo.Ukaton-Demo-iOS";
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
@@ -2390,6 +2393,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "Ukaton Demo";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We use Bluetooth to detect Ukaton Mission devices";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We use Bluetooth to detect Ukaton Mission devices";
+				INFOPLIST_KEY_NSMotionUsageDescription = "We use motion data from your airpods for cool demos :)";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "com.ukaton.demo.Ukaton-Demo-iOS";
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
