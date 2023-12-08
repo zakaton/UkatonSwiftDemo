@@ -47,7 +47,7 @@ extension CMRotationRate {
 }
 
 @StaticLogger
-struct UKSensorDataFlags {
+class UKSensorDataFlags {
     var motionDataTimestamps: [UKMotionDataType: UKTimestamp] = .init()
     var pressureDataTimestamps: [UKPressureDataType: UKTimestamp] = .init()
 
