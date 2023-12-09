@@ -1,8 +1,16 @@
 import Combine
+import OSLog
 import SwiftUI
 import UkatonKit
 import UkatonMacros
 
+extension URL {
+    var isDeeplink: Bool {
+        return scheme == "ukaton-demo" // matches ukaton-demo://<rest-of-the-url>
+    }
+}
+
+@StaticLogger
 struct ContentView: View {
     @ObservedObject private var missionPair: UKMissionPair = .shared
 
@@ -60,6 +68,30 @@ struct ContentView: View {
                     }
                 }
                 .tag(TabEnum.missionPair)
+        }
+        .onOpenURL { incomingURL in
+            logger.debug("App was opened via URL: \(incomingURL)")
+            handleIncomingURL(incomingURL)
+        }
+    }
+
+    private func handleIncomingURL(_ url: URL) {
+        guard url.isDeeplink else {
+            return
+        }
+
+        guard let components = URLComponents(url: url, resolvingAgainstBaseURL: true),
+              let action = components.host
+        else {
+            logger.debug("Invalid URL")
+            return
+        }
+
+        switch action {
+        case "select-device":
+            selectedTab = .deviceDiscovery
+        default:
+            logger.debug("uncaught action \"\(action)\"")
         }
     }
 }

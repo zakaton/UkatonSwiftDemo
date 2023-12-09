@@ -1,6 +1,11 @@
+import OSLog
 import SwiftUI
 import UkatonKit
+import UkatonMacros
 
+extension URL {}
+
+@StaticLogger
 struct DeviceDiscovery: View {
     @Environment(\.scenePhase) var scenePhase
 
@@ -86,6 +91,41 @@ struct DeviceDiscovery: View {
             default:
                 break
             }
+        }
+        .onOpenURL { incomingURL in
+            logger.debug("App was opened via URL: \(incomingURL)")
+            handleIncomingURL(incomingURL)
+        }
+    }
+
+    private func handleIncomingURL(_ url: URL) {
+        guard url.isDeeplink else {
+            return
+        }
+
+        guard let components = URLComponents(url: url, resolvingAgainstBaseURL: true),
+              let action = components.host
+        else {
+            logger.debug("Invalid URL")
+            return
+        }
+
+        switch action {
+        case "select-device":
+            if let deviceId = components.queryItems?.first(where: { $0.name == "id" })?.value {
+                if let discoveredDevice = bluetoothManager.discoveredDevices.first(where: { $0.id?.uuidString == deviceId }) {
+                    navigationCoordinator.path.removeLast(navigationCoordinator.path.count)
+                    navigationCoordinator.path.append(discoveredDevice)
+                }
+                else {
+                    logger.debug("no discovered device found for \(deviceId)")
+                }
+            }
+            else {
+                logger.debug("no id query found in url")
+            }
+        default:
+            logger.debug("uncaught action \"\(action)\"")
         }
     }
 }
