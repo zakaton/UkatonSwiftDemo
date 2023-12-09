@@ -169,8 +169,9 @@ class SafariWebExtension {
 class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
     var bluetoothManager: UKBluetoothManager { .shared }
     var safariWebExtension: SafariWebExtension { .shared }
-    var headphoneMotionManager: CMHeadphoneMotionManager { safariWebExtension.headphoneMotionManager }
-
+    #if os(macOS) || os(iOS)
+        var headphoneMotionManager: CMHeadphoneMotionManager { safariWebExtension.headphoneMotionManager }
+    #endif
     func getDiscoveredDeviceIndex(id: String) -> Int? {
         bluetoothManager.discoveredDevices.firstIndex(where: { $0.id?.uuidString == id })
     }

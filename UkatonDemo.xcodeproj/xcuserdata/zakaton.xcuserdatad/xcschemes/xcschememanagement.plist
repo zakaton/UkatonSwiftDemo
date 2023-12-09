@@ -4,10 +4,20 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>(Mac) Ukaton Demo Widget.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
 		<key>(Mac) Ukaton Demo.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>1</integer>
+		</dict>
+		<key>(Mac) Widget.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
 		</dict>
 		<key>(TV) Ukaton Demo.xcscheme_^#shared#^_</key>
 		<dict>
@@ -24,10 +34,20 @@
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
+		<key>(Watch) Ukaton Demo Widget.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
 		<key>(Watch) Ukaton Demo.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>4</integer>
+		</dict>
+		<key>(iOS) Ukaton Demo Widget.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
 		</dict>
 		<key>(iOS) Ukaton Demo.xcscheme_^#shared#^_</key>
 		<dict>
@@ -54,9 +74,24 @@
 			<key>orderHint</key>
 			<integer>4</integer>
 		</dict>
+		<key>WidgetExtension.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>5F86D8342B24E89400B81382</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5F86D85C2B25066100B81382</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>5F8741E22B0AA62D00D67026</key>
 		<dict>
 			<key>primary</key>
@@ -73,6 +108,11 @@
 			<true/>
 		</dict>
 		<key>5FF58F4A2ADF13E700AD2941</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5FF58F602ADF182F00AD2941</key>
 		<dict>
 			<key>primary</key>
 			<true/>
