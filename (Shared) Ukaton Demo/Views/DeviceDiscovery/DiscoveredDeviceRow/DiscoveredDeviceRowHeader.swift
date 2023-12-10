@@ -19,7 +19,7 @@ struct DiscoveredDeviceRowHeader: View {
     }
 
     var deviceType: UKDeviceType {
-        return metadata.deviceType
+        metadata.deviceType
     }
 
     var deviceTypeSystemImage: String {
@@ -37,9 +37,15 @@ struct DiscoveredDeviceRowHeader: View {
                 .font(isWatch && mission.isConnected ? .body : .title2)
                 .bold()
 
-            Label(deviceType.name, systemImage: deviceTypeSystemImage)
-                // .foregroundColor(.secondary)
-                .labelStyle(LabelSpacing(spacing: 4))
+            HStack(spacing: 4) {
+                Image(systemName: deviceTypeSystemImage)
+                    .modify {
+                        if deviceType == .leftInsole {
+                            $0.scaleEffect(x: -1)
+                        }
+                    }
+                Text(deviceType.name)
+            }
         }
     }
 }
