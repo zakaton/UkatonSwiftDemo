@@ -5,7 +5,7 @@ import WidgetKit
 
 struct UKBatteryLevelWidgetProvider: AppIntentTimelineProvider {
     typealias Intent = UKSelectedMissionsConfiguration
-    public typealias Entry = UKBatteryLevelEntry
+    typealias Entry = UKBatteryLevelEntry
     var missionsManager: UKMissionsManager { UKMissionsManager.shared }
 
     func snapshot(for configuration: UKSelectedMissionsConfiguration, in context: Context) async -> UKBatteryLevelEntry {
@@ -27,7 +27,7 @@ struct UKBatteryLevelWidgetProvider: AppIntentTimelineProvider {
     }
 
     func placeholder(in context: Context) -> UKBatteryLevelEntry {
-        return UKBatteryLevelEntry(date: Date(), missions: [.none])
+        UKBatteryLevelEntry(date: Date(), missions: [.none])
     }
 }
 

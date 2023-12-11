@@ -1,9 +1,9 @@
+import Combine
 import OSLog
 import SwiftUI
 import UkatonKit
 import UkatonMacros
-
-extension URL {}
+import WidgetKit
 
 @StaticLogger
 struct DeviceDiscovery: View {
@@ -14,6 +14,16 @@ struct DeviceDiscovery: View {
     @ObservedObject var navigationCoordinator: NavigationCoordinator
 
     @State private var wasScanning: Bool = false
+
+    var cancellables: Set<AnyCancellable> = .init()
+
+    init(navigationCoordinator: NavigationCoordinator) {
+        self.navigationCoordinator = navigationCoordinator
+        bluetoothManager.discoveredDevicesSubject
+            .sink(receiveValue: {
+                WidgetCenter.shared.reloadAllTimelines()
+            }).store(in: &cancellables)
+    }
 
     var body: some View {
         NavigationStack(path: $navigationCoordinator.path) {

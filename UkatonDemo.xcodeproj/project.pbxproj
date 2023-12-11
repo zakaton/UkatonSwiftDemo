@@ -302,6 +302,11 @@
 		5FBDE9CD2B266E6300F24515 /* UKMissionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBDE9CC2B266E6300F24515 /* UKMissionEntity.swift */; };
 		5FBDE9CE2B266E6300F24515 /* UKMissionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBDE9CC2B266E6300F24515 /* UKMissionEntity.swift */; };
 		5FBDE9CF2B266E6300F24515 /* UKMissionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBDE9CC2B266E6300F24515 /* UKMissionEntity.swift */; };
+		5FBDE9D02B269F8800F24515 /* UKMissionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBDE9CC2B266E6300F24515 /* UKMissionEntity.swift */; };
+		5FBDE9D22B269F8800F24515 /* UKMissionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBDE9CC2B266E6300F24515 /* UKMissionEntity.swift */; };
+		5FBDE9D32B269F8800F24515 /* UKBatteryLevelWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F86D8512B2505D800B81382 /* UKBatteryLevelWidget.swift */; };
+		5FBDE9D42B269F8800F24515 /* UKMissionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBDE9CC2B266E6300F24515 /* UKMissionEntity.swift */; };
+		5FBDE9D52B269F8800F24515 /* UKBatteryLevelWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F86D8512B2505D800B81382 /* UKBatteryLevelWidget.swift */; };
 		5FCC84A42AFC414100B755FA /* MotionCalibrationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCC84A32AFC414100B755FA /* MotionCalibrationSection.swift */; };
 		5FCC84A52AFC414100B755FA /* MotionCalibrationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCC84A32AFC414100B755FA /* MotionCalibrationSection.swift */; };
 		5FCC84A62AFC414100B755FA /* MotionCalibrationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCC84A32AFC414100B755FA /* MotionCalibrationSection.swift */; };
@@ -2105,6 +2110,7 @@
 				5F63E02D2B1D2E2700B868BE /* BalanceDemo.swift in Sources */,
 				5F446F752B0468C900797659 /* RSSIDemo.swift in Sources */,
 				5F9F82C72B03EC0200DDD9AB /* MissionPairMotionDemo.swift in Sources */,
+				5FBDE9D52B269F8800F24515 /* UKBatteryLevelWidget.swift in Sources */,
 				5FCC84BB2AFCA33800B755FA /* PressureDemo.swift in Sources */,
 				5FACE8C72AFFEFE400F1AFFD /* PressureModePicker.swift in Sources */,
 				5F3F4E2A2B091F0C00F81B6F /* CenterOfMassDemo.swift in Sources */,
@@ -2118,6 +2124,7 @@
 				5F9F82B72B02970300DDD9AB /* MissionPair.swift in Sources */,
 				5FCC84BF2AFCA34100B755FA /* VibrationDemo.swift in Sources */,
 				5FA3AFF92AFAA97800F5295C /* DeviceInformationSection.swift in Sources */,
+				5FBDE9D42B269F8800F24515 /* UKMissionEntity.swift in Sources */,
 				5FB11E6D2B04673800784EDD /* DeviceBluetoothInformationSection.swift in Sources */,
 				5FCC84B02AFC445C00B755FA /* PressureDataSection.swift in Sources */,
 				5F9F82BF2B03E2D900DDD9AB /* MissionPairDemosSection.swift in Sources */,
@@ -2153,6 +2160,7 @@
 				5F63E02E2B1D2E2700B868BE /* BalanceDemo.swift in Sources */,
 				5F446F762B0468C900797659 /* RSSIDemo.swift in Sources */,
 				5F9F82C82B03EC0200DDD9AB /* MissionPairMotionDemo.swift in Sources */,
+				5FBDE9D32B269F8800F24515 /* UKBatteryLevelWidget.swift in Sources */,
 				5FCC84BC2AFCA33800B755FA /* PressureDemo.swift in Sources */,
 				5FACE8C82AFFEFE400F1AFFD /* PressureModePicker.swift in Sources */,
 				5F3F4E2B2B091F0C00F81B6F /* CenterOfMassDemo.swift in Sources */,
@@ -2166,6 +2174,7 @@
 				5F9F82B82B02970300DDD9AB /* MissionPair.swift in Sources */,
 				5FCC84C02AFCA34100B755FA /* VibrationDemo.swift in Sources */,
 				5FA3AFFA2AFAA97800F5295C /* DeviceInformationSection.swift in Sources */,
+				5FBDE9D22B269F8800F24515 /* UKMissionEntity.swift in Sources */,
 				5FB11E6E2B04673800784EDD /* DeviceBluetoothInformationSection.swift in Sources */,
 				5FCC84B12AFC445C00B755FA /* PressureDataSection.swift in Sources */,
 				5F9F82C02B03E2D900DDD9AB /* MissionPairDemosSection.swift in Sources */,
@@ -2214,6 +2223,7 @@
 				5F8656542B06EE43007F1D00 /* DiscoveredDeviceRowConnection.swift in Sources */,
 				5FA3AFFB2AFAA97800F5295C /* DeviceInformationSection.swift in Sources */,
 				5FB11E6F2B04673800784EDD /* DeviceBluetoothInformationSection.swift in Sources */,
+				5FBDE9D02B269F8800F24515 /* UKMissionEntity.swift in Sources */,
 				5FCC84B22AFC445C00B755FA /* PressureDataSection.swift in Sources */,
 				5F9F82C12B03E2D900DDD9AB /* MissionPairDemosSection.swift in Sources */,
 				5F3F4E302B092FF200F81B6F /* RotationModePicker.swift in Sources */,
