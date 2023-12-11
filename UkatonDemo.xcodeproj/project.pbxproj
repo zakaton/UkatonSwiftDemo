@@ -299,6 +299,9 @@
 		5FB11E6D2B04673800784EDD /* DeviceBluetoothInformationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB11E6C2B04673800784EDD /* DeviceBluetoothInformationSection.swift */; };
 		5FB11E6E2B04673800784EDD /* DeviceBluetoothInformationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB11E6C2B04673800784EDD /* DeviceBluetoothInformationSection.swift */; };
 		5FB11E6F2B04673800784EDD /* DeviceBluetoothInformationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB11E6C2B04673800784EDD /* DeviceBluetoothInformationSection.swift */; };
+		5FBDE9CD2B266E6300F24515 /* UKMissionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBDE9CC2B266E6300F24515 /* UKMissionEntity.swift */; };
+		5FBDE9CE2B266E6300F24515 /* UKMissionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBDE9CC2B266E6300F24515 /* UKMissionEntity.swift */; };
+		5FBDE9CF2B266E6300F24515 /* UKMissionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBDE9CC2B266E6300F24515 /* UKMissionEntity.swift */; };
 		5FCC84A42AFC414100B755FA /* MotionCalibrationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCC84A32AFC414100B755FA /* MotionCalibrationSection.swift */; };
 		5FCC84A52AFC414100B755FA /* MotionCalibrationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCC84A32AFC414100B755FA /* MotionCalibrationSection.swift */; };
 		5FCC84A62AFC414100B755FA /* MotionCalibrationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCC84A32AFC414100B755FA /* MotionCalibrationSection.swift */; };
@@ -594,6 +597,7 @@
 		5FA3B0022AFAAB6E00F5295C /* DeviceDemosSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDemosSection.swift; sourceTree = "<group>"; };
 		5FACE8C62AFFEFE400F1AFFD /* PressureModePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressureModePicker.swift; sourceTree = "<group>"; };
 		5FB11E6C2B04673800784EDD /* DeviceBluetoothInformationSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceBluetoothInformationSection.swift; sourceTree = "<group>"; };
+		5FBDE9CC2B266E6300F24515 /* UKMissionEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UKMissionEntity.swift; sourceTree = "<group>"; };
 		5FCC84A32AFC414100B755FA /* MotionCalibrationSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionCalibrationSection.swift; sourceTree = "<group>"; };
 		5FCC84A72AFC426000B755FA /* MotionDataSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionDataSection.swift; sourceTree = "<group>"; };
 		5FCC84AF2AFC445C00B755FA /* PressureDataSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressureDataSection.swift; sourceTree = "<group>"; };
@@ -621,6 +625,7 @@
 		5FECBADB2B263BF300D24A41 /* test3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test3.swift; sourceTree = "<group>"; };
 		5FECBADD2B263BF300D24A41 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5FECBADF2B263BF300D24A41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5FECBAF22B26540500D24A41 /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
 		5FF24DE52AF41127009FAA0E /* LabelSpacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelSpacing.swift; sourceTree = "<group>"; };
 		5FF58F302ADE51D900AD2941 /* (iOS) Ukaton Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "(iOS) Ukaton Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FF58F332ADE51D900AD2941 /* UkatonDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UkatonDemoApp.swift; sourceTree = "<group>"; };
@@ -772,6 +777,7 @@
 			children = (
 				5F86D8362B24E89400B81382 /* WidgetKit.framework */,
 				5F86D8382B24E89400B81382 /* SwiftUI.framework */,
+				5FECBAF22B26540500D24A41 /* Intents.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -829,12 +835,12 @@
 			path = test;
 			sourceTree = "<group>";
 		};
-		5F4A7CBA2B2637B400454476 /* Battery Level */ = {
+		5F4A7CBA2B2637B400454476 /* Battery Level Widget */ = {
 			isa = PBXGroup;
 			children = (
 				5F86D8512B2505D800B81382 /* UKBatteryLevelWidget.swift */,
 			);
-			path = "Battery Level";
+			path = "Battery Level Widget";
 			sourceTree = "<group>";
 		};
 		5F4A7CC22B263A5E00454476 /* test2 */ = {
@@ -937,7 +943,8 @@
 		5F86D8502B2505B900B81382 /* (Shared) Widget */ = {
 			isa = PBXGroup;
 			children = (
-				5F4A7CBA2B2637B400454476 /* Battery Level */,
+				5FBDE9CB2B266E4900F24515 /* App Intents */,
+				5F4A7CBA2B2637B400454476 /* Battery Level Widget */,
 				5F86D83B2B24E89400B81382 /* WidgetBundle.swift */,
 			);
 			path = "(Shared) Widget";
@@ -1039,6 +1046,14 @@
 				5FFBE8102AF160CF00F8CBD7 /* DeviceDiscovery.swift */,
 			);
 			path = DeviceDiscovery;
+			sourceTree = "<group>";
+		};
+		5FBDE9CB2B266E4900F24515 /* App Intents */ = {
+			isa = PBXGroup;
+			children = (
+				5FBDE9CC2B266E6300F24515 /* UKMissionEntity.swift */,
+			);
+			path = "App Intents";
 			sourceTree = "<group>";
 		};
 		5FCC84A22AFC412600B755FA /* SensorDataDemo */ = {
@@ -1907,6 +1922,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5FA0E00F2B254524004A691A /* ViewModifier.swift in Sources */,
+				5FBDE9CF2B266E6300F24515 /* UKMissionEntity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1915,6 +1931,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F86D83C2B24E89400B81382 /* WidgetBundle.swift in Sources */,
+				5FBDE9CD2B266E6300F24515 /* UKMissionEntity.swift in Sources */,
 				5FA0E00D2B254523004A691A /* ViewModifier.swift in Sources */,
 				5F86D8552B2505D800B81382 /* UKBatteryLevelWidget.swift in Sources */,
 			);
@@ -1925,6 +1942,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F86D8732B2507FD00B81382 /* WidgetBundle.swift in Sources */,
+				5FBDE9CE2B266E6300F24515 /* UKMissionEntity.swift in Sources */,
 				5F86D8642B25066200B81382 /* Widget.swift in Sources */,
 				5F86D8712B2507F600B81382 /* UKBatteryLevelWidget.swift in Sources */,
 				5FA0E00E2B254524004A691A /* ViewModifier.swift in Sources */,

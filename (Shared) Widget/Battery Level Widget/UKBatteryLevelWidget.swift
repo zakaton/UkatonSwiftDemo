@@ -1,33 +1,44 @@
+import AppIntents
 import SwiftUI
 import UkatonKit
 import WidgetKit
 
-struct UKBatteryLevelWidgetProvider: TimelineProvider {
+struct UKBatteryLevelWidgetProvider: AppIntentTimelineProvider {
+    typealias Intent = UKSelectedMissionsConfiguration
     public typealias Entry = UKBatteryLevelEntry
+    var missionsManager: UKMissionsManager { UKMissionsManager.shared }
+
+    func snapshot(for configuration: UKSelectedMissionsConfiguration, in context: Context) async -> UKBatteryLevelEntry {
+        let missions = configuration.missions.compactMap {
+            missionsManager.mission(for: $0.id)
+        }
+        let entry = UKBatteryLevelEntry(date: Date(), missions: missions)
+        return entry
+    }
+
+    func timeline(for configuration: UKSelectedMissionsConfiguration, in context: Context) async -> Timeline<UKBatteryLevelEntry> {
+        let missions = configuration.missions.compactMap {
+            missionsManager.mission(for: $0.id)
+        }
+
+        let entries = [UKBatteryLevelEntry(date: Date(), missions: missions)]
+        let timeline = Timeline(entries: entries, policy: .never)
+        return timeline
+    }
 
     func placeholder(in context: Context) -> UKBatteryLevelEntry {
-        return UKBatteryLevelEntry(date: Date())
-    }
-
-    func getSnapshot(in context: Context, completion: @escaping (UKBatteryLevelEntry) -> Void) {
-        let entry = UKBatteryLevelEntry(date: Date())
-        completion(entry)
-    }
-
-    func getTimeline(in context: Context, completion: @escaping (Timeline<UKBatteryLevelEntry>) -> Void) {
-        let entries = [UKBatteryLevelEntry(date: Date())]
-        let timeline = Timeline(entries: entries, policy: .never)
-        completion(timeline)
+        return UKBatteryLevelEntry(date: Date(), missions: [.none])
     }
 }
 
 struct UKBatteryLevelEntry: TimelineEntry {
     public let date: Date
+    public let missions: [UKMission]
 }
 
 struct UKBatteryLevelWidgetEntryPlaceholderView: View {
     var body: some View {
-        UKBatteryLevelWidgetEntryView(entry: UKBatteryLevelEntry(date: .now))
+        UKBatteryLevelWidgetEntryView(entry: UKBatteryLevelEntry(date: .now, missions: [.none]))
     }
 }
 
@@ -76,11 +87,11 @@ struct UKBatteryLevelView: View {
         guard !missionDevice.isNone else { return .gray }
 
         return switch batteryLevel {
-        case 70 ... 100:
+        case 60 ... 100:
             .green
-        case 20 ... 70:
+        case 10 ... 60:
             .orange
-        case 0 ... 20:
+        case 0 ... 10:
             .red
         default:
             .red
@@ -155,10 +166,10 @@ struct UKBatteryLevelWidgetEntryView: View {
 }
 
 struct UKBatteryLevelWidget: Widget {
-    let kind: String = "UKBatteryLevelWidget"
+    let kind: String = "com.ukaton.demo.battery-level"
 
-    public var body: some WidgetConfiguration {
-        StaticConfiguration(kind: kind, provider: UKBatteryLevelWidgetProvider()) { entry in
+    var body: some WidgetConfiguration {
+        AppIntentConfiguration(kind: kind, intent: UKSelectedMissionsConfiguration.self, provider: UKBatteryLevelWidgetProvider()) { entry in
 
             if #available(iOS 17.0, *) {
                 UKBatteryLevelWidgetEntryView(entry: entry)
@@ -183,13 +194,13 @@ struct UKBatteryLevelWidget: Widget {
     #Preview("accessoryCircular", as: .accessoryCircular) {
         UKBatteryLevelWidget()
     } timeline: {
-        UKBatteryLevelEntry(date: .now)
+        UKBatteryLevelEntry(date: .now, missions: [.none])
     }
 
     #Preview("accessoryRectangular", as: .accessoryRectangular) {
         UKBatteryLevelWidget()
     } timeline: {
-        UKBatteryLevelEntry(date: .now)
+        UKBatteryLevelEntry(date: .now, missions: [.none])
     }
 #endif
 
@@ -197,24 +208,24 @@ struct UKBatteryLevelWidget: Widget {
     #Preview("systemSmall", as: .systemSmall) {
         UKBatteryLevelWidget()
     } timeline: {
-        UKBatteryLevelEntry(date: .now)
+        UKBatteryLevelEntry(date: .now, missions: [.none])
     }
 
     #Preview("systemMedium", as: .systemMedium) {
         UKBatteryLevelWidget()
     } timeline: {
-        UKBatteryLevelEntry(date: .now)
+        UKBatteryLevelEntry(date: .now, missions: [.none])
     }
 
     #Preview("systemLarge", as: .systemLarge) {
         UKBatteryLevelWidget()
     } timeline: {
-        UKBatteryLevelEntry(date: .now)
+        UKBatteryLevelEntry(date: .now, missions: [.none])
     }
 
     #Preview("systemExtraLarge", as: .systemExtraLarge) {
         UKBatteryLevelWidget()
     } timeline: {
-        UKBatteryLevelEntry(date: .now)
+        UKBatteryLevelEntry(date: .now, missions: [.none])
     }
 #endif
