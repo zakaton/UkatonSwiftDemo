@@ -16,3 +16,9 @@ public extension View {
         }
     }
 }
+
+public extension WidgetConfiguration {
+    func modify<Content>(_ transform: (Self) -> Content) -> Content {
+        transform(self)
+    }
+}
