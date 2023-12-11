@@ -17,7 +17,7 @@ struct UKViewMission: AppIntent {
     }
 }
 
-struct UKSelectedMissionsConfiguration: AppIntent, WidgetConfigurationIntent {
+struct UKSelectedMissionsConfigurationIntent: AppIntent, WidgetConfigurationIntent {
     static var title: LocalizedStringResource = "Selected Missions"
 
     @Parameter(title: "Missions", size: [
