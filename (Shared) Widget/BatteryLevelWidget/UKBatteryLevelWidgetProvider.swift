@@ -19,6 +19,8 @@ struct UKBatteryLevelWidgetProvider: AppIntentTimelineProvider {
         let entry = UKBatteryLevelEntry(date: .now, missions: missions)
         return entry
     }
+    
+    
 
     func timeline(for configuration: UKSelectedMissionsConfigurationIntent, in context: Context) async -> Timeline<UKBatteryLevelEntry> {
         let missions = configuration.missions.compactMap {
