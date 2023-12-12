@@ -27,10 +27,4 @@ struct UKBatteryLevelWidget: Widget {
 } timeline: {
     UKBatteryLevelEntry(date: .now, missions: [.none])
 }
-
-#Preview("accessoryCorner", as: .accessoryCorner) {
-    UKBatteryLevelWidget()
-} timeline: {
-    UKBatteryLevelEntry(date: .now, missions: [.none])
-}
 #endif

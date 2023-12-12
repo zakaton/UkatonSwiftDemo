@@ -15,12 +15,17 @@ struct DeviceDiscovery: View {
 
     @State private var wasScanning: Bool = false
 
+    private let missionsManager: UKMissionsManager = .shared
     var cancellables: Set<AnyCancellable> = .init()
 
     init(navigationCoordinator: NavigationCoordinator) {
         self.navigationCoordinator = navigationCoordinator
-        bluetoothManager.discoveredDevicesSubject
-            .sink(receiveValue: {
+        missionsManager.missionAddedSubject
+            .sink(receiveValue: { _ in
+                WidgetCenter.shared.reloadAllTimelines()
+            }).store(in: &cancellables)
+        missionsManager.missionRemovedSubject
+            .sink(receiveValue: { _ in
                 WidgetCenter.shared.reloadAllTimelines()
             }).store(in: &cancellables)
     }

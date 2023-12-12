@@ -1,35 +1,6 @@
 import AppIntents
 import UkatonKit
 
-struct UKViewMission: AppIntent {
-    @Parameter(title: "Mission")
-    var mission: UKMissionEntity
-
-    static var title: LocalizedStringResource = "View Mission"
-    static var openAppWhenRun: Bool = true
-    func perform() async throws -> some IntentResult {
-        // TODO: - navigate to mission info
-        return .result()
-    }
-
-    static var parameterSummary: some ParameterSummary {
-        Summary("View \(\.$mission)")
-    }
-}
-
-struct UKSelectedMissionsConfigurationIntent: AppIntent, WidgetConfigurationIntent {
-    static var title: LocalizedStringResource = "Selected Missions"
-
-    @Parameter(title: "Missions", size: [
-        .systemSmall: 3
-    ])
-    var missions: [UKMissionEntity]
-
-    static var parameterSummary: some ParameterSummary {
-        Summary("select missions \(\.$missions)")
-    }
-}
-
 struct UKMissionEntity: AppEntity, Identifiable {
     typealias DefaultQuery = UKMissionEntityQuery
     static var defaultQuery = UKMissionEntityQuery()
@@ -64,23 +35,5 @@ struct UKMissionEntity: AppEntity, Identifiable {
 
     init(mission: UKMission) {
         self.init(id: mission.id, name: mission.name, deviceTypeName: mission.deviceType.name)
-    }
-}
-
-struct UKMissionEntityQuery: EntityStringQuery {
-    func entities(for identifiers: [UKMissionEntity.ID]) async throws -> [UKMissionEntity] {
-        identifiers.compactMap {
-            UKMissionsManager.shared.mission(for: $0)
-        }.map { .init(mission: $0) }
-    }
-
-    func suggestedEntities() async throws -> [UKMissionEntity] {
-        UKMissionsManager.shared.missions.map { .init(id: $0.id, name: $0.name, deviceTypeName: $0.deviceType.name) }
-    }
-
-    func entities(matching string: String) async throws -> [UKMissionEntity] {
-        UKMissionsManager.shared.missions.filter {
-            $0.name.localizedCaseInsensitiveContains(string)
-        }.map { .init(mission: $0) }
     }
 }

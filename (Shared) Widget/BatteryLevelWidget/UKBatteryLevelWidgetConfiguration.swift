@@ -19,9 +19,9 @@ func UKBatteryLevelWidgetConfiguration() -> some WidgetConfiguration {
     .description("View battery level of your Ukaton devices")
     .modify {
         #if WATCHOS
-        $0.supportedFamilies([.accessoryCircular, .accessoryRectangular, .accessoryInline, .accessoryCorner])
+        $0.supportedFamilies([.accessoryCircular, .accessoryRectangular, .accessoryInline])
         #elseif os(iOS)
-        $0.supportedFamilies([.accessoryCircular, .accessoryInline, .accessoryRectangular, .systemSmall, .systemMedium, .systemLarge, .systemExtraLarge])
+        $0.supportedFamilies([.accessoryCircular, .accessoryInline, .accessoryRectangular, .systemSmall, .systemMedium, .systemLarge])
         #elseif os(macOS)
         $0.supportedFamilies([.systemSmall, .systemMedium, .systemLarge, .systemExtraLarge])
         #endif

@@ -37,8 +37,10 @@ struct UKBatteryLevelView: View {
 
     private var imageScale: Image.Scale {
         switch family {
-        case .accessoryCircular:
-            .large
+        #if !os(macOS)
+            case .accessoryCircular:
+                .large
+        #endif
         default:
             .medium
         }
