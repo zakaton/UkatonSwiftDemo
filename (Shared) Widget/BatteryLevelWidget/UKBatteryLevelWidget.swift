@@ -1,8 +1,11 @@
 import AppIntents
+import OSLog
 import SwiftUI
 import UkatonKit
+import UkatonMacros
 import WidgetKit
 
+@StaticLogger
 struct UKBatteryLevelWidget: Widget {
     var body: some WidgetConfiguration {
         UKBatteryLevelWidgetConfiguration()

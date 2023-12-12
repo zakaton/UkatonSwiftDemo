@@ -4,7 +4,6 @@ import UkatonKit
 struct UKSelectedMissionsConfigurationIntent: AppIntent, WidgetConfigurationIntent {
     static var title: LocalizedStringResource = "Selected Missions"
 
-    // @Parameter(title: "Missions")
     #if WATCHOS
     @Parameter(title: "Missions", size: [
         .accessoryCircular: 1

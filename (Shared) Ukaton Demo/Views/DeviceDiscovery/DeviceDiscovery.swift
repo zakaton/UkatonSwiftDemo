@@ -3,7 +3,9 @@ import OSLog
 import SwiftUI
 import UkatonKit
 import UkatonMacros
+#if !os(visionOS)
 import WidgetKit
+#endif
 
 @StaticLogger
 struct DeviceDiscovery: View {
@@ -20,14 +22,16 @@ struct DeviceDiscovery: View {
 
     init(navigationCoordinator: NavigationCoordinator) {
         self.navigationCoordinator = navigationCoordinator
+        #if !os(visionOS)
         missionsManager.missionAddedSubject
             .sink(receiveValue: { _ in
-                WidgetCenter.shared.reloadAllTimelines()
+                WidgetCenter.shared.invalidateConfigurationRecommendations()
             }).store(in: &cancellables)
         missionsManager.missionRemovedSubject
             .sink(receiveValue: { _ in
-                WidgetCenter.shared.reloadAllTimelines()
+                WidgetCenter.shared.invalidateConfigurationRecommendations()
             }).store(in: &cancellables)
+        #endif
     }
 
     var body: some View {

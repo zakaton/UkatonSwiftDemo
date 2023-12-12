@@ -1,7 +1,13 @@
 import AppIntents
+import OSLog
 import UkatonKit
+import UkatonMacros
 
+// @StaticLogger
 struct UKViewMissionIntent: AppIntent {
+    static let logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "", category: "UKViewMissionIntent")
+    var logger: Logger { Self.logger }
+
     @Parameter(title: "Mission")
     var mission: UKMissionEntity
 
@@ -9,6 +15,7 @@ struct UKViewMissionIntent: AppIntent {
     static var openAppWhenRun: Bool = true
     func perform() async throws -> some IntentResult {
         // TODO: - navigate to mission info
+        logger.debug("perform")
         return .result()
     }
 
