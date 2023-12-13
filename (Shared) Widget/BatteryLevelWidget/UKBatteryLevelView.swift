@@ -4,6 +4,14 @@ import UkatonKit
 import WidgetKit
 
 struct UKBatteryLevelView: View {
+    init(entry: UKBatteryLevelTimelineEntry, index: Int = 0) {
+        missionDevice = .none
+    }
+
+    init() {
+        missionDevice = .none
+    }
+
     var missionDevice: UKMission
     var batteryLevel: UKBatteryLevel {
         missionDevice.batteryLevel

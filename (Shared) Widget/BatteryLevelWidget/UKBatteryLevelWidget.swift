@@ -16,19 +16,19 @@ struct UKBatteryLevelWidget: Widget {
 #Preview("accessoryCircular", as: .accessoryCircular) {
     UKBatteryLevelWidget()
 } timeline: {
-    UKBatteryLevelEntry(date: .now, missions: [.none])
+    UKBatteryLevelTimelineEntry(date: .now, missionIds: [])
 }
 
 #Preview("accessoryInline", as: .accessoryInline) {
     UKBatteryLevelWidget()
 } timeline: {
-    UKBatteryLevelEntry(date: .now, missions: [.none])
+    UKBatteryLevelTimelineEntry(date: .now, missionIds: [])
 }
 
 #Preview("accessoryRectangular", as: .accessoryRectangular) {
     UKBatteryLevelWidget()
 } timeline: {
-    UKBatteryLevelEntry(date: .now, missions: [.none])
+    UKBatteryLevelTimelineEntry(date: .now, missionIds: [])
 }
 #endif
 
@@ -36,24 +36,24 @@ struct UKBatteryLevelWidget: Widget {
 #Preview("systemSmall", as: .systemSmall) {
     UKBatteryLevelWidget()
 } timeline: {
-    UKBatteryLevelEntry(date: .now, missions: [.none])
+    UKBatteryLevelTimelineEntry(date: .now, missionIds: [])
 }
 
 #Preview("systemMedium", as: .systemMedium) {
     UKBatteryLevelWidget()
 } timeline: {
-    UKBatteryLevelEntry(date: .now, missions: [.none])
+    UKBatteryLevelTimelineEntry(date: .now, missionIds: [])
 }
 
 #Preview("systemLarge", as: .systemLarge) {
     UKBatteryLevelWidget()
 } timeline: {
-    UKBatteryLevelEntry(date: .now, missions: [.none])
+    UKBatteryLevelTimelineEntry(date: .now, missionIds: [])
 }
 
 #Preview("systemExtraLarge", as: .systemExtraLarge) {
     UKBatteryLevelWidget()
 } timeline: {
-    UKBatteryLevelEntry(date: .now, missions: [.none])
+    UKBatteryLevelTimelineEntry(date: .now, missionIds: [])
 }
 #endif

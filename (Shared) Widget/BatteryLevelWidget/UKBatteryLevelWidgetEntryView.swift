@@ -15,35 +15,38 @@ struct UKBatteryLevelWidgetEntryView: View {
     var systemSmallBody: some View {
         VStack(spacing: spacing) {
             HStack(spacing: spacing) {
-                UKBatteryLevelView(missionDevice: entry[0])
-                UKBatteryLevelView(missionDevice: entry[1])
+                UKBatteryLevelView(entry: entry, index: 0)
+                UKBatteryLevelView(entry: entry, index: 1)
             }
             HStack(spacing: spacing) {
-                UKBatteryLevelView(missionDevice: entry[2])
-                UKBatteryLevelView(missionDevice: entry[3])
+                UKBatteryLevelView(entry: entry, index: 2)
+                UKBatteryLevelView(entry: entry, index: 3)
             }
         }
     }
 
     var systemMediumBody: some View {
         Text("medium")
-            .scaledToFill()
+            .unredacted()
     }
 
     var systemLargeBody: some View {
         Text("large")
+            .unredacted()
     }
 
     var systemExtraLargeBody: some View {
         Text("extra large")
+            .unredacted()
     }
 
     var accessoryCircularBody: some View {
-        UKBatteryLevelView(missionDevice: entry[0])
+        UKBatteryLevelView()
     }
 
     var uncaughtBody: some View {
         Text("uncaught widget family")
+            .unredacted()
     }
 
     #if WATCHOS

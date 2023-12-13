@@ -27,7 +27,7 @@
 		<key>(VisionOS) Ukaton Demo Safari Extension.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>8</integer>
+			<integer>9</integer>
 		</dict>
 		<key>(VisionOS) Ukaton Demo.xcscheme_^#shared#^_</key>
 		<dict>
@@ -37,7 +37,7 @@
 		<key>(Watch) Ukaton Demo Widget.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>9</integer>
+			<integer>7</integer>
 		</dict>
 		<key>(Watch) Ukaton Demo.xcscheme_^#shared#^_</key>
 		<dict>
@@ -87,12 +87,12 @@
 		<key>test2Extension.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>7</integer>
+			<integer>10</integer>
 		</dict>
 		<key>test3Extension.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>10</integer>
+			<integer>9</integer>
 		</dict>
 		<key>testExtension.xcscheme_^#shared#^_</key>
 		<dict>
