@@ -4,41 +4,41 @@ import UkatonKit
 import WidgetKit
 
 struct UKBatteryLevelView: View {
-    init(entry: UKBatteryLevelTimelineEntry, index: Int = 0) {
-        missionDevice = .none
+    init(index: Int) {
+        mission = UKDevicesInformation.shared.information(index: index) ?? .none
     }
 
     init() {
-        missionDevice = .none
+        mission = .none
     }
 
-    var missionDevice: UKMission
+    var mission: UKMissionEntity
     var batteryLevel: UKBatteryLevel {
-        missionDevice.batteryLevel
+        .init(mission.batteryLevel)
     }
 
     var batteryLevelProgress: Double {
-        guard !missionDevice.isNone else { return .zero }
+        guard !mission.isNone else { return .zero }
         return .init(batteryLevel) / 100
     }
 
     var isCharging: Bool {
-        missionDevice.isCharging
+        mission.isCharging
     }
 
-    var deviceType: UKDeviceType {
-        missionDevice.deviceType
+    var deviceTypeName: String {
+        mission.deviceTypeName
     }
 
     @Environment(\.widgetFamily) var family
 
     var imageName: String? {
-        guard !missionDevice.isNone else { return nil }
+        guard !mission.isNone else { return nil }
 
-        return switch deviceType {
-        case .leftInsole, .rightInsole:
+        return switch deviceTypeName {
+        case "left insole", "right insole":
             "shoe.fill"
-        case .motionModule:
+        default:
             "rotate.3d.fill"
         }
     }
@@ -55,7 +55,7 @@ struct UKBatteryLevelView: View {
     }
 
     var color: Color {
-        guard !missionDevice.isNone else { return .gray }
+        guard !mission.isNone else { return .gray }
 
         return switch batteryLevel {
         case 60 ... 100:
@@ -75,7 +75,7 @@ struct UKBatteryLevelView: View {
                 Image(systemName: imageName)
                     .imageScale(imageScale)
                     .modify {
-                        if deviceType == .leftInsole {
+                        if deviceTypeName == "left insole" {
                             $0.scaleEffect(x: -1)
                         }
                     }

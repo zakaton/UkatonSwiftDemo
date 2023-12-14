@@ -17,20 +17,14 @@ struct DeviceDiscovery: View {
 
     @State private var wasScanning: Bool = false
 
-    private let missionsManager: UKMissionsManager = .shared
-    var cancellables: Set<AnyCancellable> = .init()
+    #if !os(visionOS)
+    private var devicesInformation: UKDevicesInformation = .shared
+    #endif
 
     init(navigationCoordinator: NavigationCoordinator) {
         self.navigationCoordinator = navigationCoordinator
         #if !os(visionOS)
-        missionsManager.missionAddedSubject
-            .sink(receiveValue: { _ in
-                WidgetCenter.shared.invalidateConfigurationRecommendations()
-            }).store(in: &cancellables)
-        missionsManager.missionRemovedSubject
-            .sink(receiveValue: { _ in
-                WidgetCenter.shared.invalidateConfigurationRecommendations()
-            }).store(in: &cancellables)
+        devicesInformation.listenForUpdates()
         #endif
     }
 

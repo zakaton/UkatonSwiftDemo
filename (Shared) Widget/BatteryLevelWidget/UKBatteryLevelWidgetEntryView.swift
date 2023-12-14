@@ -8,19 +8,19 @@ struct UKBatteryLevelWidgetEntryView: View {
 
     @Environment(\.widgetFamily) var family
 
-    var spacing: CGFloat = 15
+    var devicesInformation: UKDevicesInformation { .shared }
 
-    var missionsManager: UKMissionsManager { .shared }
+    var spacing: CGFloat = 15
 
     var systemSmallBody: some View {
         VStack(spacing: spacing) {
             HStack(spacing: spacing) {
-                UKBatteryLevelView(entry: entry, index: 0)
-                UKBatteryLevelView(entry: entry, index: 1)
+                UKBatteryLevelView(index: 0)
+                UKBatteryLevelView(index: 1)
             }
             HStack(spacing: spacing) {
-                UKBatteryLevelView(entry: entry, index: 2)
-                UKBatteryLevelView(entry: entry, index: 3)
+                UKBatteryLevelView(index: 2)
+                UKBatteryLevelView(index: 3)
             }
         }
     }

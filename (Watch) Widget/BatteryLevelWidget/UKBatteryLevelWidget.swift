@@ -13,18 +13,18 @@ struct UKBatteryLevelWidget: Widget {
 #Preview("accessoryCircular", as: .accessoryCircular) {
     UKBatteryLevelWidget()
 } timeline: {
-    UKBatteryLevelTimelineEntry(date: .now, missions: [.none])
+    UKBatteryLevelTimelineEntry(date: .now)
 }
 
 #Preview("accessoryInline", as: .accessoryInline) {
     UKBatteryLevelWidget()
 } timeline: {
-    UKBatteryLevelTimelineEntry(date: .now, missions: [.none])
+    UKBatteryLevelTimelineEntry(date: .now)
 }
 
 #Preview("accessoryRectangular", as: .accessoryRectangular) {
     UKBatteryLevelWidget()
 } timeline: {
-    UKBatteryLevelTimelineEntry(date: .now, missions: [.none])
+    UKBatteryLevelTimelineEntry(date: .now)
 }
 #endif
