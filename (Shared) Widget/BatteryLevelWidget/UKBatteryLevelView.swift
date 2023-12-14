@@ -1,11 +1,15 @@
 import AppIntents
+import OSLog
 import SwiftUI
 import UkatonKit
+import UkatonMacros
 import WidgetKit
 
+@StaticLogger
 struct UKBatteryLevelView: View {
     init(index: Int) {
         mission = UKDevicesInformation.shared.information(index: index) ?? .none
+        logger.debug("UKBatteryLevelView \(index): \(UKDevicesInformation.shared.ids, privacy: .public)")
     }
 
     init() {

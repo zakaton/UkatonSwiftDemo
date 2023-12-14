@@ -120,7 +120,7 @@ struct DeviceWifiInformationSection: View {
                             #endif
                         }
                         else {
-                            Text("__password__: \(mission.wifiPassword.map { _ in "•" }.joined())")
+                            Text("\(mission.wifiPassword.map { _ in "•" }.joined())")
                         }
                     }
                 }

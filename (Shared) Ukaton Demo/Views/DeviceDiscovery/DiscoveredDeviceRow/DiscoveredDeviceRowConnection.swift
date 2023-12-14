@@ -26,7 +26,9 @@ struct DiscoveredDeviceRowConnection: View {
                     Text("disconnect")
                 })
                 .buttonStyle(.borderedProminent)
-                .tint(.red)
+                #if !os(visionOS)
+                    .tint(.red)
+                #endif
                 if !is_iOS {
                     Spacer()
                 }
@@ -87,7 +89,7 @@ struct DiscoveredDeviceRowConnection: View {
 
 #Preview {
     DiscoveredDeviceRowConnection(discoveredDevice: .constant(.none))
-#if os(macOS)
+    #if os(macOS)
         .frame(maxWidth: 300)
-#endif
+    #endif
 }

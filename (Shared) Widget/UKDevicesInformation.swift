@@ -8,7 +8,7 @@ import UkatonMacros
 @StaticLogger
 @Singleton()
 class UKDevicesInformation {
-    var missionsManager: UKMissionsManager { .shared }
+    private var missionsManager: UKMissionsManager { .shared }
     private let defaults: UserDefaults = .init(suiteName: "com.ukaton.devices")!
 
     var ids: [String] {
@@ -42,6 +42,7 @@ class UKDevicesInformation {
     }
 
     private var cancellables: Set<AnyCancellable> = .init()
+    private var missionsCancellables: [String: Set<AnyCancellable>] = .init()
     private func updateDeviceInformation(for mission: UKMission) {
         let deviceInformation: UKDeviceInformation = [
             "name": mission.name,
@@ -58,9 +59,13 @@ class UKDevicesInformation {
         missionsManager.missionAddedSubject.sink(receiveValue: { [self] mission in
             updateDeviceInformation(for: mission)
 
-            mission.batteryLevelSubject.sink(receiveValue: { [self, mission] _ in
+            if missionsCancellables[mission.id] == nil {
+                missionsCancellables[mission.id] = .init()
+            }
+
+            mission.batteryLevelSubject.dropFirst().sink(receiveValue: { [self, mission] _ in
                 updateDeviceInformation(for: mission)
-            }).store(in: &cancellables)
+            }).store(in: &missionsCancellables[mission.id]!)
 
             let newIds = missionsManager.missions.map { $0.id }
             defaults.setValue(newIds, forKey: "deviceIds")
@@ -74,6 +79,8 @@ class UKDevicesInformation {
             let newIds = missionsManager.missions.map { $0.id }
             defaults.set(newIds, forKey: "deviceIds")
             logger.debug("mission removed - updating deviceIds to \(newIds)")
+
+            missionsCancellables.removeValue(forKey: mission.id)
         }).store(in: &cancellables)
     }
 

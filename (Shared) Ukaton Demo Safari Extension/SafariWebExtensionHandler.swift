@@ -98,6 +98,7 @@ class SafariWebExtension {
     var bluetoothManager: UKBluetoothManager { .shared }
     var missionsManager: UKMissionsManager { .shared }
     var cancellables: Set<AnyCancellable> = .init()
+    var missionsCancellables: [String: Set<AnyCancellable>] = .init()
 
     #if !os(visionOS)
         let headphoneMotionManager: CMHeadphoneMotionManager = .init()
@@ -140,20 +141,25 @@ class SafariWebExtension {
 
         missionsManager.missionAddedSubject.sink(receiveValue: { [self] mission in
             missionsSensorDataFlags[mission.id] = .init()
+
+            if missionsCancellables[mission.id] == nil {
+                missionsCancellables[mission.id] = .init()
+            }
+
             mission.sensorData.motion.dataSubject.sink(receiveValue: { [self, mission] motionData in
                 queue.async {
                     self.missionsSensorDataFlags[mission.id]?.motionDataTimestamps[motionData.type] = motionData.timestamp
                 }
-            }).store(in: &cancellables)
+            }).store(in: &missionsCancellables[mission.id]!)
             mission.sensorData.pressure.dataSubject.sink(receiveValue: { [self, mission] pressureData in
                 queue.async {
                     self.missionsSensorDataFlags[mission.id]?.pressureDataTimestamps[pressureData.type] = pressureData.timestamp
                 }
-            }).store(in: &cancellables)
+            }).store(in: &missionsCancellables[mission.id]!)
 
             mission.sensorDataConfigurationsSubject.sink(receiveValue: { [self, mission] _ in
                 lastTimeMissionsUpdatedSensorDataConfigurations[mission.id] = .now
-            }).store(in: &cancellables)
+            }).store(in: &missionsCancellables[mission.id]!)
         }).store(in: &cancellables)
 
         missionsManager.missionRemovedSubject.sink(receiveValue: { [self] mission in
@@ -161,6 +167,7 @@ class SafariWebExtension {
             queue.async {
                 self.missionsSensorDataFlags.removeValue(forKey: mission.id)
             }
+            missionsCancellables.removeValue(forKey: mission.id)
         }).store(in: &cancellables)
     }
 }
