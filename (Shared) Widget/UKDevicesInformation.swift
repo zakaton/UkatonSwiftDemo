@@ -93,8 +93,9 @@ class UKDevicesInformation {
                 missionsCancellables[mission.id] = .init()
             }
 
-            mission.batteryLevelSubject.sink(receiveValue: { [self, mission] _ in
+            mission.batteryLevelSubject.dropFirst().sink(receiveValue: { [self, mission] _ in
                 updateDeviceInformation(for: mission)
+                WidgetCenter.shared.reloadAllTimelines()
             }).store(in: &missionsCancellables[mission.id]!)
 
             let newIds = missionsManager.missions.map { $0.id }
