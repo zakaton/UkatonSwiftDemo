@@ -6,7 +6,7 @@
 	<true/>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>$(TeamIdentifierPrefix)com.ukaton.demo.devices</string>
+		<string>group.com.ukaton.devices</string>
 	</array>
 </dict>
 </plist>
