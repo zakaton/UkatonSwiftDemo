@@ -10,7 +10,19 @@ struct UKBatteryLevelWidgetEntryView: View {
 
     private var devicesInformation: UKDevicesInformation { .shared }
 
-    var spacing: CGFloat = 15
+    var spacing: CGFloat = 12
+
+    var accessoryCircularBody: some View {
+        UKBatteryLevelView()
+    }
+
+    var accessoryInlineBody: some View {
+        UKBatteryLevelView()
+    }
+
+    var accessoryRectangularBody: some View {
+        UKBatteryLevelView()
+    }
 
     var systemSmallBody: some View {
         VStack(spacing: spacing) {
@@ -26,22 +38,29 @@ struct UKBatteryLevelWidgetEntryView: View {
     }
 
     var systemMediumBody: some View {
-        Text("medium")
-            .unredacted()
+        HStack(spacing: spacing) {
+            ForEach(0 ..< 4) {
+                UKBatteryLevelView(index: $0)
+            }
+        }
     }
 
     var systemLargeBody: some View {
-        Text("large")
-            .unredacted()
+        VStack(spacing: spacing + 4) {
+            ForEach(0 ..< 6) {
+                UKBatteryLevelView(index: $0)
+                Divider()
+            }
+        }
     }
 
     var systemExtraLargeBody: some View {
-        Text("extra large")
-            .unredacted()
-    }
-
-    var accessoryCircularBody: some View {
-        UKBatteryLevelView()
+        VStack(spacing: spacing + 4) {
+            ForEach(0 ..< 6) {
+                UKBatteryLevelView(index: $0)
+                Divider()
+            }
+        }
     }
 
     var uncaughtBody: some View {
@@ -64,6 +83,10 @@ struct UKBatteryLevelWidgetEntryView: View {
             switch family {
             case .accessoryCircular:
                 accessoryCircularBody
+            case .accessoryInline:
+                accessoryInlineBody
+            case .accessoryRectangular:
+                accessoryRectangularBody
             case .systemSmall:
                 systemSmallBody
             case .systemMedium:

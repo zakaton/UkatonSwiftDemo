@@ -31,8 +31,53 @@ struct UKBatteryLevelView: View {
     }
 
     var batteryLevelProgress: Double {
-        guard !deviceInformation.isNone else { return .zero }
+        guard !isNone else { return .zero }
         return .init(batteryLevel) / 100
+    }
+
+    var batteryLevelView: some View {
+        if !isNone {
+            Text("\(batteryLevel)%")
+        }
+        else {
+            Text(" ")
+        }
+    }
+
+    var batteryLevelImageString: String {
+        guard !isNone else { return "" }
+        guard !isCharging else { return "battery.100.bolt" }
+
+        return switch batteryLevel {
+        case 85 ... 100:
+            "battery.100"
+        case 65 ... 85:
+            "battery.75"
+        case 35 ... 65:
+            "battery.50"
+        case 15 ... 35:
+            "battery.25"
+        default:
+            "battery.0"
+        }
+    }
+
+    var batteryLevelColor: Color {
+        switch batteryLevel {
+        case 70 ... 100:
+            .green
+        case 25 ... 70:
+            .orange
+        case 0 ... 25:
+            .red
+        default:
+            .red
+        }
+    }
+
+    var batteryLevelImage: some View {
+        Image(systemName: batteryLevelImageString)
+            .foregroundColor(batteryLevelColor)
     }
 
     var isCharging: Bool {
@@ -41,6 +86,14 @@ struct UKBatteryLevelView: View {
 
     var deviceType: UKDeviceType {
         deviceInformation.deviceType
+    }
+
+    var isNone: Bool {
+        deviceInformation.isNone
+    }
+
+    var name: String {
+        deviceInformation.name
     }
 
     @Environment(\.widgetFamily) var family
@@ -62,9 +115,33 @@ struct UKBatteryLevelView: View {
             case .accessoryCircular:
                 .large
         #endif
+
+        case .systemSmall:
+            #if os(iOS)
+                .medium
+            #else
+                .large
+            #endif
+
+        #if os(iOS) || os(macOS)
+            case .systemMedium, .systemLarge, .systemExtraLarge:
+                .large
+        #endif
+
         default:
             .medium
         }
+    }
+
+    @ViewBuilder
+    private var image: some View {
+        Image(systemName: imageName ?? "")
+            .imageScale(imageScale)
+            .modify {
+                if deviceType == .leftInsole {
+                    $0.scaleEffect(x: -1)
+                }
+            }
     }
 
     var color: Color {
@@ -83,30 +160,56 @@ struct UKBatteryLevelView: View {
     }
 
     var body: some View {
-        Link(destination: link) {
-            ZStack {
-                if let imageName {
-                    Image(systemName: imageName)
-                        .imageScale(imageScale)
-                        .modify {
-                            if deviceType == .leftInsole {
-                                $0.scaleEffect(x: -1)
-                            }
-                        }
-                }
+        if deviceInformation.isNone {
+            _body
+        }
+        else {
+            Link(destination: link) {
+                _body
+            }
+        }
+    }
 
-                ProgressView(value: .init(batteryLevelProgress))
-                    .progressViewStyle(.circular)
-                    .tint(color)
-                if isCharging {
-                    VStack {
-                        Image(systemName: "bolt.fill")
-                            .imageScale(.medium)
-                            .offset(y: -5)
-                        Spacer()
-                    }
+    var circleBody: some View {
+        ZStack {
+            image
+
+            ProgressView(value: .init(batteryLevelProgress))
+                .progressViewStyle(.circular)
+                .tint(color)
+            if isCharging {
+                VStack {
+                    Image(systemName: "bolt.fill")
+                        .imageScale(.medium)
+                        .offset(y: -5)
+                    Spacer()
                 }
             }
+        }
+    }
+
+    @ViewBuilder
+    var _body: some View {
+        switch family {
+        case .systemSmall:
+            circleBody
+        case .systemMedium:
+            VStack(spacing: 12) {
+                circleBody
+                batteryLevelView
+                    .font(.title)
+            }
+        case .systemLarge, .systemExtraLarge:
+            HStack {
+                image
+                Text("\(name)")
+                Spacer()
+                batteryLevelView
+                batteryLevelImage
+            }
+            .font(.subheadline)
+        default:
+            Text("uncaught family \(family.debugDescription)")
         }
     }
 }
