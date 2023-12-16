@@ -129,18 +129,8 @@
 		5F446F822B0577E500797659 /* PressureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F446F812B0577E500797659 /* PressureView.swift */; };
 		5F446F832B0577E500797659 /* PressureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F446F812B0577E500797659 /* PressureView.swift */; };
 		5F446F842B0577E500797659 /* PressureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F446F812B0577E500797659 /* PressureView.swift */; };
-		5F4A7CA62B2578E200454476 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F86D8362B24E89400B81382 /* WidgetKit.framework */; };
-		5F4A7CA72B2578E200454476 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F86D8382B24E89400B81382 /* SwiftUI.framework */; };
-		5F4A7CAA2B2578E200454476 /* testBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4A7CA92B2578E200454476 /* testBundle.swift */; };
-		5F4A7CAC2B2578E200454476 /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4A7CAB2B2578E200454476 /* test.swift */; };
-		5F4A7CAE2B2578E300454476 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F4A7CAD2B2578E300454476 /* Assets.xcassets */; };
 		5F4A7CB82B26332D00454476 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FF58F372ADE51DA00AD2941 /* Assets.xcassets */; };
 		5F4A7CB92B26332E00454476 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FF58F372ADE51DA00AD2941 /* Assets.xcassets */; };
-		5F4A7CC02B263A5E00454476 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F86D8362B24E89400B81382 /* WidgetKit.framework */; };
-		5F4A7CC12B263A5E00454476 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F86D8382B24E89400B81382 /* SwiftUI.framework */; };
-		5F4A7CC42B263A5E00454476 /* test2Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4A7CC32B263A5E00454476 /* test2Bundle.swift */; };
-		5F4A7CC62B263A5E00454476 /* test2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4A7CC52B263A5E00454476 /* test2.swift */; };
-		5F4A7CC82B263A5F00454476 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F4A7CC72B263A5F00454476 /* Assets.xcassets */; };
 		5F63E02D2B1D2E2700B868BE /* BalanceDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F63E02C2B1D2E2700B868BE /* BalanceDemo.swift */; };
 		5F63E02E2B1D2E2700B868BE /* BalanceDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F63E02C2B1D2E2700B868BE /* BalanceDemo.swift */; };
 		5F63E02F2B1D2E2700B868BE /* BalanceDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F63E02C2B1D2E2700B868BE /* BalanceDemo.swift */; };
@@ -400,10 +390,6 @@
 		5FD7B1C62B2AA07100A54F2B /* UKDevicesInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F311CEC2B2A9B16008DD780 /* UKDevicesInformation.swift */; };
 		5FD7B1C82B2AA8F800A54F2B /* AppStorageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F311CE62B2A9803008DD780 /* AppStorageUtils.swift */; };
 		5FD7B1C92B2AA8F800A54F2B /* AppStorageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F311CE62B2A9803008DD780 /* AppStorageUtils.swift */; };
-		5FECBAD82B263BF300D24A41 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F86D8362B24E89400B81382 /* WidgetKit.framework */; };
-		5FECBAD92B263BF300D24A41 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F86D8382B24E89400B81382 /* SwiftUI.framework */; };
-		5FECBADC2B263BF300D24A41 /* test3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FECBADB2B263BF300D24A41 /* test3.swift */; };
-		5FECBADE2B263BF300D24A41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FECBADD2B263BF300D24A41 /* Assets.xcassets */; };
 		5FF24DE62AF41127009FAA0E /* LabelSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF24DE52AF41127009FAA0E /* LabelSpacing.swift */; };
 		5FF24DE72AF41127009FAA0E /* LabelSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF24DE52AF41127009FAA0E /* LabelSpacing.swift */; };
 		5FF24DE82AF41127009FAA0E /* LabelSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF24DE52AF41127009FAA0E /* LabelSpacing.swift */; };
@@ -415,7 +401,6 @@
 		5FF276D52B27852600630B3B /* UKBatteryLevelWidgetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF276CB2B27838B00630B3B /* UKBatteryLevelWidgetConfiguration.swift */; };
 		5FF276D82B2785ED00630B3B /* UKBatteryLevelWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF276D12B27846200630B3B /* UKBatteryLevelWidget.swift */; };
 		5FF276D92B2785EE00630B3B /* UKBatteryLevelWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF276D12B27846200630B3B /* UKBatteryLevelWidget.swift */; };
-		5FF276DA2B278AF600630B3B /* test2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4A7CC52B263A5E00454476 /* test2.swift */; };
 		5FF58F342ADE51D900AD2941 /* UkatonDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF58F332ADE51D900AD2941 /* UkatonDemoApp.swift */; };
 		5FF58F362ADE51D900AD2941 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF58F352ADE51D900AD2941 /* ContentView.swift */; };
 		5FF58F3C2ADE51DA00AD2941 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FF58F3B2ADE51DA00AD2941 /* Preview Assets.xcassets */; };
@@ -593,17 +578,6 @@
 		5F446F742B0468C900797659 /* RSSIDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSIDemo.swift; sourceTree = "<group>"; };
 		5F446F7D2B05743C00797659 /* MotionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionView.swift; sourceTree = "<group>"; };
 		5F446F812B0577E500797659 /* PressureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressureView.swift; sourceTree = "<group>"; };
-		5F4A7CA52B2578E200454476 /* testExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = testExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		5F4A7CA92B2578E200454476 /* testBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testBundle.swift; sourceTree = "<group>"; };
-		5F4A7CAB2B2578E200454476 /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
-		5F4A7CAD2B2578E300454476 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		5F4A7CAF2B2578E300454476 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5F4A7CBF2B263A5E00454476 /* test2Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = test2Extension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		5F4A7CC32B263A5E00454476 /* test2Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test2Bundle.swift; sourceTree = "<group>"; };
-		5F4A7CC52B263A5E00454476 /* test2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test2.swift; sourceTree = "<group>"; };
-		5F4A7CC72B263A5F00454476 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		5F4A7CC92B263A5F00454476 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5F4A7CCA2B263A5F00454476 /* test2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = test2.entitlements; sourceTree = "<group>"; };
 		5F63E02C2B1D2E2700B868BE /* BalanceDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceDemo.swift; sourceTree = "<group>"; };
 		5F76163F2AFAB083000E1A80 /* SensorDataDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorDataDemo.swift; sourceTree = "<group>"; };
 		5F777D452B0143780001509A /* VibrationWaveformEffectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibrationWaveformEffectsView.swift; sourceTree = "<group>"; };
@@ -676,10 +650,6 @@
 		5FD458D82B0BE6FB0030BE6E /* (VisionOS) Ukaton Demo Safari Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "(VisionOS) Ukaton Demo Safari Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FD458ED2B0BE6FB0030BE6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FE5329A2B251D400087F09E /* WidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBundle.swift; sourceTree = "<group>"; };
-		5FECBAD72B263BF300D24A41 /* test3Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = test3Extension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		5FECBADB2B263BF300D24A41 /* test3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test3.swift; sourceTree = "<group>"; };
-		5FECBADD2B263BF300D24A41 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		5FECBADF2B263BF300D24A41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FECBAF22B26540500D24A41 /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
 		5FF24DE52AF41127009FAA0E /* LabelSpacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelSpacing.swift; sourceTree = "<group>"; };
 		5FF276CB2B27838B00630B3B /* UKBatteryLevelWidgetConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UKBatteryLevelWidgetConfiguration.swift; sourceTree = "<group>"; };
@@ -712,24 +682,6 @@
 				5F1B3FE52B2E2FCF00CB5C52 /* SwiftUI.framework in Frameworks */,
 				5F1B40022B2E308B00CB5C52 /* UkatonKit in Frameworks */,
 				5F1B3FE42B2E2FCF00CB5C52 /* WidgetKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5F4A7CA22B2578E200454476 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5F4A7CA72B2578E200454476 /* SwiftUI.framework in Frameworks */,
-				5F4A7CA62B2578E200454476 /* WidgetKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5F4A7CBC2B263A5E00454476 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5F4A7CC12B263A5E00454476 /* SwiftUI.framework in Frameworks */,
-				5F4A7CC02B263A5E00454476 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -790,15 +742,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F6A0DEA2B0D469100E15FFC /* UkatonKit in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5FECBAD42B263BF300D24A41 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5FECBAD92B263BF300D24A41 /* SwiftUI.framework in Frameworks */,
-				5FECBAD82B263BF300D24A41 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -893,17 +836,6 @@
 			path = RSSIDemo;
 			sourceTree = "<group>";
 		};
-		5F4A7CA82B2578E200454476 /* test */ = {
-			isa = PBXGroup;
-			children = (
-				5F4A7CA92B2578E200454476 /* testBundle.swift */,
-				5F4A7CAB2B2578E200454476 /* test.swift */,
-				5F4A7CAD2B2578E300454476 /* Assets.xcassets */,
-				5F4A7CAF2B2578E300454476 /* Info.plist */,
-			);
-			path = test;
-			sourceTree = "<group>";
-		};
 		5F4A7CBA2B2637B400454476 /* BatteryLevelWidget */ = {
 			isa = PBXGroup;
 			children = (
@@ -915,18 +847,6 @@
 				5FF276CB2B27838B00630B3B /* UKBatteryLevelWidgetConfiguration.swift */,
 			);
 			path = BatteryLevelWidget;
-			sourceTree = "<group>";
-		};
-		5F4A7CC22B263A5E00454476 /* test2 */ = {
-			isa = PBXGroup;
-			children = (
-				5F4A7CC32B263A5E00454476 /* test2Bundle.swift */,
-				5F4A7CC52B263A5E00454476 /* test2.swift */,
-				5F4A7CC72B263A5F00454476 /* Assets.xcassets */,
-				5F4A7CC92B263A5F00454476 /* Info.plist */,
-				5F4A7CCA2B263A5F00454476 /* test2.entitlements */,
-			);
-			path = test2;
 			sourceTree = "<group>";
 		};
 		5F63E02B2B1D2E1400B868BE /* BalanceDemo */ = {
@@ -1249,16 +1169,6 @@
 			path = "(Shared) Ukaton Demo Safari Extension";
 			sourceTree = "<group>";
 		};
-		5FECBADA2B263BF300D24A41 /* test3 */ = {
-			isa = PBXGroup;
-			children = (
-				5FECBADB2B263BF300D24A41 /* test3.swift */,
-				5FECBADD2B263BF300D24A41 /* Assets.xcassets */,
-				5FECBADF2B263BF300D24A41 /* Info.plist */,
-			);
-			path = test3;
-			sourceTree = "<group>";
-		};
 		5FF24DE42AF4110D009FAA0E /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -1297,9 +1207,6 @@
 				5FD458D92B0BE6FB0030BE6E /* (VisionOS) Ukaton Demo Safari Extension */,
 				5F86D8602B25066200B81382 /* (iOS) Widget */,
 				5F791F222B2516190043C391 /* (Watch) Widget */,
-				5F4A7CA82B2578E200454476 /* test */,
-				5F4A7CC22B263A5E00454476 /* test2 */,
-				5FECBADA2B263BF300D24A41 /* test3 */,
 				5F1B3FE62B2E2FD000CB5C52 /* (Mac) Widget */,
 				5FF58F312ADE51D900AD2941 /* Products */,
 				5F2B871D2AE18E2100BF304B /* Frameworks */,
@@ -1319,9 +1226,6 @@
 				5FD458D82B0BE6FB0030BE6E /* (VisionOS) Ukaton Demo Safari Extension.appex */,
 				5F86D85D2B25066100B81382 /* (iOS) Ukaton Demo Widget.appex */,
 				5F791F1F2B2516190043C391 /* (Watch) Ukaton Demo Widget.appex */,
-				5F4A7CA52B2578E200454476 /* testExtension.appex */,
-				5F4A7CBF2B263A5E00454476 /* test2Extension.appex */,
-				5FECBAD72B263BF300D24A41 /* test3Extension.appex */,
 				5F1B3FE32B2E2FCF00CB5C52 /* (Mac) Ukaton Demo Widget.appex */,
 			);
 			name = Products;
@@ -1415,40 +1319,6 @@
 			);
 			productName = WidgetExtension;
 			productReference = 5F1B3FE32B2E2FCF00CB5C52 /* (Mac) Ukaton Demo Widget.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
-		5F4A7CA42B2578E200454476 /* testExtension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5F4A7CB52B2578E300454476 /* Build configuration list for PBXNativeTarget "testExtension" */;
-			buildPhases = (
-				5F4A7CA12B2578E200454476 /* Sources */,
-				5F4A7CA22B2578E200454476 /* Frameworks */,
-				5F4A7CA32B2578E200454476 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = testExtension;
-			productName = testExtension;
-			productReference = 5F4A7CA52B2578E200454476 /* testExtension.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
-		5F4A7CBE2B263A5E00454476 /* test2Extension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5F4A7CCE2B263A5F00454476 /* Build configuration list for PBXNativeTarget "test2Extension" */;
-			buildPhases = (
-				5F4A7CBB2B263A5E00454476 /* Sources */,
-				5F4A7CBC2B263A5E00454476 /* Frameworks */,
-				5F4A7CBD2B263A5E00454476 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = test2Extension;
-			productName = test2Extension;
-			productReference = 5F4A7CBF2B263A5E00454476 /* test2Extension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 		5F791F1E2B2516190043C391 /* (Watch) Ukaton Demo Widget */ = {
@@ -1593,23 +1463,6 @@
 			productReference = 5FD458D82B0BE6FB0030BE6E /* (VisionOS) Ukaton Demo Safari Extension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		5FECBAD62B263BF300D24A41 /* test3Extension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5FECBAE52B263BF400D24A41 /* Build configuration list for PBXNativeTarget "test3Extension" */;
-			buildPhases = (
-				5FECBAD32B263BF300D24A41 /* Sources */,
-				5FECBAD42B263BF300D24A41 /* Frameworks */,
-				5FECBAD52B263BF300D24A41 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = test3Extension;
-			productName = test3Extension;
-			productReference = 5FECBAD72B263BF300D24A41 /* test3Extension.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
 		5FF58F2F2ADE51D900AD2941 /* (iOS) Ukaton Demo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5FF58F3F2ADE51DA00AD2941 /* Build configuration list for PBXNativeTarget "(iOS) Ukaton Demo" */;
@@ -1693,12 +1546,6 @@
 					5F1B3FE22B2E2FCF00CB5C52 = {
 						CreatedOnToolsVersion = 15.2;
 					};
-					5F4A7CA42B2578E200454476 = {
-						CreatedOnToolsVersion = 15.1;
-					};
-					5F4A7CBE2B263A5E00454476 = {
-						CreatedOnToolsVersion = 15.1;
-					};
 					5F791F1E2B2516190043C391 = {
 						CreatedOnToolsVersion = 15.1;
 					};
@@ -1718,9 +1565,6 @@
 						CreatedOnToolsVersion = 15.1;
 					};
 					5FD458D72B0BE6FB0030BE6E = {
-						CreatedOnToolsVersion = 15.1;
-					};
-					5FECBAD62B263BF300D24A41 = {
 						CreatedOnToolsVersion = 15.1;
 					};
 					5FF58F2F2ADE51D900AD2941 = {
@@ -1761,9 +1605,6 @@
 				5F8B9DA72B096CDE00E53711 /* (TV) Ukaton Demo */,
 				5F8741E22B0AA62D00D67026 /* (VisionOS) Ukaton Demo */,
 				5FD458D72B0BE6FB0030BE6E /* (VisionOS) Ukaton Demo Safari Extension */,
-				5F4A7CA42B2578E200454476 /* testExtension */,
-				5F4A7CBE2B263A5E00454476 /* test2Extension */,
-				5FECBAD62B263BF300D24A41 /* test3Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -1774,22 +1615,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F1B3FEC2B2E2FD100CB5C52 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5F4A7CA32B2578E200454476 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5F4A7CAE2B2578E300454476 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5F4A7CBD2B263A5E00454476 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5F4A7CC82B263A5F00454476 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1929,14 +1754,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5FECBAD52B263BF300D24A41 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5FECBADE2B263BF300D24A41 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		5FF58F2E2ADE51D900AD2941 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1993,24 +1810,6 @@
 				5F1B40002B2E2FFE00CB5C52 /* UKBatteryLevelWidgetConfiguration.swift in Sources */,
 				5F1B3FF82B2E2FFE00CB5C52 /* UKViewMissionIntent.swift in Sources */,
 				5F1B3FFA2B2E2FFE00CB5C52 /* UKBatteryLevelWidgetProvider.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5F4A7CA12B2578E200454476 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5F4A7CAA2B2578E200454476 /* testBundle.swift in Sources */,
-				5F4A7CAC2B2578E200454476 /* test.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5F4A7CBB2B263A5E00454476 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5F4A7CC62B263A5E00454476 /* test2.swift in Sources */,
-				5F4A7CC42B263A5E00454476 /* test2Bundle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2178,14 +1977,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5FECBAD32B263BF300D24A41 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5FECBADC2B263BF300D24A41 /* test3.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		5FF58F2C2ADE51D900AD2941 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2264,7 +2055,6 @@
 				5FBDE9E62B26CEEB00F24515 /* UKBatteryLevelTimelineEntry.swift in Sources */,
 				5F0DB93E2B00005F00FB413E /* VibrationWaveformEffectsSection.swift in Sources */,
 				5F446F7F2B05743C00797659 /* MotionView.swift in Sources */,
-				5FF276DA2B278AF600630B3B /* test2.swift in Sources */,
 				5FBDE9D82B26CE7E00F24515 /* UKBatteryLevelWidgetProvider.swift in Sources */,
 				5FCC84A52AFC414100B755FA /* MotionCalibrationSection.swift in Sources */,
 				5F311CEE2B2A9B16008DD780 /* UKDevicesInformation.swift in Sources */,
@@ -2462,125 +2252,6 @@
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ukaton.demo.Ukaton-Demo-Mac.Widget";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Release;
-		};
-		5F4A7CB32B2578E300454476 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = MG88YM735Y;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = test/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = test;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ukaton.demo.Ukaton-Demo-iOS.test";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		5F4A7CB42B2578E300454476 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = MG88YM735Y;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = test/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = test;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ukaton.demo.Ukaton-Demo-iOS.test";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		5F4A7CCF2B263A5F00454476 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = test2/test2.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = MG88YM735Y;
-				ENABLE_HARDENED_RUNTIME = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = test2/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = test2;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@executable_path/../../../../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 14.1;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ukaton.demo.Ukaton-Demo-Mac.test2";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Debug;
-		};
-		5F4A7CD02B263A5F00454476 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = test2/test2.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = MG88YM735Y;
-				ENABLE_HARDENED_RUNTIME = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = test2/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = test2;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@executable_path/../../../../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 14.1;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ukaton.demo.Ukaton-Demo-Mac.test2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -3086,67 +2757,6 @@
 			};
 			name = Release;
 		};
-		5FECBAE32B263BF400D24A41 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = MG88YM735Y;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = test3/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = test3;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-					"@executable_path/../../../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ukaton.demo.Ukaton-Demo-iOS.Ukaton-Demo.watchkitapp.test3";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 10.2;
-			};
-			name = Debug;
-		};
-		5FECBAE42B263BF400D24A41 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = MG88YM735Y;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = test3/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = test3;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-					"@executable_path/../../../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ukaton.demo.Ukaton-Demo-iOS.Ukaton-Demo.watchkitapp.test3";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				VALIDATE_PRODUCT = YES;
-				WATCHOS_DEPLOYMENT_TARGET = 10.2;
-			};
-			name = Release;
-		};
 		5FF58F3D2ADE51DA00AD2941 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -3526,24 +3136,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5F4A7CB52B2578E300454476 /* Build configuration list for PBXNativeTarget "testExtension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5F4A7CB32B2578E300454476 /* Debug */,
-				5F4A7CB42B2578E300454476 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		5F4A7CCE2B263A5F00454476 /* Build configuration list for PBXNativeTarget "test2Extension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5F4A7CCF2B263A5F00454476 /* Debug */,
-				5F4A7CD02B263A5F00454476 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		5F791F2E2B25161A0043C391 /* Build configuration list for PBXNativeTarget "(Watch) Ukaton Demo Widget" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -3603,15 +3195,6 @@
 			buildConfigurations = (
 				5FD458F22B0BE6FB0030BE6E /* Debug */,
 				5FD458F32B0BE6FB0030BE6E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		5FECBAE52B263BF400D24A41 /* Build configuration list for PBXNativeTarget "test3Extension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5FECBAE32B263BF400D24A41 /* Debug */,
-				5FECBAE42B263BF400D24A41 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
