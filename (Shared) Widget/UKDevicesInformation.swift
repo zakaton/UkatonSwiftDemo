@@ -4,37 +4,62 @@ import OSLog
 import SwiftUI
 import UkatonKit
 import UkatonMacros
+import WidgetKit
+
+struct UKDeviceInformation {
+    static let none: UKDeviceInformation = .init(id: "", name: "", deviceType: .motionModule, batteryLevel: 0, isCharging: false)
+    var isNone: Bool { id == "" }
+
+    let id: String
+    let name: String
+    let deviceType: UKDeviceType
+    let batteryLevel: UKBatteryLevel
+    let isCharging: Bool
+}
+
+typealias UKRawDeviceInformation = [String: String]
 
 @StaticLogger
 @Singleton()
 class UKDevicesInformation {
     private var missionsManager: UKMissionsManager { .shared }
-    private let defaults: UserDefaults = .init(suiteName: "com.ukaton.devices")!
+    private let defaults: UserDefaults = .init(suiteName: "group.com.ukaton.devices")!
 
     var ids: [String] {
         defaults.object(forKey: "deviceIds") as? [String] ?? []
     }
 
-    typealias UKDeviceInformation = [String: String]
-    func information(id: String) -> UKMissionEntity? {
-        if let value = defaults.object(forKey: "device-\(id)") as? UKDeviceInformation,
-           let name = value["name"],
-           let deviceTypeName = value["deviceType"],
-           let batteryLevelString = value["batteryLevel"],
-           let batteryLevel: Int = .init(batteryLevelString),
-           let isChargingString = value["isCharging"]
-        {
-            let isCharging = isChargingString == "true"
-            return .init(id: id, name: name, deviceTypeName: deviceTypeName, batteryLevel: batteryLevel, isCharging: isCharging)
+    func entity(id: String) -> UKMissionEntity? {
+        if let information = getInformation(id: id) {
+            return .init(information: information)
         }
         return nil
     }
 
-    func information(index: Int) -> UKMissionEntity? {
-        if index < ids.count {
-            return information(id: ids[index])
+    func entity(index: Int) -> UKMissionEntity? {
+        guard index < ids.count else { return nil }
+        return entity(id: ids[index])
+    }
+
+    func getInformation(id: String) -> UKDeviceInformation? {
+        guard let value = defaults.object(forKey: "device-\(id)") as? UKRawDeviceInformation,
+              let name = value["name"],
+              let deviceTypeName = value["deviceType"],
+              let deviceType: UKDeviceType = .init(name: deviceTypeName),
+              let batteryLevelString = value["batteryLevel"],
+              let batteryLevel: UKBatteryLevel = .init(batteryLevelString),
+              let isChargingString = value["isCharging"]
+        else {
+            return nil
         }
-        return nil
+
+        let isCharging = isChargingString == "true"
+        return .init(id: id, name: name, deviceType: deviceType, batteryLevel: batteryLevel, isCharging: isCharging)
+    }
+
+    func getInformation(index: Int) -> UKDeviceInformation? {
+        guard index < ids.count else { return nil }
+        return getInformation(id: ids[index])
     }
 
     private func key(for mission: UKMission) -> String {
@@ -44,7 +69,7 @@ class UKDevicesInformation {
     private var cancellables: Set<AnyCancellable> = .init()
     private var missionsCancellables: [String: Set<AnyCancellable>] = .init()
     private func updateDeviceInformation(for mission: UKMission) {
-        let deviceInformation: UKDeviceInformation = [
+        let deviceInformation: UKRawDeviceInformation = [
             "name": mission.name,
             "deviceType": mission.deviceType.name,
             "batteryLevel": .init(mission.batteryLevel),
@@ -70,6 +95,9 @@ class UKDevicesInformation {
             let newIds = missionsManager.missions.map { $0.id }
             defaults.setValue(newIds, forKey: "deviceIds")
             logger.debug("mission added - updating deviceIds to \(newIds)")
+
+            WidgetCenter.shared.invalidateConfigurationRecommendations()
+            WidgetCenter.shared.reloadAllTimelines()
         }).store(in: &cancellables)
         missionsManager.missionRemovedSubject.sink(receiveValue: { [self] mission in
             defaults.removeObject(forKey: key(for: mission))
@@ -81,10 +109,13 @@ class UKDevicesInformation {
             logger.debug("mission removed - updating deviceIds to \(newIds)")
 
             missionsCancellables.removeValue(forKey: mission.id)
+
+            WidgetCenter.shared.invalidateConfigurationRecommendations()
+            WidgetCenter.shared.reloadAllTimelines()
         }).store(in: &cancellables)
     }
 
     var entities: [UKMissionEntity] {
-        ids.compactMap { information(id: $0) }
+        ids.compactMap { entity(id: $0) }
     }
 }

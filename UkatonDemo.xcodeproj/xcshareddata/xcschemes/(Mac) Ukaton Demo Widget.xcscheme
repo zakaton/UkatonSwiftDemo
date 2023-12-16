@@ -15,7 +15,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5F86D8342B24E89400B81382"
+               BlueprintIdentifier = "5F1B3FE22B2E2FCF00CB5C52"
                BuildableName = "(Mac) Ukaton Demo Widget.appex"
                BlueprintName = "(Mac) Ukaton Demo Widget"
                ReferencedContainer = "container:UkatonDemo.xcodeproj">

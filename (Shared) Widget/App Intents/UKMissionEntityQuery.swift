@@ -21,6 +21,7 @@ struct UKMissionEntityQuery: EntityStringQuery {
     func suggestedEntities() async throws -> [UKMissionEntity] {
         logger.debug("requesting suggestedEntities")
         let missions = devicesInformation.entities
+        logger.debug("\(missions)")
         return filterOutSelectedMissions(missions: missions)
     }
 

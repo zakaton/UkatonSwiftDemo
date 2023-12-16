@@ -41,4 +41,8 @@ struct UKMissionEntity: AppEntity, Identifiable {
         self.batteryLevel = batteryLevel
         self.isCharging = isCharging
     }
+
+    init(information: UKDeviceInformation) {
+        self.init(id: information.id, name: information.name, deviceTypeName: information.deviceType.name, batteryLevel: .init(information.batteryLevel), isCharging: information.isCharging)
+    }
 }

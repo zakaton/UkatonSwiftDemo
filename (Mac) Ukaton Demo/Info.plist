@@ -15,10 +15,6 @@
 			</array>
 		</dict>
 	</array>
-	<key>INIntentsSupported</key>
-	<array>
-		<string>UKSelectedMissionsConfigurationIntent</string>
-	</array>
 	<key>NSUserActivityTypes</key>
 	<array>
 		<string>MissionSelectionIntent</string>

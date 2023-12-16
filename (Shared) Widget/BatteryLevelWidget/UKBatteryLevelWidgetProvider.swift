@@ -6,26 +6,37 @@ import UkatonMacros
 import WidgetKit
 
 @StaticLogger
-struct UKBatteryLevelWidgetProvider: AppIntentTimelineProvider {
-    typealias Intent = UKSelectedMissionsConfigurationIntent
+struct UKBatteryLevelWidgetProvider: TimelineProvider {
     typealias Entry = UKBatteryLevelTimelineEntry
 
     var devicesInformation: UKDevicesInformation { .shared }
 
-    func snapshot(for configuration: UKSelectedMissionsConfigurationIntent, in context: Context) async -> UKBatteryLevelTimelineEntry {
-        logger.debug("requesting snapshot...")
-        return .init(date: .now)
+    func snapshot(for configuration: UKSelectedMissionsConfigurationIntent, in context: Context) async -> Entry {
+        logger.debug("requesting snapshot for \(context.family.debugDescription, privacy: .public)")
+        return .init(date: .now, missionIds: configuration.missionIds)
     }
 
-    func timeline(for configuration: UKSelectedMissionsConfigurationIntent, in context: Context) async -> Timeline<UKBatteryLevelTimelineEntry> {
-        logger.debug("requesting timeline...")
-        let entries = [UKBatteryLevelTimelineEntry(date: .now)]
+    func getSnapshot(in context: Context, completion: @escaping (Entry) -> ()) {
+        let entry = Entry()
+        completion(entry)
+    }
+
+    func timeline(for configuration: UKSelectedMissionsConfigurationIntent, in context: Context) async -> Timeline<Entry> {
+        logger.debug("requesting timeline for \(context.family.debugDescription, privacy: .public)")
+        let entries: [UKBatteryLevelTimelineEntry] = [.init(date: .now, missionIds: configuration.missionIds)]
         let timeline = Timeline(entries: entries, policy: .never)
         return timeline
     }
 
+    func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
+        let entry = Entry()
+        let entries = [entry]
+        let timeline = Timeline(entries: entries, policy: .never)
+        completion(timeline)
+    }
+
     func placeholder(in context: Context) -> UKBatteryLevelTimelineEntry {
-        logger.debug("requesting placeholder")
+        logger.debug("requesting placeholder for \(context.family.debugDescription, privacy: .public)")
         return .init(date: .now)
     }
 

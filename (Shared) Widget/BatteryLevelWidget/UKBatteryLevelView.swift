@@ -8,39 +8,44 @@ import WidgetKit
 @StaticLogger
 struct UKBatteryLevelView: View {
     init(index: Int) {
-        mission = UKDevicesInformation.shared.information(index: index) ?? .none
+        deviceInformation = UKDevicesInformation.shared.getInformation(index: index) ?? .none
         logger.debug("UKBatteryLevelView \(index): \(UKDevicesInformation.shared.ids, privacy: .public)")
     }
 
-    init() {
-        mission = .none
+    init(id: String) {
+        deviceInformation = UKDevicesInformation.shared.getInformation(id: id) ?? .none
+        logger.debug("UKBatteryLevelView \(id): \(UKDevicesInformation.shared.ids, privacy: .public)")
     }
 
-    var mission: UKMissionEntity
+    init() {
+        self.init(index: 0)
+    }
+
+    var deviceInformation: UKDeviceInformation
     var batteryLevel: UKBatteryLevel {
-        .init(mission.batteryLevel)
+        deviceInformation.batteryLevel
     }
 
     var batteryLevelProgress: Double {
-        guard !mission.isNone else { return .zero }
+        guard !deviceInformation.isNone else { return .zero }
         return .init(batteryLevel) / 100
     }
 
     var isCharging: Bool {
-        mission.isCharging
+        deviceInformation.isCharging
     }
 
-    var deviceTypeName: String {
-        mission.deviceTypeName
+    var deviceType: UKDeviceType {
+        deviceInformation.deviceType
     }
 
     @Environment(\.widgetFamily) var family
 
     var imageName: String? {
-        guard !mission.isNone else { return nil }
+        guard !deviceInformation.isNone else { return nil }
 
-        return switch deviceTypeName {
-        case "left insole", "right insole":
+        return switch deviceType {
+        case .leftInsole, .rightInsole:
             "shoe.fill"
         default:
             "rotate.3d.fill"
@@ -59,7 +64,7 @@ struct UKBatteryLevelView: View {
     }
 
     var color: Color {
-        guard !mission.isNone else { return .gray }
+        guard !deviceInformation.isNone else { return .gray }
 
         return switch batteryLevel {
         case 60 ... 100:
@@ -79,7 +84,7 @@ struct UKBatteryLevelView: View {
                 Image(systemName: imageName)
                     .imageScale(imageScale)
                     .modify {
-                        if deviceTypeName == "left insole" {
+                        if deviceType == .leftInsole {
                             $0.scaleEffect(x: -1)
                         }
                     }

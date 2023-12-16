@@ -6,19 +6,19 @@ struct UKSelectedMissionsConfigurationIntent: WidgetConfigurationIntent {
     static var description = IntentDescription("Selects the missions to display information for")
 
     #if WATCHOS
-    @Parameter(title: "Missions", size: [
+    @Parameter(title: "Missions", default: [], size: [
         .accessoryCircular: 1
     ])
     var missions: [UKMissionEntity]
     #elseif os(iOS)
-    @Parameter(title: "Missions", size: [
+    @Parameter(title: "Missions", default: [], size: [
         .accessoryCircular: 1,
         .systemSmall: 4,
         .systemMedium: 4
     ])
     var missions: [UKMissionEntity]
     #elseif os(macOS)
-    @Parameter(title: "Missions", size: [
+    @Parameter(title: "Missions", default: [], size: [
         .systemSmall: 4
     ])
     var missions: [UKMissionEntity]
@@ -30,6 +30,10 @@ struct UKSelectedMissionsConfigurationIntent: WidgetConfigurationIntent {
 
     init() {
         self.missions = []
+    }
+
+    var missionIds: [String] {
+        missions.map { $0.id }
     }
 
     static var parameterSummary: some ParameterSummary {

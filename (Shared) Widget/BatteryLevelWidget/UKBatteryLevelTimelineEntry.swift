@@ -4,11 +4,26 @@ import WidgetKit
 
 @StaticLogger
 struct UKBatteryLevelTimelineEntry: TimelineEntry {
-    var devicesInformation: UKDevicesInformation { .shared }
+    let date: Date
+    private var missionIds: [String]?
 
-    public let date: Date
-    subscript(id: String) -> UKMissionEntity {
-        logger.debug("requesting mission for id \(id)")
-        return devicesInformation.information(id: id) ?? .none
+    private var devicesInformation: UKDevicesInformation { .shared }
+
+    init(date: Date = .now, missionIds: [String] = []) {
+        self.date = date
+        self.missionIds = missionIds
+    }
+
+    func getInformation(index: Int) -> UKDeviceInformation? {
+        if let missionIds, index < missionIds.count {
+            return getInformation(id: missionIds[index])
+        }
+        else {
+            return devicesInformation.getInformation(index: index)
+        }
+    }
+
+    func getInformation(id: String) -> UKDeviceInformation? {
+        devicesInformation.getInformation(id: id)
     }
 }
