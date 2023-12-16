@@ -21,7 +21,7 @@ extension UKBatteryLevelWidget {
             #if WATCHOS
             $0.supportedFamilies([.accessoryCircular, .accessoryRectangular, .accessoryInline])
             #elseif os(iOS)
-            $0.supportedFamilies([.accessoryCircular, .accessoryInline, .accessoryRectangular, .systemSmall, .systemMedium, .systemLarge])
+            $0.supportedFamilies([.accessoryCircular, .accessoryInline, .accessoryRectangular, .systemSmall, .systemMedium, .systemLarge, .systemExtraLarge])
             #elseif os(macOS)
             $0.supportedFamilies([.systemSmall, .systemMedium, .systemLarge, .systemExtraLarge])
             #endif

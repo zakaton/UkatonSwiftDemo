@@ -15,10 +15,6 @@
 			</array>
 		</dict>
 	</array>
-	<key>NSUserActivityTypes</key>
-	<array>
-		<string>MissionSelectionIntent</string>
-	</array>
 	<key>SFSafariCorrespondingMacOSAppBundleIdentifier</key>
 	<string>com.ukaton.demo.Ukaton-Demo-Mac</string>
 	<key>UIBackgroundModes</key>

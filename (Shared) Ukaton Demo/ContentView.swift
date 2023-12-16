@@ -73,6 +73,13 @@ struct ContentView: View {
             logger.debug("App was opened via URL: \(incomingURL)")
             handleIncomingURL(incomingURL)
         }
+        .modify {
+            #if os(macOS)
+                $0.onReceive(NotificationCenter.default.publisher(for: NSWindow.willCloseNotification)) { _ in
+                    // UKDevicesInformation.shared.clear()
+                }
+            #endif
+        }
     }
 
     private func handleIncomingURL(_ url: URL) {

@@ -80,7 +80,12 @@ class UKDevicesInformation {
         logger.debug("set value for key \(_key): \(deviceInformation)")
     }
 
+    private var isListeningForUpdates: Bool = false
     func listenForUpdates() {
+        guard !isListeningForUpdates else { return }
+        isListeningForUpdates = true
+
+        logger.debug("listen for UKDevicesInformation updates...")
         missionsManager.missionAddedSubject.sink(receiveValue: { [self] mission in
             updateDeviceInformation(for: mission)
 
@@ -88,7 +93,7 @@ class UKDevicesInformation {
                 missionsCancellables[mission.id] = .init()
             }
 
-            mission.batteryLevelSubject.dropFirst().sink(receiveValue: { [self, mission] _ in
+            mission.batteryLevelSubject.sink(receiveValue: { [self, mission] _ in
                 updateDeviceInformation(for: mission)
             }).store(in: &missionsCancellables[mission.id]!)
 
@@ -117,5 +122,13 @@ class UKDevicesInformation {
 
     var entities: [UKMissionEntity] {
         ids.compactMap { entity(id: $0) }
+    }
+
+    func clear() {
+        ids.forEach {
+            defaults.removeObject(forKey: "device-\($0)")
+        }
+        defaults.removeObject(forKey: "deviceIds")
+        WidgetCenter.shared.reloadAllTimelines()
     }
 }

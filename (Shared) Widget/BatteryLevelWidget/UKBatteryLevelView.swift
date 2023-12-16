@@ -21,6 +21,10 @@ struct UKBatteryLevelView: View {
         self.init(index: 0)
     }
 
+    var link: URL {
+        .init(string: "ukaton-demo://select-device?id=\(deviceInformation.id)")!
+    }
+
     var deviceInformation: UKDeviceInformation
     var batteryLevel: UKBatteryLevel {
         deviceInformation.batteryLevel
@@ -79,26 +83,28 @@ struct UKBatteryLevelView: View {
     }
 
     var body: some View {
-        ZStack {
-            if let imageName {
-                Image(systemName: imageName)
-                    .imageScale(imageScale)
-                    .modify {
-                        if deviceType == .leftInsole {
-                            $0.scaleEffect(x: -1)
+        Link(destination: link) {
+            ZStack {
+                if let imageName {
+                    Image(systemName: imageName)
+                        .imageScale(imageScale)
+                        .modify {
+                            if deviceType == .leftInsole {
+                                $0.scaleEffect(x: -1)
+                            }
                         }
-                    }
-            }
+                }
 
-            ProgressView(value: .init(batteryLevelProgress))
-                .progressViewStyle(.circular)
-                .tint(color)
-            if isCharging {
-                VStack {
-                    Image(systemName: "bolt.fill")
-                        .imageScale(.medium)
-                        .offset(y: -5)
-                    Spacer()
+                ProgressView(value: .init(batteryLevelProgress))
+                    .progressViewStyle(.circular)
+                    .tint(color)
+                if isCharging {
+                    VStack {
+                        Image(systemName: "bolt.fill")
+                            .imageScale(.medium)
+                            .offset(y: -5)
+                        Spacer()
+                    }
                 }
             }
         }
