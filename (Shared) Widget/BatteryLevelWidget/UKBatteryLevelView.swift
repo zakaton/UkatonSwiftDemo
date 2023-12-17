@@ -196,6 +196,9 @@ struct UKBatteryLevelView: View {
             if !isNone {
                 HStack {
                     image
+                    if isCharging {
+                        Image(systemName: "bolt.fill")
+                    }
                     Text("\(name) \(batteryLevel)%")
                 }
             }
@@ -217,6 +220,9 @@ struct UKBatteryLevelView: View {
                 VStack {
                     HStack {
                         image
+                        if isCharging {
+                            Image(systemName: "bolt.fill")
+                        }
                         batteryLevelView
                             .fontWeight(.semibold)
                         Spacer()

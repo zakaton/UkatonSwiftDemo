@@ -24,7 +24,7 @@ struct DeviceDiscovery: View {
     init(navigationCoordinator: NavigationCoordinator) {
         self.navigationCoordinator = navigationCoordinator
         #if !os(visionOS)
-        devicesInformation.listenForUpdates()
+        devicesInformation.listwenForUpdates()
         #endif
     }
 
