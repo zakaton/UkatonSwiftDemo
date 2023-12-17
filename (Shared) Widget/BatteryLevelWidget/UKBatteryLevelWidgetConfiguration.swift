@@ -19,7 +19,7 @@ extension UKBatteryLevelWidget {
         .description("View battery level of your Ukaton devices")
         .modify {
             #if WATCHOS
-            $0.supportedFamilies([.accessoryCircular, .accessoryRectangular, .accessoryInline])
+            $0.supportedFamilies([.accessoryCircular, .accessoryRectangular, .accessoryInline, .accessoryCorner])
             #elseif os(iOS)
             $0.supportedFamilies([.accessoryCircular, .accessoryInline, .accessoryRectangular, .systemSmall, .systemMedium, .systemLarge, .systemExtraLarge])
             #elseif os(macOS)

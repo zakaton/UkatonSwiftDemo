@@ -25,6 +25,15 @@ struct UKBatteryLevelView: View {
         .init(string: "ukaton-demo://select-device?id=\(deviceInformation.id)")!
     }
 
+    var emoji: String {
+        switch deviceType {
+        case .motionModule:
+            "📦"
+        case .leftInsole, .rightInsole:
+            "👟"
+        }
+    }
+
     var deviceInformation: UKDeviceInformation
     var batteryLevel: UKBatteryLevel {
         deviceInformation.batteryLevel
@@ -63,12 +72,14 @@ struct UKBatteryLevelView: View {
     }
 
     var batteryLevelColor: Color {
-        switch batteryLevel {
-        case 70 ... 100:
+        guard !deviceInformation.isNone else { return .gray }
+
+        return switch batteryLevel {
+        case 60 ... 100:
             .green
-        case 25 ... 70:
+        case 10 ... 60:
             .orange
-        case 0 ... 25:
+        case 0 ... 10:
             .red
         default:
             .red
@@ -111,10 +122,12 @@ struct UKBatteryLevelView: View {
 
     private var imageScale: Image.Scale {
         switch family {
-        #if !os(macOS)
-            case .accessoryCircular:
-                .large
-        #endif
+        case .accessoryCircular:
+            .large
+        case .accessoryCorner:
+            .small
+        case .accessoryRectangular:
+            .small
 
         case .systemSmall:
             #if os(iOS)
@@ -123,10 +136,8 @@ struct UKBatteryLevelView: View {
                 .large
             #endif
 
-        #if os(iOS) || os(macOS)
-            case .systemMedium, .systemLarge, .systemExtraLarge:
-                .large
-        #endif
+        case .systemMedium, .systemLarge, .systemExtraLarge:
+            .large
 
         default:
             .medium
@@ -144,21 +155,6 @@ struct UKBatteryLevelView: View {
             }
     }
 
-    var color: Color {
-        guard !deviceInformation.isNone else { return .gray }
-
-        return switch batteryLevel {
-        case 60 ... 100:
-            .green
-        case 10 ... 60:
-            .orange
-        case 0 ... 10:
-            .red
-        default:
-            .red
-        }
-    }
-
     var body: some View {
         if deviceInformation.isNone {
             _body
@@ -166,6 +162,11 @@ struct UKBatteryLevelView: View {
         else {
             Link(destination: link) {
                 _body
+                    .modify {
+                        #if os(watchOS)
+                            $0.widgetURL(link)
+                        #endif
+                    }
             }
         }
     }
@@ -176,7 +177,7 @@ struct UKBatteryLevelView: View {
 
             ProgressView(value: .init(batteryLevelProgress))
                 .progressViewStyle(.circular)
-                .tint(color)
+                .tint(batteryLevelColor)
             if isCharging {
                 VStack {
                     Image(systemName: "bolt.fill")
@@ -191,7 +192,56 @@ struct UKBatteryLevelView: View {
     @ViewBuilder
     var _body: some View {
         switch family {
-        case .systemSmall:
+        case .accessoryInline:
+            if !isNone {
+                HStack {
+                    image
+                    Text("\(name) \(batteryLevel)%")
+                }
+            }
+        case .accessoryCorner:
+            HStack {
+                if !isNone {
+                    Label("\(batteryLevel)%", systemImage: imageName ?? "")
+                        .tint(batteryLevelColor)
+                        .minimumScaleFactor(0.5)
+                }
+            }
+            .widgetCurvesContent()
+            .widgetLabel {
+                ProgressView(value: .init(batteryLevelProgress))
+                    .tint(batteryLevelColor)
+            }
+        case .accessoryRectangular:
+            if false {
+                VStack {
+                    HStack {
+                        image
+                        batteryLevelView
+                            .fontWeight(.semibold)
+                        Spacer()
+                    }
+                    HStack {
+                        Text("\(name)")
+                        Spacer()
+                    }
+                    ProgressView(value: .init(batteryLevelProgress))
+                        .tint(batteryLevelColor)
+                        .modify {
+                            #if os(iOS)
+                                $0.scaleEffect(x: 1, y: 2, anchor: .center)
+                            #else
+                            #endif
+                        }
+                }
+            }
+            else {
+                VStack {
+                    circleBody
+                    batteryLevelView
+                }
+            }
+        case .systemSmall, .accessoryCircular:
             circleBody
         case .systemMedium:
             VStack(spacing: 12) {
@@ -208,6 +258,7 @@ struct UKBatteryLevelView: View {
                 batteryLevelImage
             }
             .font(.subheadline)
+
         default:
             Text("uncaught family \(family.debugDescription)")
         }
