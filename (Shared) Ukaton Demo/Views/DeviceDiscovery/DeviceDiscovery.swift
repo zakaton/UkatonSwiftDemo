@@ -115,7 +115,7 @@ struct DeviceDiscovery: View {
             }
         }
         .onOpenURL { incomingURL in
-            logger.debug("App was opened via URL: \(incomingURL)")
+            logger.debug("(DeviceDiscovery) App was opened via URL: \(incomingURL)")
             handleIncomingURL(incomingURL)
         }
     }

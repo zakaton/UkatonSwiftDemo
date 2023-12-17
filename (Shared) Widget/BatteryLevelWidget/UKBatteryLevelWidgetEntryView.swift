@@ -21,7 +21,7 @@ struct UKBatteryLevelWidgetEntryView: View {
     }
 
     var accessoryRectangularBody: some View {
-        HStack {
+        HStack(spacing: 8) {
             UKBatteryLevelView(index: 0)
             UKBatteryLevelView(index: 1)
             UKBatteryLevelView(index: 2)
@@ -84,7 +84,7 @@ struct UKBatteryLevelWidgetEntryView: View {
             case .accessoryInline:
                 accessoryCircularBody
             case .accessoryRectangular:
-                accessoryCircularBody
+                accessoryRectangularBody
             case .accessoryCorner:
                 accessoryCornerBody
             default:

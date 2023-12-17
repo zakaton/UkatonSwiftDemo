@@ -73,7 +73,7 @@ class UKDevicesInformation {
         guard !isListeningForUpdates else { return }
         isListeningForUpdates = true
 
-        logger.debug("listen for UKDevicesInformation updates...")
+        // logger.debug("listening for UKDevicesInformation updates")
         missionsManager.missionAddedSubject.sink(receiveValue: { [self] mission in
             updateDeviceInformation(for: mission)
 
@@ -83,7 +83,7 @@ class UKDevicesInformation {
 
             mission.batteryLevelSubject.dropFirst().sink(receiveValue: { [self, mission] _ in
                 updateDeviceInformation(for: mission)
-                WidgetCenter.shared.reloadAllTimelines()
+                WidgetCenter.shared.reloadTimelines(ofKind: "com.ukaton.demo.battery-level")
             }).store(in: &missionsCancellables[mission.id]!)
 
             let newIds = missionsManager.missions.map { $0.id }

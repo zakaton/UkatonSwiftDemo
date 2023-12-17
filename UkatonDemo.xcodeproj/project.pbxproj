@@ -760,6 +760,13 @@
 			path = "(Mac) Widget";
 			sourceTree = "<group>";
 		};
+		5F2101372B2F5C7E0055E608 /* AppIntents */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AppIntents;
+			sourceTree = "<group>";
+		};
 		5F2B871D2AE18E2100BF304B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1129,6 +1136,7 @@
 				5FCC84C22AFD525300B755FA /* 3DModels */,
 				5FF58F442ADF04B900AD2941 /* Views */,
 				5FF58F332ADE51D900AD2941 /* UkatonDemoApp.swift */,
+				5F2101372B2F5C7E0055E608 /* AppIntents */,
 				5FF58F352ADE51D900AD2941 /* ContentView.swift */,
 				5FF58F372ADE51DA00AD2941 /* Assets.xcassets */,
 				5FFD693C2B0BFBC6005F0C73 /* Images.xcassets */,

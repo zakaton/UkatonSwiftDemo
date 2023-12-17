@@ -6,7 +6,8 @@ import UkatonMacros
 
 extension URL {
     var isDeeplink: Bool {
-        return scheme == "ukaton-demo" // matches ukaton-demo://<rest-of-the-url>
+        // matches ukaton-demo://<rest-of-the-url>
+        return scheme == "ukaton-demo"
     }
 }
 
@@ -70,7 +71,7 @@ struct ContentView: View {
                 .tag(TabEnum.missionPair)
         }
         .onOpenURL { incomingURL in
-            logger.debug("App was opened via URL: \(incomingURL)")
+            logger.debug("(ContentView) App was opened via URL: \(incomingURL)")
             handleIncomingURL(incomingURL)
         }
         .modify {

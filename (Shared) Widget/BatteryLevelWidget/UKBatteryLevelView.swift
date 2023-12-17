@@ -9,12 +9,12 @@ import WidgetKit
 struct UKBatteryLevelView: View {
     init(index: Int) {
         deviceInformation = UKDevicesInformation.shared.getInformation(index: index) ?? .none
-        logger.debug("UKBatteryLevelView \(index): \(UKDevicesInformation.shared.ids, privacy: .public)")
+        // logger.debug("UKBatteryLevelView \(index)")
     }
 
     init(id: String) {
         deviceInformation = UKDevicesInformation.shared.getInformation(id: id) ?? .none
-        logger.debug("UKBatteryLevelView \(id): \(UKDevicesInformation.shared.ids, privacy: .public)")
+        // logger.debug("UKBatteryLevelView \(id)")
     }
 
     init() {
@@ -53,8 +53,8 @@ struct UKBatteryLevelView: View {
         }
     }
 
-    var batteryLevelImageString: String {
-        guard !isNone else { return "" }
+    var batteryLevelImageString: String? {
+        guard !isNone else { return nil }
         guard !isCharging else { return "battery.100.bolt" }
 
         return switch batteryLevel {
@@ -86,9 +86,12 @@ struct UKBatteryLevelView: View {
         }
     }
 
+    @ViewBuilder
     var batteryLevelImage: some View {
-        Image(systemName: batteryLevelImageString)
-            .foregroundColor(batteryLevelColor)
+        if let batteryLevelImageString {
+            Image(systemName: batteryLevelImageString)
+                .foregroundColor(batteryLevelColor)
+        }
     }
 
     var isCharging: Bool {
@@ -146,13 +149,15 @@ struct UKBatteryLevelView: View {
 
     @ViewBuilder
     private var image: some View {
-        Image(systemName: imageName ?? "")
-            .imageScale(imageScale)
-            .modify {
-                if deviceType == .leftInsole {
-                    $0.scaleEffect(x: -1)
+        if let imageName {
+            Image(systemName: imageName)
+                .imageScale(imageScale)
+                .modify {
+                    if deviceType == .leftInsole {
+                        $0.scaleEffect(x: -1)
+                    }
                 }
-            }
+        }
     }
 
     var body: some View {
@@ -187,6 +192,13 @@ struct UKBatteryLevelView: View {
                 }
             }
         }
+        .modify {
+            #if os(watchOS)
+                $0.widgetLabel {
+                    Text("\(name)")
+                }
+            #endif
+        }
     }
 
     @ViewBuilder
@@ -205,7 +217,7 @@ struct UKBatteryLevelView: View {
         case .accessoryCorner:
             HStack {
                 if !isNone {
-                    Label("\(batteryLevel)%", systemImage: imageName ?? "")
+                    Text("\(emoji) \(batteryLevel)%")
                         .tint(batteryLevelColor)
                         .minimumScaleFactor(0.5)
                 }
