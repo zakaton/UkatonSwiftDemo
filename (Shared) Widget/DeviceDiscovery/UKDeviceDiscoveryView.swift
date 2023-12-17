@@ -6,15 +6,13 @@ import UkatonMacros
 import WidgetKit
 
 @StaticLogger
-struct UKBatteryLevelView: View {
+struct UKDeviceDiscoveryView: View {
     init(index: Int) {
         deviceInformation = UKDevicesInformation.shared.getInformation(index: index) ?? .none
-        // logger.debug("UKBatteryLevelView \(index)")
     }
 
     init(id: String) {
         deviceInformation = UKDevicesInformation.shared.getInformation(id: id) ?? .none
-        // logger.debug("UKBatteryLevelView \(id)")
     }
 
     init() {

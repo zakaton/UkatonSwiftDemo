@@ -5,5 +5,8 @@ import WidgetKit
 struct UKWidgetBundle: WidgetBundle {
     var body: some Widget {
         UKBatteryLevelWidget()
+        #if !os(watchOS)
+        UKDeviceDiscoveryWidget()
+        #endif
     }
 }

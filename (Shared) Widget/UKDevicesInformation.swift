@@ -7,7 +7,7 @@ import UkatonMacros
 import WidgetKit
 
 struct UKDeviceInformation {
-    static let none: UKDeviceInformation = .init(id: "", name: "", deviceType: .motionModule, batteryLevel: 0, isCharging: false)
+    static let none: Self = .init(id: "", name: "", deviceType: .motionModule, batteryLevel: 0, isCharging: false)
     var isNone: Bool { id == "" }
 
     let id: String
@@ -33,7 +33,7 @@ class UKDevicesInformation {
         guard let value = defaults.object(forKey: "device-\(id)") as? UKRawDeviceInformation,
               let name = value["name"],
               let deviceTypeName = value["deviceType"],
-              let deviceType: UKDeviceType = .init(name: deviceTypeName),
+              let deviceType: UKDeviceType = .init(from: deviceTypeName),
               let batteryLevelString = value["batteryLevel"],
               let batteryLevel: UKBatteryLevel = .init(batteryLevelString),
               let isChargingString = value["isCharging"]
@@ -57,15 +57,15 @@ class UKDevicesInformation {
     private var cancellables: Set<AnyCancellable> = .init()
     private var missionsCancellables: [String: Set<AnyCancellable>] = .init()
     private func updateDeviceInformation(for mission: UKMission) {
-        let deviceInformation: UKRawDeviceInformation = [
+        let rawDeviceInformation: UKRawDeviceInformation = [
             "name": mission.name,
             "deviceType": mission.deviceType.name,
             "batteryLevel": .init(mission.batteryLevel),
             "isCharging": mission.isCharging ? "true" : "false"
         ]
-        defaults.set(deviceInformation, forKey: key(for: mission))
+        defaults.set(rawDeviceInformation, forKey: key(for: mission))
         let _key = key(for: mission)
-        logger.debug("set value for key \(_key): \(deviceInformation)")
+        logger.debug("set value for key \(_key): \(rawDeviceInformation)")
     }
 
     private var isListeningForUpdates: Bool = false
@@ -83,15 +83,14 @@ class UKDevicesInformation {
 
             mission.batteryLevelSubject.dropFirst().sink(receiveValue: { [self, mission] _ in
                 updateDeviceInformation(for: mission)
-                WidgetCenter.shared.reloadTimelines(ofKind: "com.ukaton.demo.battery-level")
+                reloadTimelines()
             }).store(in: &missionsCancellables[mission.id]!)
 
             let newIds = missionsManager.missions.map { $0.id }
             defaults.setValue(newIds, forKey: "deviceIds")
             logger.debug("mission added - updating deviceIds to \(newIds)")
 
-            WidgetCenter.shared.invalidateConfigurationRecommendations()
-            WidgetCenter.shared.reloadAllTimelines()
+            reloadTimelines()
         }).store(in: &cancellables)
         missionsManager.missionRemovedSubject.sink(receiveValue: { [self] mission in
             defaults.removeObject(forKey: key(for: mission))
@@ -104,9 +103,12 @@ class UKDevicesInformation {
 
             missionsCancellables.removeValue(forKey: mission.id)
 
-            WidgetCenter.shared.invalidateConfigurationRecommendations()
-            WidgetCenter.shared.reloadAllTimelines()
+            reloadTimelines()
         }).store(in: &cancellables)
+    }
+
+    func reloadTimelines() {
+        WidgetCenter.shared.reloadTimelines(ofKind: "com.ukaton.demo.battery-level")
     }
 
     func clear() {
@@ -116,20 +118,4 @@ class UKDevicesInformation {
         defaults.removeObject(forKey: "deviceIds")
         WidgetCenter.shared.reloadAllTimelines()
     }
-
-//    func entity(id: String) -> UKMissionEntity? {
-//        if let information = getInformation(id: id) {
-//            return .init(information: information)
-//        }
-//        return nil
-//    }
-//
-//    func entity(index: Int) -> UKMissionEntity? {
-//        guard index < ids.count else { return nil }
-//        return entity(id: ids[index])
-//    }
-
-//    var entities: [UKMissionEntity] {
-//        ids.compactMap { entity(id: $0) }
-//    }
 }

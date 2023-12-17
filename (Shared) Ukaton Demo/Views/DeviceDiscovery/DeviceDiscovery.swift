@@ -19,12 +19,14 @@ struct DeviceDiscovery: View {
 
     #if !os(visionOS)
     private var devicesInformation: UKDevicesInformation = .shared
+    private var discoveredDevicesInformation: UKDiscoveredDevicesInformation = .shared
     #endif
 
     init(navigationCoordinator: NavigationCoordinator) {
         self.navigationCoordinator = navigationCoordinator
         #if !os(visionOS)
         devicesInformation.listenForUpdates()
+        discoveredDevicesInformation.listenForUpdates()
         #endif
     }
 

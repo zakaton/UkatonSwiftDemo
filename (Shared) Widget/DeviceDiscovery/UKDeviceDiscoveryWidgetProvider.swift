@@ -6,8 +6,8 @@ import UkatonMacros
 import WidgetKit
 
 @StaticLogger
-struct UKBatteryLevelWidgetProvider: TimelineProvider {
-    typealias Entry = UKBatteryLevelTimelineEntry
+struct UKDeviceDiscoveryWidgetProvider: TimelineProvider {
+    typealias Entry = UKDeviceDiscoveryTimelineEntry
 
     var devicesInformation: UKDevicesInformation { .shared }
 
