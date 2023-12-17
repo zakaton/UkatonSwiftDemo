@@ -210,10 +210,14 @@ struct UKBatteryLevelView: View {
                         .minimumScaleFactor(0.5)
                 }
             }
-            .widgetCurvesContent()
-            .widgetLabel {
-                ProgressView(value: .init(batteryLevelProgress))
-                    .tint(batteryLevelColor)
+            .modify {
+                #if os(watchOS)
+                    $0.widgetCurvesContent()
+                        .widgetLabel {
+                            ProgressView(value: .init(batteryLevelProgress))
+                                .tint(batteryLevelColor)
+                        }
+                #endif
             }
         case .accessoryRectangular:
             if false {

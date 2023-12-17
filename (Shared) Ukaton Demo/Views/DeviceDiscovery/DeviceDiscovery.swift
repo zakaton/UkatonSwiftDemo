@@ -24,23 +24,32 @@ struct DeviceDiscovery: View {
     init(navigationCoordinator: NavigationCoordinator) {
         self.navigationCoordinator = navigationCoordinator
         #if !os(visionOS)
-        devicesInformation.listwenForUpdates()
+        devicesInformation.listenForUpdates()
         #endif
     }
 
     var body: some View {
         NavigationStack(path: $navigationCoordinator.path) {
             List {
-                if bluetoothManager.discoveredDevices.isEmpty {
+                if bluetoothManager.isScanning {
                     HStack {
                         Spacer()
-                        if bluetoothManager.isScanning {
-                            Text("scanning for devices...")
-                        }
-                        else {
-                            Text("not scanning for devices")
-                        }
+                        Text("scanning for devices...")
                         Spacer()
+                    }
+                }
+                if bluetoothManager.discoveredDevices.isEmpty {
+                    if !bluetoothManager.isScanning {
+                        HStack {
+                            Spacer()
+                            if bluetoothManager.isScanning {
+                                // Text("scanning for devices...")
+                            }
+                            else {
+                                Text("not scanning for devices")
+                            }
+                            Spacer()
+                        }
                     }
                 }
                 else {
