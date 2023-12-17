@@ -39,16 +39,12 @@
 		5F1B3FE52B2E2FCF00CB5C52 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F86D8382B24E89400B81382 /* SwiftUI.framework */; };
 		5F1B3FEC2B2E2FD100CB5C52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F1B3FEB2B2E2FD100CB5C52 /* Assets.xcassets */; };
 		5F1B3FF12B2E2FD100CB5C52 /* (Mac) Ukaton Demo Widget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5F1B3FE32B2E2FCF00CB5C52 /* (Mac) Ukaton Demo Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		5F1B3FF52B2E2FFE00CB5C52 /* UKMissionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBDE9CC2B266E6300F24515 /* UKMissionEntity.swift */; };
 		5F1B3FF62B2E2FFE00CB5C52 /* UKBatteryLevelWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F86D8512B2505D800B81382 /* UKBatteryLevelWidget.swift */; };
-		5F1B3FF72B2E2FFE00CB5C52 /* UKSelectedMissionsConfigurationIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F78101D2B27E79E00227AC5 /* UKSelectedMissionsConfigurationIntent.swift */; };
-		5F1B3FF82B2E2FFE00CB5C52 /* UKViewMissionIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7810242B27E7B300227AC5 /* UKViewMissionIntent.swift */; };
 		5F1B3FF92B2E2FFE00CB5C52 /* UKBatteryLevelTimelineEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBDE9E42B26CEEB00F24515 /* UKBatteryLevelTimelineEntry.swift */; };
 		5F1B3FFA2B2E2FFE00CB5C52 /* UKBatteryLevelWidgetProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBDE9D62B26CE7E00F24515 /* UKBatteryLevelWidgetProvider.swift */; };
 		5F1B3FFB2B2E2FFE00CB5C52 /* UKBatteryLevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBDE9DD2B26CECA00F24515 /* UKBatteryLevelView.swift */; };
 		5F1B3FFC2B2E2FFE00CB5C52 /* UKBatteryLevelWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBDE9EB2B26CF0800F24515 /* UKBatteryLevelWidgetEntryView.swift */; };
 		5F1B3FFD2B2E2FFE00CB5C52 /* WidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F86D83B2B24E89400B81382 /* WidgetBundle.swift */; };
-		5F1B3FFE2B2E2FFE00CB5C52 /* UKMissionEntityQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7810162B27E78000227AC5 /* UKMissionEntityQuery.swift */; };
 		5F1B3FFF2B2E2FFE00CB5C52 /* UKDevicesInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F311CEC2B2A9B16008DD780 /* UKDevicesInformation.swift */; };
 		5F1B40002B2E2FFE00CB5C52 /* UKBatteryLevelWidgetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF276CB2B27838B00630B3B /* UKBatteryLevelWidgetConfiguration.swift */; };
 		5F1B40022B2E308B00CB5C52 /* UkatonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5F1B40012B2E308B00CB5C52 /* UkatonKit */; };
@@ -161,21 +157,6 @@
 		5F777D4A2B01481A0001509A /* VibrationWaveformsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F777D492B01481A0001509A /* VibrationWaveformsView.swift */; };
 		5F777D4B2B01481A0001509A /* VibrationWaveformsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F777D492B01481A0001509A /* VibrationWaveformsView.swift */; };
 		5F777D4C2B01481A0001509A /* VibrationWaveformsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F777D492B01481A0001509A /* VibrationWaveformsView.swift */; };
-		5F7810172B27E78000227AC5 /* UKMissionEntityQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7810162B27E78000227AC5 /* UKMissionEntityQuery.swift */; };
-		5F7810182B27E78000227AC5 /* UKMissionEntityQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7810162B27E78000227AC5 /* UKMissionEntityQuery.swift */; };
-		5F7810192B27E78000227AC5 /* UKMissionEntityQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7810162B27E78000227AC5 /* UKMissionEntityQuery.swift */; };
-		5F78101B2B27E78000227AC5 /* UKMissionEntityQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7810162B27E78000227AC5 /* UKMissionEntityQuery.swift */; };
-		5F78101C2B27E78000227AC5 /* UKMissionEntityQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7810162B27E78000227AC5 /* UKMissionEntityQuery.swift */; };
-		5F78101E2B27E79E00227AC5 /* UKSelectedMissionsConfigurationIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F78101D2B27E79E00227AC5 /* UKSelectedMissionsConfigurationIntent.swift */; };
-		5F78101F2B27E79E00227AC5 /* UKSelectedMissionsConfigurationIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F78101D2B27E79E00227AC5 /* UKSelectedMissionsConfigurationIntent.swift */; };
-		5F7810202B27E79E00227AC5 /* UKSelectedMissionsConfigurationIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F78101D2B27E79E00227AC5 /* UKSelectedMissionsConfigurationIntent.swift */; };
-		5F7810222B27E79E00227AC5 /* UKSelectedMissionsConfigurationIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F78101D2B27E79E00227AC5 /* UKSelectedMissionsConfigurationIntent.swift */; };
-		5F7810232B27E79E00227AC5 /* UKSelectedMissionsConfigurationIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F78101D2B27E79E00227AC5 /* UKSelectedMissionsConfigurationIntent.swift */; };
-		5F7810252B27E7B300227AC5 /* UKViewMissionIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7810242B27E7B300227AC5 /* UKViewMissionIntent.swift */; };
-		5F7810262B27E7B300227AC5 /* UKViewMissionIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7810242B27E7B300227AC5 /* UKViewMissionIntent.swift */; };
-		5F7810272B27E7B300227AC5 /* UKViewMissionIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7810242B27E7B300227AC5 /* UKViewMissionIntent.swift */; };
-		5F7810292B27E7B300227AC5 /* UKViewMissionIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7810242B27E7B300227AC5 /* UKViewMissionIntent.swift */; };
-		5F78102A2B27E7B300227AC5 /* UKViewMissionIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7810242B27E7B300227AC5 /* UKViewMissionIntent.swift */; };
 		5F791F202B2516190043C391 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F86D8362B24E89400B81382 /* WidgetKit.framework */; };
 		5F791F212B2516190043C391 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F86D8382B24E89400B81382 /* SwiftUI.framework */; };
 		5F791F2A2B25161A0043C391 /* (Watch) Ukaton Demo Widget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5F791F1F2B2516190043C391 /* (Watch) Ukaton Demo Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -323,12 +304,7 @@
 		5FB11E6D2B04673800784EDD /* DeviceBluetoothInformationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB11E6C2B04673800784EDD /* DeviceBluetoothInformationSection.swift */; };
 		5FB11E6E2B04673800784EDD /* DeviceBluetoothInformationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB11E6C2B04673800784EDD /* DeviceBluetoothInformationSection.swift */; };
 		5FB11E6F2B04673800784EDD /* DeviceBluetoothInformationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB11E6C2B04673800784EDD /* DeviceBluetoothInformationSection.swift */; };
-		5FBDE9CE2B266E6300F24515 /* UKMissionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBDE9CC2B266E6300F24515 /* UKMissionEntity.swift */; };
-		5FBDE9CF2B266E6300F24515 /* UKMissionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBDE9CC2B266E6300F24515 /* UKMissionEntity.swift */; };
-		5FBDE9D02B269F8800F24515 /* UKMissionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBDE9CC2B266E6300F24515 /* UKMissionEntity.swift */; };
-		5FBDE9D22B269F8800F24515 /* UKMissionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBDE9CC2B266E6300F24515 /* UKMissionEntity.swift */; };
 		5FBDE9D32B269F8800F24515 /* UKBatteryLevelWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F86D8512B2505D800B81382 /* UKBatteryLevelWidget.swift */; };
-		5FBDE9D42B269F8800F24515 /* UKMissionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBDE9CC2B266E6300F24515 /* UKMissionEntity.swift */; };
 		5FBDE9D52B269F8800F24515 /* UKBatteryLevelWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F86D8512B2505D800B81382 /* UKBatteryLevelWidget.swift */; };
 		5FBDE9D72B26CE7E00F24515 /* UKBatteryLevelWidgetProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBDE9D62B26CE7E00F24515 /* UKBatteryLevelWidgetProvider.swift */; };
 		5FBDE9D82B26CE7E00F24515 /* UKBatteryLevelWidgetProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBDE9D62B26CE7E00F24515 /* UKBatteryLevelWidgetProvider.swift */; };
@@ -1799,16 +1775,12 @@
 			files = (
 				5F1B3FFD2B2E2FFE00CB5C52 /* WidgetBundle.swift in Sources */,
 				5F1B3FF62B2E2FFE00CB5C52 /* UKBatteryLevelWidget.swift in Sources */,
-				5F1B3FF52B2E2FFE00CB5C52 /* UKMissionEntity.swift in Sources */,
 				5F1B3FFC2B2E2FFE00CB5C52 /* UKBatteryLevelWidgetEntryView.swift in Sources */,
 				5F1B40032B2E310E00CB5C52 /* ViewModifier.swift in Sources */,
-				5F1B3FFE2B2E2FFE00CB5C52 /* UKMissionEntityQuery.swift in Sources */,
-				5F1B3FF72B2E2FFE00CB5C52 /* UKSelectedMissionsConfigurationIntent.swift in Sources */,
 				5F1B3FF92B2E2FFE00CB5C52 /* UKBatteryLevelTimelineEntry.swift in Sources */,
 				5F1B3FFF2B2E2FFE00CB5C52 /* UKDevicesInformation.swift in Sources */,
 				5F1B3FFB2B2E2FFE00CB5C52 /* UKBatteryLevelView.swift in Sources */,
 				5F1B40002B2E2FFE00CB5C52 /* UKBatteryLevelWidgetConfiguration.swift in Sources */,
-				5F1B3FF82B2E2FFE00CB5C52 /* UKViewMissionIntent.swift in Sources */,
 				5F1B3FFA2B2E2FFE00CB5C52 /* UKBatteryLevelWidgetProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1822,14 +1794,10 @@
 				5FF276BF2B26D8C500630B3B /* WidgetBundle.swift in Sources */,
 				5FBDE9EA2B26CEEB00F24515 /* UKBatteryLevelTimelineEntry.swift in Sources */,
 				5FD7B1C52B2AA07100A54F2B /* UKDevicesInformation.swift in Sources */,
-				5F78101C2B27E78000227AC5 /* UKMissionEntityQuery.swift in Sources */,
-				5FBDE9CF2B266E6300F24515 /* UKMissionEntity.swift in Sources */,
 				5FBDE9DC2B26CE7E00F24515 /* UKBatteryLevelWidgetProvider.swift in Sources */,
 				5FF276D92B2785EE00630B3B /* UKBatteryLevelWidget.swift in Sources */,
 				5F8135F52B26D5C500B3ED13 /* UKBatteryLevelView.swift in Sources */,
-				5F7810232B27E79E00227AC5 /* UKSelectedMissionsConfigurationIntent.swift in Sources */,
 				5FF276D52B27852600630B3B /* UKBatteryLevelWidgetConfiguration.swift in Sources */,
-				5F78102A2B27E7B300227AC5 /* UKViewMissionIntent.swift in Sources */,
 				5FD7B1C82B2AA8F800A54F2B /* AppStorageUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1838,14 +1806,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F78101B2B27E78000227AC5 /* UKMissionEntityQuery.swift in Sources */,
-				5F7810292B27E7B300227AC5 /* UKViewMissionIntent.swift in Sources */,
 				5F86D8732B2507FD00B81382 /* WidgetBundle.swift in Sources */,
-				5F7810222B27E79E00227AC5 /* UKSelectedMissionsConfigurationIntent.swift in Sources */,
 				5FD7B1C62B2AA07100A54F2B /* UKDevicesInformation.swift in Sources */,
 				5FBDE9F02B26CF0800F24515 /* UKBatteryLevelWidgetEntryView.swift in Sources */,
 				5FBDE9E92B26CEEB00F24515 /* UKBatteryLevelTimelineEntry.swift in Sources */,
-				5FBDE9CE2B266E6300F24515 /* UKMissionEntity.swift in Sources */,
 				5FBDE9E22B26CECA00F24515 /* UKBatteryLevelView.swift in Sources */,
 				5F86D8712B2507F600B81382 /* UKBatteryLevelWidget.swift in Sources */,
 				5FA0E00E2B254524004A691A /* ViewModifier.swift in Sources */,
@@ -1987,7 +1951,6 @@
 				5FBDE9EC2B26CF0800F24515 /* UKBatteryLevelWidgetEntryView.swift in Sources */,
 				5F9F82C32B03E5DB00DDD9AB /* MissionPairPressureDemo.swift in Sources */,
 				5F426ED42AF1F53300E58F15 /* DeviceDetail.swift in Sources */,
-				5F78101E2B27E79E00227AC5 /* UKSelectedMissionsConfigurationIntent.swift in Sources */,
 				5F0FE43D2B0729D300953012 /* DeviceRotationViewModifier.swift in Sources */,
 				5FF24DE62AF41127009FAA0E /* LabelSpacing.swift in Sources */,
 				5FA3B0032AFAAB6E00F5295C /* DeviceDemosSection.swift in Sources */,
@@ -2011,11 +1974,9 @@
 				5F446F752B0468C900797659 /* RSSIDemo.swift in Sources */,
 				5F9F82C72B03EC0200DDD9AB /* MissionPairMotionDemo.swift in Sources */,
 				5FBDE9DE2B26CECA00F24515 /* UKBatteryLevelView.swift in Sources */,
-				5F7810252B27E7B300227AC5 /* UKViewMissionIntent.swift in Sources */,
 				5FBDE9D52B269F8800F24515 /* UKBatteryLevelWidget.swift in Sources */,
 				5FCC84BB2AFCA33800B755FA /* PressureDemo.swift in Sources */,
 				5FACE8C72AFFEFE400F1AFFD /* PressureModePicker.swift in Sources */,
-				5F7810172B27E78000227AC5 /* UKMissionEntityQuery.swift in Sources */,
 				5F3F4E2A2B091F0C00F81B6F /* CenterOfMassDemo.swift in Sources */,
 				5FCC84B52AFC9B6700B755FA /* MotionDemo.swift in Sources */,
 				5FF276CC2B27838B00630B3B /* UKBatteryLevelWidgetConfiguration.swift in Sources */,
@@ -2029,7 +1990,6 @@
 				5F9F82B72B02970300DDD9AB /* MissionPair.swift in Sources */,
 				5FCC84BF2AFCA34100B755FA /* VibrationDemo.swift in Sources */,
 				5FA3AFF92AFAA97800F5295C /* DeviceInformationSection.swift in Sources */,
-				5FBDE9D42B269F8800F24515 /* UKMissionEntity.swift in Sources */,
 				5FB11E6D2B04673800784EDD /* DeviceBluetoothInformationSection.swift in Sources */,
 				5FCC84B02AFC445C00B755FA /* PressureDataSection.swift in Sources */,
 				5F9F82BF2B03E2D900DDD9AB /* MissionPairDemosSection.swift in Sources */,
@@ -2046,7 +2006,6 @@
 				5F0DB9462B000C8800FB413E /* AllVibrationWaveformEffectsView.swift in Sources */,
 				5FBDE9ED2B26CF0800F24515 /* UKBatteryLevelWidgetEntryView.swift in Sources */,
 				5F9F82C42B03E5DB00DDD9AB /* MissionPairPressureDemo.swift in Sources */,
-				5F78101F2B27E79E00227AC5 /* UKSelectedMissionsConfigurationIntent.swift in Sources */,
 				5F426ED32AF1F51D00E58F15 /* DeviceDetail.swift in Sources */,
 				5F0FE43E2B0729D300953012 /* DeviceRotationViewModifier.swift in Sources */,
 				5FF24DE72AF41127009FAA0E /* LabelSpacing.swift in Sources */,
@@ -2068,7 +2027,6 @@
 				5F3315172B1505E200011E40 /* PlatformUtils.swift in Sources */,
 				5F0F6F582AFEA87F007D0D03 /* TranslationModePicker.swift in Sources */,
 				5F63E02E2B1D2E2700B868BE /* BalanceDemo.swift in Sources */,
-				5F7810262B27E7B300227AC5 /* UKViewMissionIntent.swift in Sources */,
 				5F446F762B0468C900797659 /* RSSIDemo.swift in Sources */,
 				5F9F82C82B03EC0200DDD9AB /* MissionPairMotionDemo.swift in Sources */,
 				5FBDE9DF2B26CECA00F24515 /* UKBatteryLevelView.swift in Sources */,
@@ -2077,7 +2035,6 @@
 				5FACE8C82AFFEFE400F1AFFD /* PressureModePicker.swift in Sources */,
 				5F3F4E2B2B091F0C00F81B6F /* CenterOfMassDemo.swift in Sources */,
 				5FCC84B62AFC9B6700B755FA /* MotionDemo.swift in Sources */,
-				5F7810182B27E78000227AC5 /* UKMissionEntityQuery.swift in Sources */,
 				5FF276CD2B27838B00630B3B /* UKBatteryLevelWidgetConfiguration.swift in Sources */,
 				5FF58F5B2ADF140C00AD2941 /* UkatonDemoApp.swift in Sources */,
 				5F311CE82B2A9803008DD780 /* AppStorageUtils.swift in Sources */,
@@ -2089,7 +2046,6 @@
 				5F9F82B82B02970300DDD9AB /* MissionPair.swift in Sources */,
 				5FCC84C02AFCA34100B755FA /* VibrationDemo.swift in Sources */,
 				5FA3AFFA2AFAA97800F5295C /* DeviceInformationSection.swift in Sources */,
-				5FBDE9D22B269F8800F24515 /* UKMissionEntity.swift in Sources */,
 				5FB11E6E2B04673800784EDD /* DeviceBluetoothInformationSection.swift in Sources */,
 				5FCC84B12AFC445C00B755FA /* PressureDataSection.swift in Sources */,
 				5F9F82C02B03E2D900DDD9AB /* MissionPairDemosSection.swift in Sources */,
@@ -2107,7 +2063,6 @@
 				5F0DB9472B000C8800FB413E /* AllVibrationWaveformEffectsView.swift in Sources */,
 				5F9F82C52B03E5DB00DDD9AB /* MissionPairPressureDemo.swift in Sources */,
 				5F426ED52AF1F53800E58F15 /* DeviceDetail.swift in Sources */,
-				5F7810202B27E79E00227AC5 /* UKSelectedMissionsConfigurationIntent.swift in Sources */,
 				5F0FE43F2B0729D300953012 /* DeviceRotationViewModifier.swift in Sources */,
 				5FF24DE82AF41127009FAA0E /* LabelSpacing.swift in Sources */,
 				5FA3B0052AFAAB6E00F5295C /* DeviceDemosSection.swift in Sources */,
@@ -2131,11 +2086,9 @@
 				5F63E02F2B1D2E2700B868BE /* BalanceDemo.swift in Sources */,
 				5F9F82C92B03EC0200DDD9AB /* MissionPairMotionDemo.swift in Sources */,
 				5FCC84BD2AFCA33800B755FA /* PressureDemo.swift in Sources */,
-				5F7810272B27E7B300227AC5 /* UKViewMissionIntent.swift in Sources */,
 				5F3F4E2C2B091F0C00F81B6F /* CenterOfMassDemo.swift in Sources */,
 				5FCC84B72AFC9B6700B755FA /* MotionDemo.swift in Sources */,
 				5FF58F752ADF18A000AD2941 /* UkatonDemoApp.swift in Sources */,
-				5F7810192B27E78000227AC5 /* UKMissionEntityQuery.swift in Sources */,
 				5F777D482B0143780001509A /* VibrationWaveformEffectsView.swift in Sources */,
 				5FCC84AA2AFC426000B755FA /* MotionDataSection.swift in Sources */,
 				5F9F82BD2B029AC500DDD9AB /* NavigationCoordinator.swift in Sources */,
@@ -2149,7 +2102,6 @@
 				5FBDE9D92B26CE7E00F24515 /* UKBatteryLevelWidgetProvider.swift in Sources */,
 				5FA3AFFB2AFAA97800F5295C /* DeviceInformationSection.swift in Sources */,
 				5FB11E6F2B04673800784EDD /* DeviceBluetoothInformationSection.swift in Sources */,
-				5FBDE9D02B269F8800F24515 /* UKMissionEntity.swift in Sources */,
 				5FCC84B22AFC445C00B755FA /* PressureDataSection.swift in Sources */,
 				5F9F82C12B03E2D900DDD9AB /* MissionPairDemosSection.swift in Sources */,
 				5F3F4E302B092FF200F81B6F /* RotationModePicker.swift in Sources */,

@@ -11,21 +11,9 @@ struct UKBatteryLevelWidgetProvider: TimelineProvider {
 
     var devicesInformation: UKDevicesInformation { .shared }
 
-    func snapshot(for configuration: UKSelectedMissionsConfigurationIntent, in context: Context) async -> Entry {
-        logger.debug("requesting snapshot for \(context.family.debugDescription, privacy: .public)")
-        return .init(date: .now, missionIds: configuration.missionIds)
-    }
-
     func getSnapshot(in context: Context, completion: @escaping (Entry) -> ()) {
         let entry = Entry()
         completion(entry)
-    }
-
-    func timeline(for configuration: UKSelectedMissionsConfigurationIntent, in context: Context) async -> Timeline<Entry> {
-        logger.debug("requesting timeline for \(context.family.debugDescription, privacy: .public)")
-        let entries: [UKBatteryLevelTimelineEntry] = [.init(date: .now, missionIds: configuration.missionIds)]
-        let timeline = Timeline(entries: entries, policy: .never)
-        return timeline
     }
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
@@ -40,14 +28,26 @@ struct UKBatteryLevelWidgetProvider: TimelineProvider {
         return .init(date: .now)
     }
 
-    func recommendations() -> [AppIntentRecommendation<UKSelectedMissionsConfigurationIntent>] {
-        logger.debug("requesting recommendations...")
-        let intent: UKSelectedMissionsConfigurationIntent = .init()
-        let entities = devicesInformation.entities
-        if let first = entities.first {
-            intent.missions = [first]
-            return [.init(intent: intent, description: first.name)]
-        }
-        return []
-    }
+//    func timeline(for configuration: UKSelectedMissionsConfigurationIntent, in context: Context) async -> Timeline<Entry> {
+//        logger.debug("requesting timeline for \(context.family.debugDescription, privacy: .public)")
+//        let entries: [UKBatteryLevelTimelineEntry] = [.init(date: .now, missionIds: configuration.missionIds)]
+//        let timeline = Timeline(entries: entries, policy: .never)
+//        return timeline
+//    }
+
+//    func snapshot(for configuration: UKSelectedMissionsConfigurationIntent, in context: Context) async -> Entry {
+//        logger.debug("requesting snapshot for \(context.family.debugDescription, privacy: .public)")
+//        return .init(date: .now, missionIds: configuration.missionIds)
+//    }
+
+//    func recommendations() -> [AppIntentRecommendation<UKSelectedMissionsConfigurationIntent>] {
+//        logger.debug("requesting recommendations...")
+//        let intent: UKSelectedMissionsConfigurationIntent = .init()
+//        let entities = devicesInformation.entities
+//        if let first = entities.first {
+//            intent.missions = [first]
+//            return [.init(intent: intent, description: first.name)]
+//        }
+//        return []
+//    }
 }

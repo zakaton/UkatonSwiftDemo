@@ -29,18 +29,6 @@ class UKDevicesInformation {
         defaults.object(forKey: "deviceIds") as? [String] ?? []
     }
 
-    func entity(id: String) -> UKMissionEntity? {
-        if let information = getInformation(id: id) {
-            return .init(information: information)
-        }
-        return nil
-    }
-
-    func entity(index: Int) -> UKMissionEntity? {
-        guard index < ids.count else { return nil }
-        return entity(id: ids[index])
-    }
-
     func getInformation(id: String) -> UKDeviceInformation? {
         guard let value = defaults.object(forKey: "device-\(id)") as? UKRawDeviceInformation,
               let name = value["name"],
@@ -121,10 +109,6 @@ class UKDevicesInformation {
         }).store(in: &cancellables)
     }
 
-    var entities: [UKMissionEntity] {
-        ids.compactMap { entity(id: $0) }
-    }
-
     func clear() {
         ids.forEach {
             defaults.removeObject(forKey: "device-\($0)")
@@ -132,4 +116,20 @@ class UKDevicesInformation {
         defaults.removeObject(forKey: "deviceIds")
         WidgetCenter.shared.reloadAllTimelines()
     }
+
+//    func entity(id: String) -> UKMissionEntity? {
+//        if let information = getInformation(id: id) {
+//            return .init(information: information)
+//        }
+//        return nil
+//    }
+//
+//    func entity(index: Int) -> UKMissionEntity? {
+//        guard index < ids.count else { return nil }
+//        return entity(id: ids[index])
+//    }
+
+//    var entities: [UKMissionEntity] {
+//        ids.compactMap { entity(id: $0) }
+//    }
 }
