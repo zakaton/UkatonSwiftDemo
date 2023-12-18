@@ -8,8 +8,6 @@ struct UKBatteryLevelWidgetEntryView: View {
 
     @Environment(\.widgetFamily) var family
 
-    private var devicesInformation: UKDevicesInformation { .shared }
-
     var spacing: CGFloat = 12
 
     var accessoryCircularBody: some View {

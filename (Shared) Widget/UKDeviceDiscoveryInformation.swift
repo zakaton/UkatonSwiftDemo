@@ -23,12 +23,16 @@ typealias UKRawDiscoveredDeviceInformation = [String: String]
 
 @StaticLogger
 @Singleton()
-class UKDiscoveredDevicesInformation {
+class UKDeviceDiscoveryInformation {
     private var bluetoothManager: UKBluetoothManager { .shared }
     private let defaults: UserDefaults = .init(suiteName: "group.com.ukaton.discovered-devices")!
 
     var ids: [String] {
         defaults.object(forKey: "deviceIds") as? [String] ?? []
+    }
+
+    var isScanning: Bool {
+        defaults.object(forKey: "isScanning") as? Bool ?? false
     }
 
     func getInformation(id: String) -> UKDiscoveredDeviceInformation? {
@@ -120,6 +124,13 @@ class UKDiscoveredDevicesInformation {
         guard !isListeningForUpdates else { return }
         isListeningForUpdates = true
 
+        bluetoothManager.isScanningSubject.sink(receiveValue: { [self] _ in
+            let newIsScanning = bluetoothManager.isScanning
+            logger.debug("updating isScanning to \(newIsScanning)")
+            defaults.setValue(newIsScanning, forKey: "isScanning")
+            reloadTimelines()
+        }).store(in: &cancellables)
+
         bluetoothManager.discoveredDevicesSubject
             .debounce(for: .seconds(0.5), scheduler: RunLoop.main)
             .sink(receiveValue: { [self] _ in
@@ -161,6 +172,6 @@ class UKDiscoveredDevicesInformation {
             defaults.removeObject(forKey: "device-\($0)")
         }
         defaults.removeObject(forKey: "deviceIds")
-        WidgetCenter.shared.reloadAllTimelines()
+        reloadTimelines()
     }
 }

@@ -19,7 +19,7 @@ struct DeviceDiscovery: View {
 
     #if !os(visionOS)
     private var devicesInformation: UKDevicesInformation = .shared
-    private var discoveredDevicesInformation: UKDiscoveredDevicesInformation = .shared
+    private var discoveredDevicesInformation: UKDeviceDiscoveryInformation = .shared
     #endif
 
     init(navigationCoordinator: NavigationCoordinator) {

@@ -15,6 +15,10 @@
 			</array>
 		</dict>
 	</array>
+	<key>INIntentsSupported</key>
+	<array>
+		<string>UKToggleDeviceScanIntent</string>
+	</array>
 	<key>SFSafariCorrespondingMacOSAppBundleIdentifier</key>
 	<string>com.ukaton.demo.Ukaton-Demo-Mac</string>
 	<key>UIBackgroundModes</key>
