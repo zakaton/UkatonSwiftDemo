@@ -69,6 +69,10 @@ struct UKDeviceDiscoveryRow: View {
         deviceMetadata.isConnectedToWifi
     }
 
+    var ipAddress: String? {
+        deviceMetadata.ipAddress
+    }
+
     var link: URL {
         .init(string: "ukaton-demo://select-device?id=\(id)")!
     }
@@ -152,7 +156,7 @@ struct UKDeviceDiscoveryRow: View {
 
     private var imageScale: Image.Scale {
         switch family {
-        case .systemLarge, .systemExtraLarge:
+        case .systemLarge:
             .medium
         default:
             .medium
@@ -172,34 +176,99 @@ struct UKDeviceDiscoveryRow: View {
         }
     }
 
-    var body: some View {
-        switch family {
-        case .systemLarge, .systemExtraLarge:
-            if !isNone {
+    @ViewBuilder
+    var header: some View {
+        VStack {
+            HStack {
+                Text("\(name)")
+                    .font(.title2)
+                Spacer()
+            }
+            HStack(spacing: 4) {
+                image
+                Text("\(deviceType.name)")
+                Spacer()
+            }
+        }
+    }
+
+    @ViewBuilder
+    var footer: some View {
+        HStack {
+            if isConnectedToWifi, let ipAddress {
                 HStack {
-                    VStack {
-                        HStack {
-                            Text("\(name)")
-                                .font(.title2)
-                            Spacer()
-                        }
-                        HStack(spacing: 4) {
-                            image
-                            Text("\(deviceType.name)")
-                            Spacer()
-                        }
-                    }
+                    Label(ipAddress, systemImage: "wifi")
+                }
+            }
+            if isConnected {
+                HStack {
+                    batteryLevelImage
+                    batteryLevelView
+                }
+            }
+        }
+    }
+
+    @ViewBuilder
+    var connectionContent: some View {
+        HStack {
+            if connectionStatus == .connected || connectionStatus == .disconnecting {
+                Text("connected via \(connectionType!.name)")
+                Button(role: .destructive, intent: UKDisconnectFromDeviceIntent(deviceId: id), label: {
+                    Text("disconnect")
+                })
+                .buttonStyle(.borderedProminent)
+                .tint(.red)
+                if !is_iOS {
                     Spacer()
-                    if isConnected {
-                        batteryLevelView
-                        batteryLevelImage
+                }
+            }
+            else {
+                if connectionStatus == .notConnected {
+                    Text("connect via:")
+                    Button(intent: UKConnectToDeviceIntent(deviceId: id, connectionType: .bluetooth), label: {
+                        Text("bluetooth")
+                            .accessibilityLabel("connect via bluetooth")
+                    })
+                    .buttonStyle(.borderedProminent)
+
+                    if isConnectedToWifi {
+                        Button(intent: UKConnectToDeviceIntent(deviceId: id, connectionType: .udp), label: {
+                            Text("udp")
+                                .accessibilityLabel("connect via udp")
+                        })
+                        .buttonStyle(.borderedProminent)
                     }
                 }
-                .padding(2)
+                else {
+                    if let connectionType {
+                        if is_iOS {
+                            Spacer()
+                        }
+                        Button(role: .cancel, intent: UKDisconnectFromDeviceIntent(deviceId: id), label: {
+                            Text("connecting via \(connectionType.name)...")
+                                .accessibilityLabel("cancel connection")
+                        })
+                        .buttonStyle(.borderedProminent)
+                    }
+                }
             }
-
-        default:
-            Text("uncaught family \(family.debugDescription)")
         }
+    }
+
+    var body: some View {
+        HStack {
+            VStack {
+                VStack {
+                    HStack {
+                        header
+                    }
+                    connectionContent
+                }
+                footer
+            }
+            Spacer()
+        }
+        .padding(2)
     }
 }

@@ -18,6 +18,8 @@
 	<key>INIntentsSupported</key>
 	<array>
 		<string>UKToggleDeviceScanIntent</string>
+		<string>UKConnectToDeviceIntent</string>
+		<string>UKDisconnectFromDeviceIntent</string>
 	</array>
 	<key>SFSafariCorrespondingMacOSAppBundleIdentifier</key>
 	<string>com.ukaton.demo.Ukaton-Demo-Mac</string>

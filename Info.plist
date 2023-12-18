@@ -6,6 +6,12 @@
 	<dict/>
 	<key>CFBundleIcons~ipad</key>
 	<dict/>
+	<key>INIntentsSupported</key>
+	<array>
+		<string>UKToggleDeviceScanIntent</string>
+		<string>UKConnectToDeviceIntent</string>
+		<string>UKDisconnectFromDeviceIntent</string>
+	</array>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>bluetooth-central</string>

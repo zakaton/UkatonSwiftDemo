@@ -18,7 +18,7 @@ extension UKDeviceDiscoveryWidget {
         .configurationDisplayName("Ukaton Device Discovery")
         .description("Scan for Ukaton Devices")
         .modify {
-            $0.supportedFamilies([.systemLarge, .systemExtraLarge])
+            $0.supportedFamilies([.systemLarge])
         }
     }
 }

@@ -18,10 +18,4 @@ struct UKDeviceDiscoveryWidget: Widget {
 } timeline: {
     UKDeviceDiscoveryTimelineEntry(date: .now)
 }
-
-#Preview("systemExtraLarge", as: .systemExtraLarge) {
-    UKDeviceDiscoveryWidget()
-} timeline: {
-    UKDeviceDiscoveryTimelineEntry(date: .now)
-}
 #endif

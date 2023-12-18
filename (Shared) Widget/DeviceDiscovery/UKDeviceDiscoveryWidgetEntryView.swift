@@ -14,11 +14,6 @@ struct UKDeviceDiscoveryWidgetEntryView: View {
 
     var spacing: CGFloat = 12
 
-    var uncaughtBody: some View {
-        Text("uncaught widget family")
-            .unredacted()
-    }
-
     @ViewBuilder
     var scanButton: some View {
         let text = deviceDiscoveryInformation.isScanning ? "scanning" : "scan"

@@ -8,6 +8,7 @@ struct UkatonDemoApp: App {
     init() {
         #if !os(visionOS) && !os(tvOS)
         UKDevicesInformation.shared.clear()
+        UKDeviceDiscoveryInformation.shared.clear()
         #endif
     }
 
