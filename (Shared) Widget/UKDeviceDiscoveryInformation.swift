@@ -6,8 +6,8 @@ import UkatonKit
 import UkatonMacros
 import WidgetKit
 
-struct UKDiscoveredDeviceInformation {
-    static let none: Self = .init(id: "", name: "", deviceType: .motionModule, isConnectedToWifi: false, ipAddress: nil, isConnected: false, connectionType: nil)
+struct UKDiscoveredDeviceInformation: UKAppGroupDeviceMetadata {
+    static let none: Self = .init(id: "", name: "", deviceType: .motionModule, isConnectedToWifi: false, ipAddress: nil, connectionType: nil, connectionStatus: .notConnected)
     var isNone: Bool { id == "" }
 
     let id: String
@@ -15,8 +15,8 @@ struct UKDiscoveredDeviceInformation {
     let deviceType: UKDeviceType
     let isConnectedToWifi: Bool
     let ipAddress: String?
-    let isConnected: Bool
     let connectionType: UKConnectionType?
+    let connectionStatus: UKConnectionStatus
 }
 
 typealias UKRawDiscoveredDeviceInformation = [String: String]
@@ -41,7 +41,8 @@ class UKDeviceDiscoveryInformation {
               let deviceTypeName = value["deviceType"],
               let deviceType: UKDeviceType = .init(from: deviceTypeName),
               let isConnectedToWifiString = value["isConnectedToWifi"],
-              let isConnectedString = value["isConnected"]
+              let connectionStatusString = value["connectionStatus"],
+              let connectionStatus: UKConnectionStatus = .init(from: connectionStatusString)
         else {
             return nil
         }
@@ -49,14 +50,12 @@ class UKDeviceDiscoveryInformation {
         let ipAddress = value["ipAddress"]
         let isConnectedToWifi = isConnectedToWifiString == "true"
 
-        let isConnected = isConnectedString == "true"
-        let connectionTypeString = value["ipAddress"]
         var connectionType: UKConnectionType?
-        if let connectionTypeString {
+        if let connectionTypeString = value["connectionType"] {
             connectionType = .init(from: connectionTypeString)
         }
 
-        return .init(id: id, name: name, deviceType: deviceType, isConnectedToWifi: isConnectedToWifi, ipAddress: ipAddress, isConnected: isConnected, connectionType: connectionType)
+        return .init(id: id, name: name, deviceType: deviceType, isConnectedToWifi: isConnectedToWifi, ipAddress: ipAddress, connectionType: connectionType, connectionStatus: connectionStatus)
     }
 
     func getInformation(index: Int) -> UKDiscoveredDeviceInformation? {
@@ -104,7 +103,7 @@ class UKDeviceDiscoveryInformation {
                 "name": discoveredDevice.name,
                 "deviceType": discoveredDevice.deviceType.name,
                 "isConnectedToWifi": discoveredDevice.isConnectedToWifi ? "true" : "false",
-                "isConnected": discoveredDevice.mission.isConnected ? "true" : "false"
+                "connectionStatus": discoveredDevice.mission.connectionStatus.name
             ]
             if discoveredDevice.isConnectedToWifi, let ipAddress = discoveredDevice.ipAddress {
                 rawDiscoveredDeviceInformation["ipAddress"] = ipAddress
@@ -137,9 +136,10 @@ class UKDeviceDiscoveryInformation {
                 var shouldReloadTimelines = false
 
                 let currentIds = ids
-                var idsToRemove = currentIds
+                let newIds = bluetoothManager.discoveredDevices.compactMap { $0.id?.uuidString }
+                logger.debug("newIds \(newIds, privacy: .public)")
+                let idsToRemove = currentIds.filter { !newIds.contains($0) }
                 bluetoothManager.discoveredDevices.forEach { discoveredDevice in
-                    idsToRemove = idsToRemove.filter { $0 != discoveredDevice.id?.uuidString }
                     shouldReloadTimelines = shouldReloadTimelines || updateDeviceInformation(for: discoveredDevice)
                 }
 
@@ -150,7 +150,6 @@ class UKDeviceDiscoveryInformation {
                 }
                 shouldReloadTimelines = shouldReloadTimelines || !idsToRemove.isEmpty
 
-                let newIds = bluetoothManager.discoveredDevices.compactMap { $0.id?.uuidString }
                 if currentIds.count != newIds.count || !currentIds.allSatisfy({ newIds.contains($0) }) {
                     shouldReloadTimelines = true
                     defaults.setValue(newIds, forKey: "deviceIds")
@@ -164,6 +163,7 @@ class UKDeviceDiscoveryInformation {
     }
 
     func reloadTimelines() {
+        logger.debug("reloading timelines")
         WidgetCenter.shared.reloadTimelines(ofKind: "com.ukaton.demo.device-discovery")
     }
 

@@ -21,8 +21,12 @@ struct UKBatteryLevelView: View {
         self.init(index: 0)
     }
 
+    var id: String {
+        deviceInformation.id
+    }
+
     var link: URL {
-        .init(string: "ukaton-demo://select-device?id=\(deviceInformation.id)")!
+        .init(string: "ukaton-demo://select-device?id=\(id)")!
     }
 
     var emoji: String {
@@ -72,7 +76,7 @@ struct UKBatteryLevelView: View {
     }
 
     var batteryLevelColor: Color {
-        guard !deviceInformation.isNone else { return .gray }
+        guard !isNone else { return .gray }
 
         return switch batteryLevel {
         case 60 ... 100:
@@ -113,7 +117,7 @@ struct UKBatteryLevelView: View {
     @Environment(\.widgetFamily) var family
 
     var imageName: String? {
-        guard !deviceInformation.isNone else { return nil }
+        guard !isNone else { return nil }
 
         return switch deviceType {
         case .leftInsole, .rightInsole:
@@ -161,7 +165,7 @@ struct UKBatteryLevelView: View {
     }
 
     var body: some View {
-        if deviceInformation.isNone {
+        if isNone {
             _body
         }
         else {

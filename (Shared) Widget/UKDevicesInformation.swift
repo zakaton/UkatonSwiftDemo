@@ -6,8 +6,8 @@ import UkatonKit
 import UkatonMacros
 import WidgetKit
 
-struct UKDeviceInformation {
-    static let none: Self = .init(id: "", name: "", deviceType: .motionModule, batteryLevel: 0, isCharging: false)
+struct UKDeviceInformation: UKAppGroupDeviceMetadata {
+    static let none: Self = .init(id: "", name: "", deviceType: .motionModule, batteryLevel: 0, isCharging: false, isConnectedToWifi: false, ipAddress: nil, connectionType: nil, connectionStatus: .notConnected)
     var isNone: Bool { id == "" }
 
     let id: String
@@ -15,6 +15,10 @@ struct UKDeviceInformation {
     let deviceType: UKDeviceType
     let batteryLevel: UKBatteryLevel
     let isCharging: Bool
+    let isConnectedToWifi: Bool
+    let ipAddress: String?
+    let connectionType: UKConnectionType?
+    let connectionStatus: UKConnectionStatus
 }
 
 typealias UKRawDeviceInformation = [String: String]
@@ -36,13 +40,25 @@ class UKDevicesInformation {
               let deviceType: UKDeviceType = .init(from: deviceTypeName),
               let batteryLevelString = value["batteryLevel"],
               let batteryLevel: UKBatteryLevel = .init(batteryLevelString),
-              let isChargingString = value["isCharging"]
+              let isChargingString = value["isCharging"],
+              let isConnectedToWifiString = value["isConnectedToWifi"],
+              let connectionStatusString = value["connectionStatus"],
+              let connectionStatus: UKConnectionStatus = .init(from: connectionStatusString)
         else {
             return nil
         }
 
         let isCharging = isChargingString == "true"
-        return .init(id: id, name: name, deviceType: deviceType, batteryLevel: batteryLevel, isCharging: isCharging)
+
+        let ipAddress = value["ipAddress"]
+        let isConnectedToWifi = isConnectedToWifiString == "true"
+
+        var connectionType: UKConnectionType?
+        if let connectionTypeString = value["connectionType"] {
+            connectionType = .init(from: connectionTypeString)
+        }
+
+        return .init(id: id, name: name, deviceType: deviceType, batteryLevel: batteryLevel, isCharging: isCharging, isConnectedToWifi: isConnectedToWifi, ipAddress: ipAddress, connectionType: connectionType, connectionStatus: connectionStatus)
     }
 
     func getInformation(index: Int) -> UKDeviceInformation? {
@@ -57,12 +73,20 @@ class UKDevicesInformation {
     private var cancellables: Set<AnyCancellable> = .init()
     private var missionsCancellables: [String: Set<AnyCancellable>] = .init()
     private func updateDeviceInformation(for mission: UKMission) {
-        let rawDeviceInformation: UKRawDeviceInformation = [
+        var rawDeviceInformation: UKRawDeviceInformation = [
             "name": mission.name,
             "deviceType": mission.deviceType.name,
             "batteryLevel": .init(mission.batteryLevel),
-            "isCharging": mission.isCharging ? "true" : "false"
+            "isCharging": mission.isCharging ? "true" : "false",
+            "isConnectedToWifi": mission.isConnectedToWifi ? "true" : "false",
+            "connectionStatus": mission.connectionStatus.name
         ]
+        if mission.isConnectedToWifi, let ipAddress = mission.ipAddress {
+            rawDeviceInformation["ipAddress"] = ipAddress
+        }
+        if mission.isConnected, let connectionType = mission.connectionType {
+            rawDeviceInformation["connectionType"] = connectionType.name
+        }
         defaults.set(rawDeviceInformation, forKey: key(for: mission))
         let _key = key(for: mission)
         logger.debug("set value for key \(_key): \(rawDeviceInformation)")

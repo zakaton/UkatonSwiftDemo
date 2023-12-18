@@ -99,23 +99,23 @@ struct DeviceDiscovery: View {
             }
         }
         .environmentObject(navigationCoordinator)
-        .onChange(of: scenePhase) { _, newPhase in
-            switch newPhase {
-            case .background:
-                if bluetoothManager.isScanning {
-                    wasScanning = true
-                    bluetoothManager.stopScanningForDevices()
-                }
-
-            case .active:
-                if wasScanning {
-                    wasScanning = false
-                    bluetoothManager.scanForDevices()
-                }
-            default:
-                break
-            }
-        }
+//        .onChange(of: scenePhase) { _, newPhase in
+//            switch newPhase {
+//            case .background:
+//                if bluetoothManager.isScanning {
+//                    wasScanning = true
+//                    bluetoothManager.stopScanningForDevices()
+//                }
+//
+//            case .active:
+//                if wasScanning {
+//                    wasScanning = false
+//                    bluetoothManager.scanForDevices()
+//                }
+//            default:
+//                break
+//            }
+//        }
         .onOpenURL { incomingURL in
             logger.debug("(DeviceDiscovery) App was opened via URL: \(incomingURL)")
             handleIncomingURL(incomingURL)

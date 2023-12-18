@@ -14,34 +14,21 @@ struct UKDeviceDiscoveryWidgetEntryView: View {
 
     var spacing: CGFloat = 12
 
-    var systemLargeBody: some View {
-        VStack(spacing: spacing + 4) {
-            ForEach(0 ..< 6) {
-                UKDeviceDiscoveryView(index: $0)
-                Divider()
-            }
-        }
-    }
-
-    var systemExtraLargeBody: some View {
-        VStack(spacing: spacing + 4) {
-            ForEach(0 ..< 6) {
-                UKDeviceDiscoveryView(index: $0)
-                Divider()
-            }
-        }
-    }
-
     var uncaughtBody: some View {
         Text("uncaught widget family")
             .unredacted()
     }
 
     @ViewBuilder
-    var scanImage: some View {
-        let text = deviceDiscoveryInformation.isScanning ? "stop scan" : "scan"
+    var scanButton: some View {
+        let text = deviceDiscoveryInformation.isScanning ? "scanning" : "scan"
         let imageName = deviceDiscoveryInformation.isScanning ? "antenna.radiowaves.left.and.right" : "antenna.radiowaves.left.and.right.slash"
-        Label(text, systemImage: imageName)
+        let label = Label(text, systemImage: imageName)
+            .labelStyle(.iconOnly)
+        let intent = UKToggleDeviceScanIntent()
+        Button(intent: intent) {
+            label
+        }
     }
 
     var body: some View {
@@ -49,10 +36,9 @@ struct UKDeviceDiscoveryWidgetEntryView: View {
             Text("Ukaton Devices")
                 .font(.title)
             Spacer()
-            Button(intent: UKToggleDeviceScanIntent()) {
-                scanImage
-            }
+            scanButton
         }
+
         if isScanning {
             HStack {
                 Spacer()
@@ -60,21 +46,23 @@ struct UKDeviceDiscoveryWidgetEntryView: View {
                 Spacer()
             }
         }
-        if !isScanning, ids.isEmpty {
-            HStack {
-                Spacer()
-                Text("no devices found")
-                Spacer()
+        if ids.isEmpty {
+            if !isScanning {
+                HStack {
+                    Spacer()
+                    Text("no devices found")
+                    Spacer()
+                }
             }
         }
-
-        switch family {
-        case .systemLarge:
-            systemLargeBody
-        case .systemExtraLarge:
-            systemExtraLargeBody
-        default:
-            uncaughtBody
+        else {
+            VStack {
+                ForEach(ids, id: \.self) {
+                    UKDeviceDiscoveryRow(id: $0)
+                    Divider()
+                }
+            }
         }
+        Spacer()
     }
 }
