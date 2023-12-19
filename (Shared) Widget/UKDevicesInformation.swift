@@ -133,7 +133,8 @@ class UKDevicesInformation {
 
     func reloadTimelines() {
         logger.debug("(UKDevicesInformation) reloading timelines")
-        WidgetCenter.shared.reloadTimelines(ofKind: "com.ukaton.demo.battery-level")
+        //WidgetCenter.shared.reloadTimelines(ofKind: "com.ukaton.demo.battery-level")
+        WidgetCenter.shared.reloadAllTimelines()
     }
 
     func clear() {

@@ -179,7 +179,8 @@ class UKDeviceDiscoveryInformation {
 
     func reloadTimelines() {
         logger.debug("(UKDeviceDiscoveryInformation) reloading timelines")
-        WidgetCenter.shared.reloadTimelines(ofKind: "com.ukaton.demo.device-discovery")
+        // WidgetCenter.shared.reloadTimelines(ofKind: "com.ukaton.demo.device-discovery")
+        WidgetCenter.shared.reloadAllTimelines()
     }
 
     func clear() {
