@@ -237,32 +237,35 @@ struct UKBatteryLevelView: View {
             }
         case .accessoryRectangular:
             if UKBatteryLevelWidgetEntryView.onlyShowSingleViewForAccessoryRectangular {
-                if !isNone {
-                    VStack {
-                        HStack {
-                            image
-                            if isCharging {
-                                Image(systemName: "bolt.fill")
-                            }
-                            batteryLevelView
-                                .fontWeight(.semibold)
-                            Spacer()
+                VStack {
+                    HStack {
+                        image
+                        if isCharging {
+                            Image(systemName: "bolt.fill")
                         }
-                        HStack {
-                            Text("\(name)")
-                            Spacer()
-                        }
-                        ProgressView(value: .init(batteryLevelProgress))
-                            .tint(batteryLevelColor)
-                            .modify {
-                                #if os(iOS)
-                                    $0.scaleEffect(x: 1, y: 2, anchor: .center)
-                                        .offset(y: -2)
-                                #else
-                                #endif
-                            }
+                        batteryLevelView
+                            .fontWeight(.semibold)
                         Spacer()
                     }
+                    HStack {
+                        if !isNone {
+                            Text("\(name)")
+                        }
+                        else {
+                            Text("no device connected")
+                        }
+                        Spacer()
+                    }
+                    ProgressView(value: .init(batteryLevelProgress))
+                        .tint(batteryLevelColor)
+                        .modify {
+                            #if os(iOS)
+                                $0.scaleEffect(x: 1, y: 2, anchor: .center)
+                                    .offset(y: -2)
+                            #else
+                            #endif
+                        }
+                    Spacer()
                 }
             }
             else {
