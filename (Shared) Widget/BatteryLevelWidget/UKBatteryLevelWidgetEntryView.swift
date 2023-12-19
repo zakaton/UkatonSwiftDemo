@@ -18,7 +18,7 @@ struct UKBatteryLevelWidgetEntryView: View {
         UKBatteryLevelView()
     }
 
-    public static var onlyShowSingleViewForAccessoryRectangular: Bool = true
+    public static var onlyShowSingleViewForAccessoryRectangular: Bool = is_iOS
     @ViewBuilder
     var accessoryRectangularBody: some View {
         if Self.onlyShowSingleViewForAccessoryRectangular {

@@ -41,7 +41,6 @@ struct UKDeviceDiscoveryRow: View {
     }
 
     var isConnected: Bool {
-        // TODO: - is this an issue?
         discoveredDeviceInformation.isConnected
     }
 
@@ -208,7 +207,6 @@ struct UKDeviceDiscoveryRow: View {
     var connectionContent: some View {
         HStack {
             if connectionStatus == .connected || connectionStatus == .disconnecting {
-                // Text("connected via \(connectionType!.name)")
                 Button(role: .destructive, intent: UKDisconnectFromDeviceIntent(deviceId: id), label: {
                     Text("disconnect")
                 })
@@ -238,7 +236,7 @@ struct UKDeviceDiscoveryRow: View {
                     if let connectionType {
                         Button(role: .cancel, intent: UKDisconnectFromDeviceIntent(deviceId: id), label: {
                             Text("connecting...")
-                                .accessibilityLabel("cancel connection")
+                                .accessibilityLabel("cancel connection via \(connectionType.name)")
                         })
                         .buttonStyle(.borderedProminent)
                     }
