@@ -236,29 +236,33 @@ struct UKBatteryLevelView: View {
                 #endif
             }
         case .accessoryRectangular:
-            if false {
-                VStack {
-                    HStack {
-                        image
-                        if isCharging {
-                            Image(systemName: "bolt.fill")
+            if UKBatteryLevelWidgetEntryView.onlyShowSingleViewForAccessoryRectangular {
+                if !isNone {
+                    VStack {
+                        HStack {
+                            image
+                            if isCharging {
+                                Image(systemName: "bolt.fill")
+                            }
+                            batteryLevelView
+                                .fontWeight(.semibold)
+                            Spacer()
                         }
-                        batteryLevelView
-                            .fontWeight(.semibold)
+                        HStack {
+                            Text("\(name)")
+                            Spacer()
+                        }
+                        ProgressView(value: .init(batteryLevelProgress))
+                            .tint(batteryLevelColor)
+                            .modify {
+                                #if os(iOS)
+                                    $0.scaleEffect(x: 1, y: 2, anchor: .center)
+                                        .offset(y: -2)
+                                #else
+                                #endif
+                            }
                         Spacer()
                     }
-                    HStack {
-                        Text("\(name)")
-                        Spacer()
-                    }
-                    ProgressView(value: .init(batteryLevelProgress))
-                        .tint(batteryLevelColor)
-                        .modify {
-                            #if os(iOS)
-                                $0.scaleEffect(x: 1, y: 2, anchor: .center)
-                            #else
-                            #endif
-                        }
                 }
             }
             else {

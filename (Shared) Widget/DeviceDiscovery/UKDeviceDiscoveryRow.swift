@@ -91,12 +91,14 @@ struct UKDeviceDiscoveryRow: View {
         return .init(batteryLevel) / 100
     }
 
+    @ViewBuilder
     var batteryLevelView: some View {
         if !isNone {
-            Text("\(batteryLevel)%")
-        }
-        else {
-            Text(" ")
+            HStack(spacing: 3) {
+                Text("\(batteryLevel)%")
+                batteryLevelImage
+            }
+            .font(.caption)
         }
     }
 
@@ -148,9 +150,9 @@ struct UKDeviceDiscoveryRow: View {
 
         return switch deviceType {
         case .leftInsole, .rightInsole:
-            "shoe"
+            "shoe.fill"
         default:
-            "rotate.3d"
+            "rotate.3d.fill"
         }
     }
 
@@ -178,18 +180,11 @@ struct UKDeviceDiscoveryRow: View {
 
     @ViewBuilder
     var header: some View {
-        VStack {
-            HStack {
-                Text("\(name)")
-                    .font(.title2)
-                Spacer()
-            }
-            HStack(spacing: 4) {
-                image
-                Text("\(deviceType.name)")
-                Spacer()
-            }
+        HStack {
+            image
+            Text("\(name)")
         }
+        .widgetURL(link)
     }
 
     @ViewBuilder
@@ -213,7 +208,7 @@ struct UKDeviceDiscoveryRow: View {
     var connectionContent: some View {
         HStack {
             if connectionStatus == .connected || connectionStatus == .disconnecting {
-                Text("connected via \(connectionType!.name)")
+                // Text("connected via \(connectionType!.name)")
                 Button(role: .destructive, intent: UKDisconnectFromDeviceIntent(deviceId: id), label: {
                     Text("disconnect")
                 })
@@ -225,9 +220,8 @@ struct UKDeviceDiscoveryRow: View {
             }
             else {
                 if connectionStatus == .notConnected {
-                    Text("connect via:")
                     Button(intent: UKConnectToDeviceIntent(deviceId: id, connectionType: .bluetooth), label: {
-                        Text("bluetooth")
+                        Text("ble")
                             .accessibilityLabel("connect via bluetooth")
                     })
                     .buttonStyle(.borderedProminent)
@@ -242,11 +236,8 @@ struct UKDeviceDiscoveryRow: View {
                 }
                 else {
                     if let connectionType {
-                        if is_iOS {
-                            Spacer()
-                        }
                         Button(role: .cancel, intent: UKDisconnectFromDeviceIntent(deviceId: id), label: {
-                            Text("connecting via \(connectionType.name)...")
+                            Text("connecting...")
                                 .accessibilityLabel("cancel connection")
                         })
                         .buttonStyle(.borderedProminent)
@@ -254,20 +245,20 @@ struct UKDeviceDiscoveryRow: View {
                 }
             }
         }
+        .font(.caption)
     }
 
     var body: some View {
         HStack {
-            VStack {
-                VStack {
-                    HStack {
-                        header
-                    }
-                    connectionContent
-                }
-                footer
+            header
+            if isConnected {
+                Spacer()
             }
+            connectionContent
             Spacer()
+            if isConnected {
+                batteryLevelView
+            }
         }
         .padding(2)
     }

@@ -72,25 +72,18 @@ class UKDeviceDiscoveryInformation {
     }
 
     private var cancellables: Set<AnyCancellable> = .init()
+    private var devicesCancellables: [String: Set<AnyCancellable>] = .init()
     private func updateDeviceInformation(for discoveredDevice: UKDiscoveredBluetoothDevice) -> Bool {
         var shouldUpdateDeviceInformation = false
         if let id = discoveredDevice.id?.uuidString, let discoveredDeviceInformation = getInformation(id: id) {
-            if discoveredDevice.name != discoveredDeviceInformation.name {
-                shouldUpdateDeviceInformation = true
-            }
-            else if discoveredDevice.deviceType != discoveredDeviceInformation.deviceType {
-                shouldUpdateDeviceInformation = true
-            }
-            else if discoveredDevice.isConnectedToWifi != discoveredDeviceInformation.isConnectedToWifi {
-                shouldUpdateDeviceInformation = true
-            }
-            else if discoveredDevice.ipAddress != discoveredDeviceInformation.ipAddress {
-                shouldUpdateDeviceInformation = true
-            }
-            else if discoveredDevice.mission.isConnected != discoveredDeviceInformation.isConnected {
-                shouldUpdateDeviceInformation = true
-            }
-            else if discoveredDevice.mission.connectionType != discoveredDeviceInformation.connectionType {
+            if discoveredDevice.name != discoveredDeviceInformation.name ||
+                discoveredDevice.deviceType != discoveredDeviceInformation.deviceType ||
+                discoveredDevice.isConnectedToWifi != discoveredDeviceInformation.isConnectedToWifi ||
+                discoveredDevice.ipAddress != discoveredDeviceInformation.ipAddress ||
+                discoveredDevice.mission.isConnected != discoveredDeviceInformation.isConnected ||
+                discoveredDevice.mission.connectionStatus != discoveredDeviceInformation.connectionStatus ||
+                discoveredDevice.mission.connectionType != discoveredDeviceInformation.connectionType
+            {
                 shouldUpdateDeviceInformation = true
             }
         }
@@ -108,7 +101,7 @@ class UKDeviceDiscoveryInformation {
             if discoveredDevice.isConnectedToWifi, let ipAddress = discoveredDevice.ipAddress {
                 rawDiscoveredDeviceInformation["ipAddress"] = ipAddress
             }
-            if discoveredDevice.mission.isConnected, let connectionType = discoveredDevice.mission.connectionType {
+            if let connectionType = discoveredDevice.mission.connectionType {
                 rawDiscoveredDeviceInformation["connectionType"] = connectionType.name
             }
             defaults.set(rawDiscoveredDeviceInformation, forKey: key(for: discoveredDevice))
@@ -127,6 +120,28 @@ class UKDeviceDiscoveryInformation {
             let newIsScanning = bluetoothManager.isScanning
             logger.debug("updating isScanning to \(newIsScanning)")
             defaults.setValue(newIsScanning, forKey: "isScanning")
+            reloadTimelines()
+        }).store(in: &cancellables)
+
+        UKMission.deviceCreatedSubject.sink(receiveValue: { [self] mission in
+            if devicesCancellables[mission.id] == nil {
+                devicesCancellables[mission.id] = .init()
+            }
+
+            mission.connectionStatusSubject.sink(receiveValue: { [self] _ in
+                if let discoveredDeviceIndex = bluetoothManager.discoveredDevices.firstIndex(where: { $0.mission == mission }) {
+                    let shouldReload = updateDeviceInformation(for: bluetoothManager.discoveredDevices[discoveredDeviceIndex])
+                    if shouldReload {
+                        reloadTimelines()
+                    }
+                }
+            }).store(in: &devicesCancellables[mission.id]!)
+
+        }).store(in: &cancellables)
+
+        UKMission.deviceDestroyedSubject.sink(receiveValue: { [self] mission in
+            logger.debug("removing value for mission \(mission.id)")
+            devicesCancellables.removeValue(forKey: mission.id)
             reloadTimelines()
         }).store(in: &cancellables)
 
@@ -163,7 +178,7 @@ class UKDeviceDiscoveryInformation {
     }
 
     func reloadTimelines() {
-        logger.debug("reloading timelines")
+        logger.debug("(UKDeviceDiscoveryInformation) reloading timelines")
         WidgetCenter.shared.reloadTimelines(ofKind: "com.ukaton.demo.device-discovery")
     }
 

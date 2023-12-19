@@ -18,11 +18,18 @@ struct UKBatteryLevelWidgetEntryView: View {
         UKBatteryLevelView()
     }
 
+    public static var onlyShowSingleViewForAccessoryRectangular: Bool = true
+    @ViewBuilder
     var accessoryRectangularBody: some View {
-        HStack(spacing: 8) {
-            UKBatteryLevelView(index: 0)
-            UKBatteryLevelView(index: 1)
-            UKBatteryLevelView(index: 2)
+        if Self.onlyShowSingleViewForAccessoryRectangular {
+            UKBatteryLevelView()
+        }
+        else {
+            HStack(spacing: 8) {
+                UKBatteryLevelView(index: 0)
+                UKBatteryLevelView(index: 1)
+                UKBatteryLevelView(index: 2)
+            }
         }
     }
 

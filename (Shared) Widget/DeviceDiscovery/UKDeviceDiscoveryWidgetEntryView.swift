@@ -29,7 +29,7 @@ struct UKDeviceDiscoveryWidgetEntryView: View {
     var body: some View {
         HStack {
             Text("Ukaton Devices")
-                .font(.title)
+                .font(.title2)
             Spacer()
             scanButton
         }
@@ -38,6 +38,7 @@ struct UKDeviceDiscoveryWidgetEntryView: View {
             HStack {
                 Spacer()
                 Text("scanning for devices...")
+                    .font(.caption)
                 Spacer()
             }
         }
@@ -46,11 +47,12 @@ struct UKDeviceDiscoveryWidgetEntryView: View {
                 HStack {
                     Spacer()
                     Text("no devices found")
+                        .font(.caption)
                     Spacer()
                 }
             }
         }
-        else {
+        if !ids.isEmpty {
             VStack {
                 ForEach(ids, id: \.self) {
                     UKDeviceDiscoveryRow(id: $0)

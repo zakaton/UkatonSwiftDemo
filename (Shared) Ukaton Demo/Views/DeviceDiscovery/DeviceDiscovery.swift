@@ -137,7 +137,7 @@ struct DeviceDiscovery: View {
         switch action {
         case "select-device":
             if let deviceId = components.queryItems?.first(where: { $0.name == "id" })?.value {
-                if let discoveredDevice = bluetoothManager.discoveredDevices.first(where: { $0.id?.uuidString == deviceId }) {
+                if let discoveredDevice = bluetoothManager.discoveredDevices.first(where: { $0.mission.id == deviceId }) {
                     navigationCoordinator.path.removeLast(navigationCoordinator.path.count)
                     navigationCoordinator.path.append(discoveredDevice)
                 }

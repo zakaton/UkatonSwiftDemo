@@ -84,7 +84,7 @@ class UKDevicesInformation {
         if mission.isConnectedToWifi, let ipAddress = mission.ipAddress {
             rawDeviceInformation["ipAddress"] = ipAddress
         }
-        if mission.isConnected, let connectionType = mission.connectionType {
+        if let connectionType = mission.connectionType {
             rawDeviceInformation["connectionType"] = connectionType.name
         }
         defaults.set(rawDeviceInformation, forKey: key(for: mission))
@@ -132,6 +132,7 @@ class UKDevicesInformation {
     }
 
     func reloadTimelines() {
+        logger.debug("(UKDevicesInformation) reloading timelines")
         WidgetCenter.shared.reloadTimelines(ofKind: "com.ukaton.demo.battery-level")
     }
 
