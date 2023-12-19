@@ -171,11 +171,11 @@ struct UKBatteryLevelView: View {
         else {
             Link(destination: link) {
                 _body
-//                    .modify {
-//                        #if os(watchOS)
-//                            $0.widgetURL(link)
-//                        #endif
-//                    }
+                    .modify {
+                        #if os(watchOS)
+                            $0.widgetURL(link)
+                        #endif
+                    }
             }
         }
     }
