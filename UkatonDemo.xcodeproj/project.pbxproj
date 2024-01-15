@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -47,7 +47,6 @@
 		5F1B3FFD2B2E2FFE00CB5C52 /* WidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F86D83B2B24E89400B81382 /* WidgetBundle.swift */; };
 		5F1B3FFF2B2E2FFE00CB5C52 /* UKDevicesInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F311CEC2B2A9B16008DD780 /* UKDevicesInformation.swift */; };
 		5F1B40002B2E2FFE00CB5C52 /* UKBatteryLevelWidgetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF276CB2B27838B00630B3B /* UKBatteryLevelWidgetConfiguration.swift */; };
-		5F1B40022B2E308B00CB5C52 /* UkatonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5F1B40012B2E308B00CB5C52 /* UkatonKit */; };
 		5F1B40032B2E310E00CB5C52 /* ViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0F6F5A2AFEC9E8007D0D03 /* ViewModifier.swift */; };
 		5F2101412B2F80460055E608 /* UKDeviceDiscoveryWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2101402B2F80460055E608 /* UKDeviceDiscoveryWidget.swift */; };
 		5F2101422B2F80460055E608 /* UKDeviceDiscoveryWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2101402B2F80460055E608 /* UKDeviceDiscoveryWidget.swift */; };
@@ -101,9 +100,6 @@
 		5F2101962B30E4750055E608 /* PlatformUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3315152B1505E200011E40 /* PlatformUtils.swift */; };
 		5F2101972B30E4760055E608 /* PlatformUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3315152B1505E200011E40 /* PlatformUtils.swift */; };
 		5F2B87182AE18C7000BF304B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF58F352ADE51D900AD2941 /* ContentView.swift */; };
-		5F2B871C2AE18DFA00BF304B /* UkatonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5F2B871B2AE18DFA00BF304B /* UkatonKit */; };
-		5F2B871F2AE18E2100BF304B /* UkatonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5F2B871E2AE18E2100BF304B /* UkatonKit */; };
-		5F2B87212AE18E2600BF304B /* UkatonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5F2B87202AE18E2600BF304B /* UkatonKit */; };
 		5F311CE72B2A9803008DD780 /* AppStorageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F311CE62B2A9803008DD780 /* AppStorageUtils.swift */; };
 		5F311CE82B2A9803008DD780 /* AppStorageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F311CE62B2A9803008DD780 /* AppStorageUtils.swift */; };
 		5F311CE92B2A9803008DD780 /* AppStorageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F311CE62B2A9803008DD780 /* AppStorageUtils.swift */; };
@@ -183,7 +179,6 @@
 		5F63E02F2B1D2E2700B868BE /* BalanceDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F63E02C2B1D2E2700B868BE /* BalanceDemo.swift */; };
 		5F63E0302B1D2E2700B868BE /* BalanceDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F63E02C2B1D2E2700B868BE /* BalanceDemo.swift */; };
 		5F63E0312B1D2E2700B868BE /* BalanceDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F63E02C2B1D2E2700B868BE /* BalanceDemo.swift */; };
-		5F6A0DDC2B0D359600E15FFC /* UkatonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5F6A0DDB2B0D359600E15FFC /* UkatonKit */; };
 		5F6A0DDE2B0D462900E15FFC /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = 5FD458C52B0BDB7D0030BE6E /* popup.html */; };
 		5F6A0DDF2B0D462900E15FFC /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 5FD458BF2B0BDB7D0030BE6E /* manifest.json */; };
 		5F6A0DE02B0D462900E15FFC /* popup.css in Resources */ = {isa = PBXBuildFile; fileRef = 5FD458C72B0BDB7D0030BE6E /* popup.css */; };
@@ -194,7 +189,6 @@
 		5F6A0DE62B0D462E00E15FFC /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = 5FD458BB2B0BDB7D0030BE6E /* _locales */; };
 		5F6A0DE72B0D463600E15FFC /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD458B82B0BDB7D0030BE6E /* SafariWebExtensionHandler.swift */; };
 		5F6A0DE82B0D463600E15FFC /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD458B82B0BDB7D0030BE6E /* SafariWebExtensionHandler.swift */; };
-		5F6A0DEA2B0D469100E15FFC /* UkatonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5F6A0DE92B0D469100E15FFC /* UkatonKit */; };
 		5F6A0DEB2B0D470E00E15FFC /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 5FD458BF2B0BDB7D0030BE6E /* manifest.json */; };
 		5F6A0DEC2B0D471600E15FFC /* popup.css in Resources */ = {isa = PBXBuildFile; fileRef = 5FD458C72B0BDB7D0030BE6E /* popup.css */; };
 		5F6A0DED2B0D471600E15FFC /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = 5FD458C52B0BDB7D0030BE6E /* popup.html */; };
@@ -211,7 +205,6 @@
 		5F791F202B2516190043C391 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F86D8362B24E89400B81382 /* WidgetKit.framework */; };
 		5F791F212B2516190043C391 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F86D8382B24E89400B81382 /* SwiftUI.framework */; };
 		5F791F2A2B25161A0043C391 /* (Watch) Ukaton Demo Widget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5F791F1F2B2516190043C391 /* (Watch) Ukaton Demo Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		5F791F302B25164E0043C391 /* UkatonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5F791F2F2B25164E0043C391 /* UkatonKit */; };
 		5F8135F52B26D5C500B3ED13 /* UKBatteryLevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBDE9DD2B26CECA00F24515 /* UKBatteryLevelView.swift */; };
 		5F8135F62B26D5C500B3ED13 /* UKBatteryLevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBDE9DD2B26CECA00F24515 /* UKBatteryLevelView.swift */; };
 		5F8135F72B26D5DE00B3ED13 /* UKBatteryLevelWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBDE9EB2B26CF0800F24515 /* UKBatteryLevelWidgetEntryView.swift */; };
@@ -229,11 +222,9 @@
 		5F86D85E2B25066200B81382 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F86D8362B24E89400B81382 /* WidgetKit.framework */; };
 		5F86D85F2B25066200B81382 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F86D8382B24E89400B81382 /* SwiftUI.framework */; };
 		5F86D86B2B25066300B81382 /* (iOS) Ukaton Demo Widget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5F86D85D2B25066100B81382 /* (iOS) Ukaton Demo Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		5F86D8702B25077200B81382 /* UkatonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5F86D86F2B25077200B81382 /* UkatonKit */; };
 		5F86D8712B2507F600B81382 /* UKBatteryLevelWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F86D8512B2505D800B81382 /* UKBatteryLevelWidget.swift */; };
 		5F86D8732B2507FD00B81382 /* WidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F86D83B2B24E89400B81382 /* WidgetBundle.swift */; };
 		5F8741F12B0AA62E00D67026 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F8741F02B0AA62E00D67026 /* Preview Assets.xcassets */; };
-		5F8741F72B0AA66200D67026 /* UkatonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5F8741F62B0AA66200D67026 /* UkatonKit */; };
 		5F8741FA2B0AA88E00D67026 /* UkatonDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF58F332ADE51D900AD2941 /* UkatonDemoApp.swift */; };
 		5F8741FB2B0AA89100D67026 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF58F352ADE51D900AD2941 /* ContentView.swift */; };
 		5F8741FC2B0AA89800D67026 /* MotionCalibrationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCC84A32AFC414100B755FA /* MotionCalibrationSection.swift */; };
@@ -274,7 +265,6 @@
 		5F87421F2B0AA8A800D67026 /* DeviceDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F426ED22AF1F51D00E58F15 /* DeviceDetail.swift */; };
 		5F8742202B0AA8A800D67026 /* DiscoveredDeviceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F426ECE2AF17CEA00E58F15 /* DiscoveredDeviceRow.swift */; };
 		5F8B9DB22B096CDF00E53711 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F8B9DB12B096CDF00E53711 /* Preview Assets.xcassets */; };
-		5F8B9DB72B096CFD00E53711 /* UkatonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5F8B9DB62B096CFD00E53711 /* UkatonKit */; };
 		5F8B9DB82B096D1F00E53711 /* monkey.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 5F0F6F4E2AFE9CCB007D0D03 /* monkey.usdz */; };
 		5F8B9DB92B096D2200E53711 /* leftShoe.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 5F0F6F4A2AFDF3C5007D0D03 /* leftShoe.usdz */; };
 		5F8B9DBB2B096DA900E53711 /* UkatonDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF58F332ADE51D900AD2941 /* UkatonDemoApp.swift */; };
@@ -323,7 +313,6 @@
 		5F93F7F52B10366F0007B4BD /* UkatonKit.js in Resources */ = {isa = PBXBuildFile; fileRef = 5F93F7F32B10366F0007B4BD /* UkatonKit.js */; };
 		5F93F7F62B10366F0007B4BD /* UkatonKit.js in Resources */ = {isa = PBXBuildFile; fileRef = 5F93F7F32B10366F0007B4BD /* UkatonKit.js */; };
 		5F9779062B0AA1230057AA56 /* (iOS) Ukaton Demo Safari Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5F9778EE2B0AA1230057AA56 /* (iOS) Ukaton Demo Safari Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		5F97790C2B0AA28E0057AA56 /* UkatonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5F97790B2B0AA28E0057AA56 /* UkatonKit */; };
 		5F9F82B72B02970300DDD9AB /* MissionPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F82B62B02970300DDD9AB /* MissionPair.swift */; };
 		5F9F82B82B02970300DDD9AB /* MissionPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F82B62B02970300DDD9AB /* MissionPair.swift */; };
 		5F9F82B92B02970300DDD9AB /* MissionPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9F82B62B02970300DDD9AB /* MissionPair.swift */; };
@@ -403,6 +392,17 @@
 		5FD0E5562B12A37B001CDBEF /* UKMission.js in Resources */ = {isa = PBXBuildFile; fileRef = 5FD0E5552B12A37B001CDBEF /* UKMission.js */; };
 		5FD0E5572B12A37B001CDBEF /* UKMission.js in Resources */ = {isa = PBXBuildFile; fileRef = 5FD0E5552B12A37B001CDBEF /* UKMission.js */; };
 		5FD0E5582B12A37B001CDBEF /* UKMission.js in Resources */ = {isa = PBXBuildFile; fileRef = 5FD0E5552B12A37B001CDBEF /* UKMission.js */; };
+		5FD44F802B54FCD9006A598A /* UkatonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5FD44F7F2B54FCD9006A598A /* UkatonKit */; };
+		5FD44F822B54FCF2006A598A /* UkatonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5FD44F812B54FCF2006A598A /* UkatonKit */; };
+		5FD44F842B54FD06006A598A /* UkatonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5FD44F832B54FD06006A598A /* UkatonKit */; };
+		5FD44F862B54FD12006A598A /* UkatonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5FD44F852B54FD12006A598A /* UkatonKit */; };
+		5FD44F882B54FD16006A598A /* UkatonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5FD44F872B54FD16006A598A /* UkatonKit */; };
+		5FD44F8A2B54FD19006A598A /* UkatonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5FD44F892B54FD19006A598A /* UkatonKit */; };
+		5FD44F8C2B54FD1D006A598A /* UkatonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5FD44F8B2B54FD1D006A598A /* UkatonKit */; };
+		5FD44F8E2B54FD26006A598A /* UkatonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5FD44F8D2B54FD26006A598A /* UkatonKit */; };
+		5FD44F902B54FD2B006A598A /* UkatonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5FD44F8F2B54FD2B006A598A /* UkatonKit */; };
+		5FD44F922B54FD2F006A598A /* UkatonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5FD44F912B54FD2F006A598A /* UkatonKit */; };
+		5FD44F942B54FD32006A598A /* UkatonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5FD44F932B54FD32006A598A /* UkatonKit */; };
 		5FD458AA2B0AB1180030BE6E /* leftShoe.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 5F0F6F4A2AFDF3C5007D0D03 /* leftShoe.usdz */; };
 		5FD458AB2B0AB11B0030BE6E /* monkey.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 5F0F6F4E2AFE9CCB007D0D03 /* monkey.usdz */; };
 		5FD458B92B0BDB7D0030BE6E /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD458B82B0BDB7D0030BE6E /* SafariWebExtensionHandler.swift */; };
@@ -714,7 +714,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F1B3FE52B2E2FCF00CB5C52 /* SwiftUI.framework in Frameworks */,
-				5F1B40022B2E308B00CB5C52 /* UkatonKit in Frameworks */,
+				5FD44F882B54FD16006A598A /* UkatonKit in Frameworks */,
 				5F1B3FE42B2E2FCF00CB5C52 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -724,7 +724,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F791F212B2516190043C391 /* SwiftUI.framework in Frameworks */,
-				5F791F302B25164E0043C391 /* UkatonKit in Frameworks */,
+				5FD44F8E2B54FD26006A598A /* UkatonKit in Frameworks */,
 				5F791F202B2516190043C391 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -734,7 +734,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F86D85F2B25066200B81382 /* SwiftUI.framework in Frameworks */,
-				5F86D8702B25077200B81382 /* UkatonKit in Frameworks */,
+				5FD44F842B54FD06006A598A /* UkatonKit in Frameworks */,
 				5F86D85E2B25066200B81382 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -743,7 +743,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F8741F72B0AA66200D67026 /* UkatonKit in Frameworks */,
+				5FD44F922B54FD2F006A598A /* UkatonKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -751,7 +751,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F8B9DB72B096CFD00E53711 /* UkatonKit in Frameworks */,
+				5FD44F902B54FD2B006A598A /* UkatonKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -759,7 +759,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F97790C2B0AA28E0057AA56 /* UkatonKit in Frameworks */,
+				5FD44F822B54FCF2006A598A /* UkatonKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -767,7 +767,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F6A0DDC2B0D359600E15FFC /* UkatonKit in Frameworks */,
+				5FD44F8A2B54FD19006A598A /* UkatonKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -775,7 +775,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F6A0DEA2B0D469100E15FFC /* UkatonKit in Frameworks */,
+				5FD44F942B54FD32006A598A /* UkatonKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -783,7 +783,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F2B871C2AE18DFA00BF304B /* UkatonKit in Frameworks */,
+				5FD44F802B54FCD9006A598A /* UkatonKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -791,7 +791,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F2B871F2AE18E2100BF304B /* UkatonKit in Frameworks */,
+				5FD44F8C2B54FD1D006A598A /* UkatonKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -799,7 +799,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F2B87212AE18E2600BF304B /* UkatonKit in Frameworks */,
+				5FD44F862B54FD12006A598A /* UkatonKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1364,7 +1364,7 @@
 			);
 			name = "(Mac) Ukaton Demo Widget";
 			packageProductDependencies = (
-				5F1B40012B2E308B00CB5C52 /* UkatonKit */,
+				5FD44F872B54FD16006A598A /* UkatonKit */,
 			);
 			productName = WidgetExtension;
 			productReference = 5F1B3FE32B2E2FCF00CB5C52 /* (Mac) Ukaton Demo Widget.appex */;
@@ -1384,7 +1384,7 @@
 			);
 			name = "(Watch) Ukaton Demo Widget";
 			packageProductDependencies = (
-				5F791F2F2B25164E0043C391 /* UkatonKit */,
+				5FD44F8D2B54FD26006A598A /* UkatonKit */,
 			);
 			productName = WidgetExtension;
 			productReference = 5F791F1F2B2516190043C391 /* (Watch) Ukaton Demo Widget.appex */;
@@ -1404,7 +1404,7 @@
 			);
 			name = "(iOS) Ukaton Demo Widget";
 			packageProductDependencies = (
-				5F86D86F2B25077200B81382 /* UkatonKit */,
+				5FD44F832B54FD06006A598A /* UkatonKit */,
 			);
 			productName = WidgetExtension;
 			productReference = 5F86D85D2B25066100B81382 /* (iOS) Ukaton Demo Widget.appex */;
@@ -1426,7 +1426,7 @@
 			);
 			name = "(VisionOS) Ukaton Demo";
 			packageProductDependencies = (
-				5F8741F62B0AA66200D67026 /* UkatonKit */,
+				5FD44F912B54FD2F006A598A /* UkatonKit */,
 			);
 			productName = "VisionOS UkatonSwiftDemo";
 			productReference = 5F8741E32B0AA62D00D67026 /* (VisionOS) Ukaton Demo.app */;
@@ -1446,7 +1446,7 @@
 			);
 			name = "(TV) Ukaton Demo";
 			packageProductDependencies = (
-				5F8B9DB62B096CFD00E53711 /* UkatonKit */,
+				5FD44F8F2B54FD2B006A598A /* UkatonKit */,
 			);
 			productName = "TV Ukaton Swift Demo";
 			productReference = 5F8B9DA82B096CDE00E53711 /* (TV) Ukaton Demo.app */;
@@ -1466,7 +1466,7 @@
 			);
 			name = "(iOS) Ukaton Demo Safari Extension";
 			packageProductDependencies = (
-				5F97790B2B0AA28E0057AA56 /* UkatonKit */,
+				5FD44F812B54FCF2006A598A /* UkatonKit */,
 			);
 			productName = "Ukaton Swift Demo Safari Extension";
 			productReference = 5F9778EE2B0AA1230057AA56 /* (iOS) Ukaton Demo Safari Extension.appex */;
@@ -1486,7 +1486,7 @@
 			);
 			name = "(Mac) Ukaton Demo Safari Extension";
 			packageProductDependencies = (
-				5F6A0DDB2B0D359600E15FFC /* UkatonKit */,
+				5FD44F892B54FD19006A598A /* UkatonKit */,
 			);
 			productName = "MacUkatonSwiftDemo Safari Extension";
 			productReference = 5FD458B62B0BDB7C0030BE6E /* (Mac) Ukaton Demo Safari Extension.appex */;
@@ -1506,7 +1506,7 @@
 			);
 			name = "(VisionOS) Ukaton Demo Safari Extension";
 			packageProductDependencies = (
-				5F6A0DE92B0D469100E15FFC /* UkatonKit */,
+				5FD44F932B54FD32006A598A /* UkatonKit */,
 			);
 			productName = "UkatonDemo Safari Extension (VisionOS)";
 			productReference = 5FD458D82B0BE6FB0030BE6E /* (VisionOS) Ukaton Demo Safari Extension.appex */;
@@ -1531,7 +1531,7 @@
 			);
 			name = "(iOS) Ukaton Demo";
 			packageProductDependencies = (
-				5F2B871B2AE18DFA00BF304B /* UkatonKit */,
+				5FD44F7F2B54FCD9006A598A /* UkatonKit */,
 			);
 			productName = UkatonSwiftDemo;
 			productReference = 5FF58F302ADE51D900AD2941 /* (iOS) Ukaton Demo.app */;
@@ -1554,7 +1554,7 @@
 			);
 			name = "(Mac) Ukaton Demo";
 			packageProductDependencies = (
-				5F2B871E2AE18E2100BF304B /* UkatonKit */,
+				5FD44F8B2B54FD1D006A598A /* UkatonKit */,
 			);
 			productName = MacUkatonSwiftDemo;
 			productReference = 5FF58F4B2ADF13E700AD2941 /* (Mac) Ukaton Demo.app */;
@@ -1576,7 +1576,7 @@
 			);
 			name = "(Watch) Ukaton Demo";
 			packageProductDependencies = (
-				5F2B87202AE18E2600BF304B /* UkatonKit */,
+				5FD44F852B54FD12006A598A /* UkatonKit */,
 			);
 			productName = "WatchUkatonSwiftDemo Watch App";
 			productReference = 5FF58F612ADF182F00AD2941 /* (Watch) Ukaton Demo.app */;
@@ -1637,7 +1637,7 @@
 			);
 			mainGroup = 5FF58F272ADE51D900AD2941;
 			packageReferences = (
-				5F2B871A2AE18DFA00BF304B /* XCLocalSwiftPackageReference "../UkatonKit" */,
+				5FD44F7E2B54FCAC006A598A /* XCRemoteSwiftPackageReference "UkatonKit" */,
 			);
 			productRefGroup = 5FF58F312ADE51D900AD2941 /* Products */;
 			projectDirPath = "";
@@ -3313,66 +3313,71 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCLocalSwiftPackageReference section */
-		5F2B871A2AE18DFA00BF304B /* XCLocalSwiftPackageReference "../UkatonKit" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ../UkatonKit;
+/* Begin XCRemoteSwiftPackageReference section */
+		5FD44F7E2B54FCAC006A598A /* XCRemoteSwiftPackageReference "UkatonKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/zakaton/UkatonKit.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
 		};
-/* End XCLocalSwiftPackageReference section */
+/* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		5F1B40012B2E308B00CB5C52 /* UkatonKit */ = {
+		5FD44F7F2B54FCD9006A598A /* UkatonKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5F2B871A2AE18DFA00BF304B /* XCLocalSwiftPackageReference "../UkatonKit" */;
+			package = 5FD44F7E2B54FCAC006A598A /* XCRemoteSwiftPackageReference "UkatonKit" */;
 			productName = UkatonKit;
 		};
-		5F2B871B2AE18DFA00BF304B /* UkatonKit */ = {
+		5FD44F812B54FCF2006A598A /* UkatonKit */ = {
 			isa = XCSwiftPackageProductDependency;
+			package = 5FD44F7E2B54FCAC006A598A /* XCRemoteSwiftPackageReference "UkatonKit" */;
 			productName = UkatonKit;
 		};
-		5F2B871E2AE18E2100BF304B /* UkatonKit */ = {
+		5FD44F832B54FD06006A598A /* UkatonKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5F2B871A2AE18DFA00BF304B /* XCLocalSwiftPackageReference "../UkatonKit" */;
+			package = 5FD44F7E2B54FCAC006A598A /* XCRemoteSwiftPackageReference "UkatonKit" */;
 			productName = UkatonKit;
 		};
-		5F2B87202AE18E2600BF304B /* UkatonKit */ = {
+		5FD44F852B54FD12006A598A /* UkatonKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5F2B871A2AE18DFA00BF304B /* XCLocalSwiftPackageReference "../UkatonKit" */;
+			package = 5FD44F7E2B54FCAC006A598A /* XCRemoteSwiftPackageReference "UkatonKit" */;
 			productName = UkatonKit;
 		};
-		5F6A0DDB2B0D359600E15FFC /* UkatonKit */ = {
+		5FD44F872B54FD16006A598A /* UkatonKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5F2B871A2AE18DFA00BF304B /* XCLocalSwiftPackageReference "../UkatonKit" */;
+			package = 5FD44F7E2B54FCAC006A598A /* XCRemoteSwiftPackageReference "UkatonKit" */;
 			productName = UkatonKit;
 		};
-		5F6A0DE92B0D469100E15FFC /* UkatonKit */ = {
+		5FD44F892B54FD19006A598A /* UkatonKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5F2B871A2AE18DFA00BF304B /* XCLocalSwiftPackageReference "../UkatonKit" */;
+			package = 5FD44F7E2B54FCAC006A598A /* XCRemoteSwiftPackageReference "UkatonKit" */;
 			productName = UkatonKit;
 		};
-		5F791F2F2B25164E0043C391 /* UkatonKit */ = {
+		5FD44F8B2B54FD1D006A598A /* UkatonKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5F2B871A2AE18DFA00BF304B /* XCLocalSwiftPackageReference "../UkatonKit" */;
+			package = 5FD44F7E2B54FCAC006A598A /* XCRemoteSwiftPackageReference "UkatonKit" */;
 			productName = UkatonKit;
 		};
-		5F86D86F2B25077200B81382 /* UkatonKit */ = {
+		5FD44F8D2B54FD26006A598A /* UkatonKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5F2B871A2AE18DFA00BF304B /* XCLocalSwiftPackageReference "../UkatonKit" */;
+			package = 5FD44F7E2B54FCAC006A598A /* XCRemoteSwiftPackageReference "UkatonKit" */;
 			productName = UkatonKit;
 		};
-		5F8741F62B0AA66200D67026 /* UkatonKit */ = {
+		5FD44F8F2B54FD2B006A598A /* UkatonKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5F2B871A2AE18DFA00BF304B /* XCLocalSwiftPackageReference "../UkatonKit" */;
+			package = 5FD44F7E2B54FCAC006A598A /* XCRemoteSwiftPackageReference "UkatonKit" */;
 			productName = UkatonKit;
 		};
-		5F8B9DB62B096CFD00E53711 /* UkatonKit */ = {
+		5FD44F912B54FD2F006A598A /* UkatonKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5F2B871A2AE18DFA00BF304B /* XCLocalSwiftPackageReference "../UkatonKit" */;
+			package = 5FD44F7E2B54FCAC006A598A /* XCRemoteSwiftPackageReference "UkatonKit" */;
 			productName = UkatonKit;
 		};
-		5F97790B2B0AA28E0057AA56 /* UkatonKit */ = {
+		5FD44F932B54FD32006A598A /* UkatonKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5F2B871A2AE18DFA00BF304B /* XCLocalSwiftPackageReference "../UkatonKit" */;
+			package = 5FD44F7E2B54FCAC006A598A /* XCRemoteSwiftPackageReference "UkatonKit" */;
 			productName = UkatonKit;
 		};
 /* End XCSwiftPackageProductDependency section */
