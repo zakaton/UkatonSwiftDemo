@@ -3,7 +3,7 @@ import OSLog
 import SwiftUI
 import UkatonKit
 import UkatonMacros
-#if !os(visionOS)
+#if !os(visionOS) && !os(tvOS)
 import WidgetKit
 #endif
 
@@ -17,14 +17,14 @@ struct DeviceDiscovery: View {
 
     @State private var wasScanning: Bool = false
 
-    #if !os(visionOS)
+    #if !os(visionOS) && !os(tvOS)
     private var devicesInformation: UKDevicesInformation = .shared
     private var discoveredDevicesInformation: UKDeviceDiscoveryInformation = .shared
     #endif
 
     init(navigationCoordinator: NavigationCoordinator) {
         self.navigationCoordinator = navigationCoordinator
-        #if !os(visionOS)
+        #if !os(visionOS) && !os(tvOS)
         devicesInformation.listenForUpdates()
         discoveredDevicesInformation.listenForUpdates()
         #endif

@@ -1,5 +1,5 @@
 import SwiftUI
-#if !os(visionOS)
+#if !os(visionOS) && !os(tvOS)
 import WidgetKit
 #endif
 

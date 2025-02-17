@@ -17,8 +17,10 @@ public extension View {
     }
 }
 
+#if !os(visionOS) && !os(tvOS)
 public extension WidgetConfiguration {
     func modify<Content>(_ transform: (Self) -> Content) -> Content {
         transform(self)
     }
 }
+#endif
